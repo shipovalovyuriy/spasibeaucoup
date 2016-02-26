@@ -1,0 +1,973 @@
+a:6:{s:6:"config";a:4:{s:10:"phpVersion";s:5:"5.6.3";s:10:"yiiVersion";s:6:"1.1.16";s:11:"application";a:4:{s:3:"yii";s:6:"1.1.16";s:4:"name";s:5:"Yupe!";s:8:"timezone";s:13:"Europe/Berlin";s:5:"debug";b:1;}s:3:"php";a:4:{s:7:"version";s:5:"5.6.3";s:6:"xdebug";b:0;s:3:"apc";b:0;s:8:"memcache";b:0;}}s:7:"request";a:13:{s:7:"flashes";a:0:{}s:10:"statusCode";i:200;s:14:"requestHeaders";a:9:{s:4:"Host";s:19:"spasibeaucoup.local";s:10:"Connection";s:10:"keep-alive";s:13:"Cache-Control";s:9:"max-age=0";s:6:"Accept";s:74:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";s:25:"Upgrade-Insecure-Requests";s:1:"1";s:10:"User-Agent";s:109:"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36";s:15:"Accept-Encoding";s:19:"gzip, deflate, sdch";s:15:"Accept-Language";s:35:"ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4";s:6:"Cookie";s:533:"YUPE_TOKEN=afffec3bf8a4556649f6067c6b87dfb9cd7a67b7s%3A40%3A%22848a6ba2dde1353b60ce6994f55b11ff12274ec1%22%3B; PHPSESSID=huvvs1763chdcgsn5hkvk7fk64; 56daca71c04dc673ebf7b412bf9ee633=65522a964eb0fc298d78af63a045c8f5b7498c3bs%3A146%3A%2222021c8f3674a13a848edcf1d18d985d69b9dd25a%3A4%3A%7Bi%3A0%3Bs%3A1%3A%221%22%3Bi%3A1%3Bs%3A5%3A%22admin%22%3Bi%3A2%3Bi%3A604800%3Bi%3A3%3Ba%3A1%3A%7Bs%3A2%3A%22at%22%3Bs%3A32%3A%22JZZVQ1ezQKPhymUm1u3DZ6O9uyOGiwy4%22%3B%7D%7D%22%3B; language=e11e28aa718ed6cd9820da84524012405ca210d4s%3A2%3A%22ru%22%3B";}s:15:"responseHeaders";a:6:{s:12:"X-Powered-By";s:9:"PHP/5.6.3";s:7:"Expires";s:29:"Thu, 19 Nov 1981 08:52:00 GMT";s:13:"Cache-Control";s:62:"no-store, no-cache, must-revalidate, post-check=0, pre-check=0";s:6:"Pragma";s:8:"no-cache";s:10:"Set-Cookie";a:4:{i:0;s:98:"56daca71c04dc673ebf7b412bf9ee633=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/";i:1;s:387:"56daca71c04dc673ebf7b412bf9ee633=65522a964eb0fc298d78af63a045c8f5b7498c3bs%3A146%3A%2222021c8f3674a13a848edcf1d18d985d69b9dd25a%3A4%3A%7Bi%3A0%3Bs%3A1%3A%221%22%3Bi%3A1%3Bs%3A5%3A%22admin%22%3Bi%3A2%3Bi%3A604800%3Bi%3A3%3Ba%3A1%3A%7Bs%3A2%3A%22at%22%3Bs%3A32%3A%22JZZVQ1ezQKPhymUm1u3DZ6O9uyOGiwy4%22%3B%7D%7D%22%3B; expires=Thu, 03-Mar-2016 03:44:28 GMT; Max-Age=604800; path=/; httponly";i:2;s:74:"language=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/";i:3;s:76:"language=e11e28aa718ed6cd9820da84524012405ca210d4s%3A2%3A%22ru%22%3B; path=/";}s:12:"Content-type";s:23:"text/html;charset=UTF-8";}s:5:"route";s:18:"yupe/backend/index";s:6:"action";s:32:"BackendController::actionIndex()";s:12:"actionParams";a:0:{}s:6:"SERVER";a:52:{s:28:"REDIRECT_gzip-only-text/html";s:1:"1";s:16:"REDIRECT_MIBDIRS";s:24:"C:/xampp/php/extras/mibs";s:19:"REDIRECT_MYSQL_HOME";s:16:"\xampp\mysql\bin";s:21:"REDIRECT_OPENSSL_CONF";s:31:"C:/xampp/apache/bin/openssl.cnf";s:29:"REDIRECT_PHP_PEAR_SYSCONF_DIR";s:10:"\xampp\php";s:14:"REDIRECT_PHPRC";s:10:"\xampp\php";s:12:"REDIRECT_TMP";s:10:"\xampp\tmp";s:15:"REDIRECT_STATUS";s:3:"200";s:19:"gzip-only-text/html";s:1:"1";s:7:"MIBDIRS";s:24:"C:/xampp/php/extras/mibs";s:10:"MYSQL_HOME";s:16:"\xampp\mysql\bin";s:12:"OPENSSL_CONF";s:31:"C:/xampp/apache/bin/openssl.cnf";s:20:"PHP_PEAR_SYSCONF_DIR";s:10:"\xampp\php";s:5:"PHPRC";s:10:"\xampp\php";s:3:"TMP";s:10:"\xampp\tmp";s:9:"HTTP_HOST";s:19:"spasibeaucoup.local";s:15:"HTTP_CONNECTION";s:10:"keep-alive";s:18:"HTTP_CACHE_CONTROL";s:9:"max-age=0";s:11:"HTTP_ACCEPT";s:74:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";s:30:"HTTP_UPGRADE_INSECURE_REQUESTS";s:1:"1";s:15:"HTTP_USER_AGENT";s:109:"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36";s:20:"HTTP_ACCEPT_ENCODING";s:19:"gzip, deflate, sdch";s:20:"HTTP_ACCEPT_LANGUAGE";s:35:"ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4";s:11:"HTTP_COOKIE";s:533:"YUPE_TOKEN=afffec3bf8a4556649f6067c6b87dfb9cd7a67b7s%3A40%3A%22848a6ba2dde1353b60ce6994f55b11ff12274ec1%22%3B; PHPSESSID=huvvs1763chdcgsn5hkvk7fk64; 56daca71c04dc673ebf7b412bf9ee633=65522a964eb0fc298d78af63a045c8f5b7498c3bs%3A146%3A%2222021c8f3674a13a848edcf1d18d985d69b9dd25a%3A4%3A%7Bi%3A0%3Bs%3A1%3A%221%22%3Bi%3A1%3Bs%3A5%3A%22admin%22%3Bi%3A2%3Bi%3A604800%3Bi%3A3%3Ba%3A1%3A%7Bs%3A2%3A%22at%22%3Bs%3A32%3A%22JZZVQ1ezQKPhymUm1u3DZ6O9uyOGiwy4%22%3B%7D%7D%22%3B; language=e11e28aa718ed6cd9820da84524012405ca210d4s%3A2%3A%22ru%22%3B";s:4:"PATH";s:876:"C:\ProgramData\Oracle\Java\javapath;C:\app\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\xampp\php;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_05t\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\xampp\mongodb\bin;C:\gradle\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Skype\Phone\;";s:10:"SystemRoot";s:10:"C:\Windows";s:7:"COMSPEC";s:27:"C:\Windows\system32\cmd.exe";s:7:"PATHEXT";s:53:".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC";s:6:"WINDIR";s:10:"C:\Windows";s:16:"SERVER_SIGNATURE";s:0:"";s:15:"SERVER_SOFTWARE";s:46:"Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3";s:11:"SERVER_NAME";s:19:"spasibeaucoup.local";s:11:"SERVER_ADDR";s:9:"127.0.0.1";s:11:"SERVER_PORT";s:2:"80";s:11:"REMOTE_ADDR";s:9:"127.0.0.1";s:13:"DOCUMENT_ROOT";s:36:"C:/xampp/htdocs/spasibeaucoup/public";s:14:"REQUEST_SCHEME";s:4:"http";s:14:"CONTEXT_PREFIX";s:0:"";s:21:"CONTEXT_DOCUMENT_ROOT";s:36:"C:/xampp/htdocs/spasibeaucoup/public";s:12:"SERVER_ADMIN";s:20:"postmaster@localhost";s:15:"SCRIPT_FILENAME";s:46:"C:/xampp/htdocs/spasibeaucoup/public/index.php";s:11:"REMOTE_PORT";s:5:"49729";s:12:"REDIRECT_URL";s:9:"/backend/";s:17:"GATEWAY_INTERFACE";s:7:"CGI/1.1";s:15:"SERVER_PROTOCOL";s:8:"HTTP/1.1";s:14:"REQUEST_METHOD";s:3:"GET";s:12:"QUERY_STRING";s:0:"";s:11:"REQUEST_URI";s:9:"/backend/";s:11:"SCRIPT_NAME";s:10:"/index.php";s:8:"PHP_SELF";s:10:"/index.php";s:18:"REQUEST_TIME_FLOAT";d:1456371868.848000049591064453125;s:12:"REQUEST_TIME";i:1456371868;}s:3:"GET";a:0:{}s:4:"POST";a:0:{}s:6:"COOKIE";a:4:{s:10:"YUPE_TOKEN";s:88:"afffec3bf8a4556649f6067c6b87dfb9cd7a67b7s:40:"848a6ba2dde1353b60ce6994f55b11ff12274ec1";";s:9:"PHPSESSID";s:26:"huvvs1763chdcgsn5hkvk7fk64";s:32:"56daca71c04dc673ebf7b412bf9ee633";s:195:"65522a964eb0fc298d78af63a045c8f5b7498c3bs:146:"22021c8f3674a13a848edcf1d18d985d69b9dd25a:4:{i:0;s:1:"1";i:1;s:5:"admin";i:2;i:604800;i:3;a:1:{s:2:"at";s:32:"JZZVQ1ezQKPhymUm1u3DZ6O9uyOGiwy4";}}";";s:8:"language";s:49:"e11e28aa718ed6cd9820da84524012405ca210d4s:2:"ru";";}s:5:"FILES";a:0:{}s:7:"SESSION";a:20:{s:40:"cef7c33426f5c5aded1278c1ecb2372clanguage";s:2:"ru";s:11:"InstallForm";a:16:{s:13:"indexFinished";b:1;s:19:"environmentFinished";b:1;s:20:"requirementsFinished";b:1;s:10:"dbSettings";a:20:{s:4:"host";s:9:"127.0.0.1";s:4:"port";s:4:"3306";s:6:"socket";s:0:"";s:6:"dbName";s:13:"spasibeaucoup";s:8:"createDb";s:1:"1";s:6:"dbUser";s:4:"root";s:10:"dbPassword";s:4:"root";s:11:"tablePrefix";s:5:"spbp_";s:6:"dbType";s:1:"1";s:8:"userName";N;s:12:"userPassword";N;s:9:"cPassword";N;s:9:"userEmail";N;s:8:"siteName";s:7:"Юпи!";s:15:"siteDescription";s:82:"Юпи! - самый простой способ создать сайт на Yii!";s:12:"siteKeyWords";s:26:"Юпи!, yupe, цмс, yii";s:9:"siteEmail";N;s:5:"theme";s:7:"default";s:12:"backendTheme";s:0:"";s:5:"email";N;}s:14:"dbSettingsStep";b:0;s:14:"dbSettingsFile";b:1;s:18:"dbsettingsFinished";b:1;s:15:"moduleToInstall";a:18:{s:10:"YUPE_TOKEN";s:40:"848a6ba2dde1353b60ce6994f55b11ff12274ec1";s:11:"module_blog";s:1:"1";s:15:"module_category";s:1:"1";s:14:"module_comment";s:1:"1";s:19:"module_contentblock";s:1:"1";s:17:"module_dictionary";s:1:"1";s:15:"module_feedback";s:1:"1";s:15:"module_homepage";s:1:"1";s:12:"module_image";s:1:"1";s:11:"module_mail";s:1:"1";s:11:"module_menu";s:1:"1";s:11:"module_news";s:1:"1";s:11:"module_page";s:1:"1";s:12:"module_queue";s:1:"1";s:13:"module_update";s:1:"1";s:11:"module_user";s:1:"1";s:11:"module_yupe";s:1:"1";s:17:"module_zendsearch";s:1:"1";}s:18:"modulesInstallStep";b:0;s:22:"modulesinstallFinished";b:1;s:10:"createUser";a:20:{s:4:"host";s:9:"127.0.0.1";s:4:"port";s:4:"3306";s:6:"socket";s:0:"";s:6:"dbName";N;s:8:"createDb";N;s:6:"dbUser";N;s:10:"dbPassword";N;s:11:"tablePrefix";s:5:"yupe_";s:6:"dbType";i:1;s:8:"userName";s:5:"admin";s:12:"userPassword";s:12:"12345687910k";s:9:"cPassword";s:12:"12345687910k";s:9:"userEmail";s:20:"sepaker079@gmail.com";s:8:"siteName";s:7:"Юпи!";s:15:"siteDescription";s:82:"Юпи! - самый простой способ создать сайт на Yii!";s:12:"siteKeyWords";s:26:"Юпи!, yupe, цмс, yii";s:9:"siteEmail";N;s:5:"theme";s:7:"default";s:12:"backendTheme";s:0:"";s:5:"email";N;}s:14:"createUserStep";b:0;s:18:"createuserFinished";b:1;s:12:"siteSettings";a:20:{s:4:"host";s:9:"127.0.0.1";s:4:"port";s:4:"3306";s:6:"socket";s:0:"";s:6:"dbName";N;s:8:"createDb";N;s:6:"dbUser";N;s:10:"dbPassword";N;s:11:"tablePrefix";s:5:"yupe_";s:6:"dbType";i:1;s:8:"userName";N;s:12:"userPassword";N;s:9:"cPassword";N;s:9:"userEmail";N;s:8:"siteName";s:13:"spasibeaucoup";s:15:"siteDescription";s:13:"spasibeaucoup";s:12:"siteKeyWords";s:13:"spasibeaucoup";s:9:"siteEmail";s:20:"sepaker079@gmail.com";s:5:"theme";s:7:"default";s:12:"backendTheme";s:0:"";s:5:"email";N;}s:16:"siteSettingsStep";b:0;s:20:"sitesettingsFinished";b:1;}s:14:"gii__returnUrl";s:18:"/gii/default/index";s:7:"gii__id";s:5:"yiier";s:9:"gii__name";s:5:"yiier";s:11:"gii__states";a:0:{}s:40:"56daca71c04dc673ebf7b412bf9ee633language";s:2:"ru";s:43:"56daca71c04dc673ebf7b412bf9ee633__returnUrl";s:25:"/backend/listner/position";s:34:"56daca71c04dc673ebf7b412bf9ee633id";s:1:"1";s:44:"56daca71c04dc673ebf7b412bf9ee633access_level";s:1:"1";s:41:"56daca71c04dc673ebf7b412bf9ee633nick_name";s:5:"admin";s:43:"56daca71c04dc673ebf7b412bf9ee633modSettings";a:0:{}s:36:"56daca71c04dc673ebf7b412bf9ee633__id";s:1:"1";s:38:"56daca71c04dc673ebf7b412bf9ee633__name";s:5:"admin";s:34:"56daca71c04dc673ebf7b412bf9ee633at";s:32:"JZZVQ1ezQKPhymUm1u3DZ6O9uyOGiwy4";s:40:"56daca71c04dc673ebf7b412bf9ee633__states";a:1:{s:2:"at";b:1;}s:49:"56daca71c04dc673ebf7b412bf9ee633adm_check_attempt";i:9;s:45:"56daca71c04dc673ebf7b412bf9ee633badLoginCount";i:0;s:41:"56daca71c04dc673ebf7b412bf9ee633__timeout";i:1456434268;s:40:"56daca71c04dc673ebf7b412bf9ee633fullName";s:9:" Kairzhan";}}s:3:"log";a:1:{s:8:"messages";a:266:{i:0;a:4:{i:0;s:201:"Loading "urlManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (36)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.8822710514068603515625;}i:1;a:4:{i:0;s:329:"Loading "yupe" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LangUrlManager.php (85)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LangUrlManager.php (39)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (36)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371868.884541988372802734375;}i:2;a:4:{i:0;s:287:"Loading "db" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1031)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.889564990997314453125;}i:3;a:4:{i:0;s:274:"Opening DB connection
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1031)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:23:"system.db.CDbConnection";i:3;d:1456371868.8905770778656005859375;}i:4;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='yupe', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.90429210662841796875;}i:5;a:4:{i:0;s:290:"Loading "cache" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9043509960174560546875;}i:6;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"yupe";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.908092021942138671875;}i:7;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (644)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.9081370830535888671875;}i:8;a:4:{i:0;s:303:"Serving "Yii.CUrlManager.rules" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LangUrlManager.php (59)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (36)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.9099891185760498046875;}i:9;a:4:{i:0;s:92:"Loading "debug" application component
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.91065502166748046875;}i:10;a:4:{i:0;s:300:"Loading "log" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2DebugPanel.php (279)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2DebugPanel.php (111)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\panels\Yii2LogPanel.php (24)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.915954113006591796875;}i:11;a:4:{i:0;s:285:"Loading "request" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (294)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (167)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (115)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9198720455169677734375;}i:12;a:4:{i:0;s:263:"Loading "assetManager" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (168)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (115)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9258821010589599609375;}i:13;a:4:{i:0;s:263:"Loading "clientScript" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (170)
+in C:\xampp\htdocs\spasibeaucoup\vendor\zhuravljov\yii2-debug\Yii2Debug.php (115)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9288079738616943359375;}i:14;a:4:{i:0;s:359:"Loading "securityManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (84)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (50)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (95)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9311940670013427734375;}i:15;a:4:{i:0;s:358:"Loading "statePersister" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (84)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (50)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (95)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.93268489837646484375;}i:16;a:4:{i:0;s:410:"Serving "Yii.CStatePersister.C:\xampp\htdocs\spasibeaucoup\protected\runtime\state.bin" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (84)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (50)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (95)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.936542034149169921875;}i:17;a:4:{i:0;s:300:"Loading "user" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (114)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (95)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.937467098236083984375;}i:18;a:4:{i:0;s:303:"Loading "session" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (114)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\urlManager\LanguageBehavior.php (95)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9399039745330810546875;}i:19;a:4:{i:0;s:199:"Loading "bootstrap" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (72)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.95615291595458984375;}i:20;a:4:{i:0;s:198:"Loading "messages" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (75)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9596710205078125;}i:21;a:4:{i:0;s:202:"Loading "errorHandler" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (78)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.96203708648681640625;}i:22;a:4:{i:0;s:202:"Loading "eventManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (81)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.962997913360595703125;}i:23;a:4:{i:0;s:110:"Running filter yupe\filters\YBackAccessControl.filter()
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:31:"system.web.filters.CFilterChain";i:3;d:1456371868.974359035491943359375;}i:24;a:4:{i:0;s:109:"Running filter BackendController.filteraccessControl()
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:31:"system.web.filters.CFilterChain";i:3;d:1456371868.97673511505126953125;}i:25;a:4:{i:0;s:98:"Loading "authManager" application component
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9768760204315185546875;}i:26;a:4:{i:0;s:160:"Querying SQL: SELECT *
+FROM `spbp_user_user_auth_assignment`
+WHERE userid=:userid. Bound with :userid='1'
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.9809410572052001953125;}i:27;a:4:{i:0;s:152:"Querying SQL: SELECT *
+FROM `spbp_user_user_auth_item`
+WHERE name=:name. Bound with :name='admin'
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.982079982757568359375;}i:28;a:4:{i:0;s:82:"Checking permission "admin"
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:30:"system.web.auth.CDbAuthManager";i:3;d:1456371868.98301601409912109375;}i:29;a:4:{i:0;s:199:"Loading "migrator" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (104)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.983119964599609375;}i:30;a:4:{i:0;s:349:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:spbp_migrations" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (42)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\BackController.php (104)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.988357067108154296875;}i:31;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.9900519847869873046875;}i:32;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.9901039600372314453125;}i:33;a:4:{i:0;s:195:"Loading "moduleManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371868.9924609661102294921875;}i:34;a:4:{i:0;s:297:"Loading "blog" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371868.995193958282470703125;}i:35;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='blog', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (274)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.99635791778564453125;}i:36;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"blog";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (274)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371868.9972240924835205078125;}i:37;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (274)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.9972789287567138671875;}i:38;a:4:{i:0;s:299:"Loading "branch" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371868.9986989498138427734375;}i:39;a:4:{i:0;s:502:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='branch', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\branch\BranchModule.php (198)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371868.999558925628662109375;}i:40;a:4:{i:0;s:600:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:6:"branch";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\branch\BranchModule.php (198)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0004088878631591796875;}i:41;a:4:{i:0;s:284:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\branch\BranchModule.php (198)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.000463962554931640625;}i:42;a:4:{i:0;s:301:"Loading "category" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0018761157989501953125;}i:43;a:4:{i:0;s:508:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='category', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\category\CategoryModule.php (182)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.003284931182861328125;}i:44;a:4:{i:0;s:606:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:8:"category";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\category\CategoryModule.php (182)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.00456905364990234375;}i:45;a:4:{i:0;s:288:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\category\CategoryModule.php (182)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0046269893646240234375;}i:46;a:4:{i:0;s:300:"Loading "comment" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0057981014251708984375;}i:47;a:4:{i:0;s:505:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='comment', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (250)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0118350982666015625;}i:48;a:4:{i:0;s:603:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:7:"comment";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (250)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0127360820770263671875;}i:49;a:4:{i:0;s:286:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (250)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.012792110443115234375;}i:50;a:4:{i:0;s:305:"Loading "contentblock" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.01387500762939453125;}i:51;a:4:{i:0;s:519:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='contentblock', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\contentblock\ContentBlockModule.php (99)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0147418975830078125;}i:52;a:4:{i:0;s:618:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:12:"contentblock";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\contentblock\ContentBlockModule.php (99)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0155770778656005859375;}i:53;a:4:{i:0;s:295:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\contentblock\ContentBlockModule.php (99)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.015633106231689453125;}i:54;a:4:{i:0;s:303:"Loading "dictionary" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.01671600341796875;}i:55;a:4:{i:0;s:514:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='dictionary', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\dictionary\DictionaryModule.php (130)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.017642974853515625;}i:56;a:4:{i:0;s:613:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:10:"dictionary";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\dictionary\DictionaryModule.php (130)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0191481113433837890625;}i:57;a:4:{i:0;s:292:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\dictionary\DictionaryModule.php (130)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.019216060638427734375;}i:58;a:4:{i:0;s:301:"Loading "feedback" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0207049846649169921875;}i:59;a:4:{i:0;s:508:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='feedback', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (345)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.021873950958251953125;}i:60;a:4:{i:0;s:606:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:8:"feedback";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (345)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0227639675140380859375;}i:61;a:4:{i:0;s:288:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (345)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0228250026702880859375;}i:62;a:4:{i:0;s:301:"Loading "homepage" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0240190029144287109375;}i:63;a:4:{i:0;s:508:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='homepage', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (222)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0250480175018310546875;}i:64;a:4:{i:0;s:606:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:8:"homepage";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (222)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.025929927825927734375;}i:65;a:4:{i:0;s:288:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (222)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0259850025177001953125;}i:66;a:4:{i:0;s:298:"Loading "image" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.02721309661865234375;}i:67;a:4:{i:0;s:499:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='image', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\image\ImageModule.php (298)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0283300876617431640625;}i:68;a:4:{i:0;s:597:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:5:"image";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\image\ImageModule.php (298)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.029201030731201171875;}i:69;a:4:{i:0;s:282:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\image\ImageModule.php (298)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0292561054229736328125;}i:70;a:4:{i:0;s:300:"Loading "listner" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.03032207489013671875;}i:71;a:4:{i:0;s:505:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='listner', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\listner\ListnerModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0311810970306396484375;}i:72;a:4:{i:0;s:603:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:7:"listner";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\listner\ListnerModule.php (197)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0320270061492919921875;}i:73;a:4:{i:0;s:286:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\listner\ListnerModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.032082080841064453125;}i:74;a:4:{i:0;s:297:"Loading "mail" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0331380367279052734375;}i:75;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='mail', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\mail\MailModule.php (180)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.034676074981689453125;}i:76;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"mail";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\mail\MailModule.php (180)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0363490581512451171875;}i:77;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\mail\MailModule.php (180)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0364110469818115234375;}i:78;a:4:{i:0;s:297:"Loading "menu" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0378360748291015625;}i:79;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='menu', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\menu\MenuModule.php (146)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.038834095001220703125;}i:80;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"menu";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\menu\MenuModule.php (146)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.039719104766845703125;}i:81;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\menu\MenuModule.php (146)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.03977489471435546875;}i:82;a:4:{i:0;s:297:"Loading "news" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.04084491729736328125;}i:83;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='news', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\news\NewsModule.php (301)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0418140888214111328125;}i:84;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"news";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\news\NewsModule.php (301)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0426290035247802734375;}i:85;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\news\NewsModule.php (301)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0426790714263916015625;}i:86;a:4:{i:0;s:297:"Loading "page" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.043766021728515625;}i:87;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='page', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\page\PageModule.php (130)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0446350574493408203125;}i:88;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"page";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\page\PageModule.php (130)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0454399585723876953125;}i:89;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\page\PageModule.php (130)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0454909801483154296875;}i:90;a:4:{i:0;s:298:"Loading "queue" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0465500354766845703125;}i:91;a:4:{i:0;s:499:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='queue', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\queue\QueueModule.php (117)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0473639965057373046875;}i:92;a:4:{i:0;s:597:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:5:"queue";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\queue\QueueModule.php (117)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0481369495391845703125;}i:93;a:4:{i:0;s:282:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\queue\QueueModule.php (117)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0482590198516845703125;}i:94;a:4:{i:0;s:297:"Loading "rbac" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.049376010894775390625;}i:95;a:4:{i:0;s:495:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='rbac', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\RbacModule.php (27)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0502979755401611328125;}i:96;a:4:{i:0;s:593:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"rbac";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\RbacModule.php (27)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0512049198150634765625;}i:97;a:4:{i:0;s:279:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\RbacModule.php (27)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0512969493865966796875;}i:98;a:4:{i:0;s:300:"Loading "subject" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0530970096588134765625;}i:99;a:4:{i:0;s:505:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='subject', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\subject\SubjectModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0544860363006591796875;}i:100;a:4:{i:0;s:603:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:7:"subject";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\subject\SubjectModule.php (197)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0553829669952392578125;}i:101;a:4:{i:0;s:286:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\subject\SubjectModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.05543994903564453125;}i:102;a:4:{i:0;s:300:"Loading "teacher" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.056499958038330078125;}i:103;a:4:{i:0;s:505:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='teacher', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\teacher\TeacherModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.057427883148193359375;}i:104;a:4:{i:0;s:603:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:7:"teacher";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\teacher\TeacherModule.php (197)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0582790374755859375;}i:105;a:4:{i:0;s:286:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\teacher\TeacherModule.php (197)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0583341121673583984375;}i:106;a:4:{i:0;s:299:"Loading "update" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0593440532684326171875;}i:107;a:4:{i:0;s:502:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='update', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\update\UpdateModule.php (118)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0601780414581298828125;}i:108;a:4:{i:0;s:600:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:6:"update";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\update\UpdateModule.php (118)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0609738826751708984375;}i:109;a:4:{i:0;s:284:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\update\UpdateModule.php (118)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.061026096343994140625;}i:110;a:4:{i:0;s:297:"Loading "user" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.061985015869140625;}i:111;a:4:{i:0;s:496:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='user', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\UserModule.php (346)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0632541179656982421875;}i:112;a:4:{i:0;s:594:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:4:"user";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\UserModule.php (346)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.06404209136962890625;}i:113;a:4:{i:0;s:280:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\UserModule.php (346)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.064093112945556640625;}i:114;a:4:{i:0;s:303:"Loading "zendsearch" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.0655028820037841796875;}i:115;a:4:{i:0;s:514:"Querying SQL: 
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    . Bound with :module_id='zendsearch', :type=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\zendsearch\ZendSearchModule.php (109)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0663349628448486328125;}i:116;a:4:{i:0;s:613:"Serving "yii:dbquery:fetchAll:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:
+                    SELECT param_name, param_value
+                        FROM spbp_yupe_settings
+                        WHERE module_id = :module_id AND type = :type
+                    :a:2:{s:10:":module_id";s:10:"zendsearch";s:5:":type";i:1;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\zendsearch\ZendSearchModule.php (109)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.0671188831329345703125;}i:117;a:4:{i:0;s:292:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1042)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (1014)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\zendsearch\ZendSearchModule.php (109)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0671870708465576171875;}i:118;a:4:{i:0;s:298:"Loading "debug" module
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (89)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:19:"system.base.CModule";i:3;d:1456371869.068768978118896484375;}i:119;a:4:{i:0;s:335:"Loading "uploadManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\FileUploadBehavior.php (83)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\ImageUploadBehavior.php (52)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\models\YModel.php (38)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.0879390239715576171875;}i:120;a:4:{i:0;s:428:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{category_category}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\FileUploadBehavior.php (183)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\FileUploadBehavior.php (85)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\ImageUploadBehavior.php (52)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.08961200714111328125;}i:121;a:4:{i:0;s:313:"Loading "thumbnailer" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\ImageUploadBehavior.php (54)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\models\YModel.php (38)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\category\models\Category.php (52)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.0897281169891357421875;}i:122;a:4:{i:0;s:273:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\news\NewsModule.php (142)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.0919721126556396484375;}i:123;a:4:{i:0;s:335:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\news\NewsModule.php (142)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.09430599212646484375;}i:124;a:4:{i:0;s:272:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\page\PageModule.php (57)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.0949370861053466796875;}i:125;a:4:{i:0;s:334:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\page\PageModule.php (57)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0950429439544677734375;}i:126;a:4:{i:0;s:275:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\image\ImageModule.php (141)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.0954949855804443359375;}i:127;a:4:{i:0;s:337:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\image\ImageModule.php (141)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0955989360809326171875;}i:128;a:4:{i:0;s:273:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (129)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.09899806976318359375;}i:129;a:4:{i:0;s:335:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (129)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0991289615631103515625;}i:130;a:4:{i:0;s:273:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (130)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.09961605072021484375;}i:131;a:4:{i:0;s:335:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (130)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.0997149944305419921875;}i:132;a:4:{i:0;s:420:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{blog_post}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\FileUploadBehavior.php (183)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\FileUploadBehavior.php (85)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\behaviors\ImageUploadBehavior.php (52)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.1110680103302001953125;}i:133;a:4:{i:0;s:274:"Post.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (94)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (183)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.1122748851776123046875;}i:134;a:4:{i:0;s:408:"Querying SQL: SELECT * FROM `spbp_blog_post` `t` WHERE (t.access_type = :access_type) AND (t.status = :status). Bound with :access_type=1, :status=1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (94)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\homepage\HomepageModule.php (183)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.112432003021240234375;}i:135;a:4:{i:0;s:281:"Category.findAll()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (123)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.113461971282958984375;}i:136;a:4:{i:0;s:343:"Querying SQL: SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\WebModule.php (180)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (123)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.1135790348052978515625;}i:137;a:4:{i:0;s:289:"Loading "themeManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (682)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\YupeModule.php (350)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (153)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.114016056060791015625;}i:138;a:4:{i:0;s:319:"Saving "YupeModulesNavigation-ru" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (226)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.1195290088653564453125;}i:139;a:4:{i:0;s:194:"Loading "viewRenderer" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.13070392608642578125;}i:140;a:4:{i:0;s:280:"Loading "widgetFactory" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (16)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)
+in C:\xampp\htdocs\spasibeaucoup\public\index.php (39)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.16207790374755859375;}i:141;a:4:{i:0;s:274:"UserToBlog.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (44)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.1726930141448974609375;}i:142;a:4:{i:0;s:367:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{blog_user_to_blog}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (44)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.173468112945556640625;}i:143;a:4:{i:0;s:364:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_user_to_blog` `t` WHERE status = :status. Bound with :status=4
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (44)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.1736400127410888671875;}i:144;a:4:{i:0;s:268:"Post.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (66)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.174108028411865234375;}i:145;a:4:{i:0;s:356:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE status = :status. Bound with :status=3
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\BlogModule.php (66)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.174253940582275390625;}i:146;a:4:{i:0;s:360:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{comment_comment}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (156)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (156)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.1770660877227783203125;}i:147;a:4:{i:0;s:278:"Comment.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (156)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.17718791961669921875;}i:148;a:4:{i:0;s:371:"Querying SQL: SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\CommentModule.php (156)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.1773450374603271484375;}i:149;a:4:{i:0;s:366:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{feedback_feedback}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (205)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (205)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.1832139492034912109375;}i:150;a:4:{i:0;s:281:"FeedBack.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (205)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.18334293365478515625;}i:151;a:4:{i:0;s:373:"Querying SQL: SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (205)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.183497905731201171875;}i:152;a:4:{i:0;s:461:"Saving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status:a:1:{s:7:":status";i:0;}" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\FeedbackModule.php (205)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (23)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\controllers\BackendController.php (82)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.18465709686279296875;}i:153;a:4:{i:0;s:286:"Post.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.19777011871337890625;}i:154;a:4:{i:0;s:385:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time. Bound with :time=1456285469
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.1979420185089111328125;}i:155;a:4:{i:0;s:473:"Saving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time:a:1:{s:5:":time";i:1456285469;}" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.1984760761260986328125;}i:156;a:4:{i:0;s:286:"Post.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.1996860504150390625;}i:157;a:4:{i:0;s:329:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_post` `t`
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.1998078823089599609375;}i:158;a:4:{i:0;s:424:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_blog_post` `t`:a:0:{}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.200211048126220703125;}i:159;a:4:{i:0;s:301:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.200273990631103515625;}i:160;a:4:{i:0;s:286:"Post.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2003688812255859375;}i:161;a:4:{i:0;s:376:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE t.status = :status. Bound with :status=3
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2005050182342529296875;}i:162;a:4:{i:0;s:467:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE t.status = :status:a:1:{s:7:":status";i:3;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.200910091400146484375;}i:163;a:4:{i:0;s:301:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.200975894927978515625;}i:164;a:4:{i:0;s:301:"Post.count()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\views\panel-stat.php (66)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.208805084228515625;}i:165;a:4:{i:0;s:344:"Querying SQL: SELECT COUNT(*) FROM `spbp_blog_post` `t`
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\views\panel-stat.php (66)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2089560031890869140625;}i:166;a:4:{i:0;s:303:"Post.findAll()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\views\panel-stat.php (66)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.20946502685546875;}i:167;a:4:{i:0;s:362:"Querying SQL: SELECT * FROM `spbp_blog_post` `t` ORDER BY id DESC LIMIT 5
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\views\panel-stat.php (66)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2096369266510009765625;}i:168;a:4:{i:0;s:327:"Loading "coreMessages" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (244)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\views\panel-stat.php (66)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\blog\widgets\PanelStatWidget.php (29)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.21457004547119140625;}i:169;a:4:{i:0;s:299:"Comment.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (28)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.216639041900634765625;}i:170;a:4:{i:0;s:416:"Querying SQL: SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1. Bound with :time=1456285469
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (28)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2167880535125732421875;}i:171;a:4:{i:0;s:504:"Saving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1:a:1:{s:5:":time";i:1456285469;}" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (28)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2174189090728759765625;}i:172;a:4:{i:0;s:299:"Comment.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (29)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2194230556488037109375;}i:173;a:4:{i:0;s:362:"Querying SQL: SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (29)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2196290493011474609375;}i:174;a:4:{i:0;s:457:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1:a:0:{}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (29)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2201740741729736328125;}i:175;a:4:{i:0;s:311:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (29)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.220233917236328125;}i:176;a:4:{i:0;s:299:"Comment.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (30)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.22037601470947265625;}i:177;a:4:{i:0;s:392:"Querying SQL: SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (30)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.220590114593505859375;}i:178;a:4:{i:0;s:483:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status:a:1:{s:7:":status";i:0;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (30)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.22109889984130859375;}i:179;a:4:{i:0;s:311:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\PanelCommentStatWidget.php (30)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2211549282073974609375;}i:180;a:4:{i:0;s:307:"Comment.count()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\views\panel-stat.php (56)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.222508907318115234375;}i:181;a:4:{i:0;s:370:"Querying SQL: SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\views\panel-stat.php (56)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2226459980010986328125;}i:182;a:4:{i:0;s:309:"Comment.findAll()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\views\panel-stat.php (56)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.22315692901611328125;}i:183;a:4:{i:0;s:388:"Querying SQL: SELECT * FROM `spbp_comment_comment` `t` WHERE level <> 1 ORDER BY id DESC LIMIT 5
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\comment\widgets\views\panel-stat.php (56)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2232921123504638671875;}i:184;a:4:{i:0;s:302:"FeedBack.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2264111042022705078125;}i:185;a:4:{i:0;s:405:"Querying SQL: SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time. Bound with :time=1456285469
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2265570163726806640625;}i:186;a:4:{i:0;s:493:"Saving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time:a:1:{s:5:":time";i:1456285469;}" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2270629405975341796875;}i:187;a:4:{i:0;s:302:"FeedBack.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2283151149749755859375;}i:188;a:4:{i:0;s:349:"Querying SQL: SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.228437900543212890625;}i:189;a:4:{i:0;s:444:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`:a:0:{}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2288429737091064453125;}i:190;a:4:{i:0;s:313:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.228900909423828125;}i:191;a:4:{i:0;s:302:"FeedBack.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.228993892669677734375;}i:192;a:4:{i:0;s:394:"Querying SQL: SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2291309833526611328125;}i:193;a:4:{i:0;s:485:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status:a:1:{s:7:":status";i:0;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2294418811798095703125;}i:194;a:4:{i:0;s:313:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\PanelFeedbackStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2294979095458984375;}i:195;a:4:{i:0;s:318:"FeedBack.count()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\views\panel-feedback-stat.php (55)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2307779788970947265625;}i:196;a:4:{i:0;s:365:"Querying SQL: SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\views\panel-feedback-stat.php (55)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.230904102325439453125;}i:197;a:4:{i:0;s:320:"FeedBack.findAll()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\views\panel-feedback-stat.php (55)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.231359004974365234375;}i:198;a:4:{i:0;s:383:"Querying SQL: SELECT * FROM `spbp_feedback_feedback` `t` ORDER BY id DESC LIMIT 5
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\feedback\widgets\views\panel-feedback-stat.php (55)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2314929962158203125;}i:199;a:4:{i:0;s:322:"Loading "updateManager" application component
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\update\widgets\PanelUpdateWidget.php (7)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.2359869480133056640625;}i:200;a:4:{i:0;s:290:"User.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.256081104278564453125;}i:201;a:4:{i:0;s:381:"Serving "yii:dbschemamysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:{{user_user}}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.256825923919677734375;}i:202;a:4:{i:0;s:413:"Querying SQL: SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW(). Bound with :time=1456285469
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2570130825042724609375;}i:203;a:4:{i:0;s:501:"Saving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW():a:1:{s:5:":time";i:1456285469;}" to cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (24)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2576100826263427734375;}i:204;a:4:{i:0;s:290:"User.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2589209079742431640625;}i:205;a:4:{i:0;s:333:"Querying SQL: SELECT COUNT(*) FROM `spbp_user_user` `t`
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2590310573577880859375;}i:206;a:4:{i:0;s:428:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_user_user` `t`:a:0:{}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.2595179080963134765625;}i:207;a:4:{i:0;s:305:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (25)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.25957393646240234375;}i:208;a:4:{i:0;s:290:"User.count()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2596700191497802734375;}i:209;a:4:{i:0;s:390:"Querying SQL: SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE t.status = :user_status. Bound with :user_status=2
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.259808063507080078125;}i:210;a:4:{i:0;s:482:"Serving "yii:dbquery:fetchColumn:mysql:host=127.0.0.1;port=3306;dbname=spasibeaucoup:root:SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE t.status = :user_status:a:1:{s:12:":user_status";i:2;}" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.260262012481689453125;}i:211;a:4:{i:0;s:305:"Query result found in cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\PanelUserStatWidget.php (26)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\controllers\Controller.php (157)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\backend\index.php (84)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2603518962860107421875;}i:212;a:4:{i:0;s:301:"User.count()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\views\panel-stat.php (52)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2620151042938232421875;}i:213;a:4:{i:0;s:344:"Querying SQL: SELECT COUNT(*) FROM `spbp_user_user` `t`
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\views\panel-stat.php (52)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.2621428966522216796875;}i:214;a:4:{i:0;s:303:"User.findAll()
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\views\panel-stat.php (52)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.2625610828399658203125;}i:215;a:4:{i:0;s:362:"Querying SQL: SELECT * FROM `spbp_user_user` `t` ORDER BY id DESC LIMIT 5
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (234)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\views\panel-stat.php (52)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.262691020965576171875;}i:216;a:4:{i:0;s:336:"Loading "format" application component
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (632)
+in C:\xampp\htdocs\spasibeaucoup\vendor\clevertech\yii-booster\src\widgets\TbExtendedGridView.php (244)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\widgets\views\panel-stat.php (52)";i:1;s:5:"trace";i:2;s:14:"system.CModule";i:3;d:1456371869.26482105255126953125;}i:217;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.303491115570068359375;}i:218;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3036410808563232421875;}i:219;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.307221889495849609375;}i:220;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3072888851165771484375;}i:221;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3115990161895751953125;}i:222;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3116600513458251953125;}i:223;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3143060207366943359375;}i:224;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3144180774688720703125;}i:225;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.317326068878173828125;}i:226;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3173999786376953125;}i:227;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.321259975433349609375;}i:228;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3213388919830322265625;}i:229;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.32489109039306640625;}i:230;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.32495403289794921875;}i:231;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3277909755706787109375;}i:232;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3278501033782958984375;}i:233;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3303539752960205078125;}i:234;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.330421924591064453125;}i:235;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.331718921661376953125;}i:236;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.331779956817626953125;}i:237;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3353679180145263671875;}i:238;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.335442066192626953125;}i:239;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3389780521392822265625;}i:240;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3390491008758544921875;}i:241;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.341754913330078125;}i:242;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3418219089508056640625;}i:243;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.34486293792724609375;}i:244;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.344944000244140625;}i:245;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.34807109832763671875;}i:246;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.34813690185546875;}i:247;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3537900447845458984375;}i:248;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3538610935211181640625;}i:249;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3570239543914794921875;}i:250;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.357089996337890625;}i:251;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.360805034637451171875;}i:252;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3608720302581787109375;}i:253;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3633849620819091796875;}i:254;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3634510040283203125;}i:255;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.36587810516357421875;}i:256;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3659379482269287109375;}i:257;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3672358989715576171875;}i:258;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.36730098724365234375;}i:259;a:4:{i:0;s:314:"Serving "__tag__getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\extensions\tagcache\TagsCache.php (58)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3743450641632080078125;}i:260;a:4:{i:0;s:298:"Serving "getMigrationHistory" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (403)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (481)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\Migrator.php (525)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.3744409084320068359375;}i:261;a:4:{i:0;s:293:"User.find()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\components\YWebUser.php (105)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\_view.php (10)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\shortcuts.php (13)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.3857829570770263671875;}i:262;a:4:{i:0;s:457:"Querying SQL: SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1'
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\components\YWebUser.php (105)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\_view.php (10)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\shortcuts.php (13)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.3860530853271484375;}i:263;a:4:{i:0;s:293:"User.find()
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\components\YWebUser.php (105)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\_view.php (10)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\shortcuts.php (13)";i:1;s:5:"trace";i:2;s:26:"system.db.ar.CActiveRecord";i:3;d:1456371869.4130649566650390625;}i:264;a:4:{i:0;s:457:"Querying SQL: SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1'
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\user\components\YWebUser.php (105)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\_view.php (10)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\views\widgets\YShortCuts\shortcuts.php (13)";i:1;s:5:"trace";i:2;s:20:"system.db.CDbCommand";i:3;d:1456371869.4132421016693115234375;}i:265;a:4:{i:0;s:312:"Serving "YupeModulesNavigation-ru" from cache
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\components\ModuleManager.php (105)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\rbac\components\ModuleManager.php (101)
+in C:\xampp\htdocs\spasibeaucoup\protected\modules\yupe\widgets\YAdminPanel.php (28)";i:1;s:5:"trace";i:2;s:25:"system.caching.CFileCache";i:3;d:1456371869.4800798892974853515625;}}}s:9:"profiling";a:3:{s:6:"memory";i:15959504;s:4:"time";d:0.672512054443359375;s:8:"messages";a:54:{i:0;a:4:{i:0;s:125:"begin:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_assignment`
+WHERE userid=:userid. Bound with :userid='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.9809639453887939453125;}i:1;a:4:{i:0;s:123:"end:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_assignment`
+WHERE userid=:userid. Bound with :userid='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.98136997222900390625;}i:2;a:4:{i:0;s:117:"begin:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_item`
+WHERE name=:name. Bound with :name='admin')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.982099056243896484375;}i:3;a:4:{i:0;s:115:"end:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_item`
+WHERE name=:name. Bound with :name='admin')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.9823129177093505859375;}i:4;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0943279266357421875;}i:5;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0947399139404296875;}i:6;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0950620174407958984375;}i:7;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0953350067138671875;}i:8;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0956180095672607421875;}i:9;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0958499908447265625;}i:10;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0991489887237548828125;}i:11;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.09953594207763671875;}i:12;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0997331142425537109375;}i:13;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0999710559844970703125;}i:14;a:4:{i:0;s:168:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` WHERE (t.access_type = :access_type) AND (t.status = :status). Bound with :access_type=1, :status=1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.112452030181884765625;}i:15;a:4:{i:0;s:166:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` WHERE (t.access_type = :access_type) AND (t.status = :status). Bound with :access_type=1, :status=1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.11291408538818359375;}i:16;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1135981082916259765625;}i:17;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1138629913330078125;}i:18;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_user_to_blog` `t` WHERE status = :status. Bound with :status=4)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1736600399017333984375;}i:19;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_user_to_blog` `t` WHERE status = :status. Bound with :status=4)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1740400791168212890625;}i:20;a:4:{i:0;s:120:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE status = :status. Bound with :status=3)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.174273014068603515625;}i:21;a:4:{i:0;s:118:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE status = :status. Bound with :status=3)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.174499988555908203125;}i:22;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1773641109466552734375;}i:23;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.177649021148681640625;}i:24;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1840898990631103515625;}i:25;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.184524059295654296875;}i:26;a:4:{i:0;s:131:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1981060504913330078125;}i:27;a:4:{i:0;s:129:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1984150409698486328125;}i:28;a:4:{i:0;s:75:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2089939117431640625;}i:29;a:4:{i:0;s:73:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.209311008453369140625;}i:30;a:4:{i:0;s:93:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.209661960601806640625;}i:31;a:4:{i:0;s:91:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2099530696868896484375;}i:32;a:4:{i:0;s:152:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.216947078704833984375;}i:33;a:4:{i:0;s:150:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.217339992523193359375;}i:34;a:4:{i:0;s:98:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.222671985626220703125;}i:35;a:4:{i:0;s:96:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.22305202484130859375;}i:36;a:4:{i:0;s:116:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_comment_comment` `t` WHERE level <> 1 ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2233169078826904296875;}i:37;a:4:{i:0;s:114:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_comment_comment` `t` WHERE level <> 1 ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2235939502716064453125;}i:38;a:4:{i:0;s:139:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2267200946807861328125;}i:39;a:4:{i:0;s:137:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.226996898651123046875;}i:40;a:4:{i:0;s:83:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.230928897857666015625;}i:41;a:4:{i:0;s:81:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.23124599456787109375;}i:42;a:4:{i:0;s:101:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_feedback_feedback` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2315180301666259765625;}i:43;a:4:{i:0;s:99:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_feedback_feedback` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2317779064178466796875;}i:44;a:4:{i:0;s:155:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW(). Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2571699619293212890625;}i:45;a:4:{i:0;s:153:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW(). Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2575418949127197265625;}i:46;a:4:{i:0;s:75:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.26216793060302734375;}i:47;a:4:{i:0;s:73:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2624700069427490234375;}i:48;a:4:{i:0;s:93:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2627151012420654296875;}i:49;a:4:{i:0;s:91:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2629950046539306640625;}i:50;a:4:{i:0;s:195:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.3861000537872314453125;}i:51;a:4:{i:0;s:193:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.386598110198974609375;}i:52;a:4:{i:0;s:195:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.41326808929443359375;}i:53;a:4:{i:0;s:193:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.41372394561767578125;}}}s:2:"db";a:2:{s:8:"messages";a:54:{i:0;a:4:{i:0;s:125:"begin:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_assignment`
+WHERE userid=:userid. Bound with :userid='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.9809639453887939453125;}i:1;a:4:{i:0;s:123:"end:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_assignment`
+WHERE userid=:userid. Bound with :userid='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.98136997222900390625;}i:2;a:4:{i:0;s:117:"begin:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_item`
+WHERE name=:name. Bound with :name='admin')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.982099056243896484375;}i:3;a:4:{i:0;s:115:"end:system.db.CDbCommand.query(SELECT *
+FROM `spbp_user_user_auth_item`
+WHERE name=:name. Bound with :name='admin')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371868.9823129177093505859375;}i:4;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0943279266357421875;}i:5;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0947399139404296875;}i:6;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0950620174407958984375;}i:7;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0953350067138671875;}i:8;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0956180095672607421875;}i:9;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0958499908447265625;}i:10;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0991489887237548828125;}i:11;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.09953594207763671875;}i:12;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0997331142425537109375;}i:13;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.0999710559844970703125;}i:14;a:4:{i:0;s:168:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` WHERE (t.access_type = :access_type) AND (t.status = :status). Bound with :access_type=1, :status=1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.112452030181884765625;}i:15;a:4:{i:0;s:166:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` WHERE (t.access_type = :access_type) AND (t.status = :status). Bound with :access_type=1, :status=1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.11291408538818359375;}i:16;a:4:{i:0;s:100:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1135981082916259765625;}i:17;a:4:{i:0;s:98:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_category_category` `t` WHERE parent_id IS NULL)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1138629913330078125;}i:18;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_user_to_blog` `t` WHERE status = :status. Bound with :status=4)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1736600399017333984375;}i:19;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_user_to_blog` `t` WHERE status = :status. Bound with :status=4)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1740400791168212890625;}i:20;a:4:{i:0;s:120:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE status = :status. Bound with :status=3)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.174273014068603515625;}i:21;a:4:{i:0;s:118:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE status = :status. Bound with :status=3)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.174499988555908203125;}i:22;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1773641109466552734375;}i:23;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE t.status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.177649021148681640625;}i:24;a:4:{i:0;s:128:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1840898990631103515625;}i:25;a:4:{i:0;s:126:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE status = :status. Bound with :status=0)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.184524059295654296875;}i:26;a:4:{i:0;s:131:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1981060504913330078125;}i:27;a:4:{i:0;s:129:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.1984150409698486328125;}i:28;a:4:{i:0;s:75:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2089939117431640625;}i:29;a:4:{i:0;s:73:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_blog_post` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.209311008453369140625;}i:30;a:4:{i:0;s:93:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.209661960601806640625;}i:31;a:4:{i:0;s:91:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_blog_post` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2099530696868896484375;}i:32;a:4:{i:0;s:152:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.216947078704833984375;}i:33;a:4:{i:0;s:150:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE create_time >= :time AND level <> 1. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.217339992523193359375;}i:34;a:4:{i:0;s:98:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.222671985626220703125;}i:35;a:4:{i:0;s:96:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_comment_comment` `t` WHERE level <> 1)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.22305202484130859375;}i:36;a:4:{i:0;s:116:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_comment_comment` `t` WHERE level <> 1 ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2233169078826904296875;}i:37;a:4:{i:0;s:114:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_comment_comment` `t` WHERE level <> 1 ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2235939502716064453125;}i:38;a:4:{i:0;s:139:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2267200946807861328125;}i:39;a:4:{i:0;s:137:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t` WHERE create_time >= :time. Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.226996898651123046875;}i:40;a:4:{i:0;s:83:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.230928897857666015625;}i:41;a:4:{i:0;s:81:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_feedback_feedback` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.23124599456787109375;}i:42;a:4:{i:0;s:101:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_feedback_feedback` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2315180301666259765625;}i:43;a:4:{i:0;s:99:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_feedback_feedback` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2317779064178466796875;}i:44;a:4:{i:0;s:155:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW(). Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2571699619293212890625;}i:45;a:4:{i:0;s:153:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t` WHERE create_time >= :time AND create_time < NOW(). Bound with :time=1456285469)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2575418949127197265625;}i:46;a:4:{i:0;s:75:"begin:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.26216793060302734375;}i:47;a:4:{i:0;s:73:"end:system.db.CDbCommand.query(SELECT COUNT(*) FROM `spbp_user_user` `t`)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2624700069427490234375;}i:48;a:4:{i:0;s:93:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2627151012420654296875;}i:49;a:4:{i:0;s:91:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` ORDER BY id DESC LIMIT 5)";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.2629950046539306640625;}i:50;a:4:{i:0;s:195:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.3861000537872314453125;}i:51;a:4:{i:0;s:193:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.386598110198974609375;}i:52;a:4:{i:0;s:195:"begin:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.41326808929443359375;}i:53;a:4:{i:0;s:193:"end:system.db.CDbCommand.query(SELECT * FROM `spbp_user_user` `t` WHERE (t.status = :user_status) AND (id = :id AND access_level = :level) LIMIT 1. Bound with :user_status=1, :level=1, :id='1')";i:1;s:7:"profile";i:2;s:26:"system.db.CDbCommand.query";i:3;d:1456371869.41372394561767578125;}}s:11:"connections";a:1:{s:2:"db";a:4:{s:5:"class";s:13:"CDbConnection";s:6:"driver";s:5:"mysql";s:6:"server";s:6:"5.6.21";s:4:"info";s:139:"Uptime: 520144  Threads: 1  Questions: 16209  Slow queries: 0  Opens: 213  Flush tables: 1  Open tables: 135  Queries per second avg: 0.031";}}}s:7:"summary";a:7:{s:3:"tag";s:13:"56ce789cdefd6";s:3:"url";s:35:"http://spasibeaucoup.local/backend/";s:4:"ajax";b:0;s:6:"method";s:3:"GET";s:4:"code";i:200;s:2:"ip";s:9:"127.0.0.1";s:4:"time";i:1456371869;}}
