@@ -25,7 +25,7 @@ $(document).ready(function(){
             {
                 group: true,
                 labelText: 'Филиал',
-                field: 'branch_id'
+                field: 'name'
             },
             {
                 labelText: 'Аудитория',
@@ -46,6 +46,7 @@ $(document).ready(function(){
     };
 
     console.log(obj);
+
     $('#calendar').fullCalendar(obj);
 
 

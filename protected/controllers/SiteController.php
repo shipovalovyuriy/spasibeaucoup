@@ -29,14 +29,20 @@ class SiteController extends FrontController
     public function actionGetPositions()
     {
         $branches = [];
-        $models = \Room::model()->with('branch')->findAll();
+        $array = [];
+        $array = \Yii::app()->db->createCommand()
+            ->select('b.id, a.name, b.alias, b.capacity')
+            ->from('spbp_branch_branch a')
+            ->join('spbp_branch_room b','a.id = b.branch_id;')
+            ->queryAll();
+//        $models = \Room::model()->with('branch')->findAll();
 
         if ((isset($_GET['listenerId']))&&($_GET['listenerId']!=null)){
             echo "Listener";
         } else if ((isset($_GET['teacherId']))&&($_GET['teacherId']!=null)) {
             echo "Teacher";
         } else {
-            echo (\CJSON::encode($models));
+            echo \CJSON::encode($array);
         }
     }
 
