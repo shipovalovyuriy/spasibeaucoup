@@ -1,12 +1,3 @@
-<link href='../fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='../lib/moment.min.js'></script>
-<script src='../lib/jquery.min.js'></script>
-<script src='../fullcalendar.min.js'></script>
-<?php
-Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/blog.js');
-Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/bootstrap-notify.js');
-Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.li-translit.js');
-?>
 <script>
 
 $(document).ready(function() {
@@ -77,13 +68,6 @@ $(document).ready(function() {
 
 </script>
 <style>
-
-body {
-    margin: 40px 10px;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
 
 	#calendar {
 		max-width: 900px;

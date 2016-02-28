@@ -23,6 +23,8 @@ $styles = array(
     'font.css',
     'plugin.css',
     'app.css',
+    '../js/fullcalendar/fullcalendar.css',
+    '../js/fullcalendar/scheduler.min.css',
 );
 
 foreach ($styles as $style) {
@@ -37,6 +39,9 @@ $scripts = array(
     'app.js' => CClientScript::POS_END,
     'app.plugin.js' => CClientScript::POS_END,
     'app.data.js' => CClientScript::POS_END,
+    'fullcalendar/moment.min.js'=> CClientScript::POS_END,
+    'fullcalendar/fullcalendar.js'=> CClientScript::POS_END,
+    'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
     /*'plugins/revslider/js/jquery.themepunch.revolution.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery-ui-1.8.13.custom.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery.thumbnailScroller.js' => CClientScript::POS_END,
