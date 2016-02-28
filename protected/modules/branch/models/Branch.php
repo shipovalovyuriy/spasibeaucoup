@@ -51,8 +51,9 @@ class Branch extends yupe\models\YModel
 		// class name for the relations automatically generated below.
 		return array(
 			'parent' => array(self::BELONGS_TO, 'User', 'parent_id'),
-			'listnerListners' => array(self::HAS_MANY, 'Listner', 'branch_id'),
-			'subjectToBranches' => array(self::HAS_MANY, 'SubjectToBranch', 'branch_id'),
+			'listner' => array(self::HAS_MANY, 'Listner', 'branch_id'),
+			'subject' => array(self::HAS_MANY, 'SubjectToBranch', 'branch_id'),
+                        'room' => array(self::HAS_MANY, 'Room', 'branch_id'),
 		);
 	}
 
