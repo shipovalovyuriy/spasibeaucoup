@@ -1,6 +1,5 @@
 *.log
 *.data
-protected/runtime/debug/index.data
 composer.phar
 *.bin
 *.settings
@@ -24,5 +23,10 @@ protected/config/db.php
 !*.dist.yml
 /.vagrant/
 Vagrantfile
+<<<<<<< HEAD
 
 protected/runtime/debug/index.data
+=======
+protected/runtime/debug/index.data
+protected/runtime/debug/index.data
+>>>>>>> origin/master
