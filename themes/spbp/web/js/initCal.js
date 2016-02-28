@@ -5,6 +5,7 @@ $(document).ready(function(){
         now: '2016-01-07',
         editable: true,
         lang:'ru',
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
         aspectRatio: 1.8,
         scrollTime: '00:00',
         header: {
