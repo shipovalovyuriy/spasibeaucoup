@@ -9,7 +9,6 @@
 
 </style>
 
-<script src="initCal.js"></script>
 
 <div id='calendar'></div>
 

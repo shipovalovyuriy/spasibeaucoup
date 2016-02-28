@@ -70,8 +70,9 @@ $this->menu = [
             'listner_id',
             'subject_id',
             'group_id',
-//            'lvl',
-//            'note',
+            'lvl',
+            'note',
+            'time',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],
