@@ -69,7 +69,7 @@ class Branch extends yupe\models\YModel
 		);
 	}
         
-        public function getAttributeDescription()
+        public function getAttributeDescription($attribute)
         {
             return array(
                     'id' => 'ID',

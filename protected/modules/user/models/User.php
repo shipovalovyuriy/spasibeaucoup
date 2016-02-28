@@ -152,7 +152,7 @@ class User extends yupe\models\YModel
             ],
             ['email_confirm', 'in', 'range' => array_keys($this->getEmailConfirmStatusList())],
             ['status', 'in', 'range' => array_keys($this->getStatusList())],
-            ['create_time', 'length', 'max' => 50],
+            ['create_time, salary, salary_date', 'length', 'max' => 50],
             [
                 'id, update_time, create_time, middle_name, first_name, last_name, nick_name, email, gender, avatar, status, access_level, visit_time, phone',
                 'safe',
@@ -212,6 +212,8 @@ class User extends yupe\models\YModel
             'email' => Yii::t('UserModule.user', 'Email'),
             'gender' => Yii::t('UserModule.user', 'Sex'),
             'status' => Yii::t('UserModule.user', 'Status'),
+            'salary' => 'Зарплата',
+            'salary_date' => 'Дата оплаты',
             'access_level' => Yii::t('UserModule.user', 'Access'),
             'visit_time' => Yii::t('UserModule.user', 'Last visit'),
             'create_time' => Yii::t('UserModule.user', 'Register date'),

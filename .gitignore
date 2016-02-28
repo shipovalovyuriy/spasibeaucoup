@@ -6,6 +6,7 @@ composer.phar
 *db.php
 *.komodoproject
 /nbproject/private/
+protected/runtime
 /.komodotools/
 *.xml
 *.properties

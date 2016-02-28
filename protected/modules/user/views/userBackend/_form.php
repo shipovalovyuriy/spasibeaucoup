@@ -51,6 +51,16 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-sm-7">
+        <?php echo $form->textFieldGroup($model, 'salary'); ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-7">
+        <?php echo $form->textFieldGroup($model, 'salary_date'); ?>
+    </div>
+</div>
+<div class="row">
     <div class="col-sm-3">
         <?php echo $form->datePickerGroup(
             $model,
