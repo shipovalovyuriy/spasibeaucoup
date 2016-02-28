@@ -32,14 +32,14 @@ class SiteController extends FrontController
         $branches = [];
 
         $connection=Yii::app()->db;
-
-        $sql = "select a.name, b.id as 'classroom',b.alias, b.capacity, from spbp_branch_branch a join spbp_branch_room b on a.id = b.branch_id;";
-
-        $command=$connection->createCommand($sql);
-
-        $dataReader = $command->queryAll();
-
-        $array = $dataReader->readAll();
+//
+//        $sql = "select a.name, b.id as 'classroom',b.alias, b.capacity, from spbp_branch_branch a join spbp_branch_room b on a.id = b.branch_id;";
+//
+//        $command=$connection->createCommand($sql);
+//
+//        $dataReader = $command->queryAll();
+//
+//        $array = $dataReader->readAll();
 
         if ((isset($_GET['listenerId']))&&($_GET['listenerId']!=null)){
 
@@ -52,8 +52,6 @@ class SiteController extends FrontController
         } else {
 
             echo json_encode($array);
-
-
 
         }
 
