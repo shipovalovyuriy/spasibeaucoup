@@ -26,6 +26,10 @@ class SiteController extends FrontController
         $this->render('index');
     }
 
+    public function actionGetPositions(){
+
+
+    }
     /**
      * Отображение для ошибок:
      *
