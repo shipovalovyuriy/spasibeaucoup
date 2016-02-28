@@ -29,7 +29,7 @@
                     <div class="bg-success nav-user hidden-xs pos-rlt">
                         <div class="nav-avatar pos-rlt">
                             <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
-                                <img src="<?= $assets?>images/avatar.jpg" alt="" class="">
+                                <img src="<?= $assets?>/images/avatar.jpg" alt="" class="">
                                 <span class="caret caret-white"></span>
                             </a>
                             <ul class="dropdown-menu m-t-sm animated fadeInLeft">
