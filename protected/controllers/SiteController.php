@@ -29,7 +29,7 @@ class SiteController extends FrontController
     public function actionGetPositions()
     {
         $branches = [];
-        $models = \Branch::model()->with('room')->findAll();
+        $models = \Room::model()->with('branch')->findAll();
 
         if ((isset($_GET['listenerId']))&&($_GET['listenerId']!=null)){
             echo "Listener";
