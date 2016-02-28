@@ -29,8 +29,8 @@ class SiteController extends FrontController
     public function actionGetPositions()
     {
         $branches = [];
-        //$sql = "select a.name, b.id as 'classroom',b.alias, b.capacity, from spbp_branch_branch a join spbp_branch_room b on a.id = b.branch_id;";
         $models = \Branch::model()->with('room')->findAll();
+
         if ((isset($_GET['listenerId']))&&($_GET['listenerId']!=null)){
             echo "Listener";
         } else if ((isset($_GET['teacherId']))&&($_GET['teacherId']!=null)) {
