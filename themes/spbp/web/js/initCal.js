@@ -20,7 +20,7 @@ $(document).ready(function(){
                 duration: {days: 3}
             }
         },
-        resourceAreaWidth: '40%',
+        resourceAreaWidth: '50%',
         resourceColumns: [
             {
                 group: true,
@@ -45,7 +45,7 @@ $(document).ready(function(){
         ]
     };
 
-    console.log(obj);
+    //console.log(obj);
     $('#calendar').fullCalendar(obj);
 
 
