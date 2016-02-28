@@ -4,11 +4,6 @@
         <meta charset="utf-8" />
         <title>Web Application | todo</title>
         <?php $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web') ?>
-      <!--[if lt IE 9]>
-        <script src="js/ie/respond.min.js" cache="false"></script>
-        <script src="js/ie/html5.js" cache="false"></script>
-        <script src="js/ie/fix.js" cache="false"></script>
-      <![endif]-->
     </head>
     <body>
         <section class="hbox stretch">
@@ -126,10 +121,10 @@
                       </nav>
                       <!-- / nav -->
                       <!-- note -->
-                      <div class="bg-danger wrapper hidden-vertical animated fadeInUp text-sm">            
-                          <a href="#" data-dismiss="alert" class="pull-right m-r-n-sm m-t-n-sm"><i class="fa fa-times"></i></a>
-                          Hi, welcome to todo,  you can start here.
-                      </div>
+                        <!--div class="bg-danger wrapper hidden-vertical animated fadeInUp text-sm">            
+                            <a href="#" data-dismiss="alert" class="pull-right m-r-n-sm m-t-n-sm"><i class="fa fa-times"></i></a>
+                            Hi, welcome to todo,  you can start here.
+                        </div-->
                     <!-- / note -->
                     </section>
                     <footer class="footer bg-gradient hidden-xs">
