@@ -18,9 +18,11 @@ $assetPath = $assetManager->publish(
 );
 $styles = array(
     'bootstrap.css',
-    'style.css',
-    'demo.css',     
-    'generator.css',        
+    'animate.css',
+    'font-awesome.min.css',
+    'font.css',
+    'plugin.css',
+    'app.css',
 );
 
 foreach ($styles as $style) {
@@ -29,13 +31,13 @@ foreach ($styles as $style) {
 
 // Javascript
 $scripts = array(
-    //'jquery.min.js' => CClientScript::POS_HEAD,
-    'bootstrap/js/bootstrap.min.js' => CClientScript::POS_END,
-    'modernizr.custom.js' => CClientScript::POS_END,
-    'device.min.js' => CClientScript::POS_END,
-    'snap.min.js' => CClientScript::POS_END,
-    'jquery.pagescroller.lite.js' => CClientScript::POS_END,
-    'plugins/revslider/js/jquery.themepunch.revolution.min.js' => CClientScript::POS_END,
+    'jquery.min.js' => CClientScript::POS_HEAD,
+    'bootstrap.js' => CClientScript::POS_END,
+    '/charts/sparkline/jquery.sparkline.min.js' => CClientScript::POS_END,
+    'app.js' => CClientScript::POS_END,
+    'app.plugin.js' => CClientScript::POS_END,
+    'app.data.js' => CClientScript::POS_END,
+    /*'plugins/revslider/js/jquery.themepunch.revolution.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery-ui-1.8.13.custom.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery.thumbnailScroller.js' => CClientScript::POS_END,
     'plugins/revslider/js/jquery.themepunch.plugins.min.js' => CClientScript::POS_END,
@@ -45,7 +47,7 @@ $scripts = array(
     'contact-form.js' => CClientScript::POS_END,
     'singlePageNav.js' => CClientScript::POS_END,
     'main.js' => CClientScript::POS_END,
-    'demo.js' => CClientScript::POS_END,
+    'demo.js' => CClientScript::POS_END,*/
 );
 
 foreach ($scripts as $script => $position) {
