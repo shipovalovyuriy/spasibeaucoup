@@ -36,7 +36,7 @@ class SiteController extends FrontController
         } else if ((isset($_GET['teacherId']))&&($_GET['teacherId']!=null)) {
             echo "Teacher";
         } else {
-            var_dump(\CJSON::encode($models));
+            echo (\CJSON::encode($models));
         }
     }
 
