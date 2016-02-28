@@ -1,23 +1,17 @@
 $(document).ready(function(){
-
     var listenerId = null;
     var teacherId = null;
-
-
-  $.ajax({
-    url: 'site/GetPositions',
-    type: 'GET',
-    data: {'listenerId':listenerId,'teacherId':teacherId}
-  })
-  .done(function(resp) {
+    $.ajax({
+        url: 'site/getPositions',
+        type: 'GET',
+        data: {'listenerId':listenerId,'teacherId':teacherId}
+    })
+    .done(function(resp) {
       console.log(resp);
-  })
-  .fail(function() {
-    console.log("error");
-  });
-
-
-
+    })
+    .fail(function() {
+        console.log("error");
+    });
     var obj = {
         now: '2016-01-07',
         editable: true,
