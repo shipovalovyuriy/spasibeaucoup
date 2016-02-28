@@ -39,7 +39,7 @@ class Position extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('form_id, listner_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
-			array('code, lvl', 'length', 'max'=>50),
+			array('code, lvl, time', 'length', 'max'=>50),
 			array('note', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -77,6 +77,7 @@ class Position extends yupe\models\YModel
 			'group_id' => 'Group',
 			'lvl' => 'Lvl',
 			'note' => 'Note',
+                        'time' => 'Время занятий'
 		);
 	}
 

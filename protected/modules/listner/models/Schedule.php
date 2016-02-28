@@ -32,6 +32,7 @@ class Schedule extends yupe\models\YModel
 			array('position_id, number', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
+                        ['time', 'length', 'max' => 50],
 			array('id, position_id, number', 'safe', 'on'=>'search'),
 		);
 	}
@@ -57,6 +58,7 @@ class Schedule extends yupe\models\YModel
 			'id' => 'ID',
 			'position_id' => 'Position',
 			'number' => 'Number',
+                        'time' => 'Время урока'
 		);
 	}
 

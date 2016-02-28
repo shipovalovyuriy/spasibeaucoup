@@ -59,6 +59,7 @@ class Teacher extends yupe\models\YModel
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
+                        'time' => 'Доступно время'
 		);
 	}
 
