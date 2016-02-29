@@ -7,8 +7,11 @@
  * @property integer $id
  * @property integer $position_id
  * @property integer $number
+ * @property string $time
+ * @property integer $room_id
  *
  * The followings are the available model relations:
+ * @property BranchRoom $room
  * @property ListnerPosition $position
  */
 class Schedule extends yupe\models\YModel
@@ -29,11 +32,11 @@ class Schedule extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('position_id, number', 'numerical', 'integerOnly'=>true),
+			array('position_id, number, room_id', 'numerical', 'integerOnly'=>true),
+			array('time', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-                        ['time', 'length', 'max' => 50],
-			array('id, position_id, number', 'safe', 'on'=>'search'),
+			array('id, position_id, number, time, room_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,7 +48,8 @@ class Schedule extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'position' => array(self::BELONGS_TO, 'position', 'position_id'),
+			'room' => array(self::BELONGS_TO, 'Room', 'room_id'),
+			'position' => array(self::BELONGS_TO, 'Position', 'position_id'),
 		);
 	}
 
@@ -58,7 +62,8 @@ class Schedule extends yupe\models\YModel
 			'id' => 'ID',
 			'position_id' => 'Position',
 			'number' => 'Number',
-                        'time' => 'Время урока'
+			'time' => 'Time',
+			'room_id' => 'Room',
 		);
 	}
 
@@ -83,6 +88,8 @@ class Schedule extends yupe\models\YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('position_id',$this->position_id);
 		$criteria->compare('number',$this->number);
+		$criteria->compare('time',$this->time,true);
+		$criteria->compare('room_id',$this->room_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

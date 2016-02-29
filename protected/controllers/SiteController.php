@@ -36,14 +36,7 @@ class SiteController extends FrontController
             ->join('spbp_branch_room b','a.id = b.branch_id;')
             ->queryAll();
 //        $models = \Room::model()->with('branch')->findAll();
-
-        if ((isset($_GET['listenerId']))&&($_GET['listenerId']!=null)){
-            echo "Listener";
-        } else if ((isset($_GET['teacherId']))&&($_GET['teacherId']!=null)) {
-            echo "Teacher";
-        } else {
             echo \CJSON::encode($array);
-        }
     }
 
     /**
