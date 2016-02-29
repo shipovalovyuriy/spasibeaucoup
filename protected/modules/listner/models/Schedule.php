@@ -7,12 +7,13 @@
  * @property integer $id
  * @property integer $position_id
  * @property integer $number
- * @property string $time
+ * @property string $start_time
  * @property integer $room_id
+ * @property string $end_time
  *
  * The followings are the available model relations:
- * @property BranchRoom $room
- * @property ListnerPosition $position
+ * @property Room $room
+ * @property Position $position
  */
 class Schedule extends yupe\models\YModel
 {
@@ -33,10 +34,11 @@ class Schedule extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('position_id, number, room_id', 'numerical', 'integerOnly'=>true),
-			array('time', 'length', 'max'=>50),
+			array('start_time', 'length', 'max'=>50),
+			array('end_time', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, position_id, number, time, room_id', 'safe', 'on'=>'search'),
+			array('id, position_id, number, start_time, room_id, end_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,8 +64,9 @@ class Schedule extends yupe\models\YModel
 			'id' => 'ID',
 			'position_id' => 'Position',
 			'number' => 'Number',
-			'time' => 'Time',
+			'start_time' => 'Start Time',
 			'room_id' => 'Room',
+			'end_time' => 'End Time',
 		);
 	}
 
@@ -88,8 +91,9 @@ class Schedule extends yupe\models\YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('position_id',$this->position_id);
 		$criteria->compare('number',$this->number);
-		$criteria->compare('time',$this->time,true);
+		$criteria->compare('start_time',$this->start_time,true);
 		$criteria->compare('room_id',$this->room_id);
+		$criteria->compare('end_time',$this->end_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
