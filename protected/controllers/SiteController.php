@@ -42,10 +42,11 @@ class SiteController extends FrontController
         $arr = [];
         $arrs = [];
         $array = \Yii::app()->db->createCommand()
-            ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id')
+            ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id, d.name')
             ->from('spbp_listner_listner a')
             ->join('spbp_listner_position c','c.listner_id = a.id')
             ->join('spbp_listner_schedule b','c.id = b.position_id')
+            ->join ('spbp_subject_subject d','d.id = c.subject_id')
             ->queryAll();
 
         foreach ($array as $row){
@@ -53,7 +54,7 @@ class SiteController extends FrontController
             $arrs['resourceId'] = $row['room_id'];
             $arrs['start']=$row['start_time'];
             $arrs['end']=$row['end_time'];
-            $arrs['title'] = $row['lastname'];
+            $arrs['title'] = $row['lastname'].' ('.$row['name'].')';
             array_push($arr,$arrs);
 
         }
