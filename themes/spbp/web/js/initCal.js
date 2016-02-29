@@ -2,7 +2,7 @@ $(document).ready(function(){
     var listenerId = null;
     var teacherId = null;
     var obj = {
-        now: '2016-01-07',
+        now: new Date(),
         editable: true,
         lang:'ru',
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
@@ -20,7 +20,7 @@ $(document).ready(function(){
                 duration: {days: 3}
             }
         },
-        resourceAreaWidth: '40%',
+        resourceAreaWidth: '50%',
         resourceColumns: [
             {
                 group: true,
@@ -37,7 +37,7 @@ $(document).ready(function(){
             }
         ],
         resources: {
-            url: 'site/getPositions',
+            url: '/getPositions',
         },
         events: [
             {id: '1', resourceId: '1', start: '2016-01-07T02:00:00', end: '2016-01-07T07:00:00', title: 'event 1'},

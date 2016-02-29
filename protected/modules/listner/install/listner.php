@@ -20,5 +20,6 @@ return [
     'component' => [],
     'rules'     => [
         '/listner' => 'listner/listner/index',
+        '/listner/<action>' => 'listner/listner/<action>'
     ],
 ];

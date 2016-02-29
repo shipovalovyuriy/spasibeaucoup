@@ -2,29 +2,20 @@
     <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Web Application | todo</title>
+        <title><?=Yii::app()->getModule('yupe')->siteName .' | '.   Yii::app()->controller->action->id?></title>
         <?php $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web') ?>
     </head>
     <body>
         <section class="hbox stretch">
           <!-- .aside -->
-            <aside class="bg-primary aside-sm" id="nav">
+            <aside class="bg-primary aside-sm nav-vertical" id="nav">
                 <section class="vbox">
-                    <header class="dker nav-bar nav-bar-fixed-top">
-                        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
-                            <i class="fa fa-bars"></i>
-                        </a>
-                        <a href="#" class="nav-brand" data-toggle="fullscreen">todo</a>
-                        <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user">
-                            <i class="fa fa-comment-o"></i>
-                        </a>
-                    </header>
-                    <section>
                       <!-- user -->
                     <div class="bg-success nav-user hidden-xs pos-rlt">
                         <div class="nav-avatar pos-rlt">
                             <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
                                 <img src="<?= $assets?>/images/avatar.jpg" alt="" class="">
+                                <?php //$this->widget('AvatarWidget', ['user' => $user, 'noCache' => true, 'imageHtmlOptions' => ['width' => 100, 'height' => 100]]); ?>
                                 <span class="caret caret-white"></span>
                             </a>
                             <ul class="dropdown-menu m-t-sm animated fadeInLeft">
@@ -54,7 +45,7 @@
                                 <p><i class="fa fa-map-marker"></i> London, UK</p>
                             </div>
                         </div>
-                        <div class="nav-msg">
+                        <!--div class="nav-msg">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <b class="badge badge-white count-n">2</b>
                             </a>
@@ -85,57 +76,45 @@
                                         <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
                                         <a href="#">See all the notifications</a>
                                     </footer>
-                                </section>
                             </section>
-                        </div>
-                      </div>
+                        </div-->
+                    </div>
                       <!-- / user -->
                       <!-- nav -->
-                      <nav class="nav-primary hidden-xs">
+                    <nav class="nav-primary hidden-xs">
                         <ul class="nav">
-                          <li class="active">
-                            <a href="<?= Yii::app()->homeUrl?>">
-                              <i class="fa fa-eye"></i>
-                              <span>Главная</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              <i class="fa fa-tasks"></i>
-                              <span>Календарь</span>
-                            </a>
-                        <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              <i class="fa fa-building-o"></i>
-                              <span>Клиентская база</span>
-                            </a>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              <i class="fa fa-bookmark"></i>
-                              <span>Список предметов</span>
-                            </a>
-                          </li>
-
+                            <li class="active">
+                              <a href="<?= Yii::app()->homeUrl?>">
+                                <i class="fa fa-eye"></i>
+                                <span>Главная</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="/schedule" class="dropdown-toggle">
+                                <i class="fa fa-tasks"></i>
+                                <span>Расписание</span>
+                              </a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-building-o"></i>
+                                    <span>Клиентская база</span>
+                                </a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bookmark"></i>
+                                    <span>Список предметов</span>
+                                </a>
+                            </li>
                         </ul>
-                      </nav>
-                      <!-- / nav -->
-                      <!-- note -->
-                        <!--div class="bg-danger wrapper hidden-vertical animated fadeInUp text-sm">            
-                            <a href="#" data-dismiss="alert" class="pull-right m-r-n-sm m-t-n-sm"><i class="fa fa-times"></i></a>
-                            Hi, welcome to todo,  you can start here.
-                        </div-->
-                    <!-- / note -->
-                    </section>
+                    </nav>
                 </section>
             </aside>
           <!-- /.aside -->
           <!-- .vbox -->
             <section id="content">
                 <section class="vbox">
-                    <header class="header bg-white b-b">
-                      <p>Welcome to todo application</p>
-                    </header>
                     <section class="scrollable wrapper">
                         <?= $content;?>
                     </section>
