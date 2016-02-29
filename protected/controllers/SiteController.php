@@ -28,8 +28,8 @@ class SiteController extends FrontController
 
     public function actionGetPositions()
     {
-        $branches = [];
-        $array = [];
+        //$branches = [];
+        //$array = [];
         $array = \Yii::app()->db->createCommand()
             ->select('b.id, a.name, b.alias, b.capacity')
             ->from('spbp_branch_branch a')
@@ -68,5 +68,9 @@ class SiteController extends FrontController
                 ]
             );
         }
+    }
+    public function actionSchedule()
+    {
+        $this->render('schedule');
     }
 }
