@@ -65,7 +65,7 @@ return [
             'generatorPaths' => array(
                 'application.modules.yupe.extensions.yupe.gii',
             ),
-            'pFilters'=>array(),
+            'ipFilters'=>array(),
         ),*/
     ],
     'behaviors' => [
@@ -132,8 +132,7 @@ return [
             'cacheID' => 'cache',
             'useStrictParsing' => true,
             'rules' => [ // Main rules
-                '/' => '/site/index',
-                '/<action:\w+>' => 'site/<action>',
+                '/' => '/site/index',                
                 // For correct work of installer
                 '/install/default/<action:\w+>' => '/install/default/<action>',
                 '/backend' => '/yupe/backend/index',
@@ -142,6 +141,7 @@ return [
                 '/backend/<module:\w+>/<controller:\w+>' => '/<module>/<controller>Backend/index',
                 '/backend/<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '/<module>/<controller>Backend/<action>',
                 '/backend/<module:\w+>/<controller:\w+>/<action:\w+>' => '/<module>/<controller>Backend/<action>',
+                '/<action:\w+>' => 'site/<action>',
                 '/gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',                
                 '/debug/<controller:\w+>/<action:\w+>' => 'debug/<controller>/<action>'
             ]
