@@ -1,0 +1,149 @@
+<?php
+/**
+* Класс FormBackendController:
+*
+*   @category Yupe\yupe\components\controllers\BackController
+*   @package  yupe
+*   @author   Yupe Team <team@yupe.ru>
+*   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
+*   @link     http://yupe.ru
+**/
+class FormBackendController extends \yupe\components\controllers\BackController
+{
+    /**
+    * Отображает Тариф по указанному идентификатору
+    *
+    * @param integer $id Идинтификатор Тариф для отображения
+    *
+    * @return void
+    */
+    public function actionView($id)
+    {
+        $this->render('view', ['model' => $this->loadModel($id)]);
+    }
+    
+    /**
+    * Создает новую модель Тарифа.
+    * Если создание прошло успешно - перенаправляет на просмотр.
+    *
+    * @return void
+    */
+    public function actionCreate()
+    {
+        $model = new Form;
+
+        if (Yii::app()->getRequest()->getPost('Form') !== null) {
+            $model->setAttributes(Yii::app()->getRequest()->getPost('Form'));
+        
+            if ($model->save()) {
+                Yii::app()->user->setFlash(
+                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                    Yii::t('ListnerModule.listner', 'Запись добавлена!')
+                );
+
+                $this->redirect(
+                    (array)Yii::app()->getRequest()->getPost(
+                        'submit-type',
+                        [
+                            'update',
+                            'id' => $model->id
+                        ]
+                    )
+                );
+            }
+        }
+        $this->render('create', ['model' => $model]);
+    }
+    
+    /**
+    * Редактирование Тарифа.
+    *
+    * @param integer $id Идинтификатор Тариф для редактирования
+    *
+    * @return void
+    */
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
+
+        if (Yii::app()->getRequest()->getPost('Form') !== null) {
+            $model->setAttributes(Yii::app()->getRequest()->getPost('Form'));
+
+            if ($model->save()) {
+                Yii::app()->user->setFlash(
+                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                    Yii::t('ListnerModule.listner', 'Запись обновлена!')
+                );
+
+                $this->redirect(
+                    (array)Yii::app()->getRequest()->getPost(
+                        'submit-type',
+                        [
+                            'update',
+                            'id' => $model->id
+                        ]
+                    )
+                );
+            }
+        }
+        $this->render('update', ['model' => $model]);
+    }
+    
+    /**
+    * Удаляет модель Тарифа из базы.
+    * Если удаление прошло успешно - возвращется в index
+    *
+    * @param integer $id идентификатор Тарифа, который нужно удалить
+    *
+    * @return void
+    */
+    public function actionDelete($id)
+    {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
+            // поддерживаем удаление только из POST-запроса
+            $this->loadModel($id)->delete();
+
+            Yii::app()->user->setFlash(
+                yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                Yii::t('ListnerModule.listner', 'Запись удалена!')
+            );
+
+            // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
+            if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
+                $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
+            }
+        } else
+            throw new CHttpException(400, Yii::t('ListnerModule.listner', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
+    }
+    
+    /**
+    * Управление Тарифами.
+    *
+    * @return void
+    */
+    public function actionIndex()
+    {
+        $model = new Form('search');
+        $model->unsetAttributes(); // clear any default values
+        if (Yii::app()->getRequest()->getParam('Form') !== null)
+            $model->setAttributes(Yii::app()->getRequest()->getParam('Form'));
+        $this->render('index', ['model' => $model]);
+    }
+    
+    /**
+    * Возвращает модель по указанному идентификатору
+    * Если модель не будет найдена - возникнет HTTP-исключение.
+    *
+    * @param integer идентификатор нужной модели
+    *
+    * @return void
+    */
+    public function loadModel($id)
+    {
+        $model = Form::model()->findByPk($id);
+        if ($model === null)
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+
+        return $model;
+    }
+}

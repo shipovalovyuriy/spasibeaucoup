@@ -54,7 +54,7 @@ class Listner extends yupe\models\YModel
 		// class name for the relations automatically generated below.
 		return array(
 			'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
-			'positions' => array(self::HAS_MANY, 'Position', 'listner_id'),
+			'position' => array(self::HAS_MANY, 'Position', 'listner_id'),
 		);
 	}
 

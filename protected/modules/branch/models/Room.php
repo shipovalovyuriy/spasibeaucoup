@@ -48,6 +48,7 @@ class Room extends yupe\models\YModel
 		// class name for the relations automatically generated below.
 		return array(
 			'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
+                        'schedule' => array(self::HAS_MANY, 'Schedule', 'room_id'),
 		);
 	}
 

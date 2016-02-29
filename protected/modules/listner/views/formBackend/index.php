@@ -10,20 +10,20 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('ListnerModule.listner', 'Студенты') => ['/listner/listner/index'],
+    Yii::t('ListnerModule.listner', 'Тарифы') => ['/listner/formBackend/index'],
     Yii::t('ListnerModule.listner', 'Управление'),
 ];
 
-$this->pageTitle = Yii::t('ListnerModule.listner', 'Студенты - управление');
+$this->pageTitle = Yii::t('ListnerModule.listner', 'Тарифы - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Студентами'), 'url' => ['/listner/listner/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Студента'), 'url' => ['/listner/listner/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Тарифами'), 'url' => ['/listner/formBackend/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Тариф'), 'url' => ['/listner/formBackend/create']],
 ];
 ?>
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('ListnerModule.listner', 'Студенты'); ?>
+        <?php echo Yii::t('ListnerModule.listner', 'Тарифы'); ?>
         <small><?php echo Yii::t('ListnerModule.listner', 'управление'); ?></small>
     </h1>
 </div>
@@ -31,7 +31,7 @@ $this->menu = [
 <p>
     <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="collapse" data-target="#search-toggle">
         <i class="fa fa-search">&nbsp;</i>
-        <?php echo Yii::t('ListnerModule.listner', 'Поиск Студентов');?>
+        <?php echo Yii::t('ListnerModule.listner', 'Поиск Тарифов');?>
         <span class="caret">&nbsp;</span>
     </a>
 </p>
@@ -39,7 +39,7 @@ $this->menu = [
 <div id="search-toggle" class="collapse out search-form">
         <?php Yii::app()->clientScript->registerScript('search', "
         $('.search-form form').submit(function () {
-            $.fn.yiiGridView.update('listner-grid', {
+            $.fn.yiiGridView.update('form-grid', {
                 data: $(this).serialize()
             });
 
@@ -52,27 +52,24 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Студентами'); ?>
+<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Тарифами'); ?>
 </p>
 
 <?php
  $this->widget(
     'yupe\widgets\CustomGridView',
     [
-        'id'           => 'listner-grid',
+        'id'           => 'form-grid',
         'type'         => 'striped condensed',
         'dataProvider' => $model->search(),
         'filter'       => $model,
         'columns'      => [
             'id',
+            'type_id',
             'name',
-            'lastname',
-            'patronymic',
-            'phone',
-            'create_date',
-//            'branch_id',
-//            'email',
-//            'status',
+            'description',
+            'number',
+            'number_in_week',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],

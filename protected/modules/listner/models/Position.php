@@ -68,8 +68,48 @@ class Position extends yupe\models\YModel
 			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
+        
+//        protected function beforeSave() {
+//            $time = split(',', $this->time);
+//            $j = count($time);
+//            $r=$this->findSchedule($time[0]);
+//            $foo = (int)substr($time[0],0,2);
+//            $foo = $foo+1;
+//            die(var_dump($foo));
+//            parent::beforeSave();
+//        }
 
-	/**
+
+        protected function afterSave() 
+        {
+            parent::afterSave();
+            if($this->isNewRecord){
+                $time = split(',', $this->time);
+                $tCount = count($time);
+                $j = 0;
+                for($i=0; $i<$this->form->number;$i++){
+                    if($j==$tCount)
+                        $j=0;
+                    $schedule = new Schedule;
+                    $schedule->position_id = $this->id;
+                    $schedule->number = $i+1;
+                    $schedule->start_time = $time[$j];
+                    $schedule->end_time = (int)substr($schedule->start_time, 0,2)+1;
+                    $r = $this->findRoom($schedule->start_time);
+                    $schedule->room_id = $r['id'];
+                    $schedule->save();
+                    $j++;
+                    
+                }
+            }
+        }
+        
+        protected function findRoom($t)
+        {
+            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'");            
+        }
+
+        /**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
