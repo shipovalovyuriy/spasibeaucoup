@@ -38,7 +38,27 @@ class SiteController extends FrontController
 //        $models = \Room::model()->with('branch')->findAll();
             echo \CJSON::encode($array);
     }
+    public function actionGetSchedules(){
+        $arr = [];
+        $arrs = [];
+        $array = \Yii::app()->db->createCommand()
+            ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id')
+            ->from('spbp_listner_listner a')
+            ->join('spbp_listner_position c','c.listner_id = a.id')
+            ->join('spbp_listner_schedule b','c.id = b.position_id')
+            ->queryAll();
 
+        foreach ($array as $row){
+           $arrs['id'] = $row['id'];
+            $arrs['resourceId'] = $row['room_id'];
+            $arrs['start']=$row['start_time'];
+            $arrs['end']=$row['end_time'];
+            $arrs['title'] = $row['lastname'];
+            array_push($arr,$arrs);
+
+        }
+        echo \CJSON::encode($arr);
+    }
     /**
      * Отображение для ошибок:
      *

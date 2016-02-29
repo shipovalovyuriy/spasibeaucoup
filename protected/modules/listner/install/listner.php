@@ -20,6 +20,8 @@ return [
     'component' => [],
     'rules'     => [
         '/listner' => 'listner/listner/index',
-        '/listner/<action>' => 'listner/listner/<action>'
+        '/listner/<action>' => 'listner/schedule/<action>',
+        '/schedule' => 'listner/schedule/index',
+        '/schedule/<action>' => 'listner/schedule/<action>'
     ],
 ];

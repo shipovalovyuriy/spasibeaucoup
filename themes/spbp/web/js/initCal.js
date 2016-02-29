@@ -39,10 +39,9 @@ $(document).ready(function(){
         resources: {
             url: '/getPositions',
         },
-        events: [
-            {id: '1', resourceId: '1', start: '2016-01-07T02:00:00', end: '2016-01-07T07:00:00', title: 'event 1'},
-            {id: '2', resourceId: '1', start: '2016-01-07T05:00:00', end: '2016-01-07T22:00:00', title: 'event 2'},
-        ]
+        events: {
+            url:'/GetSchedules'
+        }
     };
 
     console.log(obj);
