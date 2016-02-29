@@ -60,6 +60,7 @@ class Position extends yupe\models\YModel
 			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
 			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
 			'schedules' => array(self::HAS_MANY, 'Schedule', 'position_id'),
+                        'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
 		);
 	}
 

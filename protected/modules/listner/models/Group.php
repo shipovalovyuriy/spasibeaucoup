@@ -33,11 +33,10 @@ class Group extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_id, teacher_id', 'numerical', 'integerOnly'=>true),
 			array('name, time', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, time, subject_id, teacher_id', 'safe', 'on'=>'search'),
+			array('id, name, time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +48,6 @@ class Group extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
-			'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
 			'positions' => array(self::HAS_MANY, 'position', 'group_id'),
 		);
 	}
@@ -64,8 +61,6 @@ class Group extends yupe\models\YModel
 			'id' => 'ID',
 			'name' => 'Name',
 			'time' => 'Time',
-			'subject_id' => 'Subject',
-			'teacher_id' => 'Teacher',
 		);
 	}
 
@@ -90,9 +85,6 @@ class Group extends yupe\models\YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('time',$this->time,true);
-		$criteria->compare('subject_id',$this->subject_id);
-		$criteria->compare('teacher_id',$this->teacher_id);
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
