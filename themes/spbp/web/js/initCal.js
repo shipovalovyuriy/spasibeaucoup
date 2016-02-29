@@ -3,7 +3,7 @@ $(document).ready(function(){
     var teacherId = null;
     var obj = {
         now: new Date(),
-        editable: true,
+        editable: false,
         lang:'ru',
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
         aspectRatio: 1.8,
