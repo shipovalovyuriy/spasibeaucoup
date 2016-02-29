@@ -49,9 +49,12 @@ $this->menu = [
         'code',
         'form_id',
         'listner_id',
+        'teacher_id',
         'subject_id',
         'group_id',
         'lvl',
         'note',
+        'time',
+        'start_date',
     ],
 ]); ?>

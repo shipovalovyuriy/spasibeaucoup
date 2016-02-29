@@ -8,16 +8,20 @@
  * @property string $code
  * @property integer $form_id
  * @property integer $listner_id
+ * @property integer $teacher_id
  * @property integer $subject_id
  * @property integer $group_id
  * @property string $lvl
  * @property string $note
+ * @property string $time
+ * @property string $start_date
  *
  * The followings are the available model relations:
  * @property ListnerListner $listner
  * @property FormForm $form
  * @property ListnerGroup $group
  * @property SubjectSubject $subject
+ * @property UserTeacher $teacher
  * @property ListnerSchedule[] $listnerSchedules
  */
 class Position extends yupe\models\YModel
@@ -38,12 +42,13 @@ class Position extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('form_id, listner_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
-			array('code, lvl, time', 'length', 'max'=>50),
-			array('note', 'length', 'max'=>255),
+			array('start_date', 'required'),
+			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
+			array('code, lvl', 'length', 'max'=>50),
+			array('note, time', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, code, form_id, listner_id, subject_id, group_id, lvl, note', 'safe', 'on'=>'search'),
+			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,12 +60,12 @@ class Position extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'listner' => array(self::BELONGS_TO, 'listner', 'listner_id'),
+			'listner' => array(self::BELONGS_TO, 'Listner', 'listner_id'),
 			'form' => array(self::BELONGS_TO, 'Form', 'form_id'),
 			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
 			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
-			'schedules' => array(self::HAS_MANY, 'Schedule', 'position_id'),
-                        'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
+			'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
+			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
 
@@ -74,11 +79,13 @@ class Position extends yupe\models\YModel
 			'code' => 'Code',
 			'form_id' => 'Form',
 			'listner_id' => 'Listner',
+			'teacher_id' => 'Teacher',
 			'subject_id' => 'Subject',
 			'group_id' => 'Group',
 			'lvl' => 'Lvl',
 			'note' => 'Note',
-                        'time' => 'Время занятий'
+			'time' => 'Time',
+			'start_date' => 'Start Date',
 		);
 	}
 
@@ -104,10 +111,13 @@ class Position extends yupe\models\YModel
 		$criteria->compare('code',$this->code,true);
 		$criteria->compare('form_id',$this->form_id);
 		$criteria->compare('listner_id',$this->listner_id);
+		$criteria->compare('teacher_id',$this->teacher_id);
 		$criteria->compare('subject_id',$this->subject_id);
 		$criteria->compare('group_id',$this->group_id);
 		$criteria->compare('lvl',$this->lvl,true);
 		$criteria->compare('note',$this->note,true);
+		$criteria->compare('time',$this->time,true);
+		$criteria->compare('start_date',$this->start_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -63,6 +63,15 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'teacher_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'id')
+                    ]
+                ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
                     'widgetOptions' => [
                         'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
@@ -116,6 +125,17 @@ $form = $this->beginWidget(
                     ]
                 ]
             ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->datePickerGroup($model,'start_date', [
+            'widgetOptions'=>[
+                'options' => [],
+                'htmlOptions' => []
+            ],
+            'prepend'=>'<i class="fa fa-calendar"></i>'
+        ]); ?>
         </div>
     </div>
 
