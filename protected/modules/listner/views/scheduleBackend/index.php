@@ -10,15 +10,15 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('ListnerModule.listner', 'Расписания') => ['/listner/schedule/index'],
+    Yii::t('ListnerModule.listner', 'Расписания') => ['/listner/scheduleBackend/index'],
     Yii::t('ListnerModule.listner', 'Управление'),
 ];
 
 $this->pageTitle = Yii::t('ListnerModule.listner', 'Расписания - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Расписаниям'), 'url' => ['/listner/schedule/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Расписание'), 'url' => ['/listner/schedule/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Расписаниями'), 'url' => ['/listner/scheduleBackend/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Расписание'), 'url' => ['/listner/scheduleBackend/create']],
 ];
 ?>
 <div class="page-header">
@@ -52,7 +52,7 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Расписаниям'); ?>
+<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Расписаниями'); ?>
 </p>
 
 <?php
@@ -67,7 +67,8 @@ $this->menu = [
             'id',
             'position_id',
             'number',
-            'time',
+            'start_time',
+            'end_time',
             'room_id',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',

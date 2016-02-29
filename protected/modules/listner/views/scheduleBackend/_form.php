@@ -10,7 +10,7 @@
  *
  *   @var $model Schedule
  *   @var $form TbActiveForm
- *   @var $this ScheduleController
+ *   @var $this ScheduleBackendController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
@@ -54,12 +54,25 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'time', [
+            <?php echo $form->textFieldGroup($model, 'start_time', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('time'),
-                        'data-content' => $model->getAttributeDescription('time')
+                        'data-original-title' => $model->getAttributeLabel('start_time'),
+                        'data-content' => $model->getAttributeDescription('start_time')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'end_time', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('end_time'),
+                        'data-content' => $model->getAttributeDescription('end_time')
                     ]
                 ]
             ]); ?>

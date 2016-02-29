@@ -1,6 +1,6 @@
 <?php
 /**
-* Класс ScheduleController:
+* Класс ScheduleBackendController:
 *
 *   @category Yupe\yupe\components\controllers\BackController
 *   @package  yupe
@@ -117,7 +117,7 @@ class ScheduleBackendController extends \yupe\components\controllers\BackControl
     }
     
     /**
-    * Управление Расписаниям.
+    * Управление Расписаниями.
     *
     * @return void
     */

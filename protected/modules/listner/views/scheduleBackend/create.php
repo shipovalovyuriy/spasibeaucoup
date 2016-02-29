@@ -10,15 +10,15 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('ListnerModule.listner', 'Расписания') => ['/listner/schedule/index'],
+    Yii::t('ListnerModule.listner', 'Расписания') => ['/listner/scheduleBackend/index'],
     Yii::t('ListnerModule.listner', 'Добавление'),
 ];
 
 $this->pageTitle = Yii::t('ListnerModule.listner', 'Расписания - добавление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Расписаниям'), 'url' => ['/listner/schedule/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Расписание'), 'url' => ['/listner/schedule/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Расписаниями'), 'url' => ['/listner/scheduleBackend/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Расписание'), 'url' => ['/listner/scheduleBackend/create']],
 ];
 ?>
 <div class="page-header">
