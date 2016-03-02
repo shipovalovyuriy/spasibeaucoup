@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    var listenerId = null;
-    var teacherId = null;
+    var userId = 2;
+    var branchId = 1;
+    var userType = 1;// 1 - teacher , 2 - listener
     var obj = {
         now: new Date(),
         editable: false,
@@ -23,11 +24,6 @@ $(document).ready(function(){
         resourceAreaWidth: '50%',
         resourceColumns: [
             {
-                group: true,
-                labelText: 'Филиал',
-                field: 'name'
-            },
-            {
                 labelText: 'Аудитория',
                 field: 'alias'
             },
@@ -37,10 +33,10 @@ $(document).ready(function(){
             }
         ],
         resources: {
-            url: '/getPositions',
+            url: '/GetPositions/'+branchId,
         },
         events: {
-            url:'/GetSchedules'
+            url:'/GetSchedules/'+userType+'/'+userId,
         }
     };
 

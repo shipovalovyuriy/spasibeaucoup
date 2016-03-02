@@ -26,49 +26,66 @@ class SiteController extends FrontController
         $this->render('index');
     }
 
-    public function actionGetPositions()
+    public function actionGetPositions($param1)
     {
         //$branches = [];
         //$array = [];
         $array = \Yii::app()->db->createCommand()
             ->select('b.id, a.name, b.alias, b.capacity')
             ->from('spbp_branch_branch a')
-            ->join('spbp_branch_room b','a.id = b.branch_id;')
+            ->join('spbp_branch_room b', 'a.id = b.branch_id')
+            ->where('b.branch_id=:id', array(':id' => $param1))
             ->queryAll();
 //        $models = \Room::model()->with('branch')->findAll();
-            echo \CJSON::encode($array);
+        echo \CJSON::encode($array);
     }
-    public function actionGetSchedules(){
+
+    public function actionGetSchedules($param1, $param2)
+    {
         $arr = [];
         $arrs = [];
-        $array = \Yii::app()->db->createCommand()
-            ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id, d.name')
-            ->from('spbp_listner_listner a')
-            ->join('spbp_listner_position c','c.listner_id = a.id')
-            ->join('spbp_listner_schedule b','c.id = b.position_id')
-            ->join ('spbp_subject_subject d','d.id = c.subject_id')
-            ->queryAll();
+        if ($param1 == "1") {
+            $array = \Yii::app()->db->createCommand()
+                ->select('b.id, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->from('spbp_user_user a')
+                ->join('spbp_user_teacher f','a.id = f.user_id')
+                ->join('spbp_listner_position c', 'c.teacher_id = f.id')
+                ->join('spbp_listner_schedule b', 'c.id = b.position_id')
+                ->join('spbp_subject_subject d', 'd.id = c.subject_id')
+                ->where('f.id =:id',array(":id"=>$param2))
+                ->queryAll();
+        }else if($param1=="2"){
+            $array = \Yii::app()->db->createCommand()
+                ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->from('spbp_listner_listner a')
+                ->join('spbp_listner_position c', 'c.listner_id = a.id')
+                ->join('spbp_listner_schedule b', 'c.id = b.position_id')
+                ->join('spbp_subject_subject d', 'd.id = c.subject_id')
+                ->where('a.id =:id',array(":id"=>$param2))
+                ->queryAll();
+        }
 
-        foreach ($array as $row){
-           $arrs['id'] = $row['id'];
+        foreach ($array as $row) {
+            $arrs['id'] = $row['id'];
             $arrs['resourceId'] = $row['room_id'];
-            $arrs['start']=$row['start_time'];
-            $arrs['end']=$row['end_time'];
-            $arrs['title'] = $row['lastname'].' ('.$row['name'].')';
-            array_push($arr,$arrs);
+            $arrs['start'] = $row['start_time'];
+            $arrs['end'] = $row['end_time'];
+            $arrs['title'] = $row['lastname'] . ' (' . $row['name'] . ')';
+            array_push($arr, $arrs);
 
         }
         echo \CJSON::encode($arr);
     }
+
     /**
      * Отображение для ошибок:
      *
      * @return void
      */
     public function actionError()
-    {   
+    {
         $error = \Yii::app()->errorHandler->error;
-        
+
         if (empty($error) || !isset($error['code']) || !(isset($error['message']) || isset($error['msg']))) {
             $this->redirect(['index']);
         }
@@ -83,6 +100,7 @@ class SiteController extends FrontController
             );
         }
     }
+
     public function actionSchedule()
     {
         $this->render('schedule');

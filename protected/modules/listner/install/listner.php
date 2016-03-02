@@ -23,5 +23,6 @@ return [
         '/listner/<action>' => 'listner/schedule/<action>',
         '/schedule' => 'listner/schedule/index',
         '/schedule/<action>' => 'listner/schedule/<action>'
+
     ],
 ];
