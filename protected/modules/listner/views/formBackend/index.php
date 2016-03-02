@@ -65,7 +65,10 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'type_id',
+            [
+                'header' => 'Тип формы обучения',
+                'name'   => 'type.name',
+            ],
             'name',
             'description',
             'number',

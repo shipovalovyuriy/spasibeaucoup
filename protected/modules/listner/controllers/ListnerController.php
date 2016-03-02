@@ -120,7 +120,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
     *
     * @return void
     */
-    public function actionIndex()
+    public function actionAll()
     {
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
@@ -136,6 +136,13 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $this->render('index', ['model' => $model]);
     }
     public function actionPotential(){
+        $model = new Listner('search');
+        $model->unsetAttributes(); // clear any default values
+        if (Yii::app()->getRequest()->getParam('Listner') !== null)
+            $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
+        $this->render('index', ['model' => $model]);
+    }
+    public function actionGraduates(){
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Listner') !== null)

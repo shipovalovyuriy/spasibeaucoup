@@ -65,14 +65,14 @@ class Listner extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'lastname' => 'Lastname',
-			'patronymic' => 'отчество',
-			'phone' => 'Phone',
-			'create_date' => 'Create Date',
-			'branch_id' => 'Branch',
+			'name' => 'Имя',
+			'lastname' => 'Фамилия',
+			'patronymic' => 'Отчество',
+			'phone' => 'Телефон',
+			'create_date' => 'Дата регистрации',
+			'branch_id' => 'Филиал',
 			'email' => 'Email',
-			'status' => 'Status',
+			'status' => 'Статус',
 		);
 	}
 

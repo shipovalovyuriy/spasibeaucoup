@@ -59,8 +59,8 @@ class Group extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'time' => 'Time',
+			'name' => 'Имя группы',
+			'time' => 'Время',
 		);
 	}
 

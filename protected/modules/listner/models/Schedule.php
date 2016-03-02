@@ -62,11 +62,11 @@ class Schedule extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'position_id' => 'Position',
-			'number' => 'Number',
-			'start_time' => 'Start Time',
-			'room_id' => 'Room',
-			'end_time' => 'End Time',
+			'position_id' => 'Положение',
+			'number' => 'Номер занятия',
+			'start_time' => 'Время начала',
+			'room_id' => 'Комната',
+			'end_time' => 'Время конца',
 		);
 	}
 

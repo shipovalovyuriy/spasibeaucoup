@@ -59,9 +59,9 @@ class Room extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'branch_id' => 'Branch',
-			'alias' => 'Alias',
-			'capacity' => 'Capacity',
+			'branch_id' => 'Филиал',
+			'alias' => 'Название',
+			'capacity' => 'Вместимость',
 		);
 	}
 

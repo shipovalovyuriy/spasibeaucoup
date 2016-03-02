@@ -8,6 +8,7 @@ $(document).ready(function(){
         lang:'ru',
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
         aspectRatio: 1.8,
+        eventLimit: true,
         scrollTime: '00:00',
         header: {
             left: 'today prev,next',

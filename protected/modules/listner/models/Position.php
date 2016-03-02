@@ -116,16 +116,16 @@ class Position extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'code' => 'Code',
-			'form_id' => 'Form',
-			'listner_id' => 'Listner',
-			'teacher_id' => 'Teacher',
-			'subject_id' => 'Subject',
-			'group_id' => 'Group',
-			'lvl' => 'Lvl',
-			'note' => 'Note',
-			'time' => 'Time',
-			'start_date' => 'Start Date',
+			'code' => 'Номер учета',
+			'form_id' => 'Форма обучения',
+			'listner_id' => 'Слушатель',
+			'teacher_id' => 'Преподаватель',
+			'subject_id' => 'Предмет',
+			'group_id' => 'Группа',
+			'lvl' => 'Уровень',
+			'note' => 'Примечание',
+			'time' => 'Время',
+			'start_date' => 'Дата начала обучения',
 		);
 	}
 

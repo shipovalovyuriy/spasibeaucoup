@@ -66,13 +66,28 @@ $this->menu = [
         'columns'      => [
             'id',
             'code',
-            'form_id',
-            'listner_id',
-            'teacher_id',
-            'subject_id',
-//            'group_id',
-//            'lvl',
-//            'note',
+            [
+                'header' => 'Формы обучения',
+                'name'   => 'form.name',
+            ],
+            [
+                'header' => 'Имя слушателя',
+                'name'   => 'listner.name',
+            ],
+            [
+                'header' => 'Имя преподавателя',
+                'name'   => 'teacher.name',
+            ],
+            [
+                'header' => 'Предмет',
+                'name'   => 'subject.name',
+            ],
+            [
+                'header' => 'Группа',
+                'name'   => 'group.name',
+            ],
+            'lvl',
+            'note',
 //            'time',
 //            'start_date',
             [

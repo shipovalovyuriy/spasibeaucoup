@@ -62,10 +62,10 @@ class Form extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'type_id' => 'Type',
-			'name' => 'Name',
-			'description' => 'Description',
-			'number' => 'Number',
+			'type_id' => 'Тип формы обучения',
+			'name' => 'Название',
+			'description' => 'Описание',
+			'number' => 'Количество занятий в неделю',
 		);
 	}
 

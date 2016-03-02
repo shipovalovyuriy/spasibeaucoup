@@ -64,9 +64,9 @@ class Branch extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'parent_id' => 'Parent',
-			'name' => 'Name',
-			'address' => 'Address',
+			'parent_id' => 'Администратор филиала',
+			'name' => 'Название',
+			'address' => 'Адрес',
 		);
 	}
         

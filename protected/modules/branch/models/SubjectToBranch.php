@@ -57,8 +57,8 @@ class SubjectToBranch extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'subject_id' => 'Subject',
-			'branch_id' => 'Branch',
+			'subject_id' => 'Предмет',
+			'branch_id' => 'Филиал',
 		);
 	}
 
