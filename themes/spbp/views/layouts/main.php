@@ -90,7 +90,7 @@
                               </a>
                             </li>
                             <li>
-                              <a href="/schedule" class="dropdown-toggle">
+                              <a href="/site/schedule" class="dropdown-toggle">
                                 <i class="fa fa-tasks"></i>
                                 <span>Расписание</span>
                               </a>

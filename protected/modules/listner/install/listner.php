@@ -21,5 +21,6 @@ return [
     'rules'     => [
         //'/listner' => 'listner/listner/index',
         '/listner/<action>' => 'listner/listner/<action>',
+        '/listner/<action:\w+>/<id:\d+>' => '/listner/listner/<action>',
     ],
 ];

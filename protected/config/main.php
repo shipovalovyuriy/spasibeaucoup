@@ -141,7 +141,7 @@ return [
                 '/backend/<module:\w+>/<controller:\w+>' => '/<module>/<controller>Backend/index',
                 '/backend/<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '/<module>/<controller>Backend/<action>',
                 '/backend/<module:\w+>/<controller:\w+>/<action:\w+>' => '/<module>/<controller>Backend/<action>',
-                '/<action:\w+>' => 'site/<action>',
+                '/site/<action:\w+>' => 'site/<action>',
                 '/GetPositions/<param1:\d+>'=>'site/GetPositions/',
                 '/GetSchedules/<param1:\d+>/<param2:\d+>'=>'site/GetSchedules/',
                 '/gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',                
