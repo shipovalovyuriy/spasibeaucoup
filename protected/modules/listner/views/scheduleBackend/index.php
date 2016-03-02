@@ -69,7 +69,10 @@ $this->menu = [
             'number',
             'start_time',
             'end_time',
-            'room_id',
+            [
+                'header' => 'Аудитория',
+                'name'   => 'room.alias',
+            ],
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],

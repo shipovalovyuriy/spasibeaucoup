@@ -55,7 +55,7 @@ class Type extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Название',
 		);
 	}
 

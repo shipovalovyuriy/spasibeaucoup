@@ -65,7 +65,10 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'branch_id',
+            [
+                'header'=> 'Название филиала',
+                'name' => 'branch.name',
+            ],
             'alias',
             'capacity',
             [

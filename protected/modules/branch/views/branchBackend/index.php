@@ -65,7 +65,10 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'parent_id',
+            [
+                'header'=> 'Имя администратора',
+                'name' => 'parent.first_name',
+            ],
             'name',
             'address',
             [

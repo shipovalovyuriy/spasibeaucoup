@@ -71,8 +71,8 @@ $this->menu = [
             'phone',
             'create_date',
 //            'branch_id',
-//            'email',
-//            'status',
+            'email',
+            'status',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],
