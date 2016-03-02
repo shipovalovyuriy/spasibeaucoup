@@ -5574,8 +5574,8 @@ DayGrid.mixin({
 		}
 
 		titleHtml =
-			'<span class="fc-title">' +
-				(htmlEscape(event.title || '') || '&nbsp;') + // we always want one line of height
+			'<span  style="" class="fc-title">' +
+				(htmlEscape(event.title || '') || '&nbsp;') // we always want one line of height
 			'</span>';
 		
 		return '<a class="' + classes.join(' ') + '"' +

@@ -230,7 +230,7 @@
 }
 .fc-content .fc-widget-header,
 .fc-content .fc-widget-content {
-  border-color: #ebeff6;
+  border-color: rgba(0, 0, 0, 0.51);
 }
 .fc-content .fc-event {
   border: none;

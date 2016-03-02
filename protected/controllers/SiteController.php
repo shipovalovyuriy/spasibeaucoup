@@ -46,7 +46,7 @@ class SiteController extends FrontController
         $arrs = [];
         if ($param1 == "1") {
             $array = \Yii::app()->db->createCommand()
-                ->select('b.id, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name')
                 ->from('spbp_user_user a')
                 ->join('spbp_user_teacher f','a.id = f.user_id')
                 ->join('spbp_listner_position c', 'c.teacher_id = f.id')
@@ -56,21 +56,32 @@ class SiteController extends FrontController
                 ->queryAll();
         }else if($param1=="2"){
             $array = \Yii::app()->db->createCommand()
-                ->select('b.id, a.lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->select('b.id, c.code, a.lastname, b.start_time, b.end_time, b.room_id, d.name')
                 ->from('spbp_listner_listner a')
                 ->join('spbp_listner_position c', 'c.listner_id = a.id')
                 ->join('spbp_listner_schedule b', 'c.id = b.position_id')
                 ->join('spbp_subject_subject d', 'd.id = c.subject_id')
                 ->where('a.id =:id',array(":id"=>$param2))
                 ->queryAll();
-        }
+        }else if(($param1==0)&&($param2==0)){
+        $array = \Yii::app()->db->createCommand()
+            ->select('b.id, c.code, concat(a.last_name," - ",z.lastname) as lastname, b.start_time, b.end_time, b.room_id, d.name')
+            ->from('spbp_user_user a')
+            ->join('spbp_user_teacher f','a.id = f.user_id')
+            ->join('spbp_listner_position c', 'c.teacher_id = f.id')
+            ->join('spbp_listner_listner z','z.id = c.listner_id')
+            ->join('spbp_listner_schedule b', 'c.id = b.position_id')
+            ->join('spbp_subject_subject d', 'd.id = c.subject_id')
+            ->queryAll();
+    }
 
         foreach ($array as $row) {
             $arrs['id'] = $row['id'];
             $arrs['resourceId'] = $row['room_id'];
             $arrs['start'] = $row['start_time'];
             $arrs['end'] = $row['end_time'];
-            $arrs['title'] = $row['lastname'] . ' (' . $row['name'] . ')';
+            $arrs['title'] = '('.$row['code'].') '.$row['lastname'] . ' (' . $row['name'] . ')';
+            $arrs['backgroundColor']="#ff9f89";
             array_push($arr, $arrs);
 
         }

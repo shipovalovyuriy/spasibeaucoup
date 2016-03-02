@@ -1,14 +1,5 @@
 
-<h1 class="page-header">Календарь</h1>
-<style>
-
-    #calendar {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-</style>
-
+<h1 class="page-header">Расписание</h1>
 
 <div id='calendar'></div>
 

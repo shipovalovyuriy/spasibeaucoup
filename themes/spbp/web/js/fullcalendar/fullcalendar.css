@@ -4,7 +4,13 @@
  * (c) 2015 Adam Shaw
  */
 
+#calendar{
 
+	max-width:100%;
+}
+.fc-widget-content{
+	height:100px;
+}
 .fc {
 	direction: ltr;
 	text-align: left;
@@ -29,7 +35,8 @@ body .fc { /* extra precedence to overcome jqui */
 .fc-unthemed .fc-divider,
 .fc-unthemed .fc-row,
 .fc-unthemed .fc-popover {
-	border-color: #ddd;
+
+	border-color: rgba(0, 0, 0, 0.82);
 }
 
 .fc-unthemed .fc-popover {
@@ -545,6 +552,7 @@ temporary rendered events).
 .fc-event .fc-content {
 	position: relative;
 	z-index: 2;
+	border-color:#000;
 }
 
 .fc-event .fc-resizer {
