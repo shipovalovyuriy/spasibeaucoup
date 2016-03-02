@@ -96,7 +96,7 @@ class Position extends yupe\models\YModel
                     $schedule->start_time = $time[$j];
                     $schedule->end_time = (int)substr($schedule->start_time, 0,2)+1;
                     $r = $this->findRoom($schedule->start_time);
-                    $schedule->room_id = $r['id'];
+                    $schedule->room_id = $r;
                     $schedule->save();
                     $j++;
                     
@@ -106,7 +106,7 @@ class Position extends yupe\models\YModel
         
         protected function findRoom($t)
         {
-            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'");            
+            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'")->id;            
         }
 
         /**
