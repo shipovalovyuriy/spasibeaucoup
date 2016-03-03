@@ -129,11 +129,10 @@ $this->menu = [
         var userType = 2;// 1 - teacher , 2 - listener
 
     </script>
+
 <div class="row">
 <?php
 $this->beginWidget('application.modules.listner.widgets.CalendarWidget');
-
-
 $this->endWidget();?>
-    </div>
+</div>
 
