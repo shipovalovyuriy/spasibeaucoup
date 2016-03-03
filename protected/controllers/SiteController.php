@@ -115,9 +115,12 @@ class SiteController extends FrontController
         }
     }
 
-    public function actionSchedule()
+    public function actionSchedule($id)
     {
-        $this->render('schedule');
+        $model = \Branch::model()->findByPk($id)->id;
+        $this->render('schedule',[
+            'model' => $model
+        ]);
     }
     public function actionBranch()
     {
