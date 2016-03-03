@@ -80,7 +80,8 @@ class SiteController extends FrontController
             $arrs['resourceId'] = $row['room_id'];
             $arrs['start'] = $row['start_time'];
             $arrs['end'] = $row['end_time'];
-            $arrs['title'] = '('.$row['code'].') '.$row['lastname'] . ' (' . $row['name'] . ')';
+            $arrs['title'] = '('.$row['code'].')'.$row['lastname'] . '(' . $row['name'] . ')';
+            $arras['height'] = '100px';
             $arrs['backgroundColor']="#ff9f89";
             array_push($arr, $arrs);
 

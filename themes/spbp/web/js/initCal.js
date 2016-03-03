@@ -2,6 +2,8 @@ $(document).ready(function(){
     var userId = 0;
     var branchId = 1;
     var userType = 0;// 1 - teacher , 2 - listener
+
+
     var obj = {
         now: new Date(),
         editable: false,
