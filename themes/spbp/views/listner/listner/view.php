@@ -41,7 +41,7 @@ $this->menu = [
         <small>&laquo;<?php echo $model->name .' '.$model->lastname ?>&raquo;</small>
     </h1>
 </div>
-
+<div class="row">
 <div class="col-md-6 pull-left">
     <section class="panel">
         <header class="panel-heading">
@@ -98,11 +98,13 @@ $this->menu = [
                     </div>
                     <div class="media-body">                        
                         <a href="#" class="h4">Расписание студента</a>
+
                     </div>
                 </article>
         </section>
     </section>
 </div>
+
 <div class="col-md-6 pull-right">
     <section class="panel">
         <header class="panel-heading">
@@ -132,3 +134,18 @@ $this->menu = [
         </section>
     </section>
 </div>
+</div>
+    <script>
+        var userId = <?php echo $model->id?>;
+        var branchId = <?php echo $model->branch->id?>;
+        var userType = 2;// 1 - teacher , 2 - listener
+
+    </script>
+<div class="row">
+<?php
+$this->beginWidget('application.modules.listner.widgets.CalendarWidget');
+
+
+$this->endWidget();?>
+    </div>
+
