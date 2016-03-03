@@ -89,18 +89,6 @@ $this->menu = [
                     </div>
                 </article>
                 <div class="line pull-in"></div>
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-info fa-stack-2x"></i>
-                            <i class="fa fa-star text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                        
-                        <a href="#" class="h4">Расписание студента</a>
-
-                    </div>
-                </article>
         </section>
     </section>
 </div>
