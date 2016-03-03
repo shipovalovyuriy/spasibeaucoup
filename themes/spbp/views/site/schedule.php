@@ -1,6 +1,6 @@
 <script>
     var userId = 0;
-    var branchId = 1;
+    var branchId = <?= $model ?>;
     var userType = 0;// 1 - teacher , 2 - listener
 </script>
 <?php

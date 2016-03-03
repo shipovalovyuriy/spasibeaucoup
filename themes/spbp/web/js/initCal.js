@@ -9,12 +9,16 @@ $(document).ready(function(){
         lang:'ru',
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
         aspectRatio: 1.8,
+
         eventLimit: true,
         height:600,
         scrollTime: '00:00',
         minTime: "09:00:00",
         maxTime: "21:00:00",
-
+        slotLabelFormat: [
+            'h:mm', // top level of text
+        ],
+        slotWidth:100,
         header: {
             left: 'today prev,next',
             center: 'title',
