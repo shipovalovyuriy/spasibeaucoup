@@ -149,6 +149,12 @@ class ListnerController extends \yupe\components\controllers\FrontController
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
         $this->render('index', ['model' => $model]);
     }
+    
+    public function actionSubject($id){
+        $model = Position::model()->findAll('id='.$id);
+        $this->render('subjectList', ['model' => $model[0]]);
+    }
+
     /**
     * Возвращает модель по указанному идентификатору
     * Если модель не будет найдена - возникнет HTTP-исключение.

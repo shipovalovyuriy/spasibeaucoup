@@ -38,21 +38,97 @@ $this->menu = [
 <div class="page-header">
     <h1>
         <?php echo Yii::t('ListnerModule.listner', 'Просмотр') . ' ' . Yii::t('ListnerModule.listner', 'Студента'); ?>        <br/>
-        <small>&laquo;<?php echo $model->name; ?>&raquo;</small>
+        <small>&laquo;<?php echo $model->name .' '.$model->lastname ?>&raquo;</small>
     </h1>
 </div>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView', [
-    'data'       => $model,
-    'attributes' => [
-        'id',
-        'name',
-        'lastname',
-        'patronymic',
-        'phone',
-        'create_date',
-        'branch_id',
-        'email',
-        'status',
-    ],
-]); ?>
+<div class="col-md-6 pull-left">
+    <section class="panel">
+        <header class="panel-heading">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
+                </li>
+            </ul>
+            Персональные данные <span class="badge bg-info"></span>                    
+        </header>
+        <section class="panel-body">
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-info fa-stack-2x"></i>
+                            <i class="fa fa-star text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="#" class="h4">Телефон: <?= $model->phone?></a>
+                    </div>
+                </article>
+                <div class="line pull-in"></div>
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-info fa-stack-2x"></i>
+                            <i class="fa fa-star text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="#" class="h4">Email: <?= $model->email?></a>
+                    </div>
+                </article>
+                <div class="line pull-in"></div>
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-info fa-stack-2x"></i>
+                            <i class="fa fa-star text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="#" class="h4">Статус: <?= $model->status?></a>
+                    </div>
+                </article>
+                <div class="line pull-in"></div>
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-info fa-stack-2x"></i>
+                            <i class="fa fa-star text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="#" class="h4">Расписание студента</a>
+                    </div>
+                </article>
+        </section>
+    </section>
+</div>
+<div class="col-md-6 pull-right">
+    <section class="panel">
+        <header class="panel-heading">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
+                </li>
+            </ul>
+            Список курсов <span class="badge bg-info"></span>                    
+        </header>
+        <section class="panel-body">
+            <?php
+            foreach($model->position as $position):?>
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-default fa-stack-2x"></i>
+                            <i class="fa fa-star text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="/listner/subject/lessons/<?=$position->id?>" class="h4"><?= $position->subject->name?></a>
+                    </div>
+                </article>
+                <div class="line pull-in"></div>
+            <?php endforeach;?>
+        </section>
+    </section>
+</div>
