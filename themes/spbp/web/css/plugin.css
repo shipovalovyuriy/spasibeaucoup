@@ -235,6 +235,7 @@
 .fc-content .fc-event {
   border: none;
   padding: 4px 6px;
+  min-height:100px;
 }
 .fc-event {
   background-color: #5dcff3;
