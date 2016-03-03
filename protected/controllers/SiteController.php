@@ -119,4 +119,9 @@ class SiteController extends FrontController
     {
         $this->render('schedule');
     }
+    public function actionBranch()
+    {
+        $model = \Branch::model()->findAll();
+        $this->render('branch', ['model' => $model]);
+    }
 }
