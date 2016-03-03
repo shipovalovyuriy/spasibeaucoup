@@ -44,6 +44,10 @@ $(document).ready(function(){
         },
         events: {
             url:'/GetSchedules/'+userType+'/'+userId,
+        },
+        eventRender: function(event, element) {
+            element.find('.fc-title').append("<br/>" + event.desc);
+            element.find('.fc-title').append("<br/>" + event.subj);
         }
     };
 

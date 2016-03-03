@@ -131,8 +131,9 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->datePickerGroup($model,'start_date', [
             'widgetOptions'=>[
-                'options' => [],
-                'htmlOptions' => []
+                'options' => [
+                ],
+                'htmlOptions' => [],
             ],
             'prepend'=>'<i class="fa fa-calendar"></i>'
         ]); ?>
