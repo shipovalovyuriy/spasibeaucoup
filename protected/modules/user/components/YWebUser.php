@@ -179,6 +179,11 @@ class YWebUser extends CWebUser
 
         return $value;
     }
+    
+    public function getBranch()
+    {
+        return User::model()->findByPk(Yii::app()->user->id)->branch;
+    }
 
     /**
      * @param  int $size

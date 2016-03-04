@@ -191,7 +191,8 @@ class User extends yupe\models\YModel
                 self::HAS_MANY,
                 'UserToken',
                 'user_id'
-            ]
+            ],
+            'branch' => [self::HAS_ONE, 'Branch', 'parent_id']
         ];
     }
 

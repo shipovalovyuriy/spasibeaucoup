@@ -17,5 +17,6 @@ return [
     'component' => [],
     'rules'     => [
         '/branch' => 'branch/branch/index',
+        '/employees' => 'branch/user/index'
     ],
 ];

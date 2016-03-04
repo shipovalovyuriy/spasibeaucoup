@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'listner-grid',
         'type'         => 'striped condensed',

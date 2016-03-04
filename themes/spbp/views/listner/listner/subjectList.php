@@ -12,7 +12,7 @@
                 <i class=""></i> Март
             </a>
             <?php foreach($model->schedule as $schedule):?>
-                <a href="#" class="list-group-item">
+                <a href="#" class="list-group-item" <?php if($schedule->start_time):?>style="text-decoration: line-through;"<?php endif;?>>
                     <i class=""></i> Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?>
                 </a>
             <?php endforeach;?>

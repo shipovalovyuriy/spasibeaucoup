@@ -23,7 +23,12 @@ class SiteController extends FrontController
      */
     public function actionIndex()
     {
-        $this->render('index');
+        $branch = \Branch::model()->findAll();
+        $teacher = \Teacher::model()->findAll();
+        $this->render('index', [
+            'branchs' => $branch,
+            'teachers' => $teacher
+        ]);
     }
 
     public function actionGetPositions($param1)

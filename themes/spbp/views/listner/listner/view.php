@@ -42,86 +42,85 @@ $this->menu = [
     </h1>
 </div>
 <div class="row">
-<div class="col-md-6 pull-left">
-    <section class="panel">
-        <header class="panel-heading">
-            <ul class="nav nav-pills pull-right">
-                <li>
-                    <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
-                </li>
-            </ul>
-            Персональные данные <span class="badge bg-info"></span>                    
-        </header>
-        <section class="panel-body">
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-info fa-stack-2x"></i>
-                            <i class="fa fa-star text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                        
-                        <a href="#" class="h4">Телефон: <?= $model->phone?></a>
-                    </div>
-                </article>
-                <div class="line pull-in"></div>
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-info fa-stack-2x"></i>
-                            <i class="fa fa-star text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                        
-                        <a href="#" class="h4">Email: <?= $model->email?></a>
-                    </div>
-                </article>
-                <div class="line pull-in"></div>
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-info fa-stack-2x"></i>
-                            <i class="fa fa-star text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                        
-                        <a href="#" class="h4">Статус: <?= $model->status?></a>
-                    </div>
-                </article>
-                <div class="line pull-in"></div>
+    <div class="col-md-6 pull-left">
+        <section class="panel">
+            <header class="panel-heading">
+                <ul class="nav nav-pills pull-right">
+                    <li>
+                        <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
+                    </li>
+                </ul>
+                Персональные данные <span class="badge bg-info"></span>                    
+            </header>
+            <section class="panel-body">
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-info fa-stack-2x"></i>
+                                <i class="fa fa-star text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                        
+                            <a href="#" class="h4">Телефон: <?= $model->phone?></a>
+                        </div>
+                    </article>
+                    <div class="line pull-in"></div>
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-info fa-stack-2x"></i>
+                                <i class="fa fa-star text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                        
+                            <a href="#" class="h4">Email: <?= $model->email?></a>
+                        </div>
+                    </article>
+                    <div class="line pull-in"></div>
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-info fa-stack-2x"></i>
+                                <i class="fa fa-star text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                        
+                            <a href="#" class="h4">Статус: <?= $model->status?></a>
+                        </div>
+                    </article>
+            </section>
         </section>
-    </section>
-</div>
+    </div>
 
-<div class="col-md-6 pull-right">
-    <section class="panel">
-        <header class="panel-heading">
-            <ul class="nav nav-pills pull-right">
-                <li>
-                    <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
-                </li>
-            </ul>
-            Список курсов <span class="badge bg-info"></span>                    
-        </header>
-        <section class="panel-body">
-            <?php
-            foreach($model->position as $position):?>
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-default fa-stack-2x"></i>
-                            <i class="fa fa-star text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                        
-                        <a href="/listner/subject/lessons/<?=$position->id?>" class="h4"><?= $position->subject->name?></a>
-                    </div>
-                </article>
-                <div class="line pull-in"></div>
-            <?php endforeach;?>
+    <div class="col-md-6 pull-right">
+        <section class="panel">
+            <header class="panel-heading">
+                <ul class="nav nav-pills pull-right">
+                    <li>
+                        <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
+                    </li>
+                </ul>
+                Список курсов <span class="badge bg-info"></span>                    
+            </header>
+            <section class="panel-body">
+                <?php $positions = $model->position;
+                foreach($positions as $position):?>
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-default fa-stack-2x"></i>
+                                <i class="fa fa-star text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                        
+                            <a href="/listner/subject/lessons/<?=$position->id?>" class="h4"><?= $position->subject->name?></a>
+                        </div>
+                    </article>
+                    <?php if($position != end($positions)):?><div class="line pull-in"></div><?php endif;?>
+                <?php endforeach;?>
+            </section>
         </section>
-    </section>
-</div>
+    </div>
 </div>
     <script>
         var userId = <?php echo $model->id?>;
@@ -130,9 +129,10 @@ $this->menu = [
 
     </script>
 
-<div class="row">
-<?php
-$this->beginWidget('application.modules.listner.widgets.CalendarWidget');
-$this->endWidget();?>
+<div class="row" style="margin-left: 5%; margin-right: 5%;">
+    <?php
+        $this->beginWidget('application.modules.listner.widgets.CalendarWidget');
+        $this->endWidget();
+    ?>
 </div>
 

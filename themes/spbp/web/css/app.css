@@ -2,7 +2,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #717171;
-  background-color: #f3f5f9;
+  background-color: #E6E6E6;
 }
 h1,
 h2,
@@ -891,7 +891,7 @@ html.layout-box .vbox > footer {
     left: 27px !important;
   }
   #nav.nav-vertical .nav-msg {
-    top: 5px;
+    display: none;
   }
   #nav.nav-vertical .nav-msg .arrow.left {
     top: 20px;
@@ -2047,7 +2047,7 @@ fieldset[disabled] .btn-gplus.active {
   color: #8b93a6;
 }
 .bg-primary {
-  background-color: #2B4392;
+  background-color: #0745BF;
   color: #dbd8e9;
 }
 .bg-primary.lt,
@@ -2104,7 +2104,7 @@ fieldset[disabled] .btn-gplus.active {
   color: #ccc8e0;
 }
 .bg-success {
-  background-color: #92cf5c;
+  background-color: #FFFFFF;
   color: #fbfdfa;
 }
 .bg-success.lt,

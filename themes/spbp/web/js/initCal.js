@@ -2,21 +2,20 @@ $(document).ready(function(){
     //var userId = 1;
     //var branchId = 1;
     //var userType = 2;// 1 - teacher , 2 - listener
-
     var obj = {
         now: new Date(),
         editable: false,
         lang:'ru',
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
         aspectRatio: 1.8,
-
+        eventOverlap:false,
         eventLimit: true,
         height:600,
         scrollTime: '00:00',
         minTime: "09:00:00",
         maxTime: "21:00:00",
         slotLabelFormat: [
-            'h:mm', // top level of text
+            'H:mm', // top level of text
         ],
         slotWidth:100,
         header: {
@@ -56,6 +55,5 @@ $(document).ready(function(){
 
 
     $('#calendar').fullCalendar(obj);
-
 
 });
