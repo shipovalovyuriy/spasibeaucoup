@@ -26,8 +26,8 @@
                     </div>
                       <!-- / user -->
                       <!-- nav -->
-                    <nav class="nav-primary hidden-xs">
-                        <ul class="nav">
+                    <nav class="nav-primary hidden-xs ">
+                        <ul class="nav ">
                             <li class="active">
                               <a href="<?= Yii::app()->homeUrl?>">
                                 <i class="fa fa-eye"></i>
@@ -55,9 +55,6 @@
                         </ul>
                     </nav>
                     <footer class="footer bg-gradient hidden-xs">
-                        <a href="modal.lockme.html" data-toggle="ajaxModal" class="btn btn-sm btn-link m-r-n-xs pull-right">
-                          <i class="fa fa-power-off"></i>
-                        </a>
                         <a href="#nav" data-toggle="class:nav-vertical" class="btn btn-sm btn-link m-l-n-sm">
                           <i class="fa fa-bars"></i>
                         </a>
