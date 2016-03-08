@@ -34,7 +34,7 @@ class SubjectBackendController extends \yupe\components\controllers\BackControll
 
         if (Yii::app()->getRequest()->getPost('Subject') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Subject'));
-        
+
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,

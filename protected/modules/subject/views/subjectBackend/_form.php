@@ -89,7 +89,7 @@ $form = $this->beginWidget(
     <?php echo $form->labelEx($model,'color'); ?>
     <?php $this->widget('application.modules.subject.widgets.colorpicker.EColorPicker',
         array(
-            'name'=> 'cp',
+            'name'=> 'Subject[color]',
             'mode'=>'textfield',
             'fade' => false,
             'slide' => false,
@@ -101,17 +101,6 @@ $form = $this->beginWidget(
 
 <?php
 
-$this->widget('application.modules.subject.widgets.SMiniColors.SColorPicker', array(
-        'id' => 'myInputId',
-        'defaultValue'=>'#000000',
-        'hidden'=>false, // defaults to false - can be set to hide the textarea with the hex
-        'options' => array(
-            'change' => 'js:function(hex, rgb) { console.log(hex + " - " + rgb); }'
-        ), // jQuery plugin options
-        'htmlOptions' => array(
-        ),
-    )
-);
 
 
 ?>

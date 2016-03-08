@@ -51,7 +51,7 @@ class SiteController extends FrontController
         $arrs = [];
         if ($param1 == "1") {
             $array = \Yii::app()->db->createCommand()
-                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name,d.color')
                 ->from('spbp_user_user a')
                 ->join('spbp_user_teacher f','a.id = f.user_id')
                 ->join('spbp_listner_position c', 'c.teacher_id = f.id')
@@ -61,7 +61,7 @@ class SiteController extends FrontController
                 ->queryAll();
         }else if($param1=="2"){
             $array = \Yii::app()->db->createCommand()
-                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name')
+                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name,d.color')
                 ->from('spbp_user_user a')
                 ->join('spbp_user_teacher f','a.id = f.user_id')
                 ->join('spbp_listner_position c', 'c.teacher_id = f.id')
@@ -71,7 +71,7 @@ class SiteController extends FrontController
                 ->queryAll();
         }else if(($param1==0)&&($param2==0)){
         $array = \Yii::app()->db->createCommand()
-            ->select('b.id, c.code, concat(a.last_name," - ",z.lastname) as lastname, b.start_time, b.end_time, b.room_id, d.name')
+            ->select('b.id, c.code, concat(a.last_name," - ",z.lastname) as lastname, b.start_time, b.end_time, b.room_id, d.name,d.color')
             ->from('spbp_user_user a')
             ->join('spbp_user_teacher f','a.id = f.user_id')
             ->join('spbp_listner_position c', 'c.teacher_id = f.id')
@@ -90,7 +90,7 @@ class SiteController extends FrontController
             $arrs['desc'] = $row['lastname'];
             $arrs['subj'] = '('.$row['name'].')';
             $arras['height'] = '100px';
-            $arrs['backgroundColor']="#ff9f89";
+            $arrs['backgroundColor']='#'.$row['color'];
             array_push($arr, $arrs);
 
         }
