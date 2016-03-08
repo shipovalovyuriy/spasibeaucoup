@@ -1,0 +1,1 @@
+<input type="text" class="timepicker" id="<?php echo $this->id; ?>" value="<?php echo $this->model->{$this->name}?$this->model->{$this->name}:$this->options['value']; ?>" name="Position[start_date]" />

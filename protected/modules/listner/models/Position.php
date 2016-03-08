@@ -84,17 +84,17 @@ class Position extends yupe\models\YModel
         {
             parent::afterSave();
             if($this->isNewRecord){
-                $time = split(',', $this->time);
+                $time = explode(',', $this->time);
                 $tCount = count($time);
                 $j = 0;
+				$k = 0;
                 for($i=0; $i<$this->form->number;$i++){
-                    if($j==$tCount)
-                        $j=0;
+                    if($j==$tCount){$j=0;$k++;}
                     $schedule = new Schedule;
                     $schedule->position_id = $this->id;
                     $schedule->number = $i+1;
-                    $schedule->start_time = $time[$j];
-                    $schedule->end_time = (int)substr($schedule->start_time, 0,2)+1;
+                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));;
+                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));;
                     $r = $this->findRoom($schedule->start_time);
                     $schedule->room_id = $r;
                     $schedule->save();

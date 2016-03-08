@@ -1,0 +1,1 @@
+<input type="text" class="timepicker" id="<?php echo $this->id; ?>"  />
