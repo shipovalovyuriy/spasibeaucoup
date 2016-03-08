@@ -86,6 +86,36 @@ $form = $this->beginWidget(
         </div>
     </div>
 
+<div class="row">
+    <?php echo $form->labelEx($model,'color'); ?>
+    <?php $this->widget('application.modules.subject.widgets.colorpicker.EColorPicker',
+        array(
+            'name'=>'MyModel[color]',
+            'mode'=>'textfield',
+            'fade' => false,
+            'slide' => false,
+            'curtain' => true,
+        )
+    ); ?>
+    <?php echo $form->error($model,'color'); ?>
+</div>
+
+<?php
+
+$this->widget('application.modules.subject.widgets.SMiniColors.SColorPicker', array(
+        'id' => 'myInputId',
+        'defaultValue'=>'#000000',
+        'hidden'=>false, // defaults to false - can be set to hide the textarea with the hex
+        'options' => array(
+            'change' => 'js:function(hex, rgb) { console.log(hex + " - " + rgb); }'
+        ), // jQuery plugin options
+        'htmlOptions' => array(
+        ),
+    )
+);
+
+
+?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
