@@ -15,6 +15,7 @@
 $mainAssets = Yii::app()->assetManager->publish(
     Yii::getPathOfAlias('subject.views.assets')
 );
+//Yii::app()->clientScript->registerCssFile($mainAssets.'/resources/demos/style.css');
 Yii::app()->clientScript->registerScriptFile($mainAssets . '/js/teacher.js', CClientScript::POS_END);
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
@@ -25,10 +26,8 @@ $form = $this->beginWidget(
     ]
 );
 ?>
-
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  
   <style>
   #sortable1, #sortable2 {
     border: 1px solid #eee;
@@ -90,7 +89,7 @@ $form = $this->beginWidget(
     <?php echo $form->labelEx($model,'color'); ?>
     <?php $this->widget('application.modules.subject.widgets.colorpicker.EColorPicker',
         array(
-            'name'=>'MyModel[color]',
+            'name'=> 'cp',
             'mode'=>'textfield',
             'fade' => false,
             'slide' => false,

@@ -333,7 +333,7 @@ class EColorPicker extends CInputWidget
       $baseUrl =Yii::app()->getAssetManager()->publish($dir);
 
       $cs = Yii::app()->getClientScript();
-      $cs->registerCoreScript('jquery');
+      //$cs->registerCoreScript('jquery');
       $cs->registerScriptFile($baseUrl.'/js/colorpicker.js');
       $cs->registerScriptFile($baseUrl.'/js/eye.js');
       $cs->registerScriptFile($baseUrl.'/js/utils.js');
