@@ -13,9 +13,12 @@ return [
     'module'    => [
         'class' => 'application.modules.teacher.TeacherModule',
     ],
-    'import'    => [],
+    'import'    => [
+        'application.modules.branch.models.*',
+    ],
     'component' => [],
     'rules'     => [
         '/teacher' => 'teacher/teacher/index',
+        '/teacher/<action>' => 'teacher/teacher/<action>',
     ],
 ];

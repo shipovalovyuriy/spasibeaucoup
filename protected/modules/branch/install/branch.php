@@ -13,7 +13,10 @@ return [
     'module'    => [
         'class' => 'application.modules.branch.BranchModule',
     ],
-    'import'    => ['application.modules.branch.models.*',],
+    'import'    => [
+        'application.modules.branch.models.*',
+        'application.modules.teacher.models.*',
+    ],
     'component' => [],
     'rules'     => [
         '/branch' => 'branch/branch/index',

@@ -29,7 +29,7 @@ return [
     // Default controller
     'defaultController' => 'site',
     // Application name
-    'name' => 'Yupe!',
+    'name' => 'spasibeaucoup',
     // Default language
     'language' => 'ru',
     'sourceLanguage' => 'en',
@@ -134,7 +134,7 @@ return [
             'rules' => [ // Main rules
                 '/' => '/site/index',                
                 // For correct work of installer
-                '/install/default/<action:\w+>' => '/install/default/<action>',
+                //'/install/default/<action:\w+>' => '/install/default/<action>',
                 '/backend' => '/yupe/backend/index',
                 '/backend/login' => '/user/account/backendlogin',
                 '/backend/<action:\w+>' => '/yupe/backend/<action>',

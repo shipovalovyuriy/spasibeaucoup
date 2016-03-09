@@ -64,7 +64,7 @@ class Listner extends yupe\models\YModel
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => '№',
 			'name' => 'Имя',
 			'lastname' => 'Фамилия',
 			'patronymic' => 'Отчество',

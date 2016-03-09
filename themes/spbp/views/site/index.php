@@ -119,8 +119,8 @@
                             <i class="fa fa-user-plus text-white fa-stack-1x"></i>
                         </span>
                     </div>
-                    <div class="media-body">                        
-                        <a href="/teacher" class="h4">Преподаватели</a>
+                    <div class="media-body">                    
+                        <a href="/teacher/create" class="h4">Добавить преподавателя</a>
                     </div>
                 </article>
             </section>

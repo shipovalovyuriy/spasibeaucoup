@@ -23,12 +23,18 @@ class SiteController extends FrontController
      */
     public function actionIndex()
     {
-        $branch = \Branch::model()->findAll();
-        $teacher = \Teacher::model()->findAll();
-        $this->render('index', [
-            'branchs' => $branch,
-            'teachers' => $teacher
-        ]);
+        if(!\Yii::app()->user->isGuest){
+            $branch = \Branch::model()->findAll();
+            $teacher = \Teacher::model()->findAll();
+            $this->render('index', [
+                'branchs' => $branch,
+                'teachers' => $teacher
+            ]);
+        }
+        else{
+            
+            $this->redirect('/login');
+        }
     }
 
     public function actionGetPositions($param1)
@@ -123,14 +129,26 @@ class SiteController extends FrontController
 
     public function actionSchedule($id)
     {
-        $model = \Branch::model()->findByPk($id)->id;
-        $this->render('schedule',[
-            'model' => $model
-        ]);
+        if(!\Yii::app()->user->isGuest){
+            $model = \Branch::model()->findByPk($id)->id;
+            $this->render('schedule',[
+                'model' => $model
+            ]);
+        }
+        else{
+            
+            $this->redirect('/login');
+        }
     }
     public function actionBranch()
     {
-        $model = \Branch::model()->findAll();
-        $this->render('branch', ['model' => $model]);
+        if(!\Yii::app()->user->isGuest){
+            $model = \Branch::model()->findAll();
+            $this->render('branch', ['model' => $model]);
+        }
+        else{
+            
+            $this->redirect('/login');
+        }
     }
 }

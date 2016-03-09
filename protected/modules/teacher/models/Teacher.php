@@ -48,6 +48,7 @@ class Teacher extends yupe\models\YModel
 			'listnerGroups' => array(self::HAS_MANY, 'ListnerGroup', 'teacher_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'subject' => array(self::HAS_MANY, 'TeacherToSubject', 'teacher_id'),
+                        'branch' => [self::BELONGS_TO, 'Branch', 'branch_id']
 		);
 	}
 
@@ -57,9 +58,10 @@ class Teacher extends yupe\models\YModel
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'user_id' => 'User',
-                        'time' => 'Доступно время'
+			'id' => '№',
+			'user_id' => 'Имя',
+                        'time' => 'Доступно время',
+                        'branch_id' => 'Филиал'
 		);
 	}
 

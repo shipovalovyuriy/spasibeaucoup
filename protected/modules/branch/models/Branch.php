@@ -54,6 +54,7 @@ class Branch extends yupe\models\YModel
 			'listner' => array(self::HAS_MANY, 'Listner', 'branch_id'),
 			'subject' => array(self::HAS_MANY, 'SubjectToBranch', 'branch_id'),
                         'room' => array(self::HAS_MANY, 'Room', 'branch_id'),
+                        'teacher' => array(self::HAS_MANY, 'Teacher', 'branch_id'),
 		);
 	}
 

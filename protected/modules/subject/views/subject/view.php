@@ -42,10 +42,63 @@ $this->menu = [
     </h1>
 </div>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView', [
-    'data'       => $model,
-    'attributes' => [
-        'id',
-        'name',
-    ],
-]); ?>
+ <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+  <style>
+  #sortable1, #sortable2 {
+    border: 1px solid #8C8C8C;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 120px;
+  }
+  </style>
+  <div class="row col-lg-8">
+        <div class="col-sm-7 panel">
+            <div class="panel-heading">Тестовый вид назначения преподавателя на предмет</div>
+            <div class="panel-body">
+                <?php if(!$model->isNewRecord):?>        
+                    <ul id="sortable1" class="connectedSortable">
+                        <?php foreach($teachers as $teacher):if(!$teacher->subject):?>
+                            <li class="ui-state-default " id="<?= $teacher->id?>"><?= $teacher->user->first_name.' '.$teacher->user->last_name?></li>
+                        <?php endif; endforeach;?>
+                    </ul>
+                    <ul id="sortable2" class="connectedSortable">
+                        <?php foreach($teachers as $teacher):if($teacher->subject): ?>
+                            <li class="ui-state-default " id="<?= $teacher->id?>"><?= $teacher->user->first_name.' '.$teacher->user->last_name?></li>
+                        <?php endif; endforeach;?>
+                    </ul>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+  <script>
+    $(function() {
+        $( "#sortable1, #sortable2" ).sortable({
+            connectWith: ".connectedSortable",
+            receive: function( event, ui ) {
+                var temp = ui.item;
+                temp.attr('id');
+                $.ajax({
+                    type: 'GET',
+                    url: '/backend/subject/subject/addTeacher?i='+temp.attr('id')+'&s='+<?=$model->id?>,
+                    dataType: 'json',
+                    data:{},
+                    success: function() {
+                        alert('success');
+                    },
+                })
+            },
+            //axis: "x"
+        }).disableSelection();
+    });
+</script>

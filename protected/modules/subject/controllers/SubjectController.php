@@ -8,7 +8,7 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class SubjectController extends \yupe\components\controllers\BackController
+class SubjectController extends \yupe\components\controllers\FrontController
 {
     /**
     * Отображает Предмет по указанному идентификатору
@@ -19,7 +19,8 @@ class SubjectController extends \yupe\components\controllers\BackController
     */
     public function actionView($id)
     {
-        $this->render('view', ['model' => $this->loadModel($id)]);
+        $teachers = Teacher::model()->findAll();
+        $this->render('view', ['model' => $this->loadModel($id), 'teachers' => $teachers]);
     }
     
     /**
