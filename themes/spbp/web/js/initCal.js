@@ -10,6 +10,7 @@ $(document).ready(function(){
         aspectRatio: 1.8,
         eventOverlap:false,
         eventLimit: true,
+        displayEventEnd:true,
         height:600,
         scrollTime: '00:00',
         minTime: "09:00:00",
