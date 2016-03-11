@@ -18,7 +18,7 @@ class Cost extends yupe\models\YModel
 	 */
 	public function tableName()
 	{
-		return '{{balance_costs}}';
+		return '{{balance_cost}}';
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Cost extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'balanceOutflows' => array(self::HAS_MANY, 'Outflow', 'costs_id'),
+			'outflow' => array(self::HAS_MANY, 'Outflow', 'cost_id'),
 		);
 	}
 

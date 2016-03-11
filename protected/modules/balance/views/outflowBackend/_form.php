@@ -8,13 +8,13 @@
  *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
  *   @link     http://yupe.ru
  *
- *   @var $model Inflow
+ *   @var $model Outflow
  *   @var $form TbActiveForm
- *   @var $this InflowController
+ *   @var $this OutflowBackendController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
-        'id'                     => 'inflow-form',
+        'id'                     => 'outflow-form',
         'enableAjaxValidation'   => false,
         'enableClientValidation' => true,
         'htmlOptions'            => ['class' => 'well'],
@@ -32,11 +32,7 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'subj_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
-                    ]
-                ]); ?>
+            <?php echo ; ?>
         </div>
     </div>
     <div class="row">
@@ -47,6 +43,19 @@ $form = $this->beginWidget(
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('receiver'),
                         'data-content' => $model->getAttributeDescription('receiver')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'date', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('date'),
+                        'data-content' => $model->getAttributeDescription('date')
                     ]
                 ]
             ]); ?>
@@ -80,26 +89,12 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textAreaGroup($model, 'comment', [
-            'widgetOptions' => [
-                'htmlOptions' => [
-                    'class' => 'popover-help',
-                    'rows' => 6,
-                    'cols' => 50,
-                    'data-original-title' => $model->getAttributeLabel('comment'),
-                    'data-content' => $model->getAttributeDescription('comment')
-                ]
-            ]]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'date', [
+            <?php echo $form->textFieldGroup($model, 'note', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('date'),
-                        'data-content' => $model->getAttributeDescription('date')
+                        'data-original-title' => $model->getAttributeLabel('note'),
+                        'data-content' => $model->getAttributeDescription('note')
                     ]
                 ]
             ]); ?>
@@ -110,14 +105,14 @@ $form = $this->beginWidget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'context'    => 'primary',
-            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Приход и продолжить'),
+            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Расход и продолжить'),
         ]
     ); ?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'htmlOptions'=> ['name' => 'submit-type', 'value' => 'index'],
-            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Приход и закрыть'),
+            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Расход и закрыть'),
         ]
     ); ?>
 

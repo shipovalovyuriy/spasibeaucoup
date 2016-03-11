@@ -33,7 +33,7 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subj_id', 'numerical', 'integerOnly'=>true),
+			array('subject_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, based, date', 'length', 'max'=>50),
 			array('price', 'length', 'max'=>20),
 			array('comment', 'safe'),

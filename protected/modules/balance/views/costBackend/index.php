@@ -10,20 +10,20 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('BalanceModule.balance', 'Приход') => ['/balance/Inflow/index'],
+    Yii::t('BalanceModule.balance', 'Шифры') => ['/balance/costBackend/index'],
     Yii::t('BalanceModule.balance', 'Управление'),
 ];
 
-$this->pageTitle = Yii::t('BalanceModule.balance', 'Приход - управление');
+$this->pageTitle = Yii::t('BalanceModule.balance', 'Шифры - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Приходам'), 'url' => ['/balance/Inflow/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Приход'), 'url' => ['/balance/Inflow/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Шифрами'), 'url' => ['/balance/costBackend/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Шифр'), 'url' => ['/balance/costBackend/create']],
 ];
 ?>
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('BalanceModule.balance', 'Приход'); ?>
+        <?php echo Yii::t('BalanceModule.balance', 'Шифры'); ?>
         <small><?php echo Yii::t('BalanceModule.balance', 'управление'); ?></small>
     </h1>
 </div>
@@ -31,7 +31,7 @@ $this->menu = [
 <p>
     <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="collapse" data-target="#search-toggle">
         <i class="fa fa-search">&nbsp;</i>
-        <?php echo Yii::t('BalanceModule.balance', 'Поиск Приходов');?>
+        <?php echo Yii::t('BalanceModule.balance', 'Поиск Шифров');?>
         <span class="caret">&nbsp;</span>
     </a>
 </p>
@@ -39,7 +39,7 @@ $this->menu = [
 <div id="search-toggle" class="collapse out search-form">
         <?php Yii::app()->clientScript->registerScript('search', "
         $('.search-form form').submit(function () {
-            $.fn.yiiGridView.update('inflow-grid', {
+            $.fn.yiiGridView.update('cost-grid', {
                 data: $(this).serialize()
             });
 
@@ -52,25 +52,21 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Приходам'); ?>
+<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Шифрами'); ?>
 </p>
 
 <?php
  $this->widget(
     'yupe\widgets\CustomGridView',
     [
-        'id'           => 'inflow-grid',
+        'id'           => 'cost-grid',
         'type'         => 'striped condensed',
         'dataProvider' => $model->search(),
         'filter'       => $model,
         'columns'      => [
             'id',
-            'subj_id',
-            'receiver',
-            'price',
-            'based',
-            'comment',
-//            'date',
+            'name',
+            'code',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],
