@@ -84,7 +84,19 @@ $form = $this->beginWidget(
             <?php endif;?>
         </div>
     </div>
-
+<div class="row">
+    <div class="col-sm-7">
+        <?php echo $form->textFieldGroup($model, 'code', [
+            'widgetOptions' => [
+                'htmlOptions' => [
+                    'class' => 'popover-help',
+                    'data-original-title' => $model->getAttributeLabel('code'),
+                    'data-content' => $model->getAttributeDescription('code')
+                ]
+            ]
+        ]); ?>
+    </div>
+</div>
 <div class="row">
     <?php echo $form->labelEx($model,'color'); ?>
     <?php $this->widget('application.modules.subject.widgets.colorpicker.EColorPicker',
