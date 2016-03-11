@@ -84,19 +84,6 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'create_date', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('create_date'),
-                        'data-content' => $model->getAttributeDescription('create_date')
-                    ]
-                ]
-            ]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'branch_id', [
                     'widgetOptions' => [
                         'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name')
@@ -117,20 +104,6 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'status', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('status'),
-                        'data-content' => $model->getAttributeDescription('status')
-                    ]
-                ]
-            ]); ?>
-        </div>
-    </div>
-
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',

@@ -33,7 +33,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
 
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Listner'));
-        
+            $model->create_date = date("Y-m-d H:i:s");
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,

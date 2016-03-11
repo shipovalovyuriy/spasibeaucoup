@@ -219,7 +219,7 @@ class ListnerModule  extends yupe\components\WebModule
                 'items' => [
                     [
                         'type' => AuthItem::TYPE_OPERATION,
-                        'name' => 'Listner.ListnerBackend.Index',
+                        'name' => 'Listner.Listner.Index',
                         'description' => Yii::t('ListnerModule.listner', 'Index')
                     ],
                 ]
