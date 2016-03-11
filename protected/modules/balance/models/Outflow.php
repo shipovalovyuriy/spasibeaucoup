@@ -1,26 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "{{subject_subject}}".
+ * This is the model class for table "{{balance_outflow}}".
  *
- * The followings are the available columns in table '{{subject_subject}}':
+ * The followings are the available columns in table '{{balance_outflow}}':
  * @property integer $id
- * @property string $name
+ * @property integer $costs_id
+ * @property string $receiver
+ * @property string $date
+ * @property string $cost
+ * @property string $based
+ * @property string $comment
  *
  * The followings are the available model relations:
- * @property ListnerGroup[] $listnerGroups
- * @property ListnerPosition[] $listnerPositions
- * @property SubjectToBranch[] $subjectToBranches
- * @property UserTeacherToSubject[] $userTeacherToSubjects
+ * @property BalanceCosts $costs
  */
-class Subject extends yupe\models\YModel
+class Outflow extends yupe\models\YModel
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{subject_subject}}';
+		return '{{balance_outflow}}';
 	}
 
 	/**
@@ -31,11 +33,12 @@ class Subject extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
-			array('name, color', 'length', 'max'=>50),
+			array('costs_id', 'numerical', 'integerOnly'=>true),
+			array('receiver, date, based, comment', 'length', 'max'=>50),
+			array('cost', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, costs_id, receiver, date, cost, based, comment', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,10 +50,7 @@ class Subject extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'listnerGroups' => array(self::HAS_MANY, 'Group', 'subject_id'),
-			'listnerPositions' => array(self::HAS_MANY, 'Position', 'subject_id'),
-			#'subjectToBranches' => array(self::HAS_MANY, 'SubjectToBranch', 'subject_id'),
-			'teacherToSubjects' => array(self::HAS_MANY, 'TeacherToSubject', 'subject_id'),
+			'costs' => array(self::BELONGS_TO, 'Cost', 'costs_id'),
 		);
 	}
 
@@ -60,9 +60,13 @@ class Subject extends yupe\models\YModel
 	public function attributeLabels()
 	{
 		return array(
-			'id' => '№',
-			'name' => 'Название',
-			'code'=>'Код',
+			'id' => 'ID',
+			'costs_id' => 'Costs',
+			'receiver' => 'Receiver',
+			'date' => 'Date',
+			'cost' => 'Cost',
+			'based' => 'Based',
+			'comment' => 'Comment',
 		);
 	}
 
@@ -85,8 +89,12 @@ class Subject extends yupe\models\YModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('code',$this->code,true);
+		$criteria->compare('costs_id',$this->costs_id);
+		$criteria->compare('receiver',$this->receiver,true);
+		$criteria->compare('date',$this->date,true);
+		$criteria->compare('cost',$this->cost,true);
+		$criteria->compare('based',$this->based,true);
+		$criteria->compare('comment',$this->comment,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -97,7 +105,7 @@ class Subject extends yupe\models\YModel
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Subject the static model class
+	 * @return Outflow the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

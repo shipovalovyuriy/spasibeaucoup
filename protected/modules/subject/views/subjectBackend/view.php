@@ -47,5 +47,7 @@ $this->menu = [
     'attributes' => [
         'id',
         'name',
+        'color',
+        'code',
     ],
 ]); ?>
