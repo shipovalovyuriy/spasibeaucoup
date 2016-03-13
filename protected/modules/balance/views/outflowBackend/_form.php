@@ -10,7 +10,7 @@
  *
  *   @var $model Outflow
  *   @var $form TbActiveForm
- *   @var $this OutflowBackendController
+ *   @var $this OutflowController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [

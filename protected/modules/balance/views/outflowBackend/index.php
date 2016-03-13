@@ -10,15 +10,15 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('BalanceModule.balance', 'Расходы') => ['/balance/outflowBackend/index'],
+    Yii::t('BalanceModule.balance', 'Расходы') => ['/balance/outflow/index'],
     Yii::t('BalanceModule.balance', 'Управление'),
 ];
 
 $this->pageTitle = Yii::t('BalanceModule.balance', 'Расходы - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Расходами'), 'url' => ['/balance/outflowBackend/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Расход'), 'url' => ['/balance/outflowBackend/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Расходам'), 'url' => ['/balance/outflow/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Расход'), 'url' => ['/balance/outflow/create']],
 ];
 ?>
 <div class="page-header">
@@ -52,7 +52,7 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Расходами'); ?>
+<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Расходам'); ?>
 </p>
 
 <?php
@@ -70,7 +70,7 @@ $this->menu = [
             'date',
             'price',
             'based',
-//            'note',
+            'note',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],
