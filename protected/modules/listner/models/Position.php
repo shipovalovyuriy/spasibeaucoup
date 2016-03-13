@@ -24,6 +24,7 @@
  * @property UserTeacher $teacher
  * @property ListnerSchedule[] $listnerSchedules
  */
+Yii::import('application.modules.balance.models.Inflow');
 class Position extends yupe\models\YModel
 {
 	/**
@@ -84,6 +85,10 @@ class Position extends yupe\models\YModel
         {
             parent::afterSave();
             if($this->isNewRecord){
+
+
+				//Формирование расписания пользователя
+
                 $time = explode(',', $this->time);
                 $tCount = count($time);
                 $j = 0;
@@ -101,6 +106,22 @@ class Position extends yupe\models\YModel
                     $j++;
                     
                 }
+
+				//////////////////////////////////////////////
+
+
+				//Формирование прихода
+
+				$inflow = new Inflow();
+				$inflow->subject_id = $this->subject_id;
+				$inflow->receiver = $this->teacher->user->last_name." ".$this->teacher->user->first_name;
+				$inflow->form_id = $this->form_id;
+				$inflow->based = $this->code;
+				$inflow->comment = $this->note;
+				$inflow->save();
+
+				/////////////////////////////////////////////////
+
             }
         }
         

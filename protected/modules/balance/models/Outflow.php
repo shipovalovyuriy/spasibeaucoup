@@ -16,6 +16,7 @@
  * @property BalanceCost $cost
  */
 Yii::import('application.modules.balance.models.Cost');
+
 class Outflow extends yupe\models\YModel
 {
 	/**
