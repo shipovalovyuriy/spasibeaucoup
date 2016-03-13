@@ -32,11 +32,6 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo ; ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'receiver', [
                 'widgetOptions' => [
                     'htmlOptions' => [

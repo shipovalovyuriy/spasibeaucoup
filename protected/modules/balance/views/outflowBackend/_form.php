@@ -29,12 +29,6 @@ $form = $this->beginWidget(
 </div>
 
 <?php echo $form->errorSummary($model); ?>
-
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo ; ?>
-        </div>
-    </div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'receiver', [
