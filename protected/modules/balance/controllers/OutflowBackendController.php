@@ -8,7 +8,7 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class OutflowBackendController extends \yupe\components\controllers\FrontController
+class OutflowBackendController extends \yupe\components\controllers\BackController
 {
     /**
     * Отображает Расход по указанному идентификатору

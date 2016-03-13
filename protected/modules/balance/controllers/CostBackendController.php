@@ -8,7 +8,7 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class CostBackendController extends \yupe\components\controllers\FrontController
+class CostBackendController extends \yupe\components\controllers\BackController
 {
     /**
     * Отображает Шифр по указанному идентификатору

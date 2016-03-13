@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table '{{balance_inflow}}':
  * @property integer $id
- * @property integer $subj_id
+ * @property integer $subject_id
  * @property string $receiver
  * @property string $price
  * @property string $based
@@ -39,7 +39,7 @@ class Inflow extends yupe\models\YModel
 			array('comment', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, subj_id, receiver, price, based, comment, date', 'safe', 'on'=>'search'),
+			array('id, subject_id, receiver, price, based, comment, date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +51,7 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'subj' => array(self::BELONGS_TO, 'Subject', 'subj_id'),
+			'subj' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class Inflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'subj_id' => 'Subj',
+			'subject_id' => 'Subj',
 			'receiver' => 'Receiver',
 			'price' => 'Price',
 			'based' => 'Based',
@@ -90,7 +90,7 @@ class Inflow extends yupe\models\YModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('subj_id',$this->subj_id);
+		$criteria->compare('subject_id',$this->subject_id);
 		$criteria->compare('receiver',$this->receiver,true);
 		$criteria->compare('price',$this->price,true);
 		$criteria->compare('based',$this->based,true);
