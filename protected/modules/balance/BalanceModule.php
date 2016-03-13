@@ -41,7 +41,7 @@ class BalanceModule  extends yupe\components\WebModule
      */
     public function getCategory()
     {
-        return Yii::t('BalanceModule.balance', 'Balance');
+        return Yii::t('BalanceModule.balance', 'Spasibeaucoup');
     }
 
     /**
@@ -118,7 +118,7 @@ class BalanceModule  extends yupe\components\WebModule
      */
     public function getName()
     {
-        return Yii::t('BalanceModule.balance', 'balance');
+        return Yii::t('BalanceModule.balance', 'Отчет');
     }
 
     /**
