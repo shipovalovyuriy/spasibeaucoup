@@ -10,20 +10,20 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('BalanceModule.balance', 'Доходы') => ['/balance/inflowBackend/index'],
+    Yii::t('BalanceModule.balance', 'Приход') => ['/balance/inflow/index'],
     Yii::t('BalanceModule.balance', 'Управление'),
 ];
 
-$this->pageTitle = Yii::t('BalanceModule.balance', 'Доходы - управление');
+$this->pageTitle = Yii::t('BalanceModule.balance', 'Приход - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Доходами'), 'url' => ['/balance/inflowBackend/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Доход'), 'url' => ['/balance/inflowBackend/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BalanceModule.balance', 'Управление Приходам'), 'url' => ['/balance/inflow/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BalanceModule.balance', 'Добавить Приход'), 'url' => ['/balance/inflow/create']],
 ];
 ?>
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('BalanceModule.balance', 'Доходы'); ?>
+        <?php echo Yii::t('BalanceModule.balance', 'Приход'); ?>
         <small><?php echo Yii::t('BalanceModule.balance', 'управление'); ?></small>
     </h1>
 </div>
@@ -31,7 +31,7 @@ $this->menu = [
 <p>
     <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="collapse" data-target="#search-toggle">
         <i class="fa fa-search">&nbsp;</i>
-        <?php echo Yii::t('BalanceModule.balance', 'Поиск Доходов');?>
+        <?php echo Yii::t('BalanceModule.balance', 'Поиск Приходов');?>
         <span class="caret">&nbsp;</span>
     </a>
 </p>
@@ -52,7 +52,7 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Доходами'); ?>
+<p> <?php echo Yii::t('BalanceModule.balance', 'В данном разделе представлены средства управления Приходам'); ?>
 </p>
 
 <?php
@@ -67,7 +67,7 @@ $this->menu = [
             'id',
             'subject_id',
             'receiver',
-            'price',
+            'form_id',
             'based',
             'comment',
 //            'date',
