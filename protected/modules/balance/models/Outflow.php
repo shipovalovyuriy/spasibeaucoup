@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table '{{balance_outflow}}':
  * @property integer $id
- * @property integer $costs_id
+ * @property integer $cost_id
  * @property string $receiver
  * @property string $date
  * @property string $cost
@@ -33,12 +33,12 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('costs_id', 'numerical', 'integerOnly'=>true),
+			array('cost_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, date, based, comment', 'length', 'max'=>50),
 			array('cost', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, costs_id, receiver, date, cost, based, comment', 'safe', 'on'=>'search'),
+			array('id, cost_id, receiver, date, cost, based, comment', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,7 +50,7 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'costs' => array(self::BELONGS_TO, 'Cost', 'costs_id'),
+			'costs' => array(self::BELONGS_TO, 'Cost', 'cost_id'),
 		);
 	}
 
@@ -61,7 +61,7 @@ class Outflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'costs_id' => 'Costs',
+			'cost_id' => 'Costs',
 			'receiver' => 'Receiver',
 			'date' => 'Date',
 			'cost' => 'Cost',
@@ -89,7 +89,7 @@ class Outflow extends yupe\models\YModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('costs_id',$this->costs_id);
+		$criteria->compare('cost_id',$this->cost_id);
 		$criteria->compare('receiver',$this->receiver,true);
 		$criteria->compare('date',$this->date,true);
 		$criteria->compare('cost',$this->cost,true);
