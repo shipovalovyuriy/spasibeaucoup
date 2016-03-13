@@ -33,6 +33,7 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+<<<<<<< HEAD
 			array('receiver, price, based, note', 'required'),
 			array('cost_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, price, based, note', 'length', 'max'=>50),
@@ -40,6 +41,14 @@ class Outflow extends yupe\models\YModel
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, cost_id, receiver, date, price, based, note', 'safe', 'on'=>'search'),
+=======
+			array('cost_id', 'numerical', 'integerOnly'=>true),
+			array('receiver, date, based, comment', 'length', 'max'=>50),
+			array('cost', 'length', 'max'=>20),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, cost_id, receiver, date, cost, based, comment', 'safe', 'on'=>'search'),
+>>>>>>> origin/master
 		);
 	}
 
@@ -51,7 +60,11 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+<<<<<<< HEAD
 			'cost' => array(self::BELONGS_TO, 'BalanceCost', 'cost_id'),
+=======
+			'costs' => array(self::BELONGS_TO, 'Cost', 'cost_id'),
+>>>>>>> origin/master
 		);
 	}
 
@@ -62,7 +75,11 @@ class Outflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
+<<<<<<< HEAD
 			'cost_id' => 'Cost',
+=======
+			'cost_id' => 'Costs',
+>>>>>>> origin/master
 			'receiver' => 'Receiver',
 			'date' => 'Date',
 			'price' => 'Price',
