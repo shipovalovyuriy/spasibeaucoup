@@ -7,13 +7,14 @@
  * @property integer $id
  * @property integer $subject_id
  * @property string $receiver
- * @property string $price
+ * @property integer $form_id
  * @property string $based
  * @property string $comment
  * @property string $date
  *
  * The followings are the available model relations:
- * @property SubjectSubject $subj
+ * @property FormForm $form
+ * @property SubjectSubject $subject
  */
 class Inflow extends yupe\models\YModel
 {
@@ -33,13 +34,12 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_id', 'numerical', 'integerOnly'=>true),
-			array('receiver, based, date', 'length', 'max'=>50),
-			array('price', 'length', 'max'=>20),
-			array('comment', 'safe'),
+			array('subject_id, form_id', 'numerical', 'integerOnly'=>true),
+			array('receiver, based', 'length', 'max'=>50),
+			array('comment, date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, subject_id, receiver, price, based, comment, date', 'safe', 'on'=>'search'),
+			array('id, subject_id, receiver, form_id, based, comment, date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +51,8 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'subj' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
+			'form' => array(self::BELONGS_TO, 'FormForm', 'form_id'),
+			'subject' => array(self::BELONGS_TO, 'SubjectSubject', 'subject_id'),
 		);
 	}
 
@@ -62,9 +63,9 @@ class Inflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'subject_id' => 'Subj',
+			'subject_id' => 'Subject',
 			'receiver' => 'Receiver',
-			'price' => 'Price',
+			'form_id' => 'Form',
 			'based' => 'Based',
 			'comment' => 'Comment',
 			'date' => 'Date',
@@ -92,7 +93,7 @@ class Inflow extends yupe\models\YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('subject_id',$this->subject_id);
 		$criteria->compare('receiver',$this->receiver,true);
-		$criteria->compare('price',$this->price,true);
+		$criteria->compare('form_id',$this->form_id);
 		$criteria->compare('based',$this->based,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('date',$this->date,true);

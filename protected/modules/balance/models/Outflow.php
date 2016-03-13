@@ -8,12 +8,12 @@
  * @property integer $cost_id
  * @property string $receiver
  * @property string $date
- * @property string $cost
+ * @property string $price
  * @property string $based
- * @property string $comment
+ * @property string $note
  *
  * The followings are the available model relations:
- * @property BalanceCosts $costs
+ * @property BalanceCost $cost
  */
 class Outflow extends yupe\models\YModel
 {
@@ -33,12 +33,22 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+<<<<<<< HEAD
+			array('receiver, price, based, note', 'required'),
+			array('cost_id', 'numerical', 'integerOnly'=>true),
+			array('receiver, price, based, note', 'length', 'max'=>50),
+			array('date', 'safe'),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, cost_id, receiver, date, price, based, note', 'safe', 'on'=>'search'),
+=======
 			array('cost_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, date, based, comment', 'length', 'max'=>50),
 			array('cost', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, cost_id, receiver, date, cost, based, comment', 'safe', 'on'=>'search'),
+>>>>>>> origin/master
 		);
 	}
 
@@ -50,7 +60,11 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+<<<<<<< HEAD
+			'cost' => array(self::BELONGS_TO, 'BalanceCost', 'cost_id'),
+=======
 			'costs' => array(self::BELONGS_TO, 'Cost', 'cost_id'),
+>>>>>>> origin/master
 		);
 	}
 
@@ -61,12 +75,16 @@ class Outflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
+<<<<<<< HEAD
+			'cost_id' => 'Cost',
+=======
 			'cost_id' => 'Costs',
+>>>>>>> origin/master
 			'receiver' => 'Receiver',
 			'date' => 'Date',
-			'cost' => 'Cost',
+			'price' => 'Price',
 			'based' => 'Based',
-			'comment' => 'Comment',
+			'note' => 'Note',
 		);
 	}
 
@@ -92,9 +110,9 @@ class Outflow extends yupe\models\YModel
 		$criteria->compare('cost_id',$this->cost_id);
 		$criteria->compare('receiver',$this->receiver,true);
 		$criteria->compare('date',$this->date,true);
-		$criteria->compare('cost',$this->cost,true);
+		$criteria->compare('price',$this->price,true);
 		$criteria->compare('based',$this->based,true);
-		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('note',$this->note,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
