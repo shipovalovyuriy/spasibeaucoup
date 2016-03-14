@@ -73,6 +73,7 @@ $this->menu = [
             'description',
             'number',
             'number_in_week',
+            'price',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],

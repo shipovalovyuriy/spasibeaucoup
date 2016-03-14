@@ -118,6 +118,7 @@ class Position extends yupe\models\YModel
 				$inflow->form_id = $this->form_id;
 				$inflow->based = $this->code;
 				$inflow->comment = $this->note;
+				$inflow->date = $this->start_date;
 				$inflow->save();
 
 				/////////////////////////////////////////////////

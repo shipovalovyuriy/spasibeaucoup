@@ -33,12 +33,12 @@ class Form extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('name, description', 'required'),
-			array('type_id, number', 'numerical', 'integerOnly'=>true),
+			array('type_id, number, price', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, type_id, name, description, number', 'safe', 'on'=>'search'),
+			array('id, type_id, name, description, number, price', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +66,7 @@ class Form extends yupe\models\YModel
 			'name' => 'Название',
 			'description' => 'Описание',
 			'number' => 'Количество занятий в неделю',
+			'price'=>'Оплата',
 		);
 	}
 
@@ -92,6 +93,7 @@ class Form extends yupe\models\YModel
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('number',$this->number);
+		$criteria->compare('price',$this->price);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
