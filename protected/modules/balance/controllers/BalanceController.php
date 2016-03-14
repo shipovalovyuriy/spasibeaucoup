@@ -1,7 +1,7 @@
 <?php
 
 
-class BalanceBackendController extends \yupe\components\controllers\BackController
+class BalanceController extends \yupe\components\controllers\FrontController
 {
 
     public function actionShow()
