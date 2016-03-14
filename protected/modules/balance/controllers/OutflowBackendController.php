@@ -1,8 +1,8 @@
 <?php
 /**
-* Класс OutflowBackendController:
+* Класс OutflowController:
 *
-*   @category Yupe\yupe\components\controllers\FrontController
+*   @category Yupe\yupe\components\controllers\BackController
 *   @package  yupe
 *   @author   Yupe Team <team@yupe.ru>
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
@@ -117,7 +117,7 @@ class OutflowBackendController extends \yupe\components\controllers\BackControll
     }
     
     /**
-    * Управление Расходами.
+    * Управление Расходам.
     *
     * @return void
     */

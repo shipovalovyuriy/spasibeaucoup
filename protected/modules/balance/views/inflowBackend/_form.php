@@ -10,7 +10,7 @@
  *
  *   @var $model Inflow
  *   @var $form TbActiveForm
- *   @var $this InflowBackendController
+ *   @var $this InflowController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
@@ -32,6 +32,15 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'subject_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
+                    ]
+                ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'receiver', [
                 'widgetOptions' => [
                     'htmlOptions' => [
@@ -45,15 +54,11 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'price', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('price'),
-                        'data-content' => $model->getAttributeDescription('price')
+            <?php echo $form->dropDownListGroup($model, 'form_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Form::model()->findAll(), 'id', 'name')
                     ]
-                ]
-            ]); ?>
+                ]); ?>
         </div>
     </div>
     <div class="row">
@@ -101,14 +106,14 @@ $form = $this->beginWidget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'context'    => 'primary',
-            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Доход и продолжить'),
+            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Приход и продолжить'),
         ]
     ); ?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'htmlOptions'=> ['name' => 'submit-type', 'value' => 'index'],
-            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Доход и закрыть'),
+            'label'      => Yii::t('BalanceModule.balance', 'Сохранить Приход и закрыть'),
         ]
     ); ?>
 

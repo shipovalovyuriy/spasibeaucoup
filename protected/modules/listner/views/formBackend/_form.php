@@ -91,6 +91,19 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'price', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('price'),
+                        'data-content' => $model->getAttributeDescription('price')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
 
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [

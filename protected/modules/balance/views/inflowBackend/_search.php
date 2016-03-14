@@ -32,6 +32,13 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
 		<div class="col-sm-3">
+            <?php echo $form->dropDownListGroup($model, 'subject_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
+                    ]
+                ]); ?>
+        </div>
+		<div class="col-sm-3">
             <?php echo $form->textFieldGroup($model, 'receiver', [
                 'widgetOptions' => [
                     'htmlOptions' => [
@@ -43,15 +50,11 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
 		<div class="col-sm-3">
-            <?php echo $form->textFieldGroup($model, 'price', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('price'),
-                        'data-content' => $model->getAttributeDescription('price')
+            <?php echo $form->dropDownListGroup($model, 'form_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Form::model()->findAll(), 'id', 'name')
                     ]
-                ]
-            ]); ?>
+                ]); ?>
         </div>
 		<div class="col-sm-3">
             <?php echo $form->textFieldGroup($model, 'based', [
@@ -95,7 +98,7 @@ $form = $this->beginWidget(
             'context'     => 'primary',
             'encodeLabel' => false,
             'buttonType'  => 'submit',
-            'label'       => '<i class="fa fa-search">&nbsp;</i> ' . Yii::t('BalanceModule.balance', 'Искать Доход'),
+            'label'       => '<i class="fa fa-search">&nbsp;</i> ' . Yii::t('BalanceModule.balance', 'Искать Приход'),
         ]
     ); ?>
 

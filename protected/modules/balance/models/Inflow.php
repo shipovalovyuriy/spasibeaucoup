@@ -16,6 +16,7 @@
  * @property FormForm $form
  * @property SubjectSubject $subject
  */
+
 class Inflow extends yupe\models\YModel
 {
 	/**
@@ -51,8 +52,8 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'form' => array(self::BELONGS_TO, 'FormForm', 'form_id'),
-			'subject' => array(self::BELONGS_TO, 'SubjectSubject', 'subject_id'),
+			'form' => array(self::BELONGS_TO, 'Form', 'form_id'),
+			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
 		);
 	}
 
