@@ -38,17 +38,6 @@ $form = $this->beginWidget(
                     ]
                 ]); ?>
         </div>
-		<div class="col-sm-3">
-            <?php echo $form->textFieldGroup($model, 'time', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('time'),
-                        'data-content' => $model->getAttributeDescription('time')
-                    ]
-                ]
-            ]); ?>
-        </div>
 		    </div>
 </fieldset>
 

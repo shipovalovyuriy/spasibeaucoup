@@ -32,26 +32,43 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'user_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(User::model()->findAll(), 'id', 'first_name'),
-                        'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
+            <?php
+                if($model->isNewRecord){
+                    echo $form->dropDownListGroup($model, 'user_id', [
+                        'widgetOptions' => [
+                            'data' => CHtml::listData(User::model()->findAllBySql('SELECT * FROM {{user_user}} t1 JOIN {{user_teacher}} t2 ON t2.user_id = t1.id WHERE t1.id <> t2.user_id'), 'id', 'first_name'),
+                            'htmlOptions' => [
+                                'empty' => '--выберите--',
+                                'encode' => false,
+                            ],
                         ],
-                    ],
-                    
-                ]); ?>
+
+                    ]);
+                }
+            ?>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'time', [
+            <?php echo $form->textFieldGroup($model, 'start_time', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('time'),
-                        'data-content' => $model->getAttributeDescription('time')
+                        'data-original-title' => $model->getAttributeLabel('start_time'),
+                        'data-content' => $model->getAttributeDescription('start_time')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'end_time', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('end_time'),
+                        'data-content' => $model->getAttributeDescription('end_time')
                     ]
                 ]
             ]); ?>

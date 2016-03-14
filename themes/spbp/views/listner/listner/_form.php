@@ -84,15 +84,6 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'branch_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name')
-                    ]
-                ]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'email', [
                 'widgetOptions' => [
                     'htmlOptions' => [

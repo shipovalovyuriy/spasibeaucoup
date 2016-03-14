@@ -70,19 +70,8 @@ $this->menu = [
             'patronymic',
             'phone',
             'create_date',
-//            'branch_id',
+//           'branch_id',
 //            'email',
-            [
-                'class' => '\yupe\widgets\EditableStatusColumn',
-                'name' => 'status',
-                //'url' => $this->createUrl('/news/newsBackend/inline'),
-                'source' => $model->getStatusList(),
-                'options' => [
-                    Listner::STATUS_POTENTIAL => ['class' => 'label-success'],
-                    Listner::STATUS_LISTNER => 'kek',
-                    Listner::STATUS_GRADUATE => ['class' => 'label-default'],
-                ],
-            ],
             [
                 'class' => 'yupe\widgets\FrontButtonColumn',
             ],

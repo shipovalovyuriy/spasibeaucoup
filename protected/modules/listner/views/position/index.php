@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'position-grid',
         'type'         => 'striped condensed',
@@ -76,7 +76,7 @@ $this->menu = [
 //            'time',
 //            'start_date',
             [
-                'class' => 'yupe\widgets\CustomButtonColumn',
+                'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],
     ]

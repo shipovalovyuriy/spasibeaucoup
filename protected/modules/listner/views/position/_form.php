@@ -54,18 +54,9 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'listner_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(Listner::model()->findAll(), 'id', 'name')
-                    ]
-                ]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'id')
+                        'data' => CHtml::listData(Teacher::model()->findByAll(), 'id', 'id')
                     ]
                 ]); ?>
         </div>

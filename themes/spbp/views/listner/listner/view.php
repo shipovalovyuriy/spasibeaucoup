@@ -103,8 +103,8 @@ $this->menu = [
                 Список курсов <span class="badge bg-info"></span>                    
             </header>
             <section class="panel-body">
-                <?php $positions = $model->position;
-                foreach($positions as $position):?>
+                <?php
+                foreach($model->position as $position):?>
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
@@ -116,8 +116,19 @@ $this->menu = [
                             <a href="/listner/subject/lessons/<?=$position->id?>" class="h4"><?= $position->subject->name?></a>
                         </div>
                     </article>
-                    <?php if($position != end($positions)):?><div class="line pull-in"></div><?php endif;?>
+                    <div class="line pull-in"></div>
                 <?php endforeach;?>
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-default fa-stack-2x"></i>
+                                <i class="fa fa-plus-square text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                        
+                            <a href="/listner/position/create/<?=$model->id?>" class="h4">Добавить курс</a>
+                        </div>
+                    </article>
             </section>
         </section>
     </div>

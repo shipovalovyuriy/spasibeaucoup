@@ -45,7 +45,7 @@ class Teacher extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'listnerGroups' => array(self::HAS_MANY, 'ListnerGroup', 'teacher_id'),
+			'Groups' => array(self::HAS_MANY, 'Group', 'teacher_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'subject' => array(self::HAS_MANY, 'TeacherToSubject', 'teacher_id'),
                         'branch' => [self::BELONGS_TO, 'Branch', 'branch_id']
@@ -60,7 +60,8 @@ class Teacher extends yupe\models\YModel
 		return array(
 			'id' => '№',
 			'user_id' => 'Имя',
-                        'time' => 'Доступно время',
+                        'start_time' => 'Начало рабочего дня',
+                        'end_time' => 'Конец рабочего дня',
                         'branch_id' => 'Филиал'
 		);
 	}

@@ -28,13 +28,13 @@ class PositionController extends \yupe\components\controllers\FrontController
     *
     * @return void
     */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Position;
 
         if (Yii::app()->getRequest()->getPost('Position') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
-        
+            $model->listner_id = $id;
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,

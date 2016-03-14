@@ -104,16 +104,21 @@ $form = $this->beginWidget(
                 ]
             ]); ?>
         </div>
-		<div class="col-sm-3">
-            <?php echo $form->textFieldGroup($model, 'status', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('status'),
-                        'data-content' => $model->getAttributeDescription('status')
+        <div class="row">
+            <div class="col-sm-3">
+                <?php echo $form->dropDownListGroup(
+                    $model,
+                    'status',
+                    [
+                        'widgetOptions' => [
+                            'data' => $model->getStatusList(),
+                            'htmlOptions' => [
+                                'empty' => '--Все--',
+                            ],
+                        ],
                     ]
-                ]
-            ]); ?>
+                ); ?>
+            </div>
         </div>
 		    </div>
 </fieldset>

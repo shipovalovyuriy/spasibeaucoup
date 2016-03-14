@@ -71,7 +71,7 @@
                         </span>
                     </div>
                     <div class="media-body">                        
-                        <a href="/listner/graduates" class="h4">Выпускники</a>
+                        <a href="/listner/graduate" class="h4">Выпускники</a>
                     </div>
                 </article>
                 <div class="line pull-in"></div>

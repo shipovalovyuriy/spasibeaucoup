@@ -30,10 +30,10 @@ class ListnerController extends \yupe\components\controllers\FrontController
     public function actionCreate()
     {
         $model = new Listner;
-
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Listner'));
             $model->create_date = date("Y-m-d H:i:s");
+            $model->branch_id = Yii::app()->user->branch->id;
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
@@ -131,23 +131,26 @@ class ListnerController extends \yupe\components\controllers\FrontController
     public function actionCurrent(){
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
+        $model->status = Listner::STATUS_LISTNER;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-        $this->render('index', ['model' => $model]);
+        $this->render('current', ['model' => $model]);
     }
     public function actionPotential(){
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
+        $model->status = Listner::STATUS_POTENTIAL;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-        $this->render('index', ['model' => $model]);
+        $this->render('potential', ['model' => $model]);
     }
-    public function actionGraduates(){
+    public function actionGraduate(){
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
+        $model->status = Listner::STATUS_GRADUATE;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-        $this->render('index', ['model' => $model]);
+        $this->render('graduate', ['model' => $model]);
     }
     
     public function actionSubject($id){

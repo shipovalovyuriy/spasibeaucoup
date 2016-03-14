@@ -69,7 +69,6 @@ $this->menu = [
                 'header' => 'Имя преподавателя',
                 'name'   => 'user.first_name',
             ],
-            'time',
             [
                 'header' => 'Филиал',
                 'name'   => 'branch.name',
