@@ -116,15 +116,19 @@ $form = $this->beginWidget(
 </div>
 <div class="row">
     <div class="col-sm-7">
-        <!--            --><?php //echo $form->textFieldGroup($model, 'time', [
-        //                'widgetOptions' => [
-        //                    'htmlOptions' => [
-        //                        'class' => 'popover-help',
-        //                        'data-original-title' => $model->getAttributeLabel('time'),
-        //                        'data-content' => $model->getAttributeDescription('time')
-        //                    ]
-        //                ]
-        //            ]); ?>
+        <?php 
+//        echo $form->timePickerGroup($model, 'time', [
+//                'widgetOptions' => [
+//                    'htmlOptions' => [
+//                        'class' => 'popover-help',
+//                        'data-original-title' => $model->getAttributeLabel('time'),
+//                        'data-content' => $model->getAttributeDescription('time')
+//                    ],
+//                    'options' => [
+//                        'showMeridian' => false // irrelevant
+//                    ],
+//                ]
+//            ]); ?>
         <p><label for="">Добавить время занятий</label></p>
         <?php
         $this->widget('application.modules.listner.widgets.timepicker.timepicker', array(

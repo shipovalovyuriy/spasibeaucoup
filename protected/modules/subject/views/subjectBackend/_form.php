@@ -98,17 +98,17 @@ $form = $this->beginWidget(
     </div>
 </div>
 <div class="row">
-    <?php echo $form->labelEx($model,'color'); ?>
-    <?php $this->widget('application.modules.subject.widgets.colorpicker.EColorPicker',
-        array(
-            'name'=> 'Subject[color]',
-            'mode'=>'textfield',
-            'fade' => false,
-            'slide' => false,
-            'curtain' => true,
-        )
-    ); ?>
-    <?php echo $form->error($model,'color'); ?>
+    <div class="col-sm-7">
+        <?php echo $form->colorpickerGroup(
+                $model,
+                'color',
+                [
+                        'wrapperHtmlOptions' => [
+                                'class' => 'col-sm-5'
+                        ],
+                ]
+        ); ?>
+    </div>
 </div>
 
 <?php

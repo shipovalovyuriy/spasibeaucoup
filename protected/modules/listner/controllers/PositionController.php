@@ -150,6 +150,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     public function getTeacher($time)
     {
         if(Yii::app()->request->isAjaxRequest){
+            $time = split(',', $time);
             $criteria = new CDbCriteria;
             $criteria->condition = "start_time>=$time AND end_time+1<=$time";
             $model = Teacher::model()->findAll($criteria);
