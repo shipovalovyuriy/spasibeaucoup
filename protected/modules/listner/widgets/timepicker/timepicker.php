@@ -36,7 +36,7 @@ class timepicker extends CWidget {
         
 		$default = array(
 			'dateFormat'=>'yy-mm-dd',
-			'timeFormat'=>'hh:mm:ss',
+			'timeFormat'=>'hh:mm',
 			'showOn'=>'button',
 			'showSecond'=>false,
 			'changeMonth'=>false,

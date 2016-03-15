@@ -24,7 +24,7 @@ return [
         '/listner/<action:\w+>/<id:\d+>' => 'listner/listner/<action>',
         '/listner/subject/lessons/<id:\d+>' => 'listner/listner/subject/list',
         '/listner/position/<action>' => 'listner/position/<action>',
-        '/listner/positon/<action:\w+>/<id:\d+>' => 'listner/position/<action>',
+        '/listner/positon/create/<id:\d+>' => 'listner/position/create',
         
     ],
 ];

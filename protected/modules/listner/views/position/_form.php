@@ -56,7 +56,7 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Teacher::model()->findByAll(), 'id', 'id')
+                        'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'user.first_name')
                     ]
                 ]); ?>
         </div>
@@ -146,3 +146,6 @@ $form = $this->beginWidget(
     ); ?>
 
 <?php $this->endWidget(); ?>
+<script>
+    
+</script>

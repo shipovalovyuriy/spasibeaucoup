@@ -146,4 +146,15 @@ class PositionController extends \yupe\components\controllers\FrontController
 
         return $model;
     }
+    
+    public function getTeacher($time)
+    {
+        if(Yii::app()->request->isAjaxRequest){
+            $criteria = new CDbCriteria;
+            $criteria->condition = "start_time>=$time AND end_time+1<=$time";
+            $model = Teacher::model()->findAll($criteria);
+            echo CJSON::encode(['teacher'=> $model->user->first_name . ' ' . $model->user->last_name]);
+            Yii::app()->end();
+        }
+    }
 }

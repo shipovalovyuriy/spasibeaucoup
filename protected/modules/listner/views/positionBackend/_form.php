@@ -130,8 +130,7 @@ $form = $this->beginWidget(
         $this->widget('application.modules.listner.widgets.timepicker.timepicker', array(
             'model' => $model,
             'name' => 'time',
-            'select' => 'datetime'
-
+            'select' => 'time',
         ));
         ?>
         <a id="addTime" href="javascript:void()" style="text-decoration:none; cursor:pointer;"
@@ -181,7 +180,7 @@ $form = $this->beginWidget(
     var total = document.getElementsByClassName("totalTime");
     el.addEventListener("click", function () {
 
-        console.log(currentTime.value);
+        //console.log(currentTime.value);
         if (total.value == undefined) {
             total.value = currentTime.value
         } else {
