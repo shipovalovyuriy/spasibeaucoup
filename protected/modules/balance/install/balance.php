@@ -16,6 +16,7 @@ return [
     'import'    => [],
     'component' => [],
     'rules'     => [
+        '/balance' => 'balance/balance/index',
         '/balance/<action>' => 'balance/balance/<action>',
     ],
 ];
