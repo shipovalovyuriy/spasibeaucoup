@@ -25,6 +25,8 @@ $styles = array(
     'app.css',
     '../js/fullcalendar/fullcalendar.css',
     '../js/fullcalendar/scheduler.min.css',
+    'bootstrap-datetimepicker.min.css',
+    //'../js/datepicker/datepicker.css'
 );
 
 foreach ($styles as $style) {
@@ -33,7 +35,7 @@ foreach ($styles as $style) {
 
 // Javascript
 $scripts = array(
-    'jquery.min.js' => CClientScript::POS_HEAD,
+    //'jquery.min.js' => CClientScript::POS_HEAD,
     'bootstrap.js' => CClientScript::POS_END,
     'charts/sparkline/jquery.sparkline.min.js' => CClientScript::POS_END,
     'app.js' => CClientScript::POS_END,
@@ -44,7 +46,9 @@ $scripts = array(
     'fullcalendar/ru.js'=> CClientScript::POS_END,
     'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
     'initCal.js'=> CClientScript::POS_END,
-    'datepicker/bootstrap-datepicker.js'=> CClientScript::POS_END,
+    //'jquery.ui.timepicker.ru.js' => CClientScript::POS_END,
+    'bootstrap-datetimepicker.js'=> CClientScript::POS_END,
+    //'datepicker/bootstrap-timepicker.js'=> CClientScript::POS_END,
     /*'plugins/revslider/js/jquery.themepunch.revolution.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery-ui-1.8.13.custom.min.js' => CClientScript::POS_END,
     'plugins/thumbscroller/jquery.thumbnailScroller.js' => CClientScript::POS_END,

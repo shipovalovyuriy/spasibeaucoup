@@ -1,1 +1,1 @@
-<input type="text" class="timepicker" id="<?php echo $this->id; ?>"  />
+<input type="text" class="timepicker popover-help form-control" id="<?php echo $this->id; ?>"  />

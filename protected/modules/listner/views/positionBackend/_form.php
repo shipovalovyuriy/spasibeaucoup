@@ -117,47 +117,35 @@ $form = $this->beginWidget(
 <div class="row">
     <div class="col-sm-7">
         <?php 
-//        echo $form->timePickerGroup($model, 'time', [
-//                'widgetOptions' => [
-//                    'htmlOptions' => [
-//                        'class' => 'popover-help',
-//                        'data-original-title' => $model->getAttributeLabel('time'),
-//                        'data-content' => $model->getAttributeDescription('time')
-//                    ],
-//                    'options' => [
-//                        'showMeridian' => false // irrelevant
-//                    ],
-//                ]
-//            ]); ?>
-        <p><label for="">Добавить время занятий</label></p>
-        <?php
-        $this->widget('application.modules.listner.widgets.timepicker.timepicker', array(
-            'model' => $model,
-            'name' => 'time',
-            'select' => 'time',
-        ));
-        ?>
-        <a id="addTime" href="javascript:void()" style="text-decoration:none; cursor:pointer;"
-           class="glyphicon glyphicon-plus"></a>
-
-
-        <p><label for="">Итоговое время:</label></p>
-        <input class="totalTime" value="<?=$model->time ?>" type="text" name="Position[time]"> <a href="javascript:void()" id="clearTime"
-                                                                       style="cursor:pointer;">Очистить</a>
+        echo $form->timePickerGroup($model, 'time', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('time'),
+                        'data-content' => $model->getAttributeDescription('time')
+                    ],
+                    'options' => [
+                        'showMeridian' => false // irrelevant
+                    ],
+                ]
+            ]); ?>
     </div>
 </div>
-<div class="row" style="margin-bottom:30px;">
+<div class="row">
     <div class="col-sm-7">
-        <p><label for="">Дата начала</label></p>
-        <?php
-        $this->widget('application.modules.listner.widgets.timepicker.timepicker', array(
-            'model' => $model,
-            'name' => 'start_date',
-            'select' => 'date',
-        ));
-        ?>
+        <?php 
+        echo $form->datePickerGroup($model, 'start_date', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('time'),
+                        'data-content' => $model->getAttributeDescription('time')
+                    ],
+                ]
+            ]); ?>
     </div>
 </div>
+
 
 <?php $this->widget(
     'bootstrap.widgets.TbButton', [
@@ -175,29 +163,4 @@ $form = $this->beginWidget(
 ); ?>
 
 <?php $this->endWidget(); ?>
-
-<script>
-
-
-    var el = document.getElementById("addTime");
-    var currentTime = document.getElementById("yw0");
-    var total = document.getElementsByClassName("totalTime");
-    el.addEventListener("click", function () {
-
-        //console.log(currentTime.value);
-        if (total.value == undefined) {
-            total.value = currentTime.value
-        } else {
-            total.value += "," + currentTime.value;
-        }
-        $('.totalTime').val(total.value);
-    });
-
-    $('#clearTime').click(function () {
-        $('.totalTime').val('');
-    })
-
-    $()
-
-</script>
 

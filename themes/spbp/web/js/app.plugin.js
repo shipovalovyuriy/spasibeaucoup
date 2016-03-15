@@ -113,7 +113,8 @@
 		$(this).next('.combodate').find('select').addClass('form-control');
 	});
 	// datepicker
-	$(".datepicker-input").each(function(){ $(this).datepicker();});
+	//$(".datepicker-input").each(function(){ $(this).datepicker();});
+        //$(".timepicker-input").each(function(){ $(this).timepicker();});
 	// dropfile
 	$('.dropfile').each(function(){
 		var $dropbox = $(this);
