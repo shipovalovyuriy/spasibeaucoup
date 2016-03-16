@@ -1,6 +1,4 @@
-<?php
-
-?>
+<a href="/balance/print">Скачать в excel</a>
 <div class="row">
     <div class="col-lg-5">
         <h2>Приход</h2>
@@ -73,8 +71,15 @@
                 <td><?php $x = array_pop($totalflow); echo $x['total']?></td>
             </tr>
 
-
         </table>
 
     </div>
 </div>
+
+<?php
+
+$_GET['inflow'] = $inflow;
+$_GET['outflow'] = $outflow;
+$_GET['totalFlow'] = $totalflow;
+
+?>
