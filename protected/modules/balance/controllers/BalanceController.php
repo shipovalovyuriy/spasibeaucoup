@@ -75,6 +75,9 @@ class BalanceController extends \yupe\components\controllers\FrontController
     {
 
 
+        $costArr = Cost::model()->findAll();
+
+        $codeArr = Subject::model()->findAll();
     //////////////////////////////////////////////////////////////////////
 
         //Формирование файла exel
@@ -110,14 +113,18 @@ class BalanceController extends \yupe\components\controllers\FrontController
             ->setCellValue("C1", "Получатель")
             ->setCellValue("D1", "Сумма")
             ->setCellValue("E1", "Основание")
-            ->setCellValue("F1", "Комментарий");
+            ->setCellValue("F1", "Комментарий")
+            ->setCellValue("H1", "Наименование услуги")
+            ->setCellValue("I1", "Шифр");
 
         $sheet2->setCellValue("A1", "Дата")
             ->setCellValue("B1", "Шифр")
             ->setCellValue("C1", "Получатель")
             ->setCellValue("D1", "Сумма")
             ->setCellValue("E1", "Основание")
-            ->setCellValue("F1", "Комментарий");
+            ->setCellValue("F1", "Комментарий")
+            ->setCellValue("H1", "Наименование")
+            ->setCellValue("I1", "Шифр");
 
         $sheet3->setCellValue("A1", "Дата")
             ->setCellValue("B1", "Приход")
@@ -126,6 +133,16 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
         //Inflow
         $i = 2;
+        foreach ($codeArr as $value) {
+            $sheet1->setCellValue("H" . $i, $value->name)
+                ->setCellValue("I" . $i, $value->code);
+
+
+            $i++;
+        }
+
+        $i = 2;
+
         foreach ($inflow as $value) {
             $sheet1->setCellValue("A" . $i, $value->date)
                 ->setCellValue("B" . $i, $value->subject->code)
@@ -138,6 +155,15 @@ class BalanceController extends \yupe\components\controllers\FrontController
         }
 
         //Outflow
+        $i = 2;
+        foreach ($costArr as $value) {
+            $sheet2->setCellValue("H" . $i, $value->name)
+                ->setCellValue("I" . $i, $value->code);
+
+
+            $i++;
+        }
+
         $i = 2;
         foreach ($outflow as $value) {
             $sheet2->setCellValue("A" . $i, $value->date)
