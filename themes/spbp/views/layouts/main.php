@@ -59,6 +59,12 @@
                                         <span>Список предметов</span>
                                     </a>
                                 </li>
+                                <li class="dropdown-submenu">
+                                    <a href="/balance/index">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>Отчет</span>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                         <footer class="footer bg-gradient hidden-xs">
