@@ -66,7 +66,7 @@
                 <article class="media">
                     <div class="pull-left">
                         <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-primary fa-stack-2x"></i>
+                            <i class="fa fa-circle text-light fa-stack-2x"></i>
                             <i class="fa fa-users text-white fa-stack-1x"></i>
                         </span>
                     </div>
@@ -84,6 +84,18 @@
                     </div>
                     <div class="media-body">                        
                         <a href="/listner/potential" class="h4">Потенциальные</a>
+                    </div>
+                </article>
+                <div class="line pull-in"></div>
+                <article class="media">
+                    <div class="pull-left">
+                        <span class="fa fa-stack fa-2x">
+                            <i class="fa fa-circle text-primary fa-stack-2x"></i>
+                            <i class="fa fa-user-plus text-white fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">                        
+                        <a href="/listner/create" class="h4">Зарегистрировать клиента</a>
                     </div>
                 </article>
             </section>

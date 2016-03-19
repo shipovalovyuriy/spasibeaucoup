@@ -21,7 +21,6 @@ $form = $this->beginWidget(
     ]
 );
 ?>
-
 <div class="alert alert-info">
     <?php echo Yii::t('ListnerModule.listner', 'Поля, отмеченные'); ?>
     <span class="required">*</span>
@@ -54,9 +53,24 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <label class="control-label">Укажите время занятий</label>
+            <div class="input-group date" id="datetimepicker1">                
+                <input type='text' class="form-control ct-form-control" autocomplete="off" placeholder="После каждого выбора времени нажмите +" id="yw0" />
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+            <a id="addTime" style="text-decoration:none; cursor:pointer;"class="fa fa-plus"></a>
+            <p><label for="">Итоговое время:</label></p>
+            <input class="totalTime popover-help form-control" value="<?=$model->time ?>" type="text" name="Position[time]"> 
+            <a id="clearTime" style="cursor:pointer;">Очистить</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'user.first_name')
+                        //'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'user.first_name')
                     ]
                 ]); ?>
         </div>
@@ -105,34 +119,7 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php /*echo $form->timePickerGroup($model, 'time', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('time'),
-                        'data-content' => $model->getAttributeDescription('time')
-                    ],
-                    'options' => [
-                        'showMeridian' => false // irrelevant
-                    ],
-                ]
-            ]);*/ ?>
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" id="yw0" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        <a id="addTime" style="text-decoration:none; cursor:pointer;"class="glyphicon glyphicon-plus"></a>
-        <p><label for="">Итоговое время:</label></p>
-        <input class="totalTime popover-help form-control" value="<?=$model->time ?>" type="text" name="Position[time]"> 
-        <a id="clearTime" style="cursor:pointer;">Очистить</a>
-    </div>
-</div>
-        </div>
-    </div>
+    
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->datePickerGroup($model,'start_date', [
@@ -174,22 +161,19 @@ $form = $this->beginWidget(
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");
     el.addEventListener("click", function () {
-        console.log(currentTime.value);
-        if (total.value == undefined) {
-            total.value = currentTime.value
-        } else {
-            total.value += "," + currentTime.value;
+        if(currentTime.value != undefined && currentTime.value && currentTime.value != total.value){
+            if (total.value == undefined) {
+                total.value = currentTime.value
+            } else {
+                total.value += "," + currentTime.value;
+            }
+            $('.totalTime').val(total.value);
         }
-        $('.totalTime').val(total.value);
     });
 
     $('#clearTime').click(function () {
+        total.value = undefined;
+        $('.teachers').remove();
         $('.totalTime').val('');
     });
-    $(function(){
-        $('#datetimepicker1').datetimepicker({
-            locale: 'ru',
-            format: 'YYYY-MM-DDThh:mm'
-        });
-    })
 </script>

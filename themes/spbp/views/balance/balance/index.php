@@ -12,7 +12,7 @@
     <div class="col-lg-6">
         <input type="text" class="form-control rm popover-help" name="daterange"/>
     </div>
-    <input type="submit" class="btn btn-success">
+    <input type="submit" class="btn btn-success" value="Сформировать отчет">
 </form>
 </form>
 <script type="text/javascript">

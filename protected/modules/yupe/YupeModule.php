@@ -128,7 +128,8 @@ class YupeModule extends WebModule
      * Массив фильтров для контроллеров панели управления
      */
     protected $backEndFilters = [['yupe\filters\YBackAccessControl - error']];
-
+    
+    protected $frontEndFilters = [['yupe\filters\YFrontAccessControl - error']];
     /**
      * @return array
      * @since 0.8
@@ -159,6 +160,39 @@ class YupeModule extends WebModule
     public function addBackendFilter($filter)
     {
         $this->backEndFilters[] = $filter;
+    }
+    
+    /**
+     * @return array
+     * @since 0.9.9
+     *
+     * Вернет массив фильтров для контроллеров на фронте
+     */
+    
+    public function getFrontFilters()
+    {
+        return $this->frontEndFilters;
+    }
+
+    /**
+     * @since 0.9.9
+     *
+     * Устанавливает массив фильтров для контроллеров на фронте
+     */
+    public function setFrontFilters($filters)
+    {
+        $this->frontEndFilters = $filters;
+    }
+
+    /**
+     * @param $filter
+     * @since 0.9.9
+     *
+     * Добавить новый фильтр для контроллеров на фронте
+     */
+    public function addFrontFilter($filter)
+    {
+        $this->frontEndFilters[] = $filter;
     }
 
     /**

@@ -31,7 +31,6 @@ class PositionController extends \yupe\components\controllers\FrontController
     public function actionCreate($id)
     {
         $model = new Position;
-
         if (Yii::app()->getRequest()->getPost('Position') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
             $model->listner_id = $id;
@@ -147,15 +146,56 @@ class PositionController extends \yupe\components\controllers\FrontController
         return $model;
     }
     
-    public function getTeacher($time)
+    public function actionGetTeacher($time)
     {
         if(Yii::app()->request->isAjaxRequest){
-            $time = split(',', $time);
+            $times = explode(',', $time);
+            for($i=0; $i<count($times); $i++){
+                $times[$i] = substr($times[$i], strpos($times[$i],'T')+1);
+            }
             $criteria = new CDbCriteria;
-            $criteria->condition = "start_time>=$time AND end_time+1<=$time";
-            $model = Teacher::model()->findAll($criteria);
-            echo CJSON::encode(['teacher'=> $model->user->first_name . ' ' . $model->user->last_name]);
+            $condition = '';
+            $first = $times[0];
+            foreach($times as $cr){
+                if($cr == $first){
+                    $condition .= "start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
+                }else{
+                    $condition .= " AND start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
+                }
+            }
+            $criteria->condition = $condition;
+            $models = Teacher::model()->with('user')->findAll($criteria);
+            echo CJSON::encode($this->convertModelToArray($models));
             Yii::app()->end();
         }
+        else{
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
+    }
+    public function convertModelToArray($models) {
+        if (is_array($models))
+            $arrayMode = TRUE;
+        else {
+            $models = array($models);
+            $arrayMode = FALSE;
+        }
+
+        $result = array();
+        foreach ($models as $model) {
+            $attributes = $model->getAttributes();
+            $relations = array();
+            foreach ($model->relations() as $key => $related) {
+                if ($model->hasRelated($key)) {
+                    $relations[$key] = $this->convertModelToArray($model->$key);
+                }
+            }
+            $all = array_merge($attributes, $relations);
+
+            if ($arrayMode)
+                array_push($result, $all);
+            else
+                $result = $all;
+        }
+        return $result;
     }
 }

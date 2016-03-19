@@ -6,9 +6,13 @@
  * The followings are the available columns in table '{{user_teacher}}':
  * @property integer $id
  * @property integer $user_id
+ * @property integer $branch_id
+ * @property string $start_time
+ * @property string $end_time
  *
  * The followings are the available model relations:
- * @property ListnerGroup[] $listnerGroups
+ * @property ListnerPosition[] $listnerPositions
+ * @property BranchBranch $branch
  * @property UserUser $user
  * @property UserTeacherToSubject[] $userTeacherToSubjects
  */
@@ -30,10 +34,12 @@ class Teacher extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, branch_id', 'numerical', 'integerOnly'=>true),
+                        ['start_time, end_time', 'time', 'type' => 'time', 'format'=>'HH:mm'],
+			array('start_time, end_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id', 'safe', 'on'=>'search'),
+			array('id, user_id, branch_id, start_time, end_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +92,9 @@ class Teacher extends yupe\models\YModel
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('branch_id',$this->branch_id);
+		$criteria->compare('start_time',$this->start_time,true);
+		$criteria->compare('end_time',$this->end_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
