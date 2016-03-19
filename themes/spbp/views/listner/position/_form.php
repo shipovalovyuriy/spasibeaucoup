@@ -69,9 +69,12 @@ $form = $this->beginWidget(
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
-                    'widgetOptions' => [
-                        //'data' => CHtml::listData(Teacher::model()->findAll(), 'id', 'user.first_name')
-                    ]
+                    'widgetOptions' => [                        
+                        'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
+                    ],
                 ]); ?>
         </div>
     </div>
