@@ -155,10 +155,11 @@ class PositionController extends \yupe\components\controllers\FrontController
             }
             $criteria = new CDbCriteria;
             $condition = '';
-            $first = $times[0];
+            $first = 0;
             foreach($times as $cr){
-                if($cr == $first){
+                if($first == 0){
                     $condition .= "start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
+                    $first++;
                 }else{
                     $condition .= " AND start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
                 }
