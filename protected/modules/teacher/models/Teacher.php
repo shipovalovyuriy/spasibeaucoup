@@ -35,7 +35,6 @@ class Teacher extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('user_id, branch_id', 'numerical', 'integerOnly'=>true),
-                        ['start_time, end_time', 'time', 'type' => 'time', 'format'=>'HH:mm'],
 			array('start_time, end_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
