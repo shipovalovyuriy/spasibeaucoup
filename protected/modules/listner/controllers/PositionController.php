@@ -183,15 +183,6 @@ class PositionController extends \yupe\components\controllers\FrontController
             }
             $criteria->condition = $condition;
             $models = Teacher::model()->with('user', 'schedule')->findAll($criteria);
-            /*foreach($models as $model){
-                foreach($model->schedule as $modelSt){
-                        if(in_array($modelSt, $schedule)){
-                            unset($model);
-                        }
-                }
-            }*/
-            //$models = Teacher::model()->with('user', 'schedule')->getCommandBuilder()->createFindCommand('spbp_user_teacher', $criteria)->getText();
-            //die($models);
             echo CJSON::encode($this->convertModelToArray($models));
             Yii::app()->end();
         }
