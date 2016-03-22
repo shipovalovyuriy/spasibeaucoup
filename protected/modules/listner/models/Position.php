@@ -69,60 +69,39 @@ class Position extends yupe\models\YModel
 			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
-        
-//        protected function beforeSave() {
-//            $time = split(',', $this->time);
-//            $j = count($time);
-//            $r=$this->findSchedule($time[0]);
-//            $foo = (int)substr($time[0],0,2);
-//            $foo = $foo+1;
-//            die(var_dump($foo));
-//            parent::beforeSave();
-//        }
-
 
         protected function afterSave() 
         {
             parent::afterSave();
             if($this->isNewRecord){
-
-
-				//Формирование расписания пользователя
-
+                //Формирование расписания пользователя
                 $time = explode(',', $this->time);
                 $tCount = count($time);
                 $j = 0;
-				$k = 0;
+                $k = 0;
                 for($i=0; $i<$this->form->number;$i++){
-                    if($j==$tCount){$j=0;$k++;}
+                    if($j==$tCount){
+                        $j=0;
+                        $k++;
+                    }
                     $schedule = new Schedule;
                     $schedule->position_id = $this->id;
                     $schedule->number = $i+1;
-                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));;
-                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));;
-                    $r = $this->findRoom($schedule->start_time);
-                    $schedule->room_id = $r;
+                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
+                    $schedule->room_id = $this->findRoom($schedule->start_time);
                     $schedule->save();
                     $j++;
-                    
                 }
-
-				//////////////////////////////////////////////
-
-
-				//Формирование прихода
-
-				$inflow = new Inflow();
-				$inflow->subject_id = $this->subject_id;
-				$inflow->receiver = $this->teacher->user->last_name." ".$this->teacher->user->first_name;
-				$inflow->form_id = $this->form_id;
-				$inflow->based = $this->code;
-				$inflow->comment = $this->note;
-				$inflow->date = $this->start_date;
-				$inflow->save();
-
-				/////////////////////////////////////////////////
-
+                //Формирование прихода
+                $inflow = new Inflow();
+                $inflow->subject_id = $this->subject_id;
+                $inflow->receiver = $this->teacher->user->last_name." ".$this->teacher->user->first_name;
+                $inflow->form_id = $this->form_id;
+                $inflow->based = $this->code;
+                $inflow->comment = $this->note;
+                $inflow->date = $this->start_date;
+                $inflow->save();
             }
         }
         

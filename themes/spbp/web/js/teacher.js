@@ -8,16 +8,17 @@ $(function(){
     $('#addTime').click(function(){
         var teacher = $('#Position_teacher_id');
         var time = $('.totalTime').val();
+        var form = $('#Position_form_id').val();
         if(time){
             $.ajax({
                 type: 'GET',
-                url: '/listner/position/getTeacher?time='+time,
+                url: '/listner/position/getTeacher?time='+time+'&form='+form,
                 dataType: 'json',
                 data:{},
             }).done(function(data){
                 $('.teachers').remove();
                 data.forEach(function(item){
-                        teacher.append('<option class="teachers" value="'+item.id+'">'+item.user.first_name + ' ' + item.user.last_name+'</option>');
+                        teacher.append('<option class="teachers" value="'+item.id+'">'+item.user.last_name + ' ' + item.user.first_name+'</option>');
                     })
             })
         }

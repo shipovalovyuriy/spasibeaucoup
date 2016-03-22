@@ -6,19 +6,13 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
     public function actionShow()
     {
-
-
-        $gavno = explode('-', $_GET['daterange']);
-        $d1 = date('Y-m-d', strtotime($gavno[0]));
-        $d2 = date('Y-m-d', strtotime($gavno[1]));
+        $date = explode('-', $_GET['daterange']);
+        $d1 = date('Y-m-d', strtotime($date[0]));
+        $d2 = date('Y-m-d', strtotime($date[1]));
         $inflow = [];
         $outflow = [];
         $totalArr = [];
-
-        ////////////////////////////////////////////////////////////////////
-
         // Формирование моделей
-
         $criteria = new CDbCriteria();
         $criteria->condition = 'date =:date1';
         $criteria->params = [":date1" => $d1];
@@ -57,9 +51,8 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
         }
 
+        //$this->render('search', array('inflow' => $inflow, 'outflow' => $outflow, 'totalflow' => $totalArr));
         $this->actionPrint($inflow,$outflow,$totalArr);
-
-/*        $this->render('search', array('inflow' => $inflow, 'outflow' => $outflow, 'totalflow' => $totalArr));*/
 
     }
 
@@ -73,8 +66,6 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
     public function actionPrint($inflow,$outflow,$totalArr)
     {
-
-
         $costArr = Cost::model()->findAll();
 
         $codeArr = Subject::model()->findAll();

@@ -51,10 +51,12 @@ class Teacher extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'Groups' => array(self::HAS_MANY, 'Group', 'teacher_id'),
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'subject' => array(self::HAS_MANY, 'TeacherToSubject', 'teacher_id'),
-                        'branch' => [self::BELONGS_TO, 'Branch', 'branch_id']
+			'groups' => [self::HAS_MANY, 'Group', 'teacher_id'],
+			'user' => [self::BELONGS_TO, 'User', 'user_id'],
+			'subject' => [self::HAS_MANY, 'TeacherToSubject', 'teacher_id'],
+                        'branch' => [self::BELONGS_TO, 'Branch', 'branch_id'],
+                        'position' => [self::HAS_MANY, 'Position', 'teacher_id'],
+                        'schedule'=>[self::HAS_MANY, 'Schedule', ['id'=>'position_id'], 'through'=>'position'],                  
 		);
 	}
 

@@ -146,26 +146,52 @@ class PositionController extends \yupe\components\controllers\FrontController
         return $model;
     }
     
-    public function actionGetTeacher($time)
+    public function actionGetTeacher($time, $form)
     {
         if(Yii::app()->request->isAjaxRequest){
             $times = explode(',', $time);
-            for($i=0; $i<count($times); $i++){
+            $tCount = count($times);
+            $crTimes = $times;
+            $schedule = [];
+            $j = 0;
+            $k = 0;
+            $form = Form::model()->findByPk($form);
+            for($i=0; $i<$tCount; $i++){
                 $times[$i] = substr($times[$i], strpos($times[$i],'T')+1);
+            }
+            for($i=0; $i<$form->number;$i++){
+                if($j==$tCount){
+                    $j=0;
+                    $k++;
+                }
+                $schedule[$i] = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($crTimes[$j]))));
+                $j++;
             }
             $criteria = new CDbCriteria;
             $condition = '';
             $first = 0;
             foreach($times as $cr){
                 if($first == 0){
-                    $condition .= "start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
+                    $condition .= "`t`.`start_time`<='$cr' AND ADDTIME(`t`.`end_time`,'01:00:00')>='$cr'";
                     $first++;
                 }else{
-                    $condition .= " AND start_time<='$cr' AND ADDTIME(end_time,'01:00:00')>='$cr'";
+                    $condition .= " AND `t`.`start_time`<='$cr' AND ADDTIME(`t`.`end_time`,'01:00:00')>='$cr'";
                 }
             }
+            foreach($schedule as $sch){
+                $condition .= " AND `schedule`.`start_time` <>'$sch'";
+            }
             $criteria->condition = $condition;
-            $models = Teacher::model()->with('user')->findAll($criteria);
+            $models = Teacher::model()->with('user', 'schedule')->findAll($criteria);
+            /*foreach($models as $model){
+                foreach($model->schedule as $modelSt){
+                        if(in_array($modelSt, $schedule)){
+                            unset($model);
+                        }
+                }
+            }*/
+            //$models = Teacher::model()->with('user', 'schedule')->getCommandBuilder()->createFindCommand('spbp_user_teacher', $criteria)->getText();
+            //die($models);
             echo CJSON::encode($this->convertModelToArray($models));
             Yii::app()->end();
         }
