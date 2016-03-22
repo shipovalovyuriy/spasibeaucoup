@@ -148,7 +148,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     
     public function actionGetTeacher($time, $form)
     {
-        if(Yii::app()->request->isAjaxRequest){
+        if(!Yii::app()->request->isAjaxRequest){
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
@@ -172,10 +172,10 @@ class PositionController extends \yupe\components\controllers\FrontController
             $first = 0;
             foreach($times as $cr){
                 if($first == 0){
-                    $condition .= "`t`.`start_time`<='$cr' AND ADDTIME(`t`.`end_time`,'01:00:00')>='$cr'";
+                    $condition .= "`t`.`start_time`<='$cr' AND SUBTIME(`t`.`end_time`,'01:00:00')>='$cr'";
                     $first++;
                 }else{
-                    $condition .= " AND `t`.`start_time`<='$cr' AND ADDTIME(`t`.`end_time`,'01:00:00')>='$cr'";
+                    $condition .= " AND `t`.`start_time`<='$cr' AND SUBTIME(`t`.`end_time`,'01:00:00')>='$cr'";
                 }
             }
             foreach($schedule as $sch){
