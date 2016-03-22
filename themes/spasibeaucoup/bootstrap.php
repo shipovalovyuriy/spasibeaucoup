@@ -17,14 +17,13 @@ $assetPath = $assetManager->publish(
     Yii::app()->theme->basePath . '/web'
 );
 $styles = array(
+    'icons/icomoon/styles.css',
     'bootstrap.css',
-    'animate.css',
-    'font-awesome.min.css',
-    'font.css',
-    'plugin.css',
-    'app.css',
-    '../js/fullcalendar/fullcalendar.css',
-    '../js/fullcalendar/scheduler.min.css',
+    'core.css',
+    'components.css',
+    'colors.css',
+//    '../js/fullcalendar/fullcalendar.css',
+//    '../js/fullcalendar/scheduler.min.css',
 );
 
 foreach ($styles as $style) {
@@ -33,28 +32,25 @@ foreach ($styles as $style) {
 
 // Javascript
 $scripts = array(
-    'jquery.min.js' => CClientScript::POS_HEAD,
-    'bootstrap.js' => CClientScript::POS_END,
-    '/charts/sparkline/jquery.sparkline.min.js' => CClientScript::POS_END,
-    'app.js' => CClientScript::POS_END,
-    'app.plugin.js' => CClientScript::POS_END,
-    'app.data.js' => CClientScript::POS_END,
-    'fullcalendar/moment.min.js'=> CClientScript::POS_END,
-    'fullcalendar/fullcalendar.js'=> CClientScript::POS_END,
-    'fullcalendar/ru.js'=> CClientScript::POS_END,
-    'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
-    'initCal.js'=> CClientScript::POS_END,
-    /*'plugins/revslider/js/jquery.themepunch.revolution.min.js' => CClientScript::POS_END,
-    'plugins/thumbscroller/jquery-ui-1.8.13.custom.min.js' => CClientScript::POS_END,
-    'plugins/thumbscroller/jquery.thumbnailScroller.js' => CClientScript::POS_END,
-    'plugins/revslider/js/jquery.themepunch.plugins.min.js' => CClientScript::POS_END,
-    'plugins/flexslider/jquery.flexslider-min.js' => CClientScript::POS_END,
-    'plugins/magnificpopup/jquery.magnific-popup.min.js' => CClientScript::POS_END,
-    'jquery.countTo.js' => CClientScript::POS_END,
-    'contact-form.js' => CClientScript::POS_END,
-    'singlePageNav.js' => CClientScript::POS_END,
-    'main.js' => CClientScript::POS_END,
-    'demo.js' => CClientScript::POS_END,*/
+
+    'plugins/loaders/pace.min.js'=> CClientScript::POS_END,
+    'core/libraries/jquery.min.js'=> CClientScript::POS_END,
+    'core/libraries/bootstrap.min.js'=> CClientScript::POS_END,
+    'plugins/loaders/blockui.min.js'=> CClientScript::POS_END,
+    'plugins/visualization/d3/d3.min.js'=> CClientScript::POS_END,
+    'plugins/visualization/d3/d3_tooltip.js'=> CClientScript::POS_END,
+    'plugins/forms/styling/switchery.min.js'=> CClientScript::POS_END,
+    'plugins/forms/styling/uniform.min.js'=> CClientScript::POS_END,
+    'plugins/forms/selects/bootstrap_multiselect.js'=> CClientScript::POS_END,
+    'plugins/pickers/daterangepicker.js'=> CClientScript::POS_END,
+    'core/app.js'=> CClientScript::POS_END,
+    'pages/dashboard.js'=> CClientScript::POS_END,
+//    'fullcalendar/moment.min.js'=> CClientScript::POS_END,
+//    'fullcalendar/fullcalendar.js'=> CClientScript::POS_END,
+//    'fullcalendar/ru.js'=> CClientScript::POS_END,
+//    'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
+//    'initCal.js'=> CClientScript::POS_END,
+
 );
 
 foreach ($scripts as $script => $position) {
