@@ -320,4 +320,8 @@ class YWebUser extends CWebUser
 
         return parent::login($identity, $duration);
     }
+    
+    public function getRole(){
+        return RoleToUser::model()->findByPk(Yii::app()->user->id)->role->id;
+    }
 }
