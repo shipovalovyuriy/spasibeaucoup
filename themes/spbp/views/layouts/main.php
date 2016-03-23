@@ -21,7 +21,7 @@
                             </div>
                             <div class="nav-msg">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <b class="badge badge-black count-n"><?= Yii::app()->user->branch->name;?></b>
+                                    <b class="badge badge-black count-n"><?php// Yii::app()->user->branch->name;?></b>
                                 </a>                            
                             </div>
                         </div>
