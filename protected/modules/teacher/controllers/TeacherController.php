@@ -19,7 +19,13 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionView($id)
     {
-        $this->render('view', ['model' => $this->loadModel($id)]);
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
+        $this->render('view', ['model' => $this->loadModel($id)]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -30,6 +36,9 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionCreate()
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = new Teacher;
 
         if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
@@ -52,7 +61,10 @@ class TeacherController extends \yupe\components\controllers\FrontController
                 );
             }
         }
-        $this->render('create', ['model' => $model]);
+        $this->render('create', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -64,6 +76,9 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionUpdate($id)
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = $this->loadModel($id);
 
         if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
@@ -86,7 +101,10 @@ class TeacherController extends \yupe\components\controllers\FrontController
                 );
             }
         }
-        $this->render('update', ['model' => $model]);
+        $this->render('update', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -99,6 +117,9 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionDelete($id)
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
             // поддерживаем удаление только из POST-запроса
             $this->loadModel($id)->delete();
@@ -114,7 +135,11 @@ class TeacherController extends \yupe\components\controllers\FrontController
             }
         } else
             throw new CHttpException(400, Yii::t('TeacherModule.teacher', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
-    }
+    }else{
+            $this->render('../../access/index');
+        }
+
+        }
     
     /**
     * Управление Учителями.
@@ -123,11 +148,17 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = new Teacher('search');
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Teacher') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Teacher'));
-        $this->render('index', ['model' => $model]);
+        $this->render('index', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**

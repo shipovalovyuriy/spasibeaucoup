@@ -322,6 +322,15 @@ class YWebUser extends CWebUser
     }
     
     public function getRole(){
-        return RoleToUser::model()->findByPk(Yii::app()->user->id)->role->id;
+
+       $arr1 = RoleToUser::model()->findAll(['condition'=> "id=".Yii::app()->user->id, 'select'=>'role_id']);
+
+        $arr = [];
+
+        foreach ($arr1 as $value){
+
+            array_push($arr,$value->role_id);
+        }
+        return $arr;
     }
 }
