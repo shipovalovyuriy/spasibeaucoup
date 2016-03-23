@@ -209,6 +209,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             $this->render('../../access/index');
         }
     }
+<<<<<<< HEAD
 
     public function actionSubject($id)
     {
@@ -221,6 +222,12 @@ class ListnerController extends \yupe\components\controllers\FrontController
         else{
             $this->render('../../access/index');
         }
+=======
+    
+    public function actionSubject($id){
+        $model = Position::model()->find('id='.$id);
+        $this->render('subjectList', ['model' => $model]);
+>>>>>>> origin/master
     }
 
     /**
