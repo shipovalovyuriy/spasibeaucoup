@@ -45,4 +45,14 @@ abstract class FrontController extends Controller
             require $bootstrap;
         }
     }
+//    public function filters()
+//    {
+//        return Yii::app()->getModule('yupe')->getFrontFilters();
+//    }
+//    protected function beforeAction($action)
+//    {
+//        parent::beforeAction($action);
+//        if(\Yii::app()->user->isGuest){die('1');}
+//        
+//    }
 }

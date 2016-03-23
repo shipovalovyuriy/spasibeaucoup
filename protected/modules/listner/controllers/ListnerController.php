@@ -154,8 +154,8 @@ class ListnerController extends \yupe\components\controllers\FrontController
     }
     
     public function actionSubject($id){
-        $model = Position::model()->findAll('id='.$id);
-        $this->render('subjectList', ['model' => $model[0]]);
+        $model = Position::model()->find('id='.$id);
+        $this->render('subjectList', ['model' => $model]);
     }
 
     /**

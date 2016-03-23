@@ -216,4 +216,8 @@ class PositionController extends \yupe\components\controllers\FrontController
         }
         return $result;
     }
+    
+    public function actionDoc($id){
+        $this->render('positionDoc');
+    }
 }
