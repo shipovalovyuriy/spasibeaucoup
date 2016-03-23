@@ -182,7 +182,7 @@ class YWebUser extends CWebUser
     
     public function getBranch()
     {
-        return User::model()->findByPk(Yii::app()->user->id)->branch;
+        return User::model()->findByPk(Yii::app()->user->id)->branch_id;
     }
 
     /**
@@ -332,5 +332,9 @@ class YWebUser extends CWebUser
             array_push($arr,$value->role_id);
         }
         return $arr;
+    }
+    public function getTeacher(){
+
+        return Teacher::model()->find('user_id='.Yii::app()->user->id)->id;
     }
 }

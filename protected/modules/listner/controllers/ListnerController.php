@@ -156,6 +156,10 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
+
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
         $this->render('index', ['model' => $model]);}
         else{
             $this->render('../../access/index');
@@ -172,6 +176,9 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $model->status = Listner::STATUS_LISTNER;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
         $this->render('current', ['model' => $model]);}
         else{
             $this->render('../../access/index');
@@ -188,6 +195,9 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $model->status = Listner::STATUS_POTENTIAL;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
         $this->render('potential', ['model' => $model]);}
         else{
             $this->render('../../access/index');
@@ -204,31 +214,30 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $model->status = Listner::STATUS_GRADUATE;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
         $this->render('graduate', ['model' => $model]);}
         else{
             $this->render('../../access/index');
         }
     }
-<<<<<<< HEAD
 
     public function actionSubject($id)
     {
         $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
-        $model = Position::model()->findAll('id=' . $id);
-        $this->render('subjectList', ['model' => $model[0]]);
-        }
-        else{
+            $model = Position::model()->findAll('id=' . $id);
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
+            $this->render('subjectList', ['model' => $model[0]]);
+        } else {
             $this->render('../../access/index');
         }
-=======
-    
-    public function actionSubject($id){
-        $model = Position::model()->find('id='.$id);
-        $this->render('subjectList', ['model' => $model]);
->>>>>>> origin/master
     }
+
 
     /**
      * Возвращает модель по указанному идентификатору

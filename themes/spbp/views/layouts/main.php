@@ -65,6 +65,12 @@
                                         <span>Отчет</span>
                                     </a>
                                 </li>
+                                <li class="dropdown-submenu">
+                                    <a href="/teacher/schedule?id=<?=Yii::app()->user->teacher?>">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>Мое расписание</span>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                         <footer class="footer bg-gradient hidden-xs">

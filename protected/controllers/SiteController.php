@@ -57,11 +57,12 @@ class SiteController extends FrontController
         $arrs = [];
         if ($param1 == "1") {
             $array = \Yii::app()->db->createCommand()
-                ->select('b.id, c.code, a.last_name as lastname, b.start_time, b.end_time, b.room_id, d.name,d.color')
+                ->select('b.id, c.code, z.lastname, b.start_time, b.end_time, b.room_id, d.name,d.color')
                 ->from('spbp_user_user a')
                 ->join('spbp_user_teacher f','a.id = f.user_id')
                 ->join('spbp_listner_position c', 'c.teacher_id = f.id')
                 ->join('spbp_listner_schedule b', 'c.id = b.position_id')
+                ->join('spbp_listner_listner z','z.id = c.listner_id')
                 ->join('spbp_subject_subject d', 'd.id = c.subject_id')
                 ->where('f.id =:id',array(":id"=>$param2))
                 ->queryAll();

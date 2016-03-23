@@ -27,7 +27,31 @@ class TeacherController extends \yupe\components\controllers\FrontController
             $this->render('../../access/index');
         }
     }
-    
+
+    // Показать расписание для учителя
+
+
+    public function actionSchedule($id){
+
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+
+        if (!array_diff($role, $roles)) {
+        $model = $this->loadModel($id);
+
+        $arr = Listner::model()->with('position')->findAll('teacher_id='.$id);
+            if(Yii::app()->user->teacher!=$id){$this->render('../../access/index');}else{
+        $this->render('schedule',['model'=>$model,'list'=>$arr]);}}
+        else{
+            $this->render('../../access/index');
+        }
+
+
+    }
+
+
+
+
     /**
     * Создает новую модель Учителя.
     * Если создание прошло успешно - перенаправляет на просмотр.
@@ -155,6 +179,9 @@ class TeacherController extends \yupe\components\controllers\FrontController
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Teacher') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Teacher'));
+            if(!array_diff($role,[2,3])){
+                $model->branch_id = \Yii::app()->user->branch;
+            }
         $this->render('index', ['model' => $model]);}
         else{
             $this->render('../../access/index');
