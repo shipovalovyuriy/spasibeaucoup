@@ -19,7 +19,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionView($id)
     {
-        $roles = ['1'];
+        $roles = ['1','4','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $this->render('view', ['model' => $this->loadModel($id)]);}
@@ -33,7 +33,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
 
     public function actionSchedule($id){
 
-        $roles = ['1'];
+        $roles = ['1','4'];
         $role = \Yii::app()->user->role;
 
         if (!array_diff($role, $roles)) {
@@ -60,7 +60,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionCreate()
     {
-        $roles = ['1'];
+        $roles = ['1','4'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Teacher;
@@ -100,7 +100,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionUpdate($id)
     {
-        $roles = ['1'];
+        $roles = ['1','4'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = $this->loadModel($id);
@@ -141,7 +141,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionDelete($id)
     {
-        $roles = ['1'];
+        $roles = ['1','4'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -172,7 +172,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
-        $roles = ['1'];
+        $roles = ['1','4','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Teacher('search');

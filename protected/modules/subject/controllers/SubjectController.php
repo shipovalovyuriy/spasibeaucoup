@@ -19,7 +19,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionView($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $teachers = Teacher::model()->findAll();
@@ -38,7 +38,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionCreate()
     {
-        $roles = ['1'];
+        $roles = ['1','5'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Subject;
@@ -78,7 +78,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionUpdate($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = $this->loadModel($id);
@@ -119,7 +119,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionDelete($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -150,7 +150,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
-        $roles = ['1'];
+        $roles = ['1','5'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Subject('search');
