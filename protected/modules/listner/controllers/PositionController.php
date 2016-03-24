@@ -25,7 +25,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (!array_diff($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -63,7 +63,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             }
             $this->render('create', ['model' => $model]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -103,7 +103,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             }
             $this->render('update', ['model' => $model]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -136,7 +136,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             } else
                 throw new CHttpException(400, Yii::t('ListnerModule.listner', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -156,7 +156,7 @@ class PositionController extends \yupe\components\controllers\FrontController
                 $model->setAttributes(Yii::app()->getRequest()->getParam('Position'));
             $this->render('index', ['model' => $model]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -260,9 +260,11 @@ class PositionController extends \yupe\components\controllers\FrontController
             'Пятница',
             'Суббота'            
         ];
+        $admin = User::model()->findBySql('SELECT * FROM spbp_user_user t1 JOIN spbp_user_role_to_user t2 ON t2.user_id = t1.id WHERE t2.role_id = 3');
         $this->render('positionDoc', [
             'model' => $model,
-            'days'  => $days
+            'days'  => $days,
+            'admin' => $admin
         ]);
     }
 }

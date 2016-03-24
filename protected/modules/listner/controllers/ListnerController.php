@@ -25,7 +25,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
         if (!array_diff($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -64,7 +64,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
         }
         $this->render('create', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -104,7 +104,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
         }
         $this->render('update', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -138,9 +138,9 @@ class ListnerController extends \yupe\components\controllers\FrontController
                 throw new CHttpException(400, Yii::t('ListnerModule.listner', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
         }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
-        }
+    }
 
     /**
      * Управление Студентами.
@@ -162,7 +162,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             }
         $this->render('index', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -181,7 +181,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             }
         $this->render('current', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -200,7 +200,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             }
         $this->render('potential', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -219,7 +219,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             }
         $this->render('graduate', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -234,7 +234,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             }
             $this->render('subjectList', ['model' => $model[0]]);
         } else {
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
