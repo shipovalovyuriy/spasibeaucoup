@@ -6,7 +6,9 @@
 </div>
 <div class="col-lg-12">
     <section class="panel portlet-item">
-        <header class="panel-heading"><?= $model->subject->name?></header>         
+        <header class="panel-heading"><?= $model->subject->name?> <a class="pull-right" href="/listner/position/doc?id=<?= $model->id?>">
+            <i class="fa fa-file-o"></i>  Документ
+        </a></header>
         <div class="list-group bg-white">
             <a href="#" class="list-group-item">
                 <i class=""></i> Март
@@ -15,7 +17,7 @@
                 <a href="#" class="list-group-item" <?php if($schedule->start_time):?>style="text-decoration: line-through;"<?php endif;?>>
                     <i class=""></i> Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?>
                 </a>
-            <?php endforeach;?>
+            <?php endforeach;?>            
         </div>
     </section>
 </div>

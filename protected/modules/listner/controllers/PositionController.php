@@ -218,6 +218,19 @@ class PositionController extends \yupe\components\controllers\FrontController
     }
     
     public function actionDoc($id){
-        $this->render('positionDoc');
+        $model = Position::model()->findByPk($id);
+        $days = [
+            'Воскресенье',
+            'Понедельник',
+            'Вторник',
+            'Среда',
+            'Четверг',
+            'Пятница',
+            'Суббота'            
+        ];
+        $this->render('positionDoc', [
+            'model' => $model,
+            'days'  => $days
+        ]);
     }
 }
