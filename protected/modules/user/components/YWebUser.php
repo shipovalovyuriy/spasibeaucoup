@@ -182,7 +182,7 @@ class YWebUser extends CWebUser
     
     public function getBranch()
     {
-        return User::model()->findByPk(Yii::app()->user->id)->branch;
+        return User::model()->findByPk(Yii::app()->user->id)->branch_id;
     }
 
     /**
@@ -322,6 +322,19 @@ class YWebUser extends CWebUser
     }
     
     public function getRole(){
-        return RoleToUser::model()->findByPk(Yii::app()->user->id)->role->id;
+
+       $arr1 = RoleToUser::model()->findAll(['condition'=> "id=".Yii::app()->user->id, 'select'=>'role_id']);
+
+        $arr = [];
+
+        foreach ($arr1 as $value){
+
+            array_push($arr,$value->role_id);
+        }
+        return $arr;
+    }
+    public function getTeacher(){
+
+        return Teacher::model()->find('user_id='.Yii::app()->user->id)->id;
     }
 }

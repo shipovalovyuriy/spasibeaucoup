@@ -19,8 +19,15 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionView($id)
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $teachers = Teacher::model()->findAll();
-        $this->render('view', ['model' => $this->loadModel($id), 'teachers' => $teachers]);
+        $this->render('view', ['model' => $this->loadModel($id), 'teachers' => $teachers]);}
+        else{
+            $this->render('../../access/index');
+        }
+
     }
     
     /**
@@ -31,6 +38,9 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionCreate()
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = new Subject;
 
         if (Yii::app()->getRequest()->getPost('Subject') !== null) {
@@ -53,7 +63,10 @@ class SubjectController extends \yupe\components\controllers\FrontController
                 );
             }
         }
-        $this->render('create', ['model' => $model]);
+        $this->render('create', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -65,6 +78,9 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionUpdate($id)
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = $this->loadModel($id);
 
         if (Yii::app()->getRequest()->getPost('Subject') !== null) {
@@ -87,7 +103,10 @@ class SubjectController extends \yupe\components\controllers\FrontController
                 );
             }
         }
-        $this->render('update', ['model' => $model]);
+        $this->render('update', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -100,21 +119,28 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionDelete($id)
     {
-        if (Yii::app()->getRequest()->getIsPostRequest()) {
-            // поддерживаем удаление только из POST-запроса
-            $this->loadModel($id)->delete();
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
+            if (Yii::app()->getRequest()->getIsPostRequest()) {
+                // поддерживаем удаление только из POST-запроса
+                $this->loadModel($id)->delete();
 
-            Yii::app()->user->setFlash(
-                yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                Yii::t('SubjectModule.subject', 'Запись удалена!')
-            );
+                Yii::app()->user->setFlash(
+                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                    Yii::t('SubjectModule.subject', 'Запись удалена!')
+                );
 
-            // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
-            if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
-                $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
-            }
-        } else
-            throw new CHttpException(400, Yii::t('SubjectModule.subject', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
+                // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
+                if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
+                    $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
+                }
+            } else
+                throw new CHttpException(400, Yii::t('SubjectModule.subject', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
+        }
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
@@ -124,11 +150,17 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (!array_diff($role, $roles)) {
         $model = new Subject('search');
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Subject') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Subject'));
-        $this->render('index', ['model' => $model]);
+        $this->render('index', ['model' => $model]);}
+        else{
+            $this->render('../../access/index');
+        }
     }
     
     /**
