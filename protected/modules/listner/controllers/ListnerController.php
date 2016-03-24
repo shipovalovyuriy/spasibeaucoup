@@ -20,7 +20,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actionView($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
@@ -37,7 +37,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actionCreate()
     {
-        $roles = ['1'];
+        $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Listner;
@@ -77,7 +77,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actionUpdate($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = $this->loadModel($id);
@@ -118,7 +118,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actionDelete($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -149,7 +149,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actionAll()
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Listner('search');
@@ -168,7 +168,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
 
     public function actionCurrent()
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Listner('search');
@@ -187,7 +187,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
 
     public function actionPotential()
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Listner('search');
@@ -206,7 +206,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
 
     public function actionGraduate()
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
         $model = new Listner('search');
@@ -225,7 +225,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
 
     public function actionSubject($id)
     {
-        $roles = ['1'];
+        $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $model = Position::model()->findAll('id=' . $id);

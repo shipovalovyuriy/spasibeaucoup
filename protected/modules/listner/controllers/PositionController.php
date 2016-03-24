@@ -20,7 +20,7 @@ class PositionController extends \yupe\components\controllers\FrontController
      */
     public function actionView($id)
     {
-        $roles = ['1'];
+        $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
@@ -37,7 +37,7 @@ class PositionController extends \yupe\components\controllers\FrontController
      */
     public function actionCreate($id)
     {
-        $roles = ['1'];
+        $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $model = new Position;
@@ -76,7 +76,7 @@ class PositionController extends \yupe\components\controllers\FrontController
      */
     public function actionUpdate($id)
     {
-        $roles = ['1'];
+        $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $model = $this->loadModel($id);
@@ -117,7 +117,7 @@ class PositionController extends \yupe\components\controllers\FrontController
      */
     public function actionDelete($id)
     {
-        $roles = ['1'];
+        $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -147,7 +147,7 @@ class PositionController extends \yupe\components\controllers\FrontController
      */
     public function actionIndex()
     {
-        $roles = ['1'];
+        $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (!array_diff($role, $roles)) {
             $model = new Position('search');
