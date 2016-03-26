@@ -177,7 +177,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         return $model;
     }
 
-    public function actionGetTeacher($time, $form)
+    public function actionGetTeacher($time, $form, $subject)
     {
         if (Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
@@ -212,8 +212,9 @@ class PositionController extends \yupe\components\controllers\FrontController
             foreach ($schedule as $sch) {
                 $condition .= " AND `schedule`.`start_time` <>'$sch'";
             }
+            $condition .= " AND `subject`.`subject_id` = $subject";
             $criteria->condition = $condition;
-            $models = Teacher::model()->with('user', 'schedule')->findAll($criteria);
+            $models = Teacher::model()->with('user', 'schedule', 'subject')->findAll($criteria);
             echo CJSON::encode($this->convertModelToArray($models));
             Yii::app()->end();
         } else {
@@ -251,19 +252,9 @@ class PositionController extends \yupe\components\controllers\FrontController
     
     public function actionDoc($id){
         $model = Position::model()->findByPk($id);
-        $days = [
-            'Воскресенье',
-            'Понедельник',
-            'Вторник',
-            'Среда',
-            'Четверг',
-            'Пятница',
-            'Суббота'            
-        ];
         $admin = User::model()->findBySql('SELECT * FROM spbp_user_user t1 JOIN spbp_user_role_to_user t2 ON t2.user_id = t1.id WHERE t2.role_id = 3');
         $this->render('positionDoc', [
             'model' => $model,
-            'days'  => $days,
             'admin' => $admin
         ]);
     }

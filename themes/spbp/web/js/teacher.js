@@ -9,12 +9,16 @@ $(function(){
         var teacher = $('#Position_teacher_id');
         var time = $('.totalTime').val();
         var form = $('#Position_form_id').val();
+        var subject = $('#Position_subject_id').val();
         if(time){
             $.ajax({
                 type: 'GET',
-                url: '/listner/position/getTeacher?time='+time+'&form='+form,
+                url: '/listner/position/getTeacher?time='+time,
                 dataType: 'json',
-                data:{},
+                data:{
+                    form: form,
+                    subject: subject
+                },
             }).done(function(data){
                 $('.teachers').remove();
                 data.forEach(function(item){

@@ -59,7 +59,7 @@
 						<?php 
                                                     $times = split(',',$model->time);
                                                     foreach($times as $time){
-                                                        echo $days[date('w',  strtotime(substr($time, 0, 10)))].'('. substr($time, 11).'-' .date('H:i',strtotime(substr($time, 11)) + 60*60) . '); ';
+                                                        echo $model->days($time);
                                                     }
                                                 ?>
                                                 </font></font></font></p>
@@ -298,7 +298,7 @@
 						<?php 
                                                     $times = split(',',$model->time);
                                                     foreach($times as $time){
-                                                        echo $days[date('w',  strtotime(substr($time, 0, 10)))].'('. substr($time, 11).'-' .date('H:i',strtotime(substr($time, 11)) + 60*60) . '); ';
+                                                        echo $model->days($time);
                                                     }
                                                 ?>
                                                 </font></font></font></p>

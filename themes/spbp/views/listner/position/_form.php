@@ -53,6 +53,15 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'subject_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
+                    ]
+                ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <label class="control-label">Укажите время занятий</label>
             <div class="input-group date" id="datetimepicker1">                
                 <input type='text' class="form-control ct-form-control" autocomplete="off" placeholder="После каждого выбора времени нажмите +" id="yw0" />
@@ -75,15 +84,6 @@ $form = $this->beginWidget(
                             'encode' => false,
                         ],
                     ],
-                ]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'subject_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name')
-                    ]
                 ]); ?>
         </div>
     </div>
@@ -164,7 +164,8 @@ $form = $this->beginWidget(
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");
     el.addEventListener("click", function () {
-        if(currentTime.value != undefined && currentTime.value && currentTime.value != total.value){
+        if(currentTime.value != undefined && currentTime.value && currentTime.value != total.value
+                && $('#Position_form_id').val() && $('Position_subject_id').val()){
             if (total.value == undefined) {
                 total.value = currentTime.value
             } else {
