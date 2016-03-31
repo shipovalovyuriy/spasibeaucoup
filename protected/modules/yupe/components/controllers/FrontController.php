@@ -49,10 +49,16 @@ abstract class FrontController extends Controller
 //    {
 //        return Yii::app()->getModule('yupe')->getFrontFilters();
 //    }
-//    protected function beforeAction($action)
-//    {
-//        parent::beforeAction($action);
-//        if(\Yii::app()->user->isGuest){die('1');}
-//        
-//    }
+    protected function beforeAction($action)
+    {
+        parent::beforeAction($action);
+        if(\Yii::app()->user->isGuest){
+            if($action->id == 'login')
+                return true;
+            $this->redirect(Yii::app()->createUrl('login'));
+        }else{
+            return true;
+        }
+        
+    }
 }

@@ -59,7 +59,10 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Subject::model()->findAll(), 'id', 'name'),
+                        'data' => CHtml::listData(Subject::model()->findAllBySql('SELECT * FROM spbp_subject_subject WHERE id <> ALL(SELECT t1.id FROM spbp_subject_subject t1
+                                                            JOIN spbp_listner_position t2 ON t2.subject_id = t1.id
+                                                                    WHERE t2.listner_id = '.$_GET['id'].'
+                                                    )'), 'id', 'name'),
                         'htmlOptions' => [
                             'empty' => '--выберите--',
                             'encode' => false,

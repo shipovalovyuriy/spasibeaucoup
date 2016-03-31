@@ -21,11 +21,12 @@ class SubjectController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $teachers = Teacher::model()->findAll();
-        $this->render('view', ['model' => $this->loadModel($id), 'teachers' => $teachers]);}
+        if (array_intersect($role, $roles)) {
+            $teachers = Teacher::model()->findAll();
+            $this->render('view', ['model' => $this->loadModel($id), 'teachers' => $teachers]);
+        }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
 
     }
@@ -40,32 +41,32 @@ class SubjectController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = new Subject;
+        if (array_intersect($role, $roles)) {
+            $model = new Subject;
+            if (Yii::app()->getRequest()->getPost('Subject') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Subject'));
 
-        if (Yii::app()->getRequest()->getPost('Subject') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('Subject'));
-        
-            if ($model->save()) {
-                Yii::app()->user->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('SubjectModule.subject', 'Запись добавлена!')
-                );
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('SubjectModule.subject', 'Запись добавлена!')
+                    );
 
-                $this->redirect(
-                    (array)Yii::app()->getRequest()->getPost(
-                        'submit-type',
-                        [
-                            'update',
-                            'id' => $model->id
-                        ]
-                    )
-                );
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
             }
+            $this->render('create', ['model' => $model]);
         }
-        $this->render('create', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
@@ -80,32 +81,33 @@ class SubjectController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = $this->loadModel($id);
+        if (array_intersect($role, $roles)) {
+            $model = $this->loadModel($id);
 
-        if (Yii::app()->getRequest()->getPost('Subject') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('Subject'));
+            if (Yii::app()->getRequest()->getPost('Subject') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Subject'));
 
-            if ($model->save()) {
-                Yii::app()->user->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('SubjectModule.subject', 'Запись обновлена!')
-                );
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('SubjectModule.subject', 'Запись обновлена!')
+                    );
 
-                $this->redirect(
-                    (array)Yii::app()->getRequest()->getPost(
-                        'submit-type',
-                        [
-                            'update',
-                            'id' => $model->id
-                        ]
-                    )
-                );
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
             }
+            $this->render('update', ['model' => $model]);
         }
-        $this->render('update', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
@@ -121,7 +123,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
                 // поддерживаем удаление только из POST-запроса
                 $this->loadModel($id)->delete();
@@ -139,7 +141,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
                 throw new CHttpException(400, Yii::t('SubjectModule.subject', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
         }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
@@ -152,14 +154,15 @@ class SubjectController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = new Subject('search');
-        $model->unsetAttributes(); // clear any default values
-        if (Yii::app()->getRequest()->getParam('Subject') !== null)
-            $model->setAttributes(Yii::app()->getRequest()->getParam('Subject'));
-        $this->render('index', ['model' => $model]);}
+        if (array_intersect($role, $roles)){
+            $model = new Subject('search');
+            $model->unsetAttributes(); // clear any default values
+            if (Yii::app()->getRequest()->getParam('Subject') !== null)
+                $model->setAttributes(Yii::app()->getRequest()->getParam('Subject'));
+            $this->render('index', ['model' => $model]);
+        }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     

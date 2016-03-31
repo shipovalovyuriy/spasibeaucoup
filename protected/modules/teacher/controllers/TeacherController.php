@@ -21,10 +21,10 @@ class TeacherController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','4','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $this->render('view', ['model' => $this->loadModel($id)]);}
+        if (array_intersect($role, $roles)){
+            $this->render('view', ['model' => $this->loadModel($id)]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
 
@@ -35,15 +35,18 @@ class TeacherController extends \yupe\components\controllers\FrontController
 
         $roles = ['1','4'];
         $role = \Yii::app()->user->role;
-
-        if (!array_diff($role, $roles)) {
-        $model = $this->loadModel($id);
-
-        $arr = Listner::model()->with('position')->findAll('teacher_id='.$id);
-            if(Yii::app()->user->teacher!=$id){$this->render('../../access/index');}else{
-        $this->render('schedule',['model'=>$model,'list'=>$arr]);}}
+        if (array_intersect($role, $roles)){
+            $model = $this->loadModel($id);
+            //$roles=['1'];
+            $litners = Listner::model()->with('position')->findAll('teacher_id='.$id);
+                if(Yii::app()->user->teacher ==$id || in_array('1', $role)){
+                    $this->render('schedule',['model'=>$model,'litners'=>$litners]);
+                }else{
+                    throw new CHttpException(403,  'Ошибка прав доступа.');
+                }
+            }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
 
 
@@ -62,32 +65,33 @@ class TeacherController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','4'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = new Teacher;
+        if (array_intersect($role, $roles)) {
+            $model = new Teacher;
 
-        if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('Teacher'));
-        
-            if ($model->save()) {
-                Yii::app()->user->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('TeacherModule.teacher', 'Запись добавлена!')
-                );
+            if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Teacher'));
 
-                $this->redirect(
-                    (array)Yii::app()->getRequest()->getPost(
-                        'submit-type',
-                        [
-                            'update',
-                            'id' => $model->id
-                        ]
-                    )
-                );
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('TeacherModule.teacher', 'Запись добавлена!')
+                    );
+
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
             }
+            $this->render('create', ['model' => $model]);    
         }
-        $this->render('create', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
@@ -102,32 +106,33 @@ class TeacherController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','4'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = $this->loadModel($id);
+        if(array_intersect($role, $roles)){
+            $model = $this->loadModel($id);
 
-        if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('Teacher'));
+            if (Yii::app()->getRequest()->getPost('Teacher') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Teacher'));
 
-            if ($model->save()) {
-                Yii::app()->user->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('TeacherModule.teacher', 'Запись обновлена!')
-                );
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('TeacherModule.teacher', 'Запись обновлена!')
+                    );
 
-                $this->redirect(
-                    (array)Yii::app()->getRequest()->getPost(
-                        'submit-type',
-                        [
-                            'update',
-                            'id' => $model->id
-                        ]
-                    )
-                );
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
             }
+            $this->render('update', ['model' => $model]);
         }
-        $this->render('update', ['model' => $model]);}
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
@@ -143,26 +148,26 @@ class TeacherController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','4'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        if (Yii::app()->getRequest()->getIsPostRequest()) {
-            // поддерживаем удаление только из POST-запроса
-            $this->loadModel($id)->delete();
+        if (array_intersect($role, $roles)) {
+            if (Yii::app()->getRequest()->getIsPostRequest()) {
+                // поддерживаем удаление только из POST-запроса
+                $this->loadModel($id)->delete();
 
-            Yii::app()->user->setFlash(
-                yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                Yii::t('TeacherModule.teacher', 'Запись удалена!')
-            );
+                Yii::app()->user->setFlash(
+                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                    Yii::t('TeacherModule.teacher', 'Запись удалена!')
+                );
 
-            // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
-            if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
-                $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
-            }
-        } else
-            throw new CHttpException(400, Yii::t('TeacherModule.teacher', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
-    }else{
-            $this->render('../../access/index');
+                // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
+                if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
+                    $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
+                }
+            } 
+            else
+                throw new CHttpException(400, Yii::t('TeacherModule.teacher', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
         }
-
+        else
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     
     /**
@@ -174,17 +179,18 @@ class TeacherController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','4','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
-        $model = new Teacher('search');
-        $model->unsetAttributes(); // clear any default values
-        if (Yii::app()->getRequest()->getParam('Teacher') !== null)
-            $model->setAttributes(Yii::app()->getRequest()->getParam('Teacher'));
-            if(!array_diff($role,[2,3])){
-                $model->branch_id = \Yii::app()->user->branch;
-            }
-        $this->render('index', ['model' => $model]);}
+        if(array_intersect($role, $roles)){
+            $model = new Teacher('search');
+            $model->unsetAttributes(); // clear any default values
+            if (Yii::app()->getRequest()->getParam('Teacher') !== null)
+                $model->setAttributes(Yii::app()->getRequest()->getParam('Teacher'));
+                if(array_intersect($role,[2,3])){
+                    $model->branch_id = \Yii::app()->user->branch;
+                }
+            $this->render('index', ['model' => $model]);
+        }
         else{
-            $this->render('../../access/index');
+            throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     

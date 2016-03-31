@@ -47,8 +47,8 @@ class Subject extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'listnerGroups' => array(self::HAS_MANY, 'Group', 'subject_id'),
-			'listnerPositions' => array(self::HAS_MANY, 'Position', 'subject_id'),
+			'groups' => array(self::HAS_MANY, 'Group', 'subject_id'),
+			'positions' => array(self::HAS_MANY, 'Position', 'subject_id'),
 			#'subjectToBranches' => array(self::HAS_MANY, 'SubjectToBranch', 'subject_id'),
 			'teacherToSubjects' => array(self::HAS_MANY, 'TeacherToSubject', 'subject_id'),
 		);

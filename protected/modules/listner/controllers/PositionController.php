@@ -22,7 +22,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -39,7 +39,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $model = new Position;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
@@ -78,7 +78,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $model = $this->loadModel($id);
 
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
@@ -119,7 +119,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
                 // поддерживаем удаление только из POST-запроса
                 $this->loadModel($id)->delete();
@@ -149,7 +149,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $model = new Position('search');
             $model->unsetAttributes(); // clear any default values
             if (Yii::app()->getRequest()->getParam('Position') !== null)
@@ -231,10 +231,10 @@ class PositionController extends \yupe\components\controllers\FrontController
             $arrayMode = FALSE;
         }
 
-        $result = array();
+        $result = [];
         foreach ($models as $model) {
             $attributes = $model->getAttributes();
-            $relations = array();
+            $relations = [];
             foreach ($model->relations() as $key => $related) {
                 if ($model->hasRelated($key)) {
                     $relations[$key] = $this->convertModelToArray($model->$key);

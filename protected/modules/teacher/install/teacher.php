@@ -19,6 +19,6 @@ return [
     'component' => [],
     'rules'     => [
         '/teacher' => 'teacher/teacher/index',
-        '/teacher/<action>' => 'teacher/teacher/<action>',
+        '/teacher/<action>/<id:\d+>' => 'teacher/teacher/<action>',
     ],
 ];

@@ -22,7 +22,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $this->render('view', ['model' => $this->loadModel($id)]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -39,7 +39,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = new Listner;
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Listner'));
@@ -79,7 +79,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = $this->loadModel($id);
 
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
@@ -120,7 +120,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             if (Yii::app()->getRequest()->getIsPostRequest()) {
                 // поддерживаем удаление только из POST-запроса
                 $this->loadModel($id)->delete();
@@ -151,13 +151,13 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
 
-            if(!array_diff($role,[2,3])){
+            if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
         $this->render('index', ['model' => $model]);}
@@ -170,13 +170,13 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
         $model->status = Listner::STATUS_LISTNER;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-            if(!array_diff($role,[2,3])){
+            if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
         $this->render('current', ['model' => $model]);}
@@ -189,13 +189,13 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
         $model->status = Listner::STATUS_POTENTIAL;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-            if(!array_diff($role,[2,3])){
+            if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
         $this->render('potential', ['model' => $model]);}
@@ -208,13 +208,13 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
         $model = new Listner('search');
         $model->unsetAttributes(); // clear any default values
         $model->status = Listner::STATUS_GRADUATE;
         if (Yii::app()->getRequest()->getParam('Listner') !== null)
             $model->setAttributes(Yii::app()->getRequest()->getParam('Listner'));
-            if(!array_diff($role,[2,3])){
+            if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
         $this->render('graduate', ['model' => $model]);}
@@ -227,9 +227,9 @@ class ListnerController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','5','3','2'];
         $role = \Yii::app()->user->role;
-        if (!array_diff($role, $roles)) {
+        if (array_intersect($role, $roles)) {
             $model = Position::model()->findAll('id=' . $id);
-            if(!array_diff($role,[2,3])){
+            if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
             $this->render('subjectList', ['model' => $model[0]]);

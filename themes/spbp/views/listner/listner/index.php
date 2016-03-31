@@ -75,12 +75,12 @@ $this->menu = [
             [
                 'class' => '\yupe\widgets\EditableStatusColumn',
                 'name' => 'status',
-                //'url' => $this->createUrl('/news/newsBackend/inline'),
+                'url' => $this->createUrl('/listner/listner/inline'),
                 'source' => $model->getStatusList(),
                 'options' => [
-                    Listner::STATUS_POTENTIAL => ['class' => 'label-success'],
-                    Listner::STATUS_LISTNER => 'kek',
-                    Listner::STATUS_GRADUATE => ['class' => 'label-default'],
+                    Listner::STATUS_POTENTIAL => ['class' => 'label-danger'],
+                    Listner::STATUS_LISTNER   => ['class' => 'label-success'],
+                    Listner::STATUS_GRADUATE  => ['class' => 'label-default'],
                 ],
             ],
             [
@@ -89,3 +89,5 @@ $this->menu = [
         ],
     ]
 ); ?>
+<script>    
+</script>

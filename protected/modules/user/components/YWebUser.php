@@ -321,18 +321,24 @@ class YWebUser extends CWebUser
         return parent::login($identity, $duration);
     }
     
-    public function getRole(){
-
-       $arr1 = RoleToUser::model()->findAll(['condition'=> "id=".Yii::app()->user->id, 'select'=>'role_id']);
-
+    public function getRole()
+    {
+        $arr1 = RoleToUser::model()->findAll(['condition'=> "user_id=".Yii::app()->user->id, 'select'=>'role_id']);
+        
         $arr = [];
 
         foreach ($arr1 as $value){
 
-            array_push($arr,$value->role_id);
+            array_push($arr, $value->role_id);
         }
         return $arr;
     }
+    
+    public function getPost()
+    {
+        return RoleToUser::model()->find(['condition'=> "id=".Yii::app()->user->id]);;
+    }
+
     public function getTeacher(){
 
         return Teacher::model()->find('user_id='.Yii::app()->user->id)->id;

@@ -5,25 +5,23 @@
             <th>Имя</th>
             <th>Фамилия</th>
             <th>Телефон</th>
-            <?php foreach ($list as $value): ?>
+            <?php foreach($litners as $litner): ?>
                 <tr>
-                    <td><?php echo $value->name; ?></td>
-                    <td><?php echo $value->lastname; ?></td>
-                    <td><?php echo $value->phone; ?></td>
-
+                    <td><?= $litner->name; ?></td>
+                    <td><?= $litner->lastname; ?></td>
+                    <td><?= $litner->phone; ?></td>
                 </tr>
-
             <?php endforeach;?>
         </table>
 
     </div>
 </div>
-
 <script>
     var userId = <?= $model->id ?>;
     var branchId = <?= $model->branch_id ?>;
     var userType = 1;// 1 - teacher , 2 - listener
 </script>
+
 <?php
 $this->beginWidget('application.modules.listner.widgets.CalendarWidget');
 $this->endWidget();
