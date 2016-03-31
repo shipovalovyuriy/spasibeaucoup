@@ -82,5 +82,7 @@ return [
         '/profile/email'                    => 'user/profile/email',
         '/role'                             => 'user/roleToUser/index',
         '/role/<action:\w+>'                => 'user/roleToUser/<action>',
+        '/user/<action:\w+>'                => 'user/user/<action>',
+        '/user'                => 'user/user/index',
     ],
 ];
