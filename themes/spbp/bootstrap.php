@@ -17,7 +17,7 @@ $assetPath = $assetManager->publish(
     Yii::app()->theme->basePath . '/web'
 );
 $styles = array(
-    'bootstrap.css',
+    //'bootstrap.css',
     'animate.css',
     'font-awesome.min.css',
     'font.css',
@@ -37,7 +37,7 @@ foreach ($styles as $style) {
 // Javascript
 $scripts = array(
     //'jquery.min.js' => CClientScript::POS_HEAD,
-    'bootstrap.js' => CClientScript::POS_END,
+    //'bootstrap.js' => CClientScript::POS_END,
     'charts/sparkline/jquery.sparkline.min.js' => CClientScript::POS_END,
     'app.js' => CClientScript::POS_END,
     'app.plugin.js' => CClientScript::POS_END,
@@ -47,7 +47,6 @@ $scripts = array(
     'fullcalendar/ru.js'=> CClientScript::POS_END,
     'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
     'initCal.js'=> CClientScript::POS_END,
-    //'jquery.ui.timepicker.ru.js' => CClientScript::POS_END,
     'bootstrap-datetimepicker.js'=> CClientScript::POS_END,
     'teacher.js' => CClientScript::POS_END,
     'jquery-ui.min.js' => CClientScript::POS_END,

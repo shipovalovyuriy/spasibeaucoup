@@ -83,7 +83,7 @@ class Position extends yupe\models\YModel
         protected function afterSave() 
         {
             parent::afterSave();
-            if($this->isNewRecord){
+            if(!$this->isNewRecord){
                 //Формирование расписания пользователя
                 $time = explode(',', $this->time);
                 $tCount = count($time);
@@ -112,6 +112,11 @@ class Position extends yupe\models\YModel
                 $inflow->comment = $this->note;
                 $inflow->date = $this->start_date;
                 $inflow->save();
+                //Изменение статуса
+                if($this->listner->status != 1){
+                    $this->listner->status = 1;
+                    $this->listner->save();
+                }
             }
         }
         

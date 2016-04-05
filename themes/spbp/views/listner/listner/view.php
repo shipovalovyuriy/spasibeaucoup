@@ -85,7 +85,7 @@ $this->menu = [
                             </span>
                         </div>
                         <div class="media-body">                        
-                            <a href="#" class="h4">Статус: <?= $model->status?></a>
+                            <a href="#" class="h4">Статус: <?= $model->getStatus($model->status);?></a>
                         </div>
                     </article>
             </section>

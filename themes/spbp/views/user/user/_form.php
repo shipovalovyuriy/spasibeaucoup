@@ -201,3 +201,8 @@
 ); ?>
 
 <?php $this->endWidget(); ?>
+<script>
+    var branchId = null;
+    var userType = null;
+    var userId = null;
+</script>

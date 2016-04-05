@@ -276,11 +276,6 @@ $(document).ready(function() {
 						label: 'Edit',
 						sortable: true
 					},
-                                        {
-                                                property: 'gavno',
-                                                label: 'gavno',
-                                                sortable: false
-                                        }
 				],
 
 			    // Create IMG tag for each returned image

@@ -122,6 +122,16 @@ class Listner extends yupe\models\YModel
             self::STATUS_CANCEL     => 'Отказ',
         ];
     }
+    public function getStatus($s)
+    {
+        $status = [
+            self::STATUS_POTENTIAL  => 'Потенциальный',
+            self::STATUS_LISTNER    => 'Слушатель',
+            self::STATUS_GRADUATE   => 'Выпускник',
+            self::STATUS_CANCEL     => 'Отказ',
+        ];
+        return $status[$s];
+    }
 
     /**
      * Returns the static model of the specified AR class.
