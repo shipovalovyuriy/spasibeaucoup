@@ -72,3 +72,79 @@ $this->menu = [
         ],
     ]
 ); ?>
+<script>
+    $(function(){
+        jQuery(document).on('click','#subject-grid a.delete',function() {
+	if(!confirm('Вы уверены, что хотите удалить данный элемент?')) return false;
+	var th = this,
+		afterDelete = function(){};
+	jQuery('#subject-grid').yiiGridView('update', {
+		type: 'POST',
+		url: jQuery(this).attr('href'),
+		data:{ 'YUPE_TOKEN':'848a6ba2dde1353b60ce6994f55b11ff12274ec1' },
+		success: function(data) {
+			jQuery('#subject-grid').yiiGridView('update');
+			afterDelete(th, true, data);
+		},
+		error: function(XHR) {
+			return afterDelete(th, false, XHR);
+		}
+	});
+	return false;
+});
+jQuery('#subject-grid').yiiGridView({'ajaxUpdate':['subject-grid'],'ajaxVar':'ajax','pagerClass':'pager-container','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items table table-striped table-condensed','selectableRows':2,'enableHistory':false,'updateSelector':'{page}, {sort}','filterSelector':'{filter}','url':'/subject','pageVar':'Subject_page','afterAjaxUpdate':function() {
+			jQuery('.popover').remove();
+			jQuery('[data-toggle=popover]').popover();
+			jQuery('.tooltip').remove();
+			jQuery('[data-toggle=tooltip]').tooltip();
+		},'selectionChanged':function(id) {
+				$("#"+id+" input[type=checkbox]").change();
+			}});
+$.fn.yiiGridView.initBulkActions('subject-grid');
+
+            $(document).on('click','#delete-subject', function() {
+	            var checked = $.fn.yiiGridView.getCheckedRowsIds('subject-grid');
+	            if (!checked.length) {
+	                alert('No items are checked');
+	                return false;
+	            }
+				var fn = function (values) { if(!confirm("Вы уверены, что хотите удалить выбранные элементы?")) return false; multiactionSubject5701fe2e9767c("delete", values); };
+	            if ($.isFunction(fn)){ fn(checked); } 
+
+	            return false;
+        	}); 
+
+            
+
+			var $grid = $("#subject-grid");
+			
+			if ($(".extended-summary", $grid).length)
+			{
+				$(".extended-summary", $grid).html($("#subject-grid-extended-summary", $grid).html());
+			}
+			
+			$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+				var qs = $.deparam.querystring(options.url);
+				if (qs.hasOwnProperty("ajax") && qs.ajax == "subject-grid")
+				{
+				    if (typeof (options.realsuccess) == "undefined" || options.realsuccess !== options.success)
+				    {
+                        options.realsuccess = options.success;
+                        options.success = function(data)
+                        {
+                            if (options.realsuccess) {
+                                options.realsuccess(data);
+                                var $data = $("<div>" + data + "</div>");
+                                // we need to get the grid again... as it has been updated
+                                if ($(".extended-summary", $("#subject-grid")))
+                                {
+                                    $(".extended-summary", $("#subject-grid")).html($("#subject-grid-extended-summary", $data).html());
+                                }
+                                $.fn.yiiGridView.afterUpdateGrid('subject-grid');
+                            }
+                        }
+				    }
+				}
+			});
+    });
+</script>

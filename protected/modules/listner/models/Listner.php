@@ -22,7 +22,8 @@ class Listner extends yupe\models\YModel
 {
     const STATUS_POTENTIAL = 0;
     const STATUS_LISTNER = 1;
-    const STATUS_GRADUATE = 2;    
+    const STATUS_GRADUATE = 2;
+    const STATUS_CANCEL = 3;
     /**
      * @return string the associated database table name
      */
@@ -116,8 +117,9 @@ class Listner extends yupe\models\YModel
     {
         return [
             self::STATUS_POTENTIAL  => 'Потенциальный',
-            self::STATUS_LISTNER    => 'Студент',
+            self::STATUS_LISTNER    => 'Слушатель',
             self::STATUS_GRADUATE   => 'Выпускник',
+            self::STATUS_CANCEL     => 'Отказ',
         ];
     }
 

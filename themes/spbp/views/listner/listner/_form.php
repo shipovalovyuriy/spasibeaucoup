@@ -95,6 +95,36 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+    <?php $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)):?>
+        <div class="row">
+            <div class="col-sm-7">
+                <?php echo $form->dropDownListGroup($model, 'branch_id', [
+                        'widgetOptions' => [
+                            'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name'),
+                            'htmlOptions' => [
+                                'empty' => '--выберите--',
+                                'encode' => false,
+                            ],
+                        ],
+                    ]); ?>
+            </div>
+        </div>
+    <?php endif;?>
+    <?php if(!$model->isNewRecord): ?>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <label class="control-label required" for="Listner_status">Статус</label>
+                    <select class="form-control" placeholder="Форма обучения" name="Listner[status]" id="Listner_status">
+                        <option value="">--выберите--</option>
+                        <option value="3">Отказ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    <?php endif;?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',

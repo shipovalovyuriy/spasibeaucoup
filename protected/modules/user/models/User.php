@@ -226,6 +226,7 @@ class User extends yupe\models\YModel
             'location' => Yii::t('UserModule.user', 'Location'),
             'about' => Yii::t('UserModule.user', 'About yourself'),
             'phone' => Yii::t('UserModule.user', 'Phone'),
+            'branch_id' => 'Филиал',
         ];
     }
 

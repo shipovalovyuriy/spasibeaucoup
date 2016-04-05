@@ -72,9 +72,9 @@ $this->menu = [
             'subject_id',
 //            'group_id',
 //            'lvl',
-//            'note',
+            'note',
 //            'time',
-//            'start_date',
+            'start_date',
             [
                 'class' => 'yupe\widgets\FrontButtonColumn',
             ],

@@ -14,12 +14,12 @@ $(document).ready(function() {
 		e && e.preventDefault();
 	});
 
-	$(document).on('change', 'table thead [type="checkbox"]', function(e){
-		e && e.preventDefault();
-		var $table = $(e.target).closest('table'), $checked = $(e.target).is(':checked');
-		$('tbody [type="checkbox"]', $table).prop('checked', $checked);
-		console.log($checked);
-	});
+//	$(document).on('change', 'table thead [type="checkbox"]', function(e){
+//		e && e.preventDefault();
+//		var $table = $(e.target).closest('table'), $checked = $(e.target).is(':checked');
+//		$('tbody [type="checkbox"]', $table).prop('checked', $checked);
+//		console.log($checked);
+//	});
 
 	$(document).on('click', '[data-toggle^="progress"]', function(e){
 		e && e.preventDefault();

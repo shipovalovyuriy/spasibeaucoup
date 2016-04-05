@@ -57,18 +57,38 @@
                             </a>
                         </li>
                     <?php endif;?>
-                    <li class="dropdown-submenu">
-                        <a href="/balance/index">
-                            <i class="fa fa-file-text"></i>
-                            <span>Отчет</span>
-                        </a>
-                    </li>
-                    <li class="dropdown-submenu">
-                        <a href="/teacher/schedule/<?=Yii::app()->user->teacher?>">
-                            <i class="fa fa-file-text"></i>
-                            <span>Мое расписание</span>
-                        </a>
-                    </li>
+                    <?php $roles=['1','3']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/balance/index">
+                                <i class="fa fa-file-text"></i>
+                                <span>Отчет</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                    <?php $roles=['6']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/teacher/schedule/<?=Yii::app()->user->teacher?>">
+                                <i class="fa fa-calendar"></i>
+                                <span>Мое расписание</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                    <?php $roles=['1','4']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/user">
+                                <i class="fa fa-users"></i>
+                                <span>Сотрудники</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                    <?php $roles=['1','4']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/role">
+                                <i class="fa fa-user-plus"></i>
+                                <span>Должности</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
                 </ul>
             </nav>
             <footer class="footer bg-gradient hidden-xs">

@@ -22,8 +22,10 @@
             </section>
         </section>
         <script>
-               $(function(){
-                    var path = window.location.pathname;
+            $(function(){
+                $('#egw0').remove();
+                $('.pull-right:contains("Выводить по")').remove();
+                var path = window.location.pathname;
                 path = decodeURIComponent(path);
                 $(".nav a").each(function () {
                     var href = $(this).attr('href');
@@ -35,7 +37,7 @@
                         }
                     }
                 });
-               });
+            });
         </script>
     </body>
 </html>

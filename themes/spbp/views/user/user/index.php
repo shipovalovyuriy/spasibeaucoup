@@ -43,8 +43,8 @@ $this->menu = [
 
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('UserModule.user', 'Users'); ?>
-        <small><?php echo Yii::t('UserModule.user', 'management'); ?></small>
+        Сотрудники
+        <small>управление</small>
     </h1>
 </div>
 
@@ -86,7 +86,7 @@ $this->menu = [
 </div>
 
 <?php $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'user-grid',
         'dataProvider' => $model->search(),
@@ -175,17 +175,17 @@ $this->menu = [
             ],
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),
-                'class'       => 'yupe\widgets\CustomButtonColumn',
+                'class'       => 'yupe\widgets\FrontButtonColumn',
                 'template'    => '{view}{update}{password}{sendactivation}{delete}',
                 'buttons'     => [
                     'password'       => [
                         'icon'  => 'fa fa-fw fa-lock',
                         'label' => Yii::t('UserModule.user', 'Change password'),
-                        'url'   => 'array("/user/userBackend/changepassword", "id" => $data->id)',
+                        'url'   => 'array("/user/user/changepassword", "id" => $data->id)',
                     ],
                     'sendactivation' => [
                         'label'   => Yii::t('UserModule.user', 'Send activation confirm'),
-                        'url'     => 'array("/user/userBackend/sendactivation", "id" => $data->id)',
+                        'url'     => 'array("/user/user/sendactivation", "id" => $data->id)',
                         'icon'    => 'fa fa-fw fa-repeat',
                         'visible' => '$data->status != User::STATUS_ACTIVE',
                         'options' => [

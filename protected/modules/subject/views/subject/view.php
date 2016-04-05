@@ -42,10 +42,8 @@ $this->menu = [
     </h1>
 </div>
 
- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  
-  <style>
-  #sortable1, #sortable2 {
+<style>
+/*  #sortable1, #sortable2 {
     border: 1px solid #8C8C8C;
     width: 142px;
     min-height: 20px;
@@ -60,27 +58,40 @@ $this->menu = [
     padding: 5px;
     font-size: 1.2em;
     width: 120px;
-  }
+  }*/
   </style>
-  <div class="row col-lg-8">
-        <div class="col-sm-7 panel">
-            <div class="panel-heading">Тестовый вид назначения преподавателя на предмет</div>
-            <div class="panel-body">
-                <?php if(!$model->isNewRecord):?>        
-                    <ul id="sortable1" class="connectedSortable">
-                        <?php foreach($teachers as $teacher):if(!$teacher->subject):?>
-                            <li class="ui-state-default " id="<?= $teacher->id?>"><?= $teacher->user->first_name.' '.$teacher->user->last_name?></li>
-                        <?php endif; endforeach;?>
-                    </ul>
-                    <ul id="sortable2" class="connectedSortable">
-                        <?php foreach($teachers as $teacher):if($teacher->subject): ?>
-                            <li class="ui-state-default " id="<?= $teacher->id?>"><?= $teacher->user->first_name.' '.$teacher->user->last_name?></li>
-                        <?php endif; endforeach;?>
-                    </ul>
-                <?php endif;?>
+  <?php if(!$model->isNewRecord):?>
+  <div class="row m-b">
+        <div class="panel-heading">Тестовый вид назначения преподавателя на предмет</div>
+        <div class="col-sm-4">
+            <div class="dd">
+                <ol id="sortable1" class="dd-list connectedSortable dd-empty">
+                    <?php foreach($teachers as $teacher):if(!$teacher->subject):?>
+                    <li class="dd-item" id="<?= $teacher->id?>">
+                        <div class="dd-handle">
+                            <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
+                        </div>
+                    </li>
+                    <?php endif; endforeach;?>
+                </ol>
             </div>
         </div>
+        <div class="col-sm-4">
+            <div class="dd">
+                <ol id="sortable2" class="dd-list connectedSortable dd-empty">
+                    <?php foreach($teachers as $teacher):if($teacher->subject): ?>
+                        <li class="dd-item" id="<?= $teacher->id?>">
+                            <div class="dd-handle">
+                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
+                            </div>
+                        </li>
+                    <?php endif; endforeach;?>
+                </ol>
+            </div>
+            </div>
+        
     </div>
+  <?php endif;?>
   <script>
     $(function() {
         $( "#sortable1, #sortable2" ).sortable({
@@ -90,11 +101,11 @@ $this->menu = [
                 temp.attr('id');
                 $.ajax({
                     type: 'GET',
-                    url: '/backend/subject/subject/addTeacher?i='+temp.attr('id')+'&s='+<?=$model->id?>,
+                    url: '/subject/addTeacher?i='+temp.attr('id')+'&s='+<?=$model->id?>,
                     dataType: 'json',
                     data:{},
                     success: function() {
-                        alert('success');
+                        console.log('success');
                     },
                 })
             },

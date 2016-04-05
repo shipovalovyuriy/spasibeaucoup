@@ -58,8 +58,8 @@ class RoleToUser extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'User',
-			'role_id' => 'Role',
+			'user_id' => 'Сотрудник',
+			'role_id' => 'Должность',
 		);
 	}
 

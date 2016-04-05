@@ -74,7 +74,7 @@ $this->menu = [
                 'name'   => 'branch.name',
             ],
             [
-                'class' => 'yupe\widgets\CustomButtonColumn',
+                'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],
     ]

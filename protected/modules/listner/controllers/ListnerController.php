@@ -229,9 +229,6 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
             $model = Position::model()->findAll('id=' . $id);
-            if(array_intersect($role,[2,3])){
-                $model->branch_id = \Yii::app()->user->branch;
-            }
             $this->render('subjectList', ['model' => $model[0]]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');

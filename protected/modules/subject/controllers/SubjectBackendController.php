@@ -146,16 +146,4 @@ class SubjectBackendController extends \yupe\components\controllers\BackControll
 
         return $model;
     }
-    
-    public function actionAddTeacher($i, $s)
-    {
-        if(Yii::app()->request->isAjaxRequest){
-            $model = new \TeacherToSubject;
-            $model->teacher_id = $i;
-            $model->subject_id = $s;
-            $model->save();            
-            Yii::app()->end();
-        }else{throw new CHttpException(404, 'Невозможно обработать запрос');
-        }
-    }
 }

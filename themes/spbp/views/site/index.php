@@ -120,7 +120,7 @@
                         </span>
                     </div>
                     <div class="media-body">                        
-                        <a href="/employees" class="h4">Все сотрудники</a>
+                        <a href="/user" class="h4">Все сотрудники</a>
                     </div>
                 </article>
                 <div class="line pull-in"></div>

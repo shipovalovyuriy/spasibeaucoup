@@ -14,19 +14,19 @@
  **/
 class UserController extends yupe\components\controllers\FrontController
 {
-    public function accessRules()
-    {
-        return [
-            ['allow', 'roles' => ['admin']],
-            ['allow', 'actions' => ['index'], 'roles' => ['User.UserBackend.Index']],
-            ['allow', 'actions' => ['view'], 'roles' => ['User.UserBackend.View']],
-            ['allow', 'actions' => ['create'], 'roles' => ['User.UserBackend.Create']],
-            ['allow', 'actions' => ['update', 'inline', 'sendactivation'], 'roles' => ['User.UserBackend.Update']],
-            ['allow', 'actions' => ['delete', 'multiaction'], 'roles' => ['User.UserBackend.Delete']],
-            ['allow', 'actions' => ['changepassword'], 'roles' => ['User.UserBackend.Changepassword']],
-            ['deny']
-        ];
-    }
+//    public function accessRules()
+//    {
+//        return [
+//            ['allow', 'roles' => ['admin']],
+//            ['allow', 'actions' => ['index'], 'roles' => ['User.User.Index']],
+//            ['allow', 'actions' => ['view'], 'roles' => ['User.UserBackend.View']],
+//            ['allow', 'actions' => ['create'], 'roles' => ['User.UserBackend.Create']],
+//            ['allow', 'actions' => ['update', 'inline', 'sendactivation'], 'roles' => ['User.UserBackend.Update']],
+//            ['allow', 'actions' => ['delete', 'multiaction'], 'roles' => ['User.UserBackend.Delete']],
+//            ['allow', 'actions' => ['changepassword'], 'roles' => ['User.UserBackend.Changepassword']],
+//            ['deny']
+//        ];
+//    }
 
     public function actions()
     {

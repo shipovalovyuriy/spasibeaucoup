@@ -47,17 +47,25 @@
 </div>
 <div class="row">
     <div class="col-sm-7">
-        <?php echo $form->textFieldGroup($model, 'site'); ?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-7">
         <?php echo $form->textFieldGroup($model, 'salary'); ?>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-7">
-        <?php echo $form->textFieldGroup($model, 'salary_date'); ?>
+        <?php echo $form->datePickerGroup(
+            $model,
+            'salary_date',
+            [
+                'widgetOptions'=>[
+                    'options' => [
+                        'format'=> "yyyy-mm-dd",
+                    ],
+                    'htmlOptions' => [
+                    ]
+                ],
+                'prepend' => '<i class="fa fa-calendar"></i>',
+            ]
+        ); ?>
     </div>
 </div>
 <div class="row">
@@ -96,19 +104,6 @@
             ); ?>
             <?php echo $form->error($model,'phone'); ?>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <?php echo $form->labelEx($model, 'about'); ?>
-        <?php
-        $this->widget(
-            $this->module->getVisualEditor(),
-            [
-                'model' => $model,
-                'attribute' => 'about',
-            ]
-        ); ?>
     </div>
 </div>
 
@@ -154,7 +149,19 @@
         ); ?>
     </div>
 </div>
-
+ <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'branch_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name'),
+                        'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
+                    ],
+                ]); ?>
+        </div>
+    </div>
 <div class="row">
     <div class="col-sm-7">
         <?php echo $form->dropDownListGroup(

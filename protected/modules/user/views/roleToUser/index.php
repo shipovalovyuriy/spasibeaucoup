@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'role-to-user-grid',
         'type'         => 'striped condensed',
@@ -65,8 +65,14 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'user_id',
-            'role_id',
+            [
+                'header' => 'Сотрудник',
+                'name'   => 'user.first_name',
+            ],
+            [
+                'header' => 'Должность',
+                'name'   => 'role.name',
+            ],
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',
             ],

@@ -182,4 +182,20 @@ class SubjectController extends \yupe\components\controllers\FrontController
 
         return $model;
     }
+    public function actionAddTeacher($i, $s)
+    {
+        if(Yii::app()->request->isAjaxRequest){
+            $model = TeacherToSubject::model()->find("teacher_id=$i AND subject_id=$s");
+            if(!$model){
+                $model = new \TeacherToSubject;
+                $model->teacher_id = $i;
+                $model->subject_id = $s;
+                $model->save();            
+                Yii::app()->end();
+            }else{
+                $model->delete();
+            }
+        }else{throw new CHttpException(404, 'Невозможно обработать запрос');
+        }
+    }
 }

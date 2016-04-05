@@ -39,10 +39,13 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)) {
+        if (array_intersect($role, $roles)){
             $model = new Position;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
+                if(in_array('3', $role) && !in_array('1', $role)){
+                    $model->branch_id = Yii::app()->user->branch->id;
+                }
                 $model->listner_id = $id;
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
@@ -252,7 +255,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     
     public function actionDoc($id){
         $model = Position::model()->findByPk($id);
-        $admin = User::model()->findBySql('SELECT * FROM spbp_user_user t1 JOIN spbp_user_role_to_user t2 ON t2.user_id = t1.id WHERE t2.role_id = 3');
+        $admin = User::model()->findBySql('SELECT * FROM spbp_user_user t1 JOIN spbp_user_role_to_user t2 ON t2.user_id = t1.id WHERE t2.role_id = 3 AND t1.branch_id ='.$model->listner->branch_id);
         $this->render('positionDoc', [
             'model' => $model,
             'admin' => $admin

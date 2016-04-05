@@ -1,4 +1,4 @@
-$(document).ready(function()
+$(function()
 {
 
     // activate Nestable for list 1
@@ -22,7 +22,5 @@ $(document).ready(function()
             $('.dd').nestable('collapseAll');
         }
     });
-
-    $('#nestable3').nestable();
 
 });
