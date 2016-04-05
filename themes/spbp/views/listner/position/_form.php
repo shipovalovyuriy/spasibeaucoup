@@ -176,7 +176,7 @@ $form = $this->beginWidget(
     var total = document.getElementsByClassName("totalTime");
     el.addEventListener("click", function () {
         if(currentTime.value != undefined && currentTime.value && currentTime.value != total.value
-                && $('#Position_form_id').val() && $('Position_subject_id').val()){
+                && $('#Position_form_id').val() && $('#Position_subject_id').val()){
             if (total.value == undefined) {
                 total.value = currentTime.value
             } else {
