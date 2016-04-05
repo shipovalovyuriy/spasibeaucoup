@@ -7,6 +7,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
     public function actionShow()
     {
         $date = explode('-', $_GET['daterange']);
+        $branch = $_GET['branch'];
         $d1 = date('Y-m-d', strtotime($date[0]));
         $d2 = date('Y-m-d', strtotime($date[1]));
         $inflow = [];
@@ -14,14 +15,13 @@ class BalanceController extends \yupe\components\controllers\FrontController
         $totalArr = [];
         // Формирование моделей
         $criteria = new CDbCriteria();
-        $criteria->condition = 'date =:date1';
-        $criteria->params = [":date1" => $d1];
+        if($branch=="all"){$criteria->condition = 'date =:date1';}else{$criteria->condition = 'date =:date1 AND branch_id=:br';}
         $arr = [];
         $in = 0;
         $out = 0;
         $total = 0;
         while ($d1 <= $d2) {
-            $criteria->params = [":date1" => $d1];
+            if($branch=="all"){$criteria->params = [":date1" => $d1];}else{$criteria->params = [":date1" => $d1,'br'=>$branch];}
             $inflowArr = Inflow::model()->findAll($criteria);
             if ($inflowArr) {
                 foreach ($inflowArr as $value) {
@@ -50,6 +50,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
             $out = 0;
 
         }
+        die(print_r($inflow));
 
         //$this->render('search', array('inflow' => $inflow, 'outflow' => $outflow, 'totalflow' => $totalArr));
         $this->actionPrint($inflow,$outflow,$totalArr);
@@ -59,7 +60,8 @@ class BalanceController extends \yupe\components\controllers\FrontController
     public function actionIndex()
     {
 
-        $this->render('index');
+        $model = Branch::model()->findAll();
+        $this->render('index',['model'=>$model]);
 
     }
 

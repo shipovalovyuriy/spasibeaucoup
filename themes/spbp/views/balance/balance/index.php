@@ -8,12 +8,20 @@
 
 <h3>Выбрать диапазон</h3>
 
-<form method="GET" action="/balance/show">
+<form method="GET" action="/balance/report/show">
     <div class="col-lg-6">
         <input type="text" class="form-control rm popover-help" name="daterange"/>
     </div>
-    <input type="submit" class="btn btn-success" value="Сформировать отчет">
-</form>
+    <select class="form-control" style="width:10%;" name="branch">
+    <optgroup label="Филиалы">
+        <option value="all">Все</option>
+        <?php foreach($model as $value):?>
+
+            <option value="<?=$value->id?>"><?=$value->name?></option>
+    </optgroup>
+    </select>
+<?php endforeach;?>
+    <input type="submit" class="btn btn-success" value="Сформировать отчет" style="float:left;">
 </form>
 <script type="text/javascript">
     $(function() {
