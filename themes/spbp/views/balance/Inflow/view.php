@@ -52,5 +52,6 @@ $this->menu = [
         'based',
         'comment',
         'date',
+        'branch_id',
     ],
 ]); ?>

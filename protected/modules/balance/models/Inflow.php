@@ -11,12 +11,13 @@
  * @property string $based
  * @property string $comment
  * @property string $date
+ * @property integer $branch_id
  *
  * The followings are the available model relations:
- * @property FormForm $form
  * @property SubjectSubject $subject
+ * @property FormForm $form
+ * @property BranchBranch $branch
  */
-
 class Inflow extends yupe\models\YModel
 {
 	/**
@@ -35,12 +36,12 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_id, form_id', 'numerical', 'integerOnly'=>true),
+			array('subject_id, form_id, branch_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, based', 'length', 'max'=>50),
 			array('comment, date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, subject_id, receiver, form_id, based, comment, date', 'safe', 'on'=>'search'),
+			array('id, subject_id, receiver, form_id, based, comment, date, branch_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,8 +53,9 @@ class Inflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'form' => array(self::BELONGS_TO, 'Form', 'form_id'),
-			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
+			'subject' => array(self::BELONGS_TO, 'SubjectSubject', 'subject_id'),
+			'form' => array(self::BELONGS_TO, 'FormForm', 'form_id'),
+			'branch' => array(self::BELONGS_TO, 'BranchBranch', 'branch_id'),
 		);
 	}
 
@@ -70,6 +72,7 @@ class Inflow extends yupe\models\YModel
 			'based' => 'Based',
 			'comment' => 'Comment',
 			'date' => 'Date',
+			'branch_id' => 'Branch',
 		);
 	}
 
@@ -98,6 +101,7 @@ class Inflow extends yupe\models\YModel
 		$criteria->compare('based',$this->based,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('date',$this->date,true);
+		$criteria->compare('branch_id',$this->branch_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

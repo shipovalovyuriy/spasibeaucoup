@@ -11,12 +11,12 @@
  * @property string $price
  * @property string $based
  * @property string $note
+ * @property integer $branch_id
  *
  * The followings are the available model relations:
  * @property BalanceCost $cost
+ * @property BranchBranch $branch
  */
-Yii::import('application.modules.balance.models.Cost');
-
 class Outflow extends yupe\models\YModel
 {
 	/**
@@ -35,14 +35,13 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-                        array('receiver, price, based, note', 'required'),
-			array('cost_id', 'numerical', 'integerOnly'=>true),
+			array('receiver, price, based, note', 'required'),
+			array('cost_id, branch_id', 'numerical', 'integerOnly'=>true),
 			array('receiver, price, based, note', 'length', 'max'=>50),
 			array('date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, cost_id, receiver, date, price, based, note', 'safe', 'on'=>'search'),
-			
+			array('id, cost_id, receiver, date, price, based, note, branch_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +53,8 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cost' => array(self::BELONGS_TO, 'Cost', 'cost_id'),
+			'cost' => array(self::BELONGS_TO, 'BalanceCost', 'cost_id'),
+			'branch' => array(self::BELONGS_TO, 'BranchBranch', 'branch_id'),
 		);
 	}
 
@@ -71,6 +71,7 @@ class Outflow extends yupe\models\YModel
 			'price' => 'Price',
 			'based' => 'Based',
 			'note' => 'Note',
+			'branch_id' => 'Branch',
 		);
 	}
 
@@ -99,6 +100,7 @@ class Outflow extends yupe\models\YModel
 		$criteria->compare('price',$this->price,true);
 		$criteria->compare('based',$this->based,true);
 		$criteria->compare('note',$this->note,true);
+		$criteria->compare('branch_id',$this->branch_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
