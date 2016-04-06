@@ -66,13 +66,13 @@ class Inflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'subject_id' => 'Subject',
-			'receiver' => 'Receiver',
-			'form_id' => 'Form',
-			'based' => 'Based',
-			'comment' => 'Comment',
-			'date' => 'Date',
-			'branch_id' => 'Branch',
+			'subject_id' => 'Предмет',
+			'receiver' => 'Получатель',
+			'form_id' => 'Форма',
+			'based' => 'Основание',
+			'comment' => 'Комментарий',
+			'date' => 'Дата',
+			'branch_id' => 'Филиал',
 		);
 	}
 

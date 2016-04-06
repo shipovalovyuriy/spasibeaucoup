@@ -66,12 +66,12 @@ class Outflow extends yupe\models\YModel
 		return array(
 			'id' => 'ID',
 			'cost_id' => 'Цена',
-			'receiver' => 'Receiver',
-			'date' => 'Date',
-			'price' => 'Price',
-			'based' => 'Based',
-			'note' => 'Note',
-			'branch_id' => 'Branch',
+			'receiver' => 'Получатель',
+			'date' => 'Дата',
+			'price' => 'Сумма',
+			'based' => 'Основание',
+			'note' => 'Комменатрий',
+			'branch_id' => 'Филиал',
 		);
 	}
 
