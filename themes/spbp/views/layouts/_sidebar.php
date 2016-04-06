@@ -66,10 +66,21 @@
                     <?php endif;?>
                     <?php $roles=['1','3']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
-                            <a href="/balance/report/index">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-file-text"></i>
                                 <span>Отчет</span>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/balance/report/index">Сформировать</a>
+                                </li>
+                                <li>
+                                    <a href="/balance/inflow/index">Доход</a>
+                                </li>
+                                <li>
+                                    <a href="/balance/outflow/index">Расход</a>
+                                </li>
+                            </ul>
                         </li>
                     <?php endif;?>
                     <?php $roles=['6']; if(array_intersect($role, $roles)):?>

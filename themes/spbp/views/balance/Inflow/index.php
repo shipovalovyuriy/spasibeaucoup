@@ -70,7 +70,10 @@ $this->menu = [
                 'name'  => 'subject.name'
             ],
             'receiver',
-            'form_id',
+            [
+                'header' => 'Форма',
+                'name'  => 'form.name'
+            ],
             'based',
             'comment',
 //            'date',
