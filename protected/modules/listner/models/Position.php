@@ -37,6 +37,20 @@ class Position extends yupe\models\YModel
             'Пятница',
             'Суббота'
         ];
+        private static $_month = [
+            'Январь',
+            'Февраль',
+            'Март',
+            'Апрель',
+            'Май',
+            'Июнь',
+            'Июль',
+            'Август',
+            'Сентябрь',
+            'Октябрь',
+            'Ноябрь',
+            'Декабрь',
+        ];
 	/**
 	 * @return string the associated database table name
 	 */
@@ -125,6 +139,16 @@ class Position extends yupe\models\YModel
         {
             return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'")->id;            
         }
+        
+        public function getNext(){
+            return $this->model()->findBySql('SELECT * FROM spbp_listner_position t1 WHERE t1.parent_id ='.$this->id);
+        }
+        public function getPrev(){
+            if($this->parent_id)
+                return $this->model()->findBySql('SELECT * FROM spbp_listner_position t1 WHERE t1.id ='.$this->parent_id);
+            else
+                return false;
+        }
 
         /**
 	 * @return array customized attribute labels (name=>label)
@@ -194,5 +218,9 @@ class Position extends yupe\models\YModel
         public function days($time)
         {
             return self::$_days[date('w',  strtotime(substr($time, 0, 10)))].'('. substr($time, 11).'-' .date('H:i',strtotime(substr($time, 11)) + 60*60) . '); ';
+        }
+        public function getMonth()
+        {
+            return self::$_month[date('n', strtotime($this->start_date))-1];
         }
 }

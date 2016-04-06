@@ -350,7 +350,7 @@ a:hover .caret-white {
 .dropdown-menu > .active > a:focus {
   background-image: none;
   filter: none;
-  background-color: #4c5566;
+  background-color: #0745BF;
   color: #fff;
 }
 .dropdown-header {
@@ -2083,7 +2083,7 @@ fieldset[disabled] .btn-gplus.active {
   background-color: #4f467d;
 }
 .bg-primary .nav li > ul.dropdown-menu > li > a {
-  color: #7166a9;
+  color: #BDB8D7;
 }
 .bg-primary .nav li > ul.dropdown-menu > li > a:hover {
   color: #fff;

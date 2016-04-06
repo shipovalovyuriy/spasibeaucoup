@@ -69,6 +69,49 @@ class PositionController extends \yupe\components\controllers\FrontController
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
+    
+    
+    
+    public function actionCreateNext($id,$pid)
+    {
+        $roles = ['1','3'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)){
+            $model = new Position;
+            if (Yii::app()->getRequest()->getPost('Position') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
+                $model->parent_id = $pid;
+                if($model->prev->first_parent){
+                    $model->first_parent = $model->prev->first_parent;
+                }else{
+                    $model->first_parent = $model->prev->id;
+                }
+                if(in_array('3', $role) && !in_array('1', $role)){
+                    $model->branch_id = Yii::app()->user->branch->id;
+                }
+                $model->listner_id = $id;
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('ListnerModule.listner', 'Запись добавлена!')
+                    );
+
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
+            }
+            $this->render('create', ['model' => $model]);
+        } else {
+            throw new CHttpException(403,  'Ошибка прав доступа.');
+        }
+    }
 
     /**
      * Редактирование Положения.

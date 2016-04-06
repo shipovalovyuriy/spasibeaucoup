@@ -104,7 +104,7 @@ $this->menu = [
             </header>
             <section class="panel-body">
                 <?php
-                foreach($model->position as $position):?>
+                foreach($model->position as $position): if(!$position->parent_id):?>
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
@@ -117,7 +117,7 @@ $this->menu = [
                         </div>
                     </article>
                     <div class="line pull-in"></div>
-                <?php endforeach;?>
+                <?php endif; endforeach;?>
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">

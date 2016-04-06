@@ -42,6 +42,7 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+<?php if(!isset($_GET['pid'])):?>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'form_id', [
@@ -55,6 +56,13 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
+<?php else:
+    echo $form->hiddenField($model, 'form_id',[
+                    'value' => Position::model()->findByPk($_GET['pid'])->form_id,
+                    'type' => 'hidden'
+            ]);
+ endif;?>
+<?php if(!isset($_GET['pid'])):?>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
@@ -71,6 +79,12 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
+<?php else:
+        echo $form->hiddenField($model, 'subject_id',[
+                    'value' => Position::model()->findByPk($_GET['pid'])->subject_id,
+                    'type' => 'hidden'
+            ]);
+    endif;?>
     <div class="row">
         <div class="col-sm-7">
             <label class="control-label">Укажите время занятий</label>

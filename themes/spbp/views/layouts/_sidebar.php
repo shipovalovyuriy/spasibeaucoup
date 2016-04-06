@@ -28,10 +28,17 @@
                         </a>
                     </li>
                     <li class="dropdown-submenu">
-                        <a href="#">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-tasks"></i>
                             <span>Расписание</span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <?php foreach(Branch::model()->findAll() as $model):?>
+                            <li>
+                                <a href="/branch/schedule/<?= $model->id?>"><?= $model->name?></a>
+                            </li>
+                            <?php endforeach;?>
+                        </ul>
                     </li>
                     <?php $roles=['1','5','3','2']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
