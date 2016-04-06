@@ -50,7 +50,6 @@ class BalanceController extends \yupe\components\controllers\FrontController
             $out = 0;
 
         }
-        die(print_r($inflow));
 
         //$this->render('search', array('inflow' => $inflow, 'outflow' => $outflow, 'totalflow' => $totalArr));
         $this->actionPrint($inflow,$outflow,$totalArr);

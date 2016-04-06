@@ -111,6 +111,7 @@ class Position extends yupe\models\YModel
                 $inflow->based = $this->code;
                 $inflow->comment = $this->note;
                 $inflow->date = $this->start_date;
+				$inflow->branch_id = $this->listner->branch_id;
                 $inflow->save();
                 //Изменение статуса
                 if($this->listner->status != 1){
