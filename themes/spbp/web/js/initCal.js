@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    //var userId = 1;
-    //var branchId = 1;
-    //var userType = 2;// 1 - teacher , 2 - listener
+    if (typeof branchId !== "undefined"){
+        var userId = null;
+        var branchId = null;
+        var userType = null;
+    }
     var obj = {
         now: new Date(),
         editable: false,
