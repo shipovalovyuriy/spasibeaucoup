@@ -46,7 +46,6 @@ $scripts = array(
     'fullcalendar/fullcalendar.js'=> CClientScript::POS_END,
     'fullcalendar/ru.js'=> CClientScript::POS_END,
     'fullcalendar/scheduler.min.js'=> CClientScript::POS_END,
-    'initCal.js'=> CClientScript::POS_END,
     'bootstrap-datetimepicker.js'=> CClientScript::POS_END,
     'teacher.js' => CClientScript::POS_END,
     'jquery-ui.min.js' => CClientScript::POS_END,

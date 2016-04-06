@@ -133,13 +133,11 @@ $this->menu = [
         </section>
     </div>
 </div>
-    <script>
-        var userId = <?php echo $model->id?>;
-        var branchId = <?php echo $model->branch->id?>;
-        var userType = 2;// 1 - teacher , 2 - listener
-
-    </script>
-
+<script>
+     var userId = <?php echo $model->id?>;
+    var branchId = <?php echo $model->branch->id?>;
+    var userType = 2;
+</script>
 <div class="row" style="margin-left: 5%; margin-right: 5%;">
     <?php
         $this->beginWidget('application.modules.listner.widgets.CalendarWidget');

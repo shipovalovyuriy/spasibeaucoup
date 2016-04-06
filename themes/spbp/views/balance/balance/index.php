@@ -10,8 +10,9 @@
 
 <form method="get" action="/balance/report/show">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-5">
             <div class="form-group">
+                <label class="control-label" for="daterange">Диапазон формирования отчета</label>
                 <input type="text" class="form-control rm popover-help" name="daterange"/>
             </div>
         </div>
@@ -20,6 +21,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="form-group">
+                    <label class="control-label" for="branch">Филиал</label>
                     <select class="form-control" style="width:10%;" name="branch">
                         <option value="all">Все</option>
                         <?php foreach($model as $value):?>

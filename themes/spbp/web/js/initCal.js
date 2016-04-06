@@ -1,9 +1,4 @@
 $(document).ready(function(){
-    if (typeof branchId !== "undefined"){
-        var userId = null;
-        var branchId = null;
-        var userType = null;
-    }
     var obj = {
         now: new Date(),
         editable: false,
@@ -55,8 +50,5 @@ $(document).ready(function(){
             element.find('.fc-title').append("<br/>" + event.subj);
         }
     };
-
-
     $('#calendar').fullCalendar(obj);
-
 });
