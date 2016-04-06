@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'cost-grid',
         'type'         => 'striped condensed',
@@ -68,7 +68,7 @@ $this->menu = [
             'name',
             'code',
             [
-                'class' => 'yupe\widgets\CustomButtonColumn',
+                'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],
     ]

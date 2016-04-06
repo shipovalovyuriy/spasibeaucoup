@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'outflow-grid',
         'type'         => 'striped condensed',
@@ -72,7 +72,7 @@ $this->menu = [
             'based',
             'note',
             [
-                'class' => 'yupe\widgets\CustomButtonColumn',
+                'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],
     ]

@@ -53,8 +53,8 @@ class Outflow extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cost' => array(self::BELONGS_TO, 'BalanceCost', 'cost_id'),
-			'branch' => array(self::BELONGS_TO, 'BranchBranch', 'branch_id'),
+			'cost' => array(self::BELONGS_TO, 'Cost', 'cost_id'),
+			'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
 		);
 	}
 
@@ -65,7 +65,7 @@ class Outflow extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'cost_id' => 'Cost',
+			'cost_id' => 'Цена',
 			'receiver' => 'Receiver',
 			'date' => 'Date',
 			'price' => 'Price',

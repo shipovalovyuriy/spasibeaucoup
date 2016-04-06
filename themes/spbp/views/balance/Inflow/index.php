@@ -57,7 +57,7 @@ $this->menu = [
 
 <?php
  $this->widget(
-    'yupe\widgets\CustomGridView',
+    'yupe\widgets\FrontGridView',
     [
         'id'           => 'inflow-grid',
         'type'         => 'striped condensed',
@@ -65,14 +65,17 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'subject_id',
+            [
+                'header' => 'Предмет',
+                'name'  => 'subject.name'
+            ],
             'receiver',
             'form_id',
             'based',
             'comment',
 //            'date',
             [
-                'class' => 'yupe\widgets\CustomButtonColumn',
+                'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],
     ]
