@@ -8,7 +8,7 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class InflowController extends \yupe\components\controllers\BackController
+class InflowController extends \yupe\components\controllers\FrontController
 {
     /**
     * Отображает Приход по указанному идентификатору

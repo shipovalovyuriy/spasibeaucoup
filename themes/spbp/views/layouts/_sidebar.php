@@ -66,7 +66,7 @@
                     <?php endif;?>
                     <?php $roles=['1','3']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
-                            <a href="/balance/index">
+                            <a href="/balance/report/index">
                                 <i class="fa fa-file-text"></i>
                                 <span>Отчет</span>
                             </a>
