@@ -71,15 +71,20 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'phone', [
-                'widgetOptions' => [
+            <?php echo $form->labelEx($model,'phone',['class' => 'control-label']); ?>
+            <?php $this->widget(
+                'CMaskedTextField',
+                [
+                    'model' => $model,
+                    'attribute' => 'phone',
+                    'mask' => '+7(999)9999999',
+                    'placeholder' => '*',
                     'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('phone'),
-                        'data-content' => $model->getAttributeDescription('phone')
+                        'class' => 'form-control'
                     ]
                 ]
-            ]); ?>
+            ); ?>
+            <?php echo $form->error($model,'phone'); ?>
         </div>
     </div>
     <div class="row">

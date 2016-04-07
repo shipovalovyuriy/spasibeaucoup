@@ -95,7 +95,7 @@
                 [
                     'model' => $model,
                     'attribute' => 'phone',
-                    'mask' => $this->module->phoneMask,
+                    'mask' => '+9(999)999_99_99',
                     'placeholder' => '*',
                     'htmlOptions' => [
                         'class' => 'form-control'
