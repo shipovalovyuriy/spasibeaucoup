@@ -18,6 +18,16 @@ class ListnerController extends \yupe\components\controllers\FrontController
      *
      * @return void
      */
+    public function actions()
+    {
+        return [
+            'inline' => [
+                'class'           => 'yupe\components\actions\YInLineEditAction',
+                'model'           => 'Listner',
+                'validAttributes' => ['access_level', 'status', 'email_confirm']
+            ]
+        ];
+    }
     public function actionView($id)
     {
         $roles = ['1','5','3','2'];

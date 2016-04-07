@@ -179,12 +179,9 @@ $form = $this->beginWidget(
     ); ?>
 
 <?php $this->endWidget(); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web').'/js/teacher.js',CClientScript::POS_END)?>
 <script>
-    var branchId = null;
-    var userType = null;
-    var userId = null;
-
-
+    var branch = <?= $_GET['id'];?>;
     var el = document.getElementById("addTime");
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");

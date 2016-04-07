@@ -17,7 +17,8 @@ $(function(){
                 dataType: 'json',
                 data:{
                     form: form,
-                    subject: subject
+                    subject: subject,
+                    branch: branch
                 },
             }).done(function(data){
                 $('.teachers').remove();

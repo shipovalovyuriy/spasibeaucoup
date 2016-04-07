@@ -223,9 +223,9 @@ class PositionController extends \yupe\components\controllers\FrontController
         return $model;
     }
 
-    public function actionGetTeacher($time, $form, $subject)
+    public function actionGetTeacher($time, $form, $subject, $branch)
     {
-        if (Yii::app()->request->isAjaxRequest) {
+        //if (Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
@@ -258,14 +258,15 @@ class PositionController extends \yupe\components\controllers\FrontController
             foreach ($schedule as $sch) {
                 $condition .= " AND `schedule`.`start_time` <>'$sch'";
             }
-            $condition .= " AND `subject`.`subject_id` = $subject";
+            $condition .= " AND `subject`.`subject_id` = $subject AND `t`.branch_id = $branch";
             $criteria->condition = $condition;
+            $die($condition);
             $models = Teacher::model()->with('user', 'schedule', 'subject')->findAll($criteria);
             echo CJSON::encode($this->convertModelToArray($models));
             Yii::app()->end();
-        } else {
-            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
-        }
+        //} else {
+        //    throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        //}
     }
 
     public function convertModelToArray($models)
