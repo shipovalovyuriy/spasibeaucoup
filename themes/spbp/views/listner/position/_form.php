@@ -62,6 +62,7 @@ $form = $this->beginWidget(
                     'type' => 'hidden'
             ]);
  endif;?>
+<input type="hidden" value="<?= Listner::model()->findByPk($_GET['id'])->branch_id;?>" id="branch_id">
 <?php if(!isset($_GET['pid'])):?>
     <div class="row">
         <div class="col-sm-7">
@@ -181,7 +182,6 @@ $form = $this->beginWidget(
 <?php $this->endWidget(); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web').'/js/teacher.js',CClientScript::POS_END)?>
 <script>
-    var branch = <?= $_GET['id'];?>;
     var el = document.getElementById("addTime");
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");

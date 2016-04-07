@@ -20,13 +20,17 @@ class ListnerController extends \yupe\components\controllers\FrontController
      */
     public function actions()
     {
-        return [
-            'inline' => [
-                'class'           => 'yupe\components\actions\YInLineEditAction',
-                'model'           => 'Listner',
-                'validAttributes' => ['access_level', 'status', 'email_confirm']
-            ]
-        ];
+        $roles = ['1','5'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)){
+            return [
+                'inline' => [
+                    'class'           => 'yupe\components\actions\YInLineEditAction',
+                    'model'           => 'Listner',
+                    'validAttributes' => ['access_level', 'status', 'email_confirm']
+                ]
+            ];        
+        }
     }
     public function actionView($id)
     {

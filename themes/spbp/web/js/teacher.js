@@ -10,6 +10,7 @@ $(function(){
         var time = $('.totalTime').val();
         var form = $('#Position_form_id').val();
         var subject = $('#Position_subject_id').val();
+        var branch = $('#branch_id').val();
         if(time){
             $.ajax({
                 type: 'GET',

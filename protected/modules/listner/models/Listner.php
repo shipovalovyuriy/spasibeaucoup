@@ -117,7 +117,7 @@ class Listner extends yupe\models\YModel
     {
         return [
             self::STATUS_POTENTIAL  => 'Потенциальный',
-            self::STATUS_LISTNER    => 'Слушатель',
+            self::STATUS_LISTNER    => 'Студент',
             self::STATUS_GRADUATE   => 'Выпускник',
             self::STATUS_CANCEL     => 'Отказ',
         ];
@@ -126,7 +126,7 @@ class Listner extends yupe\models\YModel
     {
         $status = [
             self::STATUS_POTENTIAL  => 'Потенциальный',
-            self::STATUS_LISTNER    => 'Слушатель',
+            self::STATUS_LISTNER    => 'Студент',
             self::STATUS_GRADUATE   => 'Выпускник',
             self::STATUS_CANCEL     => 'Отказ',
         ];
