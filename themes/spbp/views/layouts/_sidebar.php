@@ -27,6 +27,7 @@
                             <span>Главная</span>
                         </a>
                     </li>
+                    <?php $roles=['1','4','5']; if(array_intersect($role, $roles)):?>
                     <li class="dropdown-submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-tasks"></i>
@@ -40,7 +41,8 @@
                             <?php endforeach;?>
                         </ul>
                     </li>
-                    <?php $roles=['1','5','3','2']; if(array_intersect($role, $roles)):?>
+                    <?php endif;?>
+                    <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
                             <a href="/listner/all">
                                 <i class="fa fa-building-o"></i>
@@ -48,7 +50,7 @@
                             </a>
                         </li>
                     <?php endif;?>
-                    <?php $roles=['1','5','3','2']; if(array_intersect($role, $roles)):?>
+                    <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
                             <a href="/teacher">
                                 <i class="fa fa-building-o"></i>
@@ -56,7 +58,7 @@
                             </a>
                         </li>
                     <?php endif;?>
-                    <?php $roles=['1','5','3','2']; if(array_intersect($role, $roles)):?>
+                    <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
                             <a href="/subject">
                                 <i class="fa fa-bookmark"></i>
