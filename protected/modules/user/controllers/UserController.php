@@ -80,7 +80,7 @@ class UserController extends yupe\components\controllers\FrontController
                     Yii::t('UserModule.user', 'Password was changed successfully')
                 );
 
-                $this->redirect(['/user/userBackend/view', 'id' => $model->id]);
+                $this->redirect(['/user/user/index']);
             }
         }
 
@@ -348,5 +348,17 @@ class UserController extends yupe\components\controllers\FrontController
         }
 
         Yii::app()->ajax->failure();
+    }
+    public function actionSalary()
+    {
+        $model = new User('search');
+        $model->unsetAttributes(); // clear any default values
+        $model->setAttributes(
+            Yii::app()->getRequest()->getParam(
+                'User',
+                ['salary_date' => date('d')]
+            )
+        );
+        $this->render('salary', ['model' => $model]);
     }
 }

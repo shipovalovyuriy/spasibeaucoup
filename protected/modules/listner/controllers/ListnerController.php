@@ -58,11 +58,12 @@ class ListnerController extends \yupe\components\controllers\FrontController
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Listner'));
             $model->create_date = date("Y-m-d H:i:s");
-            $model->branch_id = Yii::app()->user->branch->id;
+            if(array_intersect(['3','2'], $role))
+                $model->branch_id = Yii::app()->user->branch->id;
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('ListnerModule.listner', 'Запись добавлена!')
+                    Yii::t('ListnerModule.listner', 'Студент зарегистрирован!')
                 );
 
                 $this->redirect(

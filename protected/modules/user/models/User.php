@@ -67,7 +67,7 @@ class User extends yupe\models\YModel
      *
      */
     const ACCESS_LEVEL_ADMIN = 1;
-
+    
     /**
      * @var
      */
@@ -154,7 +154,7 @@ class User extends yupe\models\YModel
             ['status', 'in', 'range' => array_keys($this->getStatusList())],
             ['create_time, salary, salary_date', 'length', 'max' => 50],
             [
-                'id, update_time, create_time, middle_name, first_name, last_name, nick_name, email, gender, avatar, status, access_level, visit_time, phone',
+                'id, update_time, create_time, salary_date, middle_name, first_name, last_name, nick_name, email, gender, avatar, status, access_level, visit_time, phone',
                 'safe',
                 'on' => 'search'
             ],
@@ -275,6 +275,9 @@ class User extends yupe\models\YModel
         $criteria->compare('t.gender', $this->gender);
         $criteria->compare('t.status', $this->status);
         $criteria->compare('t.access_level', $this->access_level);
+        if($this->salary_date) {
+            $criteria->compare('t.salary_date', date('d', strtotime($this->salary_date)), true);
+        }
         if ($this->visit_time) {
             $criteria->compare('t.visit_time', date('Y-m-d', strtotime($this->visit_time)), true);
         }

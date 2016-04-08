@@ -120,7 +120,11 @@
                         </span>
                     </div>
                     <div class="media-body">                        
-                        <a href="/user" class="h4">Все сотрудники</a>
+                        <?php if(array_intersect(Yii::app()->user->role, ['1','4','5'])):?>
+                            <a href="/user" class="h4">Все сотрудники</a>
+                        <?php else:?>
+                            <a href="/teacher" class="h4">Преподаватели филиала</a>
+                        <?php endif;?>
                     </div>
                 </article>
                 <div class="line pull-in"></div>
@@ -138,3 +142,15 @@
             </section>
         </section>
     </div>
+    <?php if($salary && in_array('1', Yii::app()->user->role)):?>
+        <section class="panel no-borders hbox">
+            <aside class="bg-info lter r-l text-center v-middle">
+                <div class="wrapper" style="text-shadow: #000 0 0 2px;">
+                    <a href="/salary">
+                        <i class="fa fa-dollar fa fa-4x"></i>
+                        <p class="text"><em>Уведомление о зарплате</em></p>
+                    </a>
+                </div>
+            </aside>
+        </section>
+    <?php endif;?>

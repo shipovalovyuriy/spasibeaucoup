@@ -5,7 +5,6 @@ $this->breadcrumbs = [
 ];
 
 $this->pageTitle = Yii::t('UserModule.user', 'Users - create');
-
 $this->menu = [
     [
         'label' => Yii::t('UserModule.user', 'Users'),

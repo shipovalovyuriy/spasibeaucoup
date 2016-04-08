@@ -18,6 +18,7 @@ return [
     'rules'     => [
         '/balance/report' => 'balance/balance/index',
         '/balance/report/<action>' => 'balance/balance/<action>',
+        '/balance/<controller>'=> 'balance/<controller>/index',
         '/balance/<controller>/<action>'=> 'balance/<controller>/<action>',
     ],
 ];

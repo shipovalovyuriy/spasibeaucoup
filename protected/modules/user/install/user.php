@@ -83,6 +83,7 @@ return [
         '/role'                             => 'user/roleToUser/index',
         '/role/<action:\w+>'                => 'user/roleToUser/<action>',
         '/user/<action:\w+>'                => 'user/user/<action>',
-        '/user'                => 'user/user/index',
+        '/user'                             => 'user/user/index',
+        '/salary'                           => 'user/user/salary',
     ],
 ];

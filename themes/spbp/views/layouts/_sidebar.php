@@ -74,13 +74,13 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/balance/report/index">Сформировать</a>
+                                    <a href="/balance/report">Сформировать</a>
                                 </li>
                                 <li>
-                                    <a href="/balance/inflow/index">Доход</a>
+                                    <a href="/balance/inflow">Доход</a>
                                 </li>
                                 <li>
-                                    <a href="/balance/outflow/index">Расход</a>
+                                    <a href="/balance/outflow">Расход</a>
                                 </li>
                             </ul>
                         </li>

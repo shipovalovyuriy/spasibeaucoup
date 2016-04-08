@@ -77,7 +77,7 @@ $form = $this->beginWidget(
                 [
                     'model' => $model,
                     'attribute' => 'phone',
-                    'mask' => '+7(999)9999999',
+                    'mask' => '+9(999)999_99_99',
                     'placeholder' => '*',
                     'htmlOptions' => [
                         'class' => 'form-control'
@@ -89,7 +89,7 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'email', [
+            <?php echo $form->emailFieldGroup($model, 'email', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',

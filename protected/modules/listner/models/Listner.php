@@ -43,6 +43,7 @@ class Listner extends yupe\models\YModel
                     array('name, lastname, patronymic, phone, create_date', 'required'),
                     array('branch_id, status', 'numerical', 'integerOnly'=>true),
                     array('name, lastname, patronymic, phone, email', 'length', 'max'=>50),
+                    ['email', 'email'],
                     // The following rule is used by search().
                     // @todo Please remove those attributes that should not be searched.
                     array('id, name, lastname, patronymic, phone, create_date, branch_id, email, status', 'safe', 'on'=>'search'),
