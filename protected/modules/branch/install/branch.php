@@ -20,6 +20,7 @@ return [
     'component' => [],
     'rules'     => [
         '/branch' => 'branch/branch/index',
-        '/employees' => 'branch/user/index'
+        '/branch/<action>' => 'branch/branch/<action>',
+        '/branch/<controller>/<action>' => 'branch/<controller>/<action>',
     ],
 ];

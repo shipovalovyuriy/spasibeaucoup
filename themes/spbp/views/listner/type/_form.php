@@ -8,13 +8,13 @@
  *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
  *   @link     http://yupe.ru
  *
- *   @var $model Branch
+ *   @var $model Type
  *   @var $form TbActiveForm
- *   @var $this BranchBackendController
+ *   @var $this TypeController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
-        'id'                     => 'branch-form',
+        'id'                     => 'type-form',
         'enableAjaxValidation'   => false,
         'enableClientValidation' => true,
         'htmlOptions'            => ['class' => 'well'],
@@ -23,21 +23,24 @@ $form = $this->beginWidget(
 ?>
 
 <div class="alert alert-info">
-    <?php echo Yii::t('BranchModule.branch', 'Поля, отмеченные'); ?>
+    <?php echo Yii::t('ListnerModule.listner', 'Поля, отмеченные'); ?>
     <span class="required">*</span>
-    <?php echo Yii::t('BranchModule.branch', 'обязательны.'); ?>
+    <?php echo Yii::t('ListnerModule.listner', 'обязательны.'); ?>
 </div>
 
 <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'name'); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'address'); ?>
+            <?php echo $form->textFieldGroup($model, 'name', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('name'),
+                        'data-content' => $model->getAttributeDescription('name')
+                    ]
+                ]
+            ]); ?>
         </div>
     </div>
 
@@ -45,14 +48,14 @@ $form = $this->beginWidget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'context'    => 'primary',
-            'label'      => Yii::t('BranchModule.branch', 'Сохранить Филиал и продолжить'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Тип формы обучения и продолжить'),
         ]
     ); ?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'htmlOptions'=> ['name' => 'submit-type', 'value' => 'index'],
-            'label'      => Yii::t('BranchModule.branch', 'Сохранить Филиал и закрыть'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Тип формы обучения и закрыть'),
         ]
     ); ?>
 

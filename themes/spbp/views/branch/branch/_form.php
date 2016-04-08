@@ -10,7 +10,7 @@
  *
  *   @var $model Branch
  *   @var $form TbActiveForm
- *   @var $this BranchBackendController
+ *   @var $this BranchController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
@@ -32,12 +32,28 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'name'); ?>
+            <?php echo $form->textFieldGroup($model, 'name', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('name'),
+                        'data-content' => $model->getAttributeDescription('name')
+                    ]
+                ]
+            ]); ?>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'address'); ?>
+            <?php echo $form->textFieldGroup($model, 'address', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('address'),
+                        'data-content' => $model->getAttributeDescription('address')
+                    ]
+                ]
+            ]); ?>
         </div>
     </div>
 

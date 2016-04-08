@@ -27,20 +27,37 @@
                             <span>Главная</span>
                         </a>
                     </li>
-                    <?php $roles=['1','4','5']; if(array_intersect($role, $roles)):?>
+                    <?php $roles=['1']; if(array_intersect($role, $roles)):?>
                     <li class="dropdown-submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-tasks"></i>
-                            <span>Расписание</span>
+                            <span>Филиал</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <?php foreach(Branch::model()->findAll() as $model):?>
                             <li>
-                                <a href="/branch/schedule/<?= $model->id?>"><?= $model->name?></a>
+                                <a href="/branch">Филиалы</a>
                             </li>
-                            <?php endforeach;?>
+                            <li>
+                                <a href="/branch/room/index">Аудитории</a>
+                            </li>
                         </ul>
                     </li>
+                    <?php endif;?>
+                    <?php $roles=['1','5']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bars"></i>
+                                <span>Тарифы</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/listner/type/index">Типы форм обучения</a>
+                                </li>
+                                <li>
+                                    <a href="/listner/form/index">Формы обучения</a>
+                                </li>
+                            </ul>
+                        </li>
                     <?php endif;?>
                     <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">

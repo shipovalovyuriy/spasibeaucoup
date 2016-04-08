@@ -23,7 +23,7 @@ return [
         '/listner/<action>' => 'listner/listner/<action>',
         '/listner/<action:\w+>/<id:\d+>' => 'listner/listner/<action>',
         '/listner/subject/lessons/<id:\d+>' => 'listner/listner/subject/list',
-        '/listner/position/<action>' => 'listner/position/<action>',
+        '/listner/<controller>/<action>' => 'listner/<controller>/<action>',
         '/listner/positon/create/<id:\d+>' => 'listner/position/create',
         
     ],

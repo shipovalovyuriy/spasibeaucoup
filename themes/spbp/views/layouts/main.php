@@ -24,7 +24,10 @@
         <script>
             $(function(){
                 $('#egw0').remove();
-                $('.pull-right:contains("Выводить по")').remove();
+                $('button#yw0.btn').removeClass('btn-primary');
+                $('button#yw0.btn').addClass('btn-default');
+                $('button#yw1.btn').removeClass('btn-default');
+                $('button#yw1.btn').addClass('btn-primary');
                 var path = window.location.pathname;
                 path = decodeURIComponent(path);
                 $(".nav a").each(function () {

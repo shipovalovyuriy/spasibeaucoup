@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table '{{branch_branch}}':
  * @property integer $id
- * @property integer $parent_id
  * @property string $name
  * @property string $address
  *
@@ -33,12 +32,11 @@ class Branch extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('name, address', 'required'),
-			array('parent_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('address', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, parent_id, name, address', 'safe', 'on'=>'search'),
+			array('id, name, address', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,20 +63,9 @@ class Branch extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'parent_id' => 'Администратор филиала',
 			'name' => 'Название',
 			'address' => 'Адрес',
 		);
-	}
-        
-        public function getAttributeDescription($attribute)
-        {
-            return array(
-                    'id' => 'ID',
-                    'parent_id' => 'Parent',
-                    'name' => 'Name',
-                    'address' => 'Address',
-            );
 	}
 
 	/**
@@ -100,7 +87,6 @@ class Branch extends yupe\models\YModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('parent_id',$this->parent_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('address',$this->address,true);
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* Класс BranchController:
+* Класс RoomController:
 *
 *   @category Yupe\yupe\components\controllers\FrontController
 *   @package  yupe
@@ -8,12 +8,12 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class BranchController extends \yupe\components\controllers\FrontController
+class RoomController extends \yupe\components\controllers\FrontController
 {
     /**
-    * Отображает Филиал по указанному идентификатору
+    * Отображает Аудиторию по указанному идентификатору
     *
-    * @param integer $id Идинтификатор Филиал для отображения
+    * @param integer $id Идинтификатор Аудиторию для отображения
     *
     * @return void
     */
@@ -22,14 +22,14 @@ class BranchController extends \yupe\components\controllers\FrontController
         $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
-            $this->render('view', ['model' => $this->loadModel($id)]);        
+            $this->render('view', ['model' => $this->loadModel($id)]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
     
     /**
-    * Создает новую модель Филиала.
+    * Создает новую модель Аудитории.
     * Если создание прошло успешно - перенаправляет на просмотр.
     *
     * @return void
@@ -39,10 +39,10 @@ class BranchController extends \yupe\components\controllers\FrontController
         $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
-            $model = new Branch;
+            $model = new Room;
 
-            if (Yii::app()->getRequest()->getPost('Branch') !== null) {
-                $model->setAttributes(Yii::app()->getRequest()->getPost('Branch'));
+            if (Yii::app()->getRequest()->getPost('Room') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Room'));
 
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
@@ -68,9 +68,9 @@ class BranchController extends \yupe\components\controllers\FrontController
     }
     
     /**
-    * Редактирование Филиала.
+    * Редактирование Аудитории.
     *
-    * @param integer $id Идинтификатор Филиал для редактирования
+    * @param integer $id Идинтификатор Аудиторию для редактирования
     *
     * @return void
     */
@@ -81,8 +81,8 @@ class BranchController extends \yupe\components\controllers\FrontController
         if (array_intersect($role, $roles)){
             $model = $this->loadModel($id);
 
-            if (Yii::app()->getRequest()->getPost('Branch') !== null) {
-                $model->setAttributes(Yii::app()->getRequest()->getPost('Branch'));
+            if (Yii::app()->getRequest()->getPost('Room') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Room'));
 
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
@@ -108,10 +108,10 @@ class BranchController extends \yupe\components\controllers\FrontController
     }
     
     /**
-    * Удаляет модель Филиала из базы.
+    * Удаляет модель Аудитории из базы.
     * Если удаление прошло успешно - возвращется в index
     *
-    * @param integer $id идентификатор Филиала, который нужно удалить
+    * @param integer $id идентификатор Аудитории, который нужно удалить
     *
     * @return void
     */
@@ -141,7 +141,7 @@ class BranchController extends \yupe\components\controllers\FrontController
     }
     
     /**
-    * Управление Филиалами.
+    * Управление Аудиториями.
     *
     * @return void
     */
@@ -150,10 +150,10 @@ class BranchController extends \yupe\components\controllers\FrontController
         $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
-            $model = new Branch('search');
+            $model = new Room('search');
             $model->unsetAttributes(); // clear any default values
-            if (Yii::app()->getRequest()->getParam('Branch') !== null)
-                $model->setAttributes(Yii::app()->getRequest()->getParam('Branch'));
+            if (Yii::app()->getRequest()->getParam('Room') !== null)
+                $model->setAttributes(Yii::app()->getRequest()->getParam('Room'));
             $this->render('index', ['model' => $model]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -170,7 +170,7 @@ class BranchController extends \yupe\components\controllers\FrontController
     */
     public function loadModel($id)
     {
-        $model = Branch::model()->findByPk($id);
+        $model = Room::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, Yii::t('BranchModule.branch', 'Запрошенная страница не найдена.'));
 
