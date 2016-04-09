@@ -69,7 +69,7 @@ $this->menu = [
                     <?php foreach($teachers1 as $teacher):?>
                         <li class="dd-item" id="<?= $teacher->id?>">
                             <div class="dd-handle">
-                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
+                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?> для филиала <?= $teacher->branch->name?>
                             </div>
                         </li>
                     <?php endforeach;?>
@@ -82,7 +82,7 @@ $this->menu = [
                     <?php foreach($teachers2 as $teacher): ?>
                         <li class="dd-item" id="<?= $teacher->id?>">
                             <div class="dd-handle">
-                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
+                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?> для филиала <?= $teacher->branch->name?>
                             </div>
                         </li>
                     <?php endforeach;?>
