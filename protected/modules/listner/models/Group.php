@@ -33,10 +33,11 @@ class Group extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, time', 'length', 'max'=>50),
+			array('name, time,lvl', 'length', 'max'=>50),
+			array('note', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, time', 'safe', 'on'=>'search'),
+			array('id, name, time, lvl,note,teacher_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +62,11 @@ class Group extends yupe\models\YModel
 			'id' => 'ID',
 			'name' => 'Имя группы',
 			'time' => 'Время',
+			'teacher_id'=>"Преподаватель",
+			'form_id'=>'Форма обучения',
+			'subject_id'=>'Предмет'.
+			'lvl'=>'Уровень',
+			'note'=>'Комментарий',
 		);
 	}
 
@@ -85,6 +91,9 @@ class Group extends yupe\models\YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('time',$this->time,true);
+		$criteria->compare('lvl',$this->lvl,true);
+		$criteria->compare('note',$this->note,true);
+		$criteria->compare('teacher_id',$this->teacher_id,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
