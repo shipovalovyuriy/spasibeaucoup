@@ -66,26 +66,26 @@ $this->menu = [
         <div class="col-sm-4">
             <div class="dd">
                 <ol id="sortable1" class="dd-list connectedSortable dd-empty">
-                    <?php foreach($teachers as $teacher):if(!$teacher->subject):?>
-                    <li class="dd-item" id="<?= $teacher->id?>">
-                        <div class="dd-handle">
-                            <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
-                        </div>
-                    </li>
-                    <?php endif; endforeach;?>
+                    <?php foreach($teachers1 as $teacher):?>
+                        <li class="dd-item" id="<?= $teacher->id?>">
+                            <div class="dd-handle">
+                                <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
+                            </div>
+                        </li>
+                    <?php endforeach;?>
                 </ol>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="dd">
                 <ol id="sortable2" class="dd-list connectedSortable dd-empty">
-                    <?php foreach($teachers as $teacher):if($teacher->subject): ?>
+                    <?php foreach($teachers2 as $teacher): ?>
                         <li class="dd-item" id="<?= $teacher->id?>">
                             <div class="dd-handle">
                                 <?= $teacher->user->first_name.' '.$teacher->user->last_name?>
                             </div>
                         </li>
-                    <?php endif; endforeach;?>
+                    <?php endforeach;?>
                 </ol>
             </div>
             </div>

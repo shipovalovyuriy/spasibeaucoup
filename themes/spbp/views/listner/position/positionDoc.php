@@ -165,7 +165,7 @@
 						возможен при уведомлении представителя
 						</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>АДМИНИСТРАЦИИ</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						в лице </font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>
-						<?= $admin->last_name . ' ' . $admin->first_name?> : 8&nbsp;707 7000 434</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
+						<?= $admin->last_name . ' ' . $admin->first_name?> : 8&nbsp;<?= $admin->phone?></b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						и/или </font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>ЗА
 						24 ЧАСА</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						до начала урока на время, указываемое
@@ -404,7 +404,7 @@
 						возможен при уведомлении представителя
 						</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>АДМИНИСТРАЦИИ</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						в лице </font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>
-						АУЕЛБАЕВ СУЛТАН : 8&nbsp;707 7000 434</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
+						<?= $admin->last_name . ' ' . $admin->first_name?> : 8&nbsp;<?= $admin->phone?></b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						и/или </font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>ЗА
 						24 ЧАСА</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						до начала урока на время, указываемое

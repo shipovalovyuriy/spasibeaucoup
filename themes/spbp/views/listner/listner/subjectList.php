@@ -34,9 +34,9 @@
                 <?php endif;?>
             </div>
             <?php foreach($model->schedule as $schedule):?>
-                <a href="#" class="list-group-item" <?php if($schedule->start_time):?>style="text-decoration: line-through;"<?php endif;?>>
-                    <i class=""></i> Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?>
-                </a>
+                <div class="list-group-item" <?php if($schedule->start_time):?>style="text-decoration: line-through;"<?php endif;?>>
+                    Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?><a href="/listner/subject/lessons/<?= $model->id?>/update"><i class="fa fa-pencil pull-right"></i></a>
+                </div>
             <?php endforeach;?>            
         </div>
     </section>

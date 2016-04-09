@@ -96,8 +96,8 @@ class Position extends yupe\models\YModel
 
         protected function afterSave() 
         {
-            parent::afterSave();
-            if(!$this->isNewRecord){
+            
+            if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
                 $time = explode(',', $this->time);
                 $tCount = count($time);
@@ -125,7 +125,7 @@ class Position extends yupe\models\YModel
                 $inflow->based = $this->code;
                 $inflow->comment = $this->note;
                 $inflow->date = $this->start_date;
-				$inflow->branch_id = $this->listner->branch_id;
+                $inflow->branch_id = $this->listner->branch_id;
                 $inflow->save();
                 //Изменение статуса
                 if($this->listner->status != 1){
@@ -133,6 +133,15 @@ class Position extends yupe\models\YModel
                     $this->listner->save();
                 }
             }
+            if($this->isNewRecord && $this->is_test==1){
+                $schedule = new Schedule;
+                $schedule->position_id = $this->id;
+                $schedule->number = 0;
+                $schedule->start_time = '06:00:00';
+                $schedule->end_time = '07:00:00';
+                $schedule->save();
+            }
+            parent::afterSave();
         }
         
         protected function findRoom($t)

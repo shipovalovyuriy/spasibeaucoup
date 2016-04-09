@@ -117,7 +117,7 @@ class User extends yupe\models\YModel
                 'filter',
                 'filter' => [$obj = new CHtmlPurifier(), 'purify']
             ],
-            ['nick_name, email, hash', 'required'],
+            ['nick_name, email, hash, phone', 'required'],
             ['first_name, last_name, middle_name, nick_name, email', 'length', 'max' => 50],
             ['hash', 'length', 'max' => 256],
             ['site', 'length', 'max' => 100],
@@ -159,12 +159,6 @@ class User extends yupe\models\YModel
                 'on' => 'search'
             ],
             ['birth_date', 'default', 'setOnEmpty' => true, 'value' => null],
-            [
-                'phone',
-                'match',
-                'pattern' => $module->phonePattern,
-                'message' => 'Некорректный формат поля {attribute}'
-            ],
         ];
     }
 

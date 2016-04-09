@@ -8,13 +8,13 @@
  *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
  *   @link     http://yupe.ru
  *
- *   @var $model Teacher
+ *   @var $model Schedule
  *   @var $form TbActiveForm
- *   @var $this TeacherController
+ *   @var $this ScheduleBackendController
  **/
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', [
-        'id'                     => 'teacher-form',
+        'id'                     => 'schedule-form',
         'enableAjaxValidation'   => false,
         'enableClientValidation' => true,
         'htmlOptions'            => ['class' => 'well'],
@@ -23,31 +23,12 @@ $form = $this->beginWidget(
 ?>
 
 <div class="alert alert-info">
-    <?php echo Yii::t('TeacherModule.teacher', 'Поля, отмеченные'); ?>
+    <?php echo Yii::t('ListnerModule.listner', 'Поля, отмеченные'); ?>
     <span class="required">*</span>
-    <?php echo Yii::t('TeacherModule.teacher', 'обязательны.'); ?>
+    <?php echo Yii::t('ListnerModule.listner', 'обязательны.'); ?>
 </div>
 
 <?php echo $form->errorSummary($model); ?>
-
-    <div class="row">
-        <div class="col-sm-7">
-            <?php
-                if($model->isNewRecord){
-                    echo $form->dropDownListGroup($model, 'user_id', [
-                        'widgetOptions' => [
-                            'data' => CHtml::listData(User::model()->findAll(), 'id', 'first_name'),
-                            'htmlOptions' => [
-                                'empty' => '--выберите--',
-                                'encode' => false,
-                            ],
-                        ],
-
-                    ]);
-                }
-            ?>
-        </div>
-    </div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'start_time', [
@@ -76,15 +57,10 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'branch_id', [
+            <?php echo $form->dropDownListGroup($model, 'room_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name'),
-                        'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
-                        ],
-                    ],
-                    
+                        'data' => CHtml::listData(Room::model()->findAll(), 'id', 'id')
+                    ]
                 ]); ?>
         </div>
     </div>
@@ -93,14 +69,14 @@ $form = $this->beginWidget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'context'    => 'primary',
-            'label'      => Yii::t('TeacherModule.teacher', 'Сохранить Учителя и продолжить'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Расписание и продолжить'),
         ]
     ); ?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'htmlOptions'=> ['name' => 'submit-type', 'value' => 'index'],
-            'label'      => Yii::t('TeacherModule.teacher', 'Сохранить Учителя и закрыть'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Расписание и закрыть'),
         ]
     ); ?>
 

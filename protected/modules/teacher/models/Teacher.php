@@ -112,4 +112,16 @@ class Teacher extends yupe\models\YModel
 	{
 		return parent::model($className);
 	}
+        protected function afterSave() {
+            
+            if($this->isNewRecord && $this->is_test==1){
+                foreach(Subject::model()->findAll() as $subject){
+                    $teacher = new TeacherToSubject;
+                    $teacher->teacher_id = $this->id;
+                    $teacher->subject_id = $subject->id;
+                    $teacher->save();
+                }
+            }
+            parent::afterSave();
+        }
 }

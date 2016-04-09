@@ -180,6 +180,10 @@ class ListnerController extends \yupe\components\controllers\FrontController
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
     }
+    public function actionIndex()
+    {
+        $this->redirect('/listner/all');
+    }
 
     public function actionCurrent()
     {
