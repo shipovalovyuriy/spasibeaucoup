@@ -1,5 +1,4 @@
 <?php
-die(!array_intersect(['5'], Yii::app()->user->role));
 $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web'); ?>
     <div class="col-md-6 pull-left">
         <section class="panel">
