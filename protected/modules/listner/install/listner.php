@@ -26,6 +26,5 @@ return [
         '/listner/subject/lessons/<id:\d+>/update' => 'listner/schedule/update',
         '/listner/<controller>/<action>' => 'listner/<controller>/<action>',
         '/listner/positon/create/<id:\d+>' => 'listner/position/create',
-        
     ],
 ];

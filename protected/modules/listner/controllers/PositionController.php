@@ -206,6 +206,49 @@ class PositionController extends \yupe\components\controllers\FrontController
         }
     }
 
+    public function actionOff(){
+
+        if (isset($_GET['id'])){
+            $id = $_GET['id'];
+            $pos = Position::model()->findByPk($id);
+            $pos->status = 0;
+            $pos->update();
+
+            $listner = Listner::model()->findByPk($pos->listner_id);
+
+            $criteria = new CDbCriteria();
+
+            $criteria->condition = "listner_id=$listner->id and status = 1";
+
+            $pos = Position::model()->findAll($criteria);
+
+            if (!$pos){
+                $listner->status = 2;
+                $listner->update();
+            }
+
+
+
+        };
+    }
+    public function actionClose(){
+
+        $criteria = new CDbCriteria();
+
+        $position = [];
+        $list = Schedule::model()->findAllBySql('select * from spbp_listner_schedule a
+join spbp_listner_position b on a.position_id = b.id
+join spbp_form_form c on b.form_id = c.id
+where a.number = c.number AND a.end_time < curdate() AND b.status = 1');
+
+        foreach($list as $value){
+            $a = Position::model()->findByPk($value->position_id);
+
+            array_push($position,$a);
+        }
+
+        $this->render('close',['model'=>$position]);
+    }
     /**
      * Возвращает модель по указанному идентификатору
      * Если модель не будет найдена - возникнет HTTP-исключение.
