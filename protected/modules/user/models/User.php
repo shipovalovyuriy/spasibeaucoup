@@ -123,7 +123,7 @@ class User extends yupe\models\YModel
             ['site', 'length', 'max' => 100],
             ['about', 'length', 'max' => 300],
             ['location', 'length', 'max' => 150],
-            ['gender, status, access_level', 'numerical', 'integerOnly' => true],
+            ['gender, status, access_level, is_test', 'numerical', 'integerOnly' => true],
             ['gender', 'default', 'value' => self::GENDER_THING, 'setOnEmpty' => true],
             [
                 'nick_name',
@@ -269,6 +269,7 @@ class User extends yupe\models\YModel
         $criteria->compare('t.gender', $this->gender);
         $criteria->compare('t.status', $this->status);
         $criteria->compare('t.access_level', $this->access_level);
+        $criteria->compare('t.is_test', $this->is_test);
         if($this->salary_date) {
             $criteria->compare('t.salary_date', date('d', strtotime($this->salary_date)), true);
         }

@@ -175,6 +175,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
+            $model->is_test = 0;
         $this->render('index', ['model' => $model]);}
         else{
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -198,6 +199,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
+        $model->is_test = 0;
         $this->render('current', ['model' => $model]);}
         else{
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -217,6 +219,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
+        $model->is_test = 0;
         $this->render('potential', ['model' => $model]);}
         else{
             throw new CHttpException(403,  'Ошибка прав доступа.');
@@ -236,6 +239,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
             if(array_intersect($role,[2,3])){
                 $model->branch_id = \Yii::app()->user->branch;
             }
+        $model->is_test = 0;
         $this->render('graduate', ['model' => $model]);}
         else{
             throw new CHttpException(403,  'Ошибка прав доступа.');

@@ -106,6 +106,7 @@ class Listner extends yupe\models\YModel
             $criteria->compare('phone',$this->phone,true);
             $criteria->compare('create_date',$this->create_date,true);
             $criteria->compare('branch_id',$this->branch_id);
+            $criteria->compare('is_test', $this->is_test);
             $criteria->compare('email',$this->email,true);
             $criteria->compare('status',$this->status);
 

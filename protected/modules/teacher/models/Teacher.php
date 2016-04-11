@@ -95,6 +95,7 @@ class Teacher extends yupe\models\YModel
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('branch_id',$this->branch_id);
 		$criteria->compare('start_time',$this->start_time,true);
+                $criteria->compare('is_test', $this->is_test);
 		$criteria->compare('end_time',$this->end_time,true);
 
 		return new CActiveDataProvider($this, array(

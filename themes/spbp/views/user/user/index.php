@@ -173,6 +173,8 @@ $this->menu = [
                 'name'   => 'visit_time',
                 'filter' => false
             ],
+            'salary',
+            'is_test',
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),
                 'class'       => 'yupe\widgets\FrontButtonColumn',

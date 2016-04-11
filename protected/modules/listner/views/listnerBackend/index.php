@@ -1,5 +1,4 @@
 <?php
-die(strpos(Yii::app()->controller->id,'Backend'));
 /**
  * Отображение для index:
  *

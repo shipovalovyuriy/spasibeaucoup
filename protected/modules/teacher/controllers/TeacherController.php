@@ -187,6 +187,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
                 if(array_intersect($role,[2,3])){
                     $model->branch_id = \Yii::app()->user->branch;
                 }
+                $model->is_test = 0;
             $this->render('index', ['model' => $model]);
         }
         else{

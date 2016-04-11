@@ -207,6 +207,7 @@ class Position extends yupe\models\YModel
 		$criteria->compare('subject_id',$this->subject_id);
 		$criteria->compare('group_id',$this->group_id);
 		$criteria->compare('lvl',$this->lvl,true);
+                $criteria->compare('is_test', $this->is_test);
 		$criteria->compare('note',$this->note,true);
 		$criteria->compare('time',$this->time,true);
 		$criteria->compare('start_date',$this->start_date,true);
