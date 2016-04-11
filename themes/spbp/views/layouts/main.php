@@ -23,7 +23,6 @@
         </section>
         <script>
             $(function(){
-                $('#egw0').remove();
                 $('button#yw0.btn').removeClass('btn-primary');
                 $('button#yw0.btn').addClass('btn-default');
                 $('button#yw1.btn').removeClass('btn-default');

@@ -78,9 +78,9 @@ $this->menu = [
                 'url' => $this->createUrl('/listner/listner/inline'),
                 'source' => $model->getStatusList(),
                 'options' => [
-                    Listner::STATUS_POTENTIAL => ['class' => 'label-success'],
-                    Listner::STATUS_LISTNER   => ['class' => 'label-warning'],
-                    Listner::STATUS_GRADUATE  => ['class' => 'label-default'],
+                    Listner::STATUS_POTENTIAL => ['class' => 'label-warning'],
+                    Listner::STATUS_LISTNER   => ['class' => 'label-success'],
+                    Listner::STATUS_GRADUATE  => ['class' => 'label-info'],
                     Listner::STATUS_CANCEL    => ['class' => 'label-danger'],
                 ],
             ],

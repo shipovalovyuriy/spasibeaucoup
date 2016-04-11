@@ -99,23 +99,25 @@ class Position extends yupe\models\YModel
             
             if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
-                $time = explode(',', $this->time);
-                $tCount = count($time);
-                $j = 0;
-                $k = 0;
-                for($i=0; $i<$this->form->number;$i++){
-                    if($j==$tCount){
-                        $j=0;
-                        $k++;
+                if(!$this->group_id){
+                    $time = explode(',', $this->time);
+                    $tCount = count($time);
+                    $j = 0;
+                    $k = 0;
+                    for($i=0; $i<$this->form->number;$i++){
+                        if($j==$tCount){
+                            $j=0;
+                            $k++;
+                        }
+                        $schedule = new Schedule;
+                        $schedule->position_id = $this->id;
+                        $schedule->number = $i+1;
+                        $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                        $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
+                        $schedule->room_id = $this->findRoom($schedule->start_time);
+                        $schedule->save();
+                        $j++;
                     }
-                    $schedule = new Schedule;
-                    $schedule->position_id = $this->id;
-                    $schedule->number = $i+1;
-                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
-                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
-                    $schedule->room_id = $this->findRoom($schedule->start_time);
-                    $schedule->save();
-                    $j++;
                 }
                 //Формирование прихода
                 $inflow = new Inflow();

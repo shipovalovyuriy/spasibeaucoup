@@ -176,21 +176,12 @@ $this->menu = [
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),
                 'class'       => 'yupe\widgets\FrontButtonColumn',
-                'template'    => '{view}{update}{password}{sendactivation}{delete}',
+                'template'    => '{view}{update}{password}{delete}',
                 'buttons'     => [
                     'password'       => [
                         'icon'  => 'fa fa-fw fa-lock',
                         'label' => Yii::t('UserModule.user', 'Change password'),
                         'url'   => 'array("/user/user/changepassword", "id" => $data->id)',
-                    ],
-                    'sendactivation' => [
-                        'label'   => Yii::t('UserModule.user', 'Send activation confirm'),
-                        'url'     => 'array("/user/user/sendactivation", "id" => $data->id)',
-                        'icon'    => 'fa fa-fw fa-repeat',
-                        'visible' => '$data->status != User::STATUS_ACTIVE',
-                        'options' => [
-                            'class' => 'user sendactivation'
-                        ]
                     ],
                 ],
             ],
