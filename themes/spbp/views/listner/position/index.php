@@ -54,30 +54,3 @@ $this->menu = [
 
 <p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Положениями'); ?>
 </p>
-
-<?php
- $this->widget(
-    'yupe\widgets\FrontGridView',
-    [
-        'id'           => 'position-grid',
-        'type'         => 'striped condensed',
-        'dataProvider' => $model->search(),
-        'filter'       => $model,
-        'columns'      => [
-            'id',
-            'code',
-            'form_id',
-            'listner_id',
-            'teacher_id',
-            'subject_id',
-//            'group_id',
-//            'lvl',
-            'note',
-//            'time',
-            'start_date',
-            [
-                'class' => 'yupe\widgets\FrontButtonColumn',
-            ],
-        ],
-    ]
-); ?>
