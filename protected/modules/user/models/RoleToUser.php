@@ -100,4 +100,12 @@ class RoleToUser extends yupe\models\YModel
 	{
 		return parent::model($className);
 	}
+        protected function beforeSave() {
+            parent::beforeSave();
+            if($this->role_id==1){
+                if(!array_intersect(['1'], Yii::app()->user->role)){
+                    throw new CHttpException(403,  'Ошибка прав доступа.');
+                }               
+            }
+        }
 }

@@ -67,7 +67,7 @@ class Position extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('start_date, form_id, teacher_id, code, time, subject_id', 'required'),
+			array('start_date, form_id, teacher_id, code, time, subject_id, lvl', 'required'),
 			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
 			array('code, lvl', 'length', 'max'=>50),
 			array('note, time', 'length', 'max'=>255),

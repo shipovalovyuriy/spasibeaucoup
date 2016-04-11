@@ -8,6 +8,15 @@
  *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
  *   @link     http://yupe.ru
  **/
+$add = '';
+if(!array_intersect(['2','3'], Yii::app()->user->role))
+{
+    $add = CHtml::link(
+                Yii::t('YupeModule.yupe', 'Add'),
+                ['/teacher/create'],
+                ['class' => 'btn btn-success pull-right btn-sm']
+            );
+}
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
     Yii::t('TeacherModule.teacher', 'Учителя') => ['/teacher/teacher/index'],
@@ -61,6 +70,9 @@ $this->menu = [
     [
         'id'           => 'teacher-grid',
         'type'         => 'striped condensed',
+        'actionsButtons' => [
+            $add
+        ],
         'dataProvider' => $model->search(),
         'filter'       => $model,
         'columns'      => [

@@ -29,41 +29,7 @@ $form = $this->beginWidget(
 
 <?php echo $form->errorSummary($model); ?>
 
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'code', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('code'),
-                        'data-content' => $model->getAttributeDescription('code')
-                    ]
-                ]
-            ]); ?>
-        </div>
-    </div>
-<?php if(!isset($_GET['pid'])):?>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'form_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(Form::model()->findAll(), 'id', 'name'),
-                        'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
-                        ],
-                    ]
-                ]); ?>
-        </div>
-    </div>
-<?php else:
-    echo $form->hiddenField($model, 'form_id',[
-                    'value' => Position::model()->findByPk($_GET['pid'])->form_id,
-                    'type' => 'hidden'
-            ]);
- endif;?>
-<input type="hidden" value="<?= Listner::model()->findByPk($_GET['id'])->branch_id;?>" id="branch_id">
-<?php if(!isset($_GET['pid'])):?>
+    <?php if(!isset($_GET['pid'])):?>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
@@ -86,6 +52,41 @@ $form = $this->beginWidget(
                     'type' => 'hidden'
             ]);
     endif;?>
+<?php if(!isset($_GET['pid'])):?>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'form_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(Form::model()->findAll(), 'id', 'name'),
+                        'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
+                    ]
+                ]); ?>
+        </div>
+    </div>
+<?php else:
+    echo $form->hiddenField($model, 'form_id',[
+                    'value' => Position::model()->findByPk($_GET['pid'])->form_id,
+                    'type' => 'hidden'
+            ]);
+ endif;?>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'code', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('code'),
+                        'data-content' => $model->getAttributeDescription('code'),
+                        'disabled'  => true
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+<input type="hidden" value="<?= Listner::model()->findByPk($_GET['id'])->branch_id;?>" id="branch_id">
     <div class="row">
         <div class="col-sm-7">
             <label class="control-label">Укажите время занятий</label>

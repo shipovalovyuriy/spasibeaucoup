@@ -6,7 +6,7 @@
             <!-- user -->
             <div class="bg-success nav-user hidden-xs pos-rlt">
                 <div class="nav-avatar pos-rlt">
-                    <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
+                    <a href="<?= Yii::app()->homeUrl?>" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
                         <img src="<?=$assets?>/images/logosp.png" alt="" class="">
                         <span class="caret caret-white"></span>
                     </a>
@@ -14,7 +14,35 @@
                 <div class="nav-msg">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <b class="badge badge-black count-n"><?= Yii::app()->user->name?></b>
-                    </a>                            
+                    </a>
+                    <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                        <div class="arrow left"></div>
+                            <section class="panel bg-white">
+                                <header class="panel-heading">
+                                    <strong>Основная информация <span class="count-n">о</span> пользователе</strong>
+                                </header>
+                                <div class="list-group">
+                                    <a href="#" class="media list-group-item">
+                                        <span class="media-body block m-b-none">
+                                            <?= Yii::app()->user->fullName?><br>
+                                            <small class="text-muted"><?= Yii::app()->user->post->role->name?></small>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="media list-group-item">
+                                        <span class="media-body block m-b-none">
+                                            <?= Yii::app()->user->user->salary?> &#8376;<br>
+                                            <small class="text-muted"><?= Yii::app()->user->user->salary_date?></small>
+                                        </span>
+                                    </a>
+                                </div>
+                                <footer class="panel-footer text-sm">
+                                    <a href="/logout">
+                                        Выход
+                                        <i class="fa fa-sign-out pull-right"></i>
+                                    </a>
+                                </footer>
+                            </section>
+                    </section>
                 </div>
             </div>
               <!-- / user -->
@@ -59,7 +87,7 @@
                             </ul>
                         </li>
                     <?php endif;?>
-                    <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
+                    <?php $roles=['1','5','3','2']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
                             <a href="/listner/all">
                                 <i class="fa fa-building-o"></i>
@@ -112,17 +140,17 @@
                     <?php endif;?>
                     <?php $roles=['1','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
-                            <a href="/user">
-                                <i class="fa fa-users"></i>
-                                <span>Сотрудники</span>
+                            <a href="/role">
+                                <i class="fa fa-user-plus"></i>
+                                <span>Должности</span>
                             </a>
                         </li>
                     <?php endif;?>
                     <?php $roles=['1','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
-                            <a href="/role">
-                                <i class="fa fa-user-plus"></i>
-                                <span>Должности</span>
+                            <a href="/user">
+                                <i class="fa fa-users"></i>
+                                <span>Сотрудники</span>
                             </a>
                         </li>
                     <?php endif;?>

@@ -64,7 +64,7 @@ class Group extends yupe\models\YModel
 			'time' => 'Время',
 			'teacher_id'=>"Преподаватель",
 			'form_id'=>'Форма обучения',
-			'subject_id'=>'Предмет'.
+			'subject_id'=>'Предмет',
 			'lvl'=>'Уровень',
 			'note'=>'Комментарий',
 		);

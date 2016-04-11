@@ -1,4 +1,6 @@
-<?php $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web') ?>
+<?php
+die(!array_intersect(['5'], Yii::app()->user->role));
+$assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web'); ?>
     <div class="col-md-6 pull-left">
         <section class="panel">
             <header class="panel-heading">
@@ -9,22 +11,24 @@
                 </ul>
                 Список филиалов <span class="badge bg-info"></span>                    
             </header>
-            <section class="panel-body">
-                <?php foreach($branchs as $branch):?>
-                    <article class="media">
-                        <div class="pull-left">
-                            <span class="fa fa-stack fa-2x">
-                                <i class="fa fa-circle text-info fa-stack-2x"></i>
-                                <i class="fa fa-building text-white fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">                        
-                            <a href="/branch/schedule/<?=$branch->id?>" class="h4"><?= $branch->name?></a>
-                        </div>
-                    </article>
-                    <?php if($branch != end($branchs)):?><div class="line pull-in"></div><?php endif;?>
-                <?php endforeach;?>
-            </section>
+            <?php if(array_intersect(Yii::app()->user->role, ['1','4','5'])):?>
+                <section class="panel-body">
+                    <?php foreach($branchs as $branch):?>
+                        <article class="media">
+                            <div class="pull-left">
+                                <span class="fa fa-stack fa-2x">
+                                    <i class="fa fa-circle text-info fa-stack-2x"></i>
+                                    <i class="fa fa-building text-white fa-stack-1x"></i>
+                                </span>
+                            </div>
+                            <div class="media-body">                        
+                                <a href="/branch/schedule/<?=$branch->id?>" class="h4"><?= $branch->name?></a>
+                            </div>
+                        </article>
+                        <?php if($branch != end($branchs)):?><div class="line pull-in"></div><?php endif;?>
+                    <?php endforeach;?>
+                </section>
+            <?php endif;?>
         </section>
     </div>
     <div class="col-md-6 pull-right">
@@ -127,18 +131,20 @@
                         <?php endif;?>
                     </div>
                 </article>
-                <div class="line pull-in"></div>
-                <article class="media">
-                    <div class="pull-left">
-                        <span class="fa fa-stack fa-2x">
-                            <i class="fa fa-circle text-primary fa-stack-2x"></i>
-                            <i class="fa fa-user-plus text-white fa-stack-1x"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">                    
-                        <a href="/teacher/create" class="h4">Добавить преподавателя</a>
-                    </div>
-                </article>
+                <?php if(array_intersect(Yii::app()->user->role, ['1','4'])):?>
+                    <div class="line pull-in"></div>
+                    <article class="media">
+                        <div class="pull-left">
+                            <span class="fa fa-stack fa-2x">
+                                <i class="fa fa-circle text-primary fa-stack-2x"></i>
+                                <i class="fa fa-user-plus text-white fa-stack-1x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">                    
+                            <a href="/teacher/create" class="h4">Добавить преподавателя</a>
+                        </div>
+                    </article>
+                <?php endif;?>
             </section>
         </section>
     </div>

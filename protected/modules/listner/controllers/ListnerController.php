@@ -27,7 +27,7 @@ class ListnerController extends \yupe\components\controllers\FrontController
                 'inline' => [
                     'class'           => 'yupe\components\actions\YInLineEditAction',
                     'model'           => 'Listner',
-                    'validAttributes' => ['access_level', 'status', 'email_confirm']
+                    'validAttributes' => ['status']
                 ]
             ];        
         }

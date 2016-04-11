@@ -97,6 +97,8 @@ $this->menu = [
                 'type'  => 'raw',
                 'value' => 'CHtml::link($data->nick_name, array("/user/userBackend/update", "id" => $data->id))',
             ],
+            'first_name',
+            'last_name',
             [
                 'name'  => 'email',
                 'type'  => 'raw',
@@ -166,15 +168,13 @@ $this->menu = [
                 ),
             ],
             [
-                'name'   => 'create_time',
-                'filter' => false
-            ],
-            [
                 'name'   => 'visit_time',
                 'filter' => false
             ],
-            'salary',
-            'is_test',
+            [
+                'name'   => 'salary',
+                'filter' => false
+            ],
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),
                 'class'       => 'yupe\widgets\FrontButtonColumn',

@@ -328,19 +328,19 @@ class YWebUser extends CWebUser
         $arr = [];
 
         foreach ($arr1 as $value){
-
             array_push($arr, $value->role_id);
         }
         return $arr;
     }
-    
     public function getPost()
     {
         return RoleToUser::model()->find(['condition'=> "id=".Yii::app()->user->id]);;
     }
 
     public function getTeacher(){
-
         return Teacher::model()->find('user_id='.Yii::app()->user->id)->id;
+    }
+    public function getUser() {
+        return User::model()->findByPk(Yii::app()->user->id);
     }
 }
