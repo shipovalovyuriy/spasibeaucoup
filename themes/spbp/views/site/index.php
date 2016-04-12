@@ -160,6 +160,33 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
         </section>
     <?php endif;?>
 
+
+<?php if($salary && in_array('1', Yii::app()->user->role)):?>
+    <section class="panel no-borders hbox">
+        <aside class="bg-info lter r-l text-center v-middle">
+            <div class="wrapper" style="text-shadow: #000 0 0 2px;">
+                <a href="/salary">
+                    <i class="fa fa-dollar fa fa-4x"></i>
+                    <p class="text"><em>Уведомление о зарплате</em></p>
+                </a>
+            </div>
+        </aside>
+    </section>
+<?php endif;?>
+<?php if($positions && in_array('3', Yii::app()->user->role)):?>
+    <section class="panel no-borders hbox">
+        <aside class="bg-info lter r-l text-center v-middle">
+            <div class="wrapper" style="text-shadow: #000 0 0 2px;">
+                <a href="/listner/position/close">
+                    <i class="fa fa-envelope fa fa-4x"></i>
+                    <p class="text"><em>Уведомление о положениях</em></p>
+                </a>
+            </div>
+        </aside>
+    </section>
+<?php endif;?>
+
+
 <?php if(in_array('3', Yii::app()->user->role)): ?>
 
     <div class="row">

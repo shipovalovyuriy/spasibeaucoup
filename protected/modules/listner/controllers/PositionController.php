@@ -233,22 +233,12 @@ class PositionController extends \yupe\components\controllers\FrontController
     }
     public function actionClose(){
 
-        $criteria = new CDbCriteria();
 
-        $position = [];
-        $list = Schedule::model()->findAllBySql('select * from spbp_listner_schedule a
-join spbp_listner_position b on a.position_id = b.id
-join spbp_form_form c on b.form_id = c.id
-where a.number = c.number AND a.end_time < curdate() AND b.status = 1');
-
-        foreach($list as $value){
-            $a = Position::model()->findByPk($value->position_id);
-
-            array_push($position,$a);
-        }
+        $position = $this->gavno();
 
         $this->render('close',['model'=>$position]);
     }
+
     /**
      * Возвращает модель по указанному идентификатору
      * Если модель не будет найдена - возникнет HTTP-исключение.
