@@ -134,9 +134,10 @@ $this->menu = [
     </div>
 </div>
 <script>
-     var userId = <?php echo $model->id?>;
+    var userId = <?php echo $model->id?>;
     var branchId = <?php echo $model->branch->id?>;
     var userType = 2;
+    var adminMode = false;
 </script>
 <div class="row" style="margin-left: 5%; margin-right: 5%;">
     <?php
