@@ -173,7 +173,8 @@ $this->menu = [
             ],
             [
                 'name'   => 'salary',
-                'filter' => false
+                'filter' => false,
+                'value'  => '$data->salary . " ₸"'
             ],
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),

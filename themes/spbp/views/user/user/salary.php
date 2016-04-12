@@ -108,6 +108,11 @@ $this->menu = [
                 'value'  => 'date("d",strtotime($data->salary_date)).".".date("m.y")',
             ],
             [
+                'name'   => 'salary',
+                'filter' => false,
+                'value'  => '$data->salary . " ₸"'
+            ],
+            [
                 'header'      => Yii::t('UserModule.user', 'Management'),
                 'class'       => 'yupe\widgets\FrontButtonColumn',
                 'template'    => '{view}{update}{password}{sendactivation}',
