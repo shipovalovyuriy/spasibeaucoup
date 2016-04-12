@@ -332,6 +332,7 @@ class YWebUser extends CWebUser
         }
         return $arr;
     }
+
     public function getPost()
     {
         return RoleToUser::model()->find(['condition'=> "id=".Yii::app()->user->id]);;

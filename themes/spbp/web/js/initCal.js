@@ -1,4 +1,16 @@
 $(document).ready(function(){
+
+    if (adminMode==true){
+        var time = new Date();
+        var timeMin = time.getHours();
+        var timeMax = time.getHours()+3;
+        var timeModmin = timeMin+":00:00";
+        var timeModmax = timeMax+":00:00";
+    }else{
+        var timeModmin = "09:00:00";
+        var timeModmax = "21:00:00";
+    }
+
     var obj = {
         now: new Date(),
         editable: false,
@@ -10,8 +22,8 @@ $(document).ready(function(){
         displayEventEnd:true,
         height:600,
         scrollTime: '00:00',
-        minTime: "09:00:00",
-        maxTime: "21:00:00",
+        minTime: timeModmin,
+        maxTime: timeModmax,
         slotLabelFormat: [
             'H:mm', // top level of text
         ],

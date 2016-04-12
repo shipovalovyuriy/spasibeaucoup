@@ -159,3 +159,20 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
             </aside>
         </section>
     <?php endif;?>
+
+<?php if(in_array('3', Yii::app()->user->role)): ?>
+
+    <div class="row">
+    <script>
+        var userId = 0;
+        var branchId = <?php echo Yii::app()->user->branch;?>;
+        var userType = 0;// 1 - teacher , 2 - listener
+        var adminMode = true;
+    </script>
+    <?php
+    $this->beginWidget('application.modules.listner.widgets.CalendarWidget');
+    $this->endWidget();
+    ?>
+    </div>
+
+<?php endif;?>
