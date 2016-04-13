@@ -65,28 +65,31 @@ class ScheduleController extends \yupe\components\controllers\FrontController
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
+        if($model->checkEdit()){
+            if (Yii::app()->getRequest()->getPost('Schedule') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Schedule'));
 
-        if (Yii::app()->getRequest()->getPost('Schedule') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('Schedule'));
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('ListnerModule.listner', 'Запись обновлена!')
+                    );
 
-            if ($model->save()) {
-                Yii::app()->user->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('ListnerModule.listner', 'Запись обновлена!')
-                );
-
-                $this->redirect(
-                    (array)Yii::app()->getRequest()->getPost(
-                        'submit-type',
-                        [
-                            'update',
-                            'id' => $model->id
-                        ]
-                    )
-                );
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
             }
+            $this->render('update', ['model' => $model]);            
+        } else {
+            throw new CHttpException(403, Yii::t('ListnerModule.listner', 'Отказ доступа. Запрещается переносить занятие менее чем за 24 часа.')); 
         }
-        $this->render('update', ['model' => $model]);
     }
     
     /**

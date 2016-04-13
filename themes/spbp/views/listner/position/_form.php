@@ -86,7 +86,7 @@ $form = $this->beginWidget(
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('code'),
                         'data-content' => $model->getAttributeDescription('code'),
-                        'disabled'  => true
+                        'readonly' => true
                     ]
                 ]
             ]); ?>
@@ -104,7 +104,7 @@ $form = $this->beginWidget(
             </div>
             <a id="addTime" style="text-decoration:none; cursor:pointer;"class="fa fa-plus"></a>
             <p><label for="">Итоговое время:</label></p>
-            <input class="totalTime popover-help form-control" value="<?=$model->time ?>" type="text" name="Position[time]"> 
+            <input class="totalTime popover-help form-control" readonly value="<?=$model->time ?>" type="text" name="Position[time]"> 
             <a id="clearTime" style="cursor:pointer;">Очистить</a>
         </div>
     </div>
@@ -146,6 +146,9 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->datePickerGroup($model, 'start_period', [
                 'widgetOptions' => [
+                    'options' => [
+                        'format'=> "yyyy-mm-dd",
+                    ],
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('start_period'),
@@ -159,6 +162,9 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->datePickerGroup($model, 'end_period', [
                 'widgetOptions' => [
+                    'options' => [
+                        'format'=> "yyyy-mm-dd",
+                    ],
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('end_period'),
@@ -243,7 +249,7 @@ $form = $this->beginWidget(
         }).done(function(){
             setTimeout(function(){
                 getCode();
-            }, 10000);
+            }, 5000);
         }).responseText;
         $('#Position_code').val(code);
     }
@@ -262,8 +268,10 @@ $form = $this->beginWidget(
         });
     }
     $('#Position_type').click(function(){
-        getCode();
-        $('.form_id').remove();
-        getForm();
+        if($('#Position_type').val()){
+            getCode();
+            $('.form_id').remove();
+            getForm();
+        }
     })
 </script>

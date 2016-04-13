@@ -110,4 +110,15 @@ class Schedule extends yupe\models\YModel
 	{
 		return parent::model($className);
 	}
+        public function checkEdit(){
+            $d1 = strtotime($this->start_time);
+            $d2 = strtotime(date('c'))+(240*60);
+            $diff = $d1-$d2;
+            $diff = $diff/(60*60);
+            $hours = floor($diff);
+            if($hours>=24)
+                return TRUE;
+            else
+                return FALSE;
+        }
 }

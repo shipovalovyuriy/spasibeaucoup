@@ -56,6 +56,32 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'individual_counter', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('individual_counter'),
+                        'data-content' => $model->getAttributeDescription('individual_counter')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'group_counter', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('group_counter'),
+                        'data-content' => $model->getAttributeDescription('group_counter')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
 
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [

@@ -164,11 +164,6 @@
                     <?php endif;?>
                 </ul>
             </nav>
-            <footer class="footer bg-gradient hidden-xs">
-                <a href="#nav" data-toggle="class:nav-vertical" class="btn btn-sm btn-link m-l-n-sm">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </footer>
         </section>
     </aside>
 <?php endif;?>

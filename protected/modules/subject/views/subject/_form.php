@@ -44,6 +44,33 @@ $form = $this->beginWidget(
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'alias', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('alias'),
+                        'data-content' => $model->getAttributeDescription('alias'),                        
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->colorpickerGroup(
+                    $model,
+                    'color',
+                    [
+                        'wrapperHtmlOptions' => [
+                                'class' => 'col-sm-5'
+                        ],
+                    ]
+            ); ?>
+        </div>
+    </div>
+
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',

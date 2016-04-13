@@ -65,6 +65,8 @@ class Branch extends yupe\models\YModel
 			'id' => 'ID',
 			'name' => 'Название',
 			'address' => 'Адрес',
+                        'individual_counter' => 'Индивидуальный счетчик',
+                        'group_counter' => 'Групповой счетчик'
 		);
 	}
 

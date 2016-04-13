@@ -32,7 +32,7 @@ class Subject extends yupe\models\YModel
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('name, color', 'length', 'max'=>50),
+			array('name, color, alias', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name', 'safe', 'on'=>'search'),
@@ -63,6 +63,7 @@ class Subject extends yupe\models\YModel
 			'id' => '№',
 			'name' => 'Название',
 			'code'=>'Код',
+                        'alias' => 'Название для положения'
 		);
 	}
 

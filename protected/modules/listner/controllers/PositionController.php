@@ -43,9 +43,6 @@ class PositionController extends \yupe\components\controllers\FrontController
             $model = new Position;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
-                if(in_array('3', $role) && !in_array('1', $role)){
-                    $model->branch_id = Yii::app()->user->branch->id;
-                }
                 $model->listner_id = $id;
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
@@ -196,11 +193,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
-            $model = new Position('search');
-            $model->unsetAttributes(); // clear any default values
-            if (Yii::app()->getRequest()->getParam('Position') !== null)
-                $model->setAttributes(Yii::app()->getRequest()->getParam('Position'));
-            $this->render('index', ['model' => $model]);
+            $this->redirect('/listner/all');
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -350,9 +343,9 @@ class PositionController extends \yupe\components\controllers\FrontController
             $user = Listner::model()->findByPk($id)->branch_id;
             $model = Branch::model()->findByPk($user);
             if($type==1 || $type==2)
-                echo $model->group_counter;
+                echo $model->group_counter+1;
             else
-                echo $model->indvidual_counter;
+                echo $model->individual_counter+1;
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
         }
