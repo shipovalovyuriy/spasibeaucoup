@@ -52,12 +52,12 @@ $form = $this->beginWidget(
                     'type' => 'hidden'
             ]);
     endif;?>
-<?php if(!isset($_GET['pid'])):?>
+
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'form_id', [
+            <?php echo $form->dropDownListGroup($model, 'type', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Form::model()->findAll(), 'id', 'name'),
+                        'data' => CHtml::listData(Type::model()->findAll(), 'id', 'name'),
                         'htmlOptions' => [
                             'empty' => '--выберите--',
                             'encode' => false,
@@ -66,12 +66,18 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
-<?php else:
-    echo $form->hiddenField($model, 'form_id',[
-                    'value' => Position::model()->findByPk($_GET['pid'])->form_id,
-                    'type' => 'hidden'
-            ]);
- endif;?>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'form_id', [
+                    'widgetOptions' => [
+                        'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
+                    ]
+                ]); ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'code', [
@@ -203,4 +209,35 @@ $form = $this->beginWidget(
         $('.teachers').remove();
         $('.totalTime').val('');
     });
+    function getCode() {
+        var code = $.ajax({
+            type: 'get',
+            url: '/listner/position/code?type='+$('#Position_type').val()+'&id='+<?= $_GET['id']?>,
+            async: false
+        }).done(function(){
+            setTimeout(function(){
+                getCode();
+            }, 10000);
+        }).responseText;
+        $('#Position_code').val(code);
+    }
+    function getForm() {
+        $.ajax({
+            type: 'get',
+            url: '/listner/position/form',
+            dataType: 'json',
+            data: {
+                type: $('#Position_type').val(),
+            }
+        }).done(function(data){
+            data.forEach(function(item){
+                $('#Position_form_id').append('<option class="form_id" value="'+item.id+'">'+item.name+'</option>');
+            })
+        });
+    }
+    $('#Position_type').click(function(){
+        getCode();
+        $('.form_id').remove();
+        getForm();
+    })
 </script>

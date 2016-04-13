@@ -19,7 +19,7 @@
                         <div class="arrow left"></div>
                             <section class="panel bg-white">
                                 <header class="panel-heading">
-                                    <strong>Основная информация <span class="count-n">о</span> пользователе</strong>
+                                    <strong>Основная информация <span class="count-n">о</span> сотруднике</strong>
                                 </header>
                                 <div class="list-group">
                                     <a href="#" class="media list-group-item">
@@ -31,7 +31,7 @@
                                     <a href="#" class="media list-group-item">
                                         <span class="media-body block m-b-none">
                                             <?= Yii::app()->user->user->salary?> &#8376;<br>
-                                            <small class="text-muted"><?= Yii::app()->user->user->salary_date?></small>
+                                            <small class="text-muted"><?= Yii::app()->user->user->salary_date .' '.Yii::app()->user->user->month?></small>
                                         </span>
                                     </a>
                                 </div>

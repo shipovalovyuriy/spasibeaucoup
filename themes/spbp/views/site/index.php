@@ -1,16 +1,16 @@
 <?php
 $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web'); ?>
-    <div class="col-md-6 pull-left">
-        <section class="panel">
-            <header class="panel-heading">
-                <ul class="nav nav-pills pull-right">
-                    <li>
-                        <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
-                    </li>
-                </ul>
-                Список филиалов <span class="badge bg-info"></span>                    
-            </header>
-            <?php if(array_intersect(Yii::app()->user->role, ['1','4','5'])):?>
+    <?php if(array_intersect(Yii::app()->user->role, ['1','4','5'])):?>    
+        <div class="col-md-6 pull-left">
+            <section class="panel">
+                <header class="panel-heading">
+                    <ul class="nav nav-pills pull-right">
+                        <li>
+                            <a href="#" class="panel-toggle text-muted"><i class="fa fa-caret-down text-active"></i><i class="fa fa-caret-up text"></i></a>
+                        </li>
+                    </ul>
+                    Список филиалов <span class="badge bg-info"></span>                    
+                </header>
                 <section class="panel-body">
                     <?php foreach($branchs as $branch):?>
                         <article class="media">
@@ -27,9 +27,9 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
                         <?php if($branch != end($branchs)):?><div class="line pull-in"></div><?php endif;?>
                     <?php endforeach;?>
                 </section>
-            <?php endif;?>
-        </section>
-    </div>
+            </section>
+        </div>
+    <?php endif;?>
     <div class="col-md-6 pull-right">
         <section class="panel">
             <header class="panel-heading">
@@ -160,19 +160,6 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
         </section>
     <?php endif;?>
 
-
-<?php if($salary && in_array('1', Yii::app()->user->role)):?>
-    <section class="panel no-borders hbox">
-        <aside class="bg-info lter r-l text-center v-middle">
-            <div class="wrapper" style="text-shadow: #000 0 0 2px;">
-                <a href="/salary">
-                    <i class="fa fa-dollar fa fa-4x"></i>
-                    <p class="text"><em>Уведомление о зарплате</em></p>
-                </a>
-            </div>
-        </aside>
-    </section>
-<?php endif;?>
 <?php if($positions && in_array('3', Yii::app()->user->role)):?>
     <section class="panel no-borders hbox">
         <aside class="bg-info lter r-l text-center v-middle">
@@ -189,7 +176,7 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
 
 <?php if(in_array('3', Yii::app()->user->role)): ?>
 
-    <div class="row">
+    <div class="col-md-6 pull-left">
     <script>
         var userId = 0;
         var branchId = <?php echo Yii::app()->user->branch;?>;

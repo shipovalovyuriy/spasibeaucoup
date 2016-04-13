@@ -27,8 +27,8 @@
 Yii::import('application.modules.balance.models.Inflow');
 class Position extends yupe\models\YModel
 {
-    
-        private static  $_days = [
+    public  $type;
+    private static  $_days = [
             'Воскресенье',
             'Понедельник',
             'Вторник',
@@ -67,7 +67,7 @@ class Position extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('start_date, form_id, teacher_id, code, time, subject_id, lvl', 'required'),
+			array('start_date, form_id, teacher_id, code, time, subject_id, lvl, type', 'required'),
 			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
 			array('code, lvl', 'length', 'max'=>50),
 			array('note, time', 'length', 'max'=>255),
@@ -169,7 +169,8 @@ class Position extends yupe\models\YModel
 		return array(
 			'id' => 'ID',
 			'code' => 'Номер учета',
-			'form_id' => 'Форма обучения',
+                        'type' =>  'Форма обучения',
+			'form_id' => 'Тариф',
 			'listner_id' => 'Слушатель',
 			'teacher_id' => 'Преподаватель',
 			'subject_id' => 'Предмет',

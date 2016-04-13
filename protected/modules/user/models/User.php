@@ -202,6 +202,7 @@ class User extends yupe\models\YModel
                 'user_id'
             ],
             'branch' => [self::BELONGS_TO, 'Branch', 'branch_id'],
+            'role'  => [self::HAS_MANY, 'RoleToUser', 'user_id'],
         ];
     }
 

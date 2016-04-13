@@ -335,7 +335,7 @@ class YWebUser extends CWebUser
 
     public function getPost()
     {
-        return RoleToUser::model()->find(['condition'=> "id=".$this->id]);;
+        return RoleToUser::model()->find(['condition'=> "user_id=".$this->id]);;
     }
 
     public function getTeacher(){

@@ -6,9 +6,13 @@ $(document).ready(function(){
         var timeMax = time.getHours()+3;
         var timeModmin = timeMin+":00:00";
         var timeModmax = timeMax+":00:00";
+        var left = '';
+        var right = '';
     }else{
         var timeModmin = "09:00:00";
         var timeModmax = "21:00:00";
+        var left = 'today prev,next';
+        var right = 'timelineDay,timelineThreeDays,agendaWeek';
     }
 
     var obj = {
@@ -29,9 +33,9 @@ $(document).ready(function(){
         ],
         slotWidth:100,
         header: {
-            left: 'today prev,next',
+            left: left,
             center: 'title',
-            right: 'timelineDay,timelineThreeDays,agendaWeek'
+            right: right,
         },
         defaultView: 'timelineDay',
         views: {

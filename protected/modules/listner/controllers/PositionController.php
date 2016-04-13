@@ -337,4 +337,25 @@ class PositionController extends \yupe\components\controllers\FrontController
             'admin' => $admin
         ]);
     }
+    public function actionForm($type){
+        if (Yii::app()->request->isAjaxRequest) {
+            $model = Form::model()->findAll('`t`.type_id='.$type);
+            echo CJSON::encode($model);
+        } else {
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
+    }
+    public function actionCode($type, $id){
+        if (Yii::app()->request->isAjaxRequest) {
+            $user = Listner::model()->findByPk($id)->branch_id;
+            $model = Branch::model()->findByPk($user);
+            //die(var_dump($model));
+            if($type==1 || $type==2)
+                echo $model->group_counter;
+            else
+                echo $model->indvidual_counter;
+        } else {
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
+    }
 }
