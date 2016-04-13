@@ -144,6 +144,44 @@ class TeacherController extends \yupe\components\controllers\FrontController
     *
     * @return void
     */
+    public function actionLessons(){
+
+        $arr=[];
+        $x = [];
+        $model = Yii::app()->db->createCommand()
+            ->select('id,first_name, last_name')
+            ->from('spbp_user_user')
+            ->queryAll();
+
+        foreach($model as $gavno){
+            $dermo = 0;
+            $pizda = Yii::app()->db->createCommand()
+                ->select('id')
+                ->from('spbp_user_teacher')
+                ->where('user_id=:wluha',[":wluha"=>$gavno['id']])
+            ->queryAll();
+
+        foreach($pizda as $value ){
+            $a = Yii::app()->db->createCommand()
+                ->select('count(b.id) as hours')
+                ->from('spbp_listner_position a')
+                ->join('spbp_listner_schedule b','b.position_id = a.id')
+                ->where('a.teacher_id =:id and b.end_time < curdate()',[':id'=>$value['id']])
+                ->queryRow();
+
+            $dermo+=$a['hours'];
+
+        }
+            $x['firstname'] = $gavno['first_name'];
+            $x['lastname'] = $gavno['last_name'];
+            $x['hours'] = $dermo;
+
+            array_push($arr,$x);
+            }
+
+        $this->render('lessons',['model'=>$arr]);
+
+    }
     public function actionDelete($id)
     {
         $roles = ['1','4'];

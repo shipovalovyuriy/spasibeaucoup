@@ -97,10 +97,18 @@
                     <?php endif;?>
                     <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
-                            <a href="/teacher">
+                            <a href="#">
                                 <i class="fa fa-building-o"></i>
                                 <span>База преподавателей</span>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/teacher">Список преподавателей</a>
+                                </li>
+                                <li>
+                                    <a href="/teacher/lessons">Сводная таблица</a>
+                                </li>
+                            </ul>
                         </li>
                     <?php endif;?>
                     <?php $roles=['1','5','3','2','4']; if(array_intersect($role, $roles)):?>
