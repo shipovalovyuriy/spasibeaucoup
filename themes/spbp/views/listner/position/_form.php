@@ -144,6 +144,32 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->datePickerGroup($model, 'start_period', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('start_period'),
+                        'data-content' => $model->getAttributeDescription('start_period')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->datePickerGroup($model, 'end_period', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('end_period'),
+                        'data-content' => $model->getAttributeDescription('end_period')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'note', [
                 'widgetOptions' => [
                     'htmlOptions' => [

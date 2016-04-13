@@ -173,6 +173,8 @@ class Position extends yupe\models\YModel
 			'form_id' => 'Тариф',
 			'listner_id' => 'Слушатель',
 			'teacher_id' => 'Преподаватель',
+                        'start_period' => 'Начало расчетного периода',
+                        'end_period' => 'Конец расчетного периода',
 			'subject_id' => 'Предмет',
 			'group_id' => 'Группа',
 			'lvl' => 'Уровень',

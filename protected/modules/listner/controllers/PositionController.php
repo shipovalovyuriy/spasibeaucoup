@@ -349,7 +349,6 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (Yii::app()->request->isAjaxRequest) {
             $user = Listner::model()->findByPk($id)->branch_id;
             $model = Branch::model()->findByPk($user);
-            //die(var_dump($model));
             if($type==1 || $type==2)
                 echo $model->group_counter;
             else
