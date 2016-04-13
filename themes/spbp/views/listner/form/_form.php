@@ -96,14 +96,14 @@ $form = $this->beginWidget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'context'    => 'primary',
-            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Форму обучения и продолжить'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Тариф и продолжить'),
         ]
     ); ?>
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
             'htmlOptions'=> ['name' => 'submit-type', 'value' => 'index'],
-            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Форму обучения и закрыть'),
+            'label'      => Yii::t('ListnerModule.listner', 'Сохранить Тариф и закрыть'),
         ]
     ); ?>
 

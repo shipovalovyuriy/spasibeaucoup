@@ -10,20 +10,20 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('ListnerModule.listner', 'Типы форм обучения') => ['/listner/type/index'],
+    Yii::t('ListnerModule.listner', 'Форма обучения') => ['/listner/type/index'],
     Yii::t('ListnerModule.listner', 'Управление'),
 ];
 
-$this->pageTitle = Yii::t('ListnerModule.listner', 'Типы форм обучения - управление');
+$this->pageTitle = Yii::t('ListnerModule.listner', 'Форма обучения - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Типами форм обучения'), 'url' => ['/listner/type/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Тип формы обучения'), 'url' => ['/listner/type/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('ListnerModule.listner', 'Управление Формами обучения'), 'url' => ['/listner/type/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('ListnerModule.listner', 'Добавить Форма обучения'), 'url' => ['/listner/type/create']],
 ];
 ?>
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('ListnerModule.listner', 'Типы форм обучения'); ?>
+        <?php echo Yii::t('ListnerModule.listner', 'Форма обучения'); ?>
         <small><?php echo Yii::t('ListnerModule.listner', 'управление'); ?></small>
     </h1>
 </div>
@@ -52,7 +52,7 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Типами форм обучения'); ?>
+<p> <?php echo Yii::t('ListnerModule.listner', 'В данном разделе представлены средства управления Формами обучения'); ?>
 </p>
 
 <?php

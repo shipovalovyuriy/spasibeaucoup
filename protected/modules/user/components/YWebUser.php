@@ -323,7 +323,7 @@ class YWebUser extends CWebUser
     
     public function getRole()
     {
-        $arr1 = RoleToUser::model()->findAll(['condition'=> "user_id=".Yii::app()->user->id, 'select'=>'role_id']);
+        $arr1 = RoleToUser::model()->findAll(['condition'=> "user_id=".$this->id, 'select'=>'role_id']);
         
         $arr = [];
 
@@ -335,13 +335,16 @@ class YWebUser extends CWebUser
 
     public function getPost()
     {
-        return RoleToUser::model()->find(['condition'=> "id=".Yii::app()->user->id]);;
+        return RoleToUser::model()->find(['condition'=> "id=".$this->id]);;
     }
 
     public function getTeacher(){
-        return Teacher::model()->find('user_id='.Yii::app()->user->id)->id;
+        return Teacher::model()->find('user_id='.$this->id)->id;
     }
     public function getUser() {
-        return User::model()->findByPk(Yii::app()->user->id);
+        return User::model()->findByPk($this->id);
+    }
+    public function getFullName() {
+        return $this->user->last_name.' '.$this->user->first_name.' '.$this->user->middle_name;
     }
 }

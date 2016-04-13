@@ -356,9 +356,13 @@ class UserController extends yupe\components\controllers\FrontController
         $model->setAttributes(
             Yii::app()->getRequest()->getParam(
                 'User',
-                []
+                [
+                    "salary_date" => date('j'),
+                    'is_test' => 0
+                ]
             )
         );
+        //die(var_dump($model->attributes));
         $this->render('salary', ['model' => $model]);
     }
 }

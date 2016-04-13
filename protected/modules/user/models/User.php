@@ -80,6 +80,21 @@ class User extends yupe\models\YModel
      * @var bool
      */
     public $use_gravatar = false;
+    
+    private static $_month = [
+            'Января',
+            'Февраля',
+            'Марта',
+            'Апреля',
+            'Мая',
+            'Июня',
+            'Июля',
+            'Августа',
+            'Сентября',
+            'Октября',
+            'Ноября',
+            'Декабря',
+        ];
 
     /**
      * @return string the associated database table name
@@ -270,9 +285,7 @@ class User extends yupe\models\YModel
         $criteria->compare('t.status', $this->status);
         $criteria->compare('t.access_level', $this->access_level);
         $criteria->compare('t.is_test', $this->is_test);
-        if($this->salary_date) {
-            $criteria->compare('t.salary_date', date('d', strtotime($this->salary_date)), true);
-        }
+        $criteria->compare('t.salary_date', $this->salary_date);
         if ($this->visit_time) {
             $criteria->compare('t.visit_time', date('Y-m-d', strtotime($this->visit_time)), true);
         }
@@ -642,5 +655,8 @@ class User extends yupe\models\YModel
         $this->email_confirm = self::EMAIL_CONFIRM_YES;
         return $this;
     }
-
+    public function getMonth()
+    {
+        return self::$_month[date('n')];
+    }
 }

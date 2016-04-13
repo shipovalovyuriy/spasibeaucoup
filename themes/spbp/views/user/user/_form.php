@@ -162,19 +162,6 @@
                 ]); ?>
         </div>
     </div>
-<div class="row">
-    <div class="col-sm-7">
-        <?php echo $form->dropDownListGroup(
-            $model,
-            'access_level',
-            [
-                'widgetOptions' => [
-                    'data' => $model->getAccessLevelsList(),
-                ],
-            ]
-        ); ?>
-    </div>
-</div>
 
 <?php $this->widget(
     'bootstrap.widgets.TbButton',
@@ -201,8 +188,3 @@
 ); ?>
 
 <?php $this->endWidget(); ?>
-<script>
-    var branchId = null;
-    var userType = null;
-    var userId = null;
-</script>

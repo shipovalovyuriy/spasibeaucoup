@@ -90,7 +90,7 @@ $form = $this->beginWidget(
             'context'     => 'primary',
             'encodeLabel' => false,
             'buttonType'  => 'submit',
-            'label'       => '<i class="fa fa-search">&nbsp;</i> ' . Yii::t('ListnerModule.listner', 'Искать Форму обучения'),
+            'label'       => '<i class="fa fa-search">&nbsp;</i> ' . Yii::t('ListnerModule.listner', 'Искать Тариф'),
         ]
     ); ?>
 

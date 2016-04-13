@@ -31,33 +31,21 @@
 </div>
 
 <script>
-
     $(function(){
+        $('.closes').click(function(){
 
+            var id = $(this).parent().siblings().first().html();
+            var el = $(this).parent().parent();
+            $.ajax({
+                    url: '/listner/position/off',
+                    type: 'GET',
+                    data: {'id': id},
+                })
+                .done(function() {
 
-            $('.closes').click(function(){
+                    el.fadeOut(500);
 
-                var id = $(this).parent().siblings().first().html();
-                var el = $(this).parent().parent();
-                $.ajax({
-                        url: '/listner/position/off',
-                        type: 'GET',
-                        data: {'id': id},
-                    })
-                    .done(function() {
-
-                        el.fadeOut(500);
-
-                    })
-
-            });
-
-
-
-        })
-
-
-
-
-
+                })
+        });
+    })
 </script>

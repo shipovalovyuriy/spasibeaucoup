@@ -66,7 +66,7 @@ class Form extends yupe\models\YModel
 			'name' => 'Название',
 			'description' => 'Описание',
 			'number' => 'Количество занятий в неделю',
-			'price'=>'Оплата',
+			'price'=>'Цена',
 		);
 	}
 

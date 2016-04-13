@@ -105,7 +105,7 @@ $this->menu = [
             [
                 'name'   => 'salary_date',
                 'filter' => false,
-                'value'  => 'date("d",strtotime($data->salary_date)).".".date("m.y")',
+                'value'  => '$data->salary_date." ".$data->month',
             ],
             [
                 'name'   => 'salary',

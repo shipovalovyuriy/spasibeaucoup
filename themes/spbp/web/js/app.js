@@ -72,7 +72,10 @@ Date.now = Date.now || function() { return +new Date; };
 !function ($) {
 
   $(function(){
-
+    $('button#yw0.btn').removeClass('btn-primary');
+    $('button#yw0.btn').addClass('btn-default');
+    $('button#yw1.btn').removeClass('btn-default');
+    $('button#yw1.btn').addClass('btn-primary');
     // toogle fullscreen
     $(document).on('click', "[data-toggle=fullscreen]", function(e){
       if (screenfull.enabled) {

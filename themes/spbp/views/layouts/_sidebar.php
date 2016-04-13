@@ -79,10 +79,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/listner/type/index">Типы форм обучения</a>
+                                    <a href="/listner/type/index">Формы обучения</a>
                                 </li>
                                 <li>
-                                    <a href="/listner/form/index">Формы обучения</a>
+                                    <a href="/listner/form/index">Тарифы</a>
                                 </li>
                             </ul>
                         </li>
