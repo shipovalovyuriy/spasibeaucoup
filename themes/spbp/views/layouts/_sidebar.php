@@ -101,13 +101,16 @@
                                 <i class="fa fa-building-o"></i>
                                 <span>База преподавателей</span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/teacher">Список преподавателей</a>
                                 </li>
+                            <?php $roles=['1','5','4']; if(array_intersect($role, $roles)):?>
                                 <li>
                                     <a href="/teacher/lessons">Сводная таблица</a>
                                 </li>
+                            <?php endif;?>
                             </ul>
                         </li>
                     <?php endif;?>
