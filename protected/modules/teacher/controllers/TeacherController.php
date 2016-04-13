@@ -166,7 +166,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
                 ->select('count(b.id) as hours')
                 ->from('spbp_listner_position a')
                 ->join('spbp_listner_schedule b','b.position_id = a.id')
-                ->where('a.teacher_id =:id and b.end_time < curdate()',[':id'=>$value['id']])
+                ->where('a.teacher_id =:id and b.end_time < curdate() and a.is_test = 0',[':id'=>$value['id']])
                 ->queryRow();
 
             $dermo+=$a['hours'];
