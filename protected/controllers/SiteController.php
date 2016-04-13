@@ -25,11 +25,13 @@ class SiteController extends FrontController
     {
         $branch = \Branch::model()->findAll();
         $teacher = \Teacher::model()->findAll();
+        $positions = $this->gavno();
         $salary = \User::model()->findBySql('SELECT DAY(t1.salary_date) FROM spbp_user_user t1 WHERE DAY(t1.salary_date)='.date('d'));
         $this->render('index', [
             'branchs'  => $branch,
             'teachers' => $teacher,
             'salary'   => $salary,
+            'positions'=>$positions,
         ]);
     }
 
