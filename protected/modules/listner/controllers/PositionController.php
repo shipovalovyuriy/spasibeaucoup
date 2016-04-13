@@ -251,7 +251,7 @@ class PositionController extends \yupe\components\controllers\FrontController
 
     public function actionGetTeacher($time, $form, $subject, $branch)
     {
-        if (Yii::app()->request->isAjaxRequest) {
+        if (!Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
@@ -284,10 +284,23 @@ class PositionController extends \yupe\components\controllers\FrontController
             foreach ($schedule as $sch) {
                 $condition .= " AND `schedule`.`start_time` <>'$sch'";
             }
-            $condition .= " AND `subject`.`subject_id` = $subject AND `t`.branch_id=$branch";
+            $criteria = " AND `subject`.`subject_id` = $subject";
             $criteria->condition = $condition;
             $models = Teacher::model()->with('user', 'schedule', 'subject')->findAll($criteria);
-            echo CJSON::encode($this->convertModelToArray($models));
+
+            $arr = [];
+
+            foreach($models as $pizda){
+                $klitor = Teacher::model()->findAll('user_id='.$pizda->user_id);
+                if(count($klitor)>1){
+                    foreach($klitor as $barebuh){
+                        if ($barebuh->branch_id == $branch){array_push($arr,$barebuh);}
+                    }
+                }else{
+                    array_push($arr,$pizda);
+                }
+            }
+            echo CJSON::encode($this->convertModelToArray($arr));
             Yii::app()->end();
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
