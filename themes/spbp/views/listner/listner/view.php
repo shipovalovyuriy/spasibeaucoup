@@ -126,7 +126,7 @@ $this->menu = [
                             </span>
                         </div>
                         <div class="media-body">                        
-                            <a href="/listner/position/create?id=<?=$model->id?>" class="h4">Добавить курс</a>
+                            <a href="/listner/view/<?=$model->id?>/create" class="h4">Добавить курс</a>
                         </div>
                     </article>
             </section>

@@ -21,7 +21,9 @@ return [
     'rules'     => [
         //'/listner' => 'listner/listner/index',
         '/listner/<action>' => 'listner/listner/<action>',
-        '/listner/<action:\w+>/<id:\d+>' => 'listner/listner/<action>',
+        '/listner/<action>/<id:\d+>' => 'listner/listner/<action>',
+        '/listner/view/<id:\d+>/create' => 'listner/position/create',
+        '/listner/view/<id:\d+>/create/<parent_id:\d+>' => 'listner/position/createNext',
         '/listner/subject/lessons/<id:\d+>' => 'listner/listner/subject/',
         '/listner/subject/lessons/<position_id:\d+>/update/<id:\d+>' => 'listner/schedule/update/',
         '/listner/subject/lessons/<id:\d+>/doc' => 'listner/position/doc',

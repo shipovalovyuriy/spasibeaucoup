@@ -29,7 +29,7 @@ $form = $this->beginWidget(
 
 <?php echo $form->errorSummary($model); ?>
 
-    <?php if(!isset($_GET['pid'])):?>
+    <?php if(!isset($_GET['parent_id'])):?>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
@@ -48,7 +48,7 @@ $form = $this->beginWidget(
     </div>
 <?php else:
         echo $form->hiddenField($model, 'subject_id',[
-                    'value' => Position::model()->findByPk($_GET['pid'])->subject_id,
+                    'value' => Position::model()->findByPk($_GET['parent_id'])->subject_id,
                     'type' => 'hidden'
             ]);
     endif;?>
@@ -249,7 +249,7 @@ $form = $this->beginWidget(
         }).done(function(){
             setTimeout(function(){
                 getCode();
-            }, 5000);
+            }, 10000);
         }).responseText;
         $('#Position_code').val(code);
     }

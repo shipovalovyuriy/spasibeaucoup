@@ -11,7 +11,7 @@
                 <a class="text-right" href="#">
                     <i></i>
                 </a>
-                <a class="text-right" href="/listner/position/createNext?id=<?= $model->listner_id?>&pid=<?= $model->id?>">
+                <a class="text-right" href="/listner/view/<?= $model->listner_id?>/create/<?= $model->id?>">
                     <i class="fa fa-plus-circle"></i> Продлить курс
                 </a>
                 <a class="text-right" href="/listner/subject/lessons/<?= $model->id?>/doc">

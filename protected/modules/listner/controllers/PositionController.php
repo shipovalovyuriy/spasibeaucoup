@@ -69,7 +69,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     
     
     
-    public function actionCreateNext($id,$pid)
+    public function actionCreateNext($id,$parent_id)
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;

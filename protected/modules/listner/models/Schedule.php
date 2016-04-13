@@ -112,7 +112,7 @@ class Schedule extends yupe\models\YModel
 	}
         public function checkEdit(){
             $d1 = strtotime($this->start_time);
-            $d2 = strtotime(date('c'))+(240*60);
+            $d2 = strtotime(date('c'));
             $diff = $d1-$d2;
             $diff = $diff/(60*60);
             $hours = floor($diff);
