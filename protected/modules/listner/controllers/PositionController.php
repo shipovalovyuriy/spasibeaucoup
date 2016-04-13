@@ -291,7 +291,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             $arr = [];
 
             foreach($models as $pizda){
-                $klitor = Teacher::model()->findAll('user_id='.$pizda->user_id);
+                $klitor = Teacher::model()->with('user', 'schedule', 'subject')->findAll('user_id='.$pizda->user_id);
                 if(count($klitor)>1){
                     foreach($klitor as $barebuh){
                         if ($barebuh->branch_id == $branch){array_push($arr,$barebuh);}

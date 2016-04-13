@@ -78,6 +78,23 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
+    <div class="row hide group">
+        <div class="col-lg-7">
+            <div class="btn-group btn-group-justified m-b">
+                <a class="btn btn-success btn-rounded" data-toggle="button">
+                    <span class="text">
+                        <i class="fa fa-eye"></i> Follow
+                    </span>
+                    <span class="text-active">
+                        <i class="fa fa-eye"></i> Following
+                    </span>
+                </a>
+                <a class="btn btn-info btn-rounded">
+                    <i class="fa fa-comment-o"></i> Chat
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'code', [
@@ -272,6 +289,11 @@ $form = $this->beginWidget(
             getCode();
             $('.form_id').remove();
             getForm();
+            if($('#Position_type').val() == 1 || $('#Position_type').val() == 2){
+                $('.group').removeClass('hide');
+            }else{
+                $('.group').addClass('hide');
+            }
         }
     })
 </script>
