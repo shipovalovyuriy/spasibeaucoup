@@ -160,9 +160,7 @@ class Listner extends yupe\models\YModel
                 $position->start_period = date('Y-m-d');
                 $position->end_period = date('Y-m-d');
                 $position->is_test = 1;
-                if(!$position->save()){
-                    die(var_dump($position->getErrors()));
-                }
+                $position->save();
             }
         }
         parent::afterSave();

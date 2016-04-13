@@ -52,7 +52,7 @@
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получение
 						услуг в сфере дополнительного
                                                 образования производится </font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
-                                                    <?= $model->form->type->name . ' по ' .$model->subject->name.' по тарифу '. $model->form->name?>
+                                                    <?= $model->form->type->name . ' по ' .$model->subject->alias.' по тарифу '. $model->form->name?>
                                                 </font></font></font></p>
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">согласно
 						расписани</font></font><font color="#000000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ю</font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">:
@@ -274,7 +274,7 @@
 				                                                                 
 				                                                                 
 				                                                       
-                                    </font></font><font color="#ff0000" class="pull-right"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><?= $model->start_date?></font></font></font></p>
+                                    </font></font><font color="#ff0000" class="pull-right"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><?= date('d.m.Yг.', strtotime($model->start_date))?></font></font></font></p>
 				<p style="margin-bottom: 0in; text-align: center;"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">		ПОЛОЖЕНИЕ
                                     </font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">№<?= sprintf("%'.06d", $model->id);?>/<?= substr($model->start_date, 2,2)?></font></font></font></p>
 				<p style="margin-left: 0.15in;margin-bottom: 0in;"><font color="#ff0000">         <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Гр.</font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
@@ -291,7 +291,7 @@
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получение
 						услуг в сфере дополнительного
                                                 образования производится </font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
-                                                    <?= $model->form->type->name . ' по ' .$model->subject->name.' по тарифу '. $model->form->name?>
+                                                    <?= $model->form->type->name . ' по ' .$model->subject->alias.' по тарифу '. $model->form->name?>
                                                 </font></font></font></p>
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">согласно
 						расписани</font></font><font color="#000000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ю</font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">:

@@ -14,7 +14,7 @@
                 <a class="text-right" href="/listner/position/createNext?id=<?= $model->listner_id?>&pid=<?= $model->id?>">
                     <i class="fa fa-plus-circle"></i> Продлить курс
                 </a>
-                <a class="text-right" href="/listner/position/doc?id=<?= $model->id?>">
+                <a class="text-right" href="/listner/subject/lessons/<?= $model->id?>/doc">
                     <i class="fa fa-file-o"></i>  Документ
                 </a>
             </div>
@@ -34,8 +34,13 @@
                 <?php endif;?>
             </div>
             <?php foreach($model->schedule as $schedule):?>
-                <div class="list-group-item" <?php if($schedule->start_time):?>style="text-decoration: line-through;"<?php endif;?>>
-                    Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?><a href="/listner/subject/lessons/<?= $model->id?>/update"><i class="fa fa-pencil pull-right"></i></a>
+                <div class="list-group-item" <?php if(date('c')>=$schedule->end_time):?>style="text-decoration: line-through;"<?php endif;?>>
+                    Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?>
+                    <?php if($schedule->checkEdit()):?>
+                        <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
+                            <i class="fa fa-pencil pull-right"></i>
+                        </a>
+                    <?php endif;?>
                 </div>
             <?php endforeach;?>            
         </div>

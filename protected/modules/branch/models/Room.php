@@ -103,4 +103,18 @@ class Room extends yupe\models\YModel
 	{
 		return parent::model($className);
 	}
+        protected function afterSave() {
+            if($this->isNewRecord){
+                foreach(Position::model()->findAll('is_test=1 AND branch_id='.$this->branch_id) as $position){
+                    $schedule = new Schedule;
+                    $schedule->position_id = $position->id;
+                    $schedule->number = 0;
+                    $schedule->start_time = '06:00:00';
+                    $schedule->end_time = '07:00:00';
+                    $schedule->room_id = $this->id;
+                    $schedule->save();
+                }
+            }
+            parent::afterSave();
+        }
 }

@@ -69,11 +69,11 @@ class Position extends yupe\models\YModel
 		return array(
 			array('start_date, form_id, teacher_id, code, time, subject_id, lvl, type', 'required'),
 			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
-			array('code, lvl', 'length', 'max'=>50),
-			array('note, time', 'length', 'max'=>255),
+			array('code, lvl,start_period,end_period', 'length', 'max'=>50),
+			array('note, time,start_period,end_period', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date', 'safe', 'on'=>'search'),
+			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date,,start_period,end_period', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -96,7 +96,6 @@ class Position extends yupe\models\YModel
 
         protected function afterSave() 
         {
-            
             if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
                 if(!$this->group_id){
@@ -115,9 +114,11 @@ class Position extends yupe\models\YModel
                         $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
                         $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
                         $schedule->room_id = $this->findRoom($schedule->start_time);
-                        $schedule->save();
+                        if(!$schedule->save()) die(var_dump ($schedule->getErrors()));
                         $j++;
                     }
+                    $this->listner->branch->individual_counter += 1;
+                    $this->listner->branch->save();
                 }
                 //Формирование прихода
                 $inflow = new Inflow();
@@ -135,20 +136,13 @@ class Position extends yupe\models\YModel
                     $this->listner->save();
                 }
             }
-            if($this->isNewRecord && $this->is_test==1){
-                $schedule = new Schedule;
-                $schedule->position_id = $this->id;
-                $schedule->number = 0;
-                $schedule->start_time = '06:00:00';
-                $schedule->end_time = '07:00:00';
-                $schedule->save();
-            }
             parent::afterSave();
+            
         }
         
         protected function findRoom($t)
         {
-            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'")->id;            
+            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'")->id;             
         }
         
         public function getNext(){
