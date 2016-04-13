@@ -284,7 +284,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             foreach ($schedule as $sch) {
                 $condition .= " AND `schedule`.`start_time` <>'$sch'";
             }
-            $criteria = " AND `subject`.`subject_id` = $subject";
+            $condition .= " AND `subject`.`subject_id` = $subject";
             $criteria->condition = $condition;
             $models = Teacher::model()->with('user', 'schedule', 'subject')->findAll($criteria);
 
