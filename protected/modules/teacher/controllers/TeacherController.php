@@ -150,6 +150,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
         $tvar = null;
         if (Yii::app()->request->isAjaxRequest) {
 
+            if (!$_GET['date']){echo "gavno";}else{
             $datecontrol =explode('-',$_GET['date']);
 
 
@@ -185,7 +186,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
             }
 
             echo CJSON::encode($arr);
-
+                }
         }
         else{
         $this->render('lessons',['model'=>$arr]);}

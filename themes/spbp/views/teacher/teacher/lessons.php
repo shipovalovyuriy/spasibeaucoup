@@ -18,7 +18,9 @@
 
 </div>
 </div>
-<tr><td></td><td></td><td></td></tr>
+<div  id="pizda" style="margin-top:50px;" class="row">
+
+    </div>
 
 <script>
 
@@ -31,23 +33,28 @@
         });
 
         $('#req').bind('click',function(){
+            $('#pizda').children().remove();
             $.ajax({
                 url:'/teacher/lessons',
                 type:'GET',
                 data:{'date':$('#yw0').val()}
             })
                 .done(function(resp){
-                    data = JSON.parse(resp);
-                    var str = '<div  style="margin-top:50px;"class="row"><table style="margin:0 auto" class="table-striped table-bordered" id="gavnina"><th>Фамилия</th> <th>Имя</th> <th>Количество часов</th></table></div>';
-                    console.log(data);
-                    $('.container').append(str);
-                    data.forEach(function(item){
-                        str = '<tr><td>'+item.lastname+'</td><td>'+item.firstname+'</td><td>'+item.hours+'</td></tr>';
-
-                        $('#gavnina').append(str);
-                    });
+                    if (resp=='gavno'){alert('Введите отчетный месяц');}else {
+                        data = JSON.parse(resp);
+                        var str = '<table style="margin:0 auto" class="table-striped table-bordered" id="gavnina"><th>Фамилия</th> <th>Имя</th> <th>Количество часов</th></table>';
+                        console.log(data);
+                        $('#pizda').append(str);
+                        data.forEach(function (item) {
+                            str = '<tr><td>' + item.lastname + '</td><td>' + item.firstname + '</td><td>' + item.hours + '</td></tr>';
+                            $('#gavnina').append(str);
+                        });
+                    }
 
                 })
+                .error(function(){
+                    alert('Введите отчетный месяц');
+                });
         })
 
 
