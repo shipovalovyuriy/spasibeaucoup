@@ -22,6 +22,7 @@ $(function(){
                     branch: branch
                 },
             }).done(function(data){
+                console.log(data);
                 $('.teachers').remove();
                 data.forEach(function(item){
                         teacher.append('<option class="teachers" value="'+item.id+'">'+item.user.last_name + ' ' + item.user.first_name+'</option>');

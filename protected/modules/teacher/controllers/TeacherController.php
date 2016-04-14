@@ -145,41 +145,50 @@ class TeacherController extends \yupe\components\controllers\FrontController
     * @return void
     */
     public function actionLessons(){
-
-        $arr=[];
+        $arr = [];
         $x = [];
-        $model = Yii::app()->db->createCommand()
-            ->select('id,first_name, last_name')
-            ->from('spbp_user_user')
-            ->queryAll();
+        $tvar = null;
+        if (Yii::app()->request->isAjaxRequest) {
 
-        foreach($model as $gavno){
-            $dermo = 0;
-            $pizda = Yii::app()->db->createCommand()
-                ->select('id')
-                ->from('spbp_user_teacher')
-                ->where('user_id=:wluha',[":wluha"=>$gavno['id']])
-            ->queryAll();
+            $datecontrol =explode('-',$_GET['date']);
 
-        foreach($pizda as $value ){
-            $a = Yii::app()->db->createCommand()
-                ->select('count(b.id) as hours')
-                ->from('spbp_listner_position a')
-                ->join('spbp_listner_schedule b','b.position_id = a.id')
-                ->where('a.teacher_id =:id and b.end_time < now() and a.is_test = 0',[':id'=>$value['id']])
-                ->queryRow();
 
-            $dermo+=$a['hours'];
+            $model = Yii::app()->db->createCommand()
+                ->select('id,first_name, last_name')
+                ->from('spbp_user_user')
+                ->queryAll();
 
-        }
-            $x['firstname'] = $gavno['first_name'];
-            $x['lastname'] = $gavno['last_name'];
-            $x['hours'] = $dermo;
+            foreach ($model as $gavno) {
+                $dermo = 0;
+                $pizda = Yii::app()->db->createCommand()
+                    ->select('id')
+                    ->from('spbp_user_teacher')
+                    ->where('user_id=:wluha', [":wluha" => $gavno['id']])
+                    ->queryAll();
 
-            array_push($arr,$x);
+                foreach ($pizda as $value) {
+                    $a = Yii::app()->db->createCommand()
+                        ->select('count(b.id) as hours')
+                        ->from('spbp_listner_position a')
+                        ->join('spbp_listner_schedule b', 'b.position_id = a.id')
+                        ->where('a.teacher_id =:id and b.end_time < now() and a.is_test = 0 and month(b.end_time)=:pizda and year(b.end_time)=:hui', [':id' => $value['id'],':hui'=>$datecontrol[0],':pizda'=>$datecontrol[1]])
+                        ->queryRow();
+
+                    $dermo += $a['hours'];
+
+                }
+                $x['firstname'] = $gavno['first_name'];
+                $x['lastname'] = $gavno['last_name'];
+                $x['hours'] = $dermo;
+
+                array_push($arr, $x);
             }
 
-        $this->render('lessons',['model'=>$arr]);
+            echo CJSON::encode($arr);
+
+        }
+        else{
+        $this->render('lessons',['model'=>$arr]);}
 
     }
     public function actionDelete($id)
