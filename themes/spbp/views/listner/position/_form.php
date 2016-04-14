@@ -83,14 +83,11 @@ $form = $this->beginWidget(
             <div class="btn-group btn-group-justified m-b">
                 <a class="btn btn-success btn-rounded" data-toggle="button">
                     <span class="text">
-                        <i class="fa fa-eye"></i> Follow
-                    </span>
-                    <span class="text-active">
-                        <i class="fa fa-eye"></i> Following
+                        <i class="fa fa-user-plus"></i> Новая группа
                     </span>
                 </a>
-                <a class="btn btn-info btn-rounded">
-                    <i class="fa fa-comment-o"></i> Chat
+                <a class="btn btn-default btn-rounded">
+                    <i class="fa fa-users"></i> Имеющаяся группа
                 </a>
             </div>
         </div>
