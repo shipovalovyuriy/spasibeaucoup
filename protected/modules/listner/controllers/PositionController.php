@@ -251,7 +251,7 @@ class PositionController extends \yupe\components\controllers\FrontController
 
     public function actionGetTeacher($time, $form, $subject, $branch)
     {
-        if (!Yii::app()->request->isAjaxRequest) {
+        if (Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
@@ -270,7 +270,6 @@ class PositionController extends \yupe\components\controllers\FrontController
                 $schedule[$i] = str_replace(" ", "T", date('Y-m-d H:i:s', strtotime("+" . $k . "week", strtotime($crTimes[$j]))));
                 $j++;
             }
-            //$criteria = new CDbCriteria;
             $condT = '';
             $condition = ''; 
             $first = 0;
@@ -285,8 +284,6 @@ class PositionController extends \yupe\components\controllers\FrontController
                     $condition .= " OR `schedule`.`start_time` ='$sch'";
                 }
             }
-            //$condT .= " AND `subject`.`subject_id` = $subject";
-            //$criteria->condition = $condition;
             $models = Teacher::model()
                     ->with('user', 'schedule', 'subject')
                     ->findAllBySql("SELECT  `t`.* FROM spbp_user_teacher `t` "
@@ -297,23 +294,22 @@ class PositionController extends \yupe\components\controllers\FrontController
             $arr=[];
             foreach($models as $teacher){
                 $checks = TeacherToSubject::model()->find("teacher_id=$teacher->id AND subject_id=$subject");
-                //die(($checks->teacher_id == $teacher->id));
-                if($checks->teacher_id == $teacher->id){
+                if($checks['teacher_id'] == $teacher->id){
                     array_push($arr, $teacher);
                 }
             }
-            //die(CJSON::encode($this->convertModelToArray($arr)));
+            $arr1 = [];
             foreach($arr as $teacher){
                 $checks = Teacher::model()->with('user', 'schedule', 'subject')->findAll('user_id='.$teacher->user_id);
                 if(count($checks)>1){
                     foreach($checks as $check){
-                        if ($check->branch_id == $branch){array_push($arr,$check);}
+                        if ($check->branch_id == $branch){array_push($arr1,$check);}
                     }
                 }else{
-                    array_push($arr,$teacher);
+                    array_push($arr1,$teacher);
                 }
             }
-            echo CJSON::encode($this->convertModelToArray($arr));
+            echo CJSON::encode($this->convertModelToArray($arr1));
             Yii::app()->end();
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));

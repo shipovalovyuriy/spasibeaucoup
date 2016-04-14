@@ -106,29 +106,5 @@ class Branch extends yupe\models\YModel
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-        protected function afterSave() 
-        {
-            
-            if($this->isNewRecord){
-                //die(User::model()->find('is_test=1')->id);
-                $teacher = new Teacher;
-                $teacher->user_id = User::model()->find('is_test=1')->id;
-                $teacher->branch_id = $this->id;
-                $teacher->is_test = 1;
-                $teacher->save();
-                $listner = new Listner;
-                $listner->name = 'test';
-                $listner->lastname = 'test';
-                $listner->patronymic = 'test';
-                $listner->phone = 'test';
-                $listner->create_date = date('Y-m-d hh:mm:ss');
-                $listner->branch_id = $this->id;
-                $listner->status = 1;
-                $listner->is_test = 1;
-                $listner->save();
-            }
-            parent::afterSave();
-        }
-        
+	}        
 }
