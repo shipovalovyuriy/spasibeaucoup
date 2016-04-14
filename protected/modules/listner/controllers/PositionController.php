@@ -282,33 +282,37 @@ class PositionController extends \yupe\components\controllers\FrontController
                     $condition .= "`schedule`.`start_time` ='$sch'";
                     $first++;
                 } else {
-                    $condition .= " AND `schedule`.`start_time` ='$sch'";
+                    $condition .= " OR `schedule`.`start_time` ='$sch'";
                 }
             }
-            $condT .= " AND `subject`.`subject_id` = $subject";
+            //$condT .= " AND `subject`.`subject_id` = $subject";
             //$criteria->condition = $condition;
             $models = Teacher::model()
                     ->with('user', 'schedule', 'subject')
-                    ->findAllBySql("SELECT `t`.* FROM spbp_user_teacher `t` JOIN spbp_user_teacher_to_subject `subject` "
+                    ->findAllBySql("SELECT  `t`.* FROM spbp_user_teacher `t` "
                             . "WHERE `t`.`id` <> ALL("
                             . "SELECT `t`.`id` FROM spbp_user_teacher `t` JOIN spbp_listner_position `position` "
                             . "ON `position`.`teacher_id` = `t`.`id` JOIN spbp_listner_schedule `schedule` "
-                            . "ON `schedule`.`position_id` = `position`.`id` WHERE $condition) $condT ");
-            //die(var_dump($models));
-            $arr = [];
-
+                            . "ON `schedule`.`position_id` = `position`.`id` WHERE $condition) $condT");
+            $arr=[];
             foreach($models as $teacher){
-                $checks = Teacher::model()->with('user')->findAll('user_id='.$teacher->user_id);
-                //die(var_dump($checks));
-                
-                foreach($checks as $check){
-                    //die($check);
-                    if ($check->branch_id == $branch ){
-                        //die(var_dump($check));
-                        array_push($arr,$check);
-                    }
+                $checks = TeacherToSubject::model()->find("teacher_id=$teacher->id AND subject_id=$subject");
+                //die(($checks->teacher_id == $teacher->id));
+                if($checks->teacher_id == $teacher->id){
+                    array_push($arr, $teacher);
                 }
-            }//die( CJSON::encode($arr));
+            }
+            //die(CJSON::encode($this->convertModelToArray($arr)));
+            foreach($arr as $teacher){
+                $checks = Teacher::model()->with('user', 'schedule', 'subject')->findAll('user_id='.$teacher->user_id);
+                if(count($checks)>1){
+                    foreach($checks as $check){
+                        if ($check->branch_id == $branch){array_push($arr,$check);}
+                    }
+                }else{
+                    array_push($arr,$teacher);
+                }
+            }
             echo CJSON::encode($this->convertModelToArray($arr));
             Yii::app()->end();
         } else {
