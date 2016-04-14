@@ -134,6 +134,11 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
+<div class="row">
+<div class="col-sm-7">
+
+</div>
+</div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'group_id', [

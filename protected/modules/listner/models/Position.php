@@ -51,6 +51,7 @@ class Position extends yupe\models\YModel
             'Ноябрь',
             'Декабрь',
         ];
+	private static $flag = false;
 	/**
 	 * @return string the associated database table name
 	 */
