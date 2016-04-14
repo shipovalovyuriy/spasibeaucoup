@@ -23,10 +23,10 @@ class SubjectController extends \yupe\components\controllers\FrontController
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
             $teachers = Teacher::model()->with('subject');
-            $teachers1 = $teachers->findAllBySql('SELECT * FROM spbp_user_teacher WHERE id <> ALL(SELECT t1.teacher_id FROM spbp_user_teacher_to_subject t1
+            $teachers1 = $teachers->findAllBySql("SELECT * FROM spbp_user_teacher WHERE id <> ALL(SELECT t1.teacher_id FROM spbp_user_teacher_to_subject t1
                                                             JOIN spbp_user_teacher t2 ON t1.teacher_id = t2.id
-                                                                    WHERE t1.subject_id ='.$id.')');
-            $teachers2 = $teachers->findAllBySql('SELECT * FROM spbp_user_teacher t1 JOIN spbp_user_teacher_to_subject t2 ON t2.teacher_id = t1.id WHERE t2.subject_id ='.$id);
+                                                                    WHERE t1.subject_id =$id) AND is_test = 0");
+            $teachers2 = $teachers->findAllBySql("SELECT * FROM spbp_user_teacher t1 JOIN spbp_user_teacher_to_subject t2 ON t2.teacher_id = t1.id WHERE t2.subject_id =$id AND t1.is_test=0");
             $this->render('view', [
                 'model' => $this->loadModel($id), 
                     'teachers1' => $teachers1, 

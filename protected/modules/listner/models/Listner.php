@@ -153,6 +153,8 @@ class Listner extends yupe\models\YModel
                 $position->form_id = 1;
                 $position->code = 'test';
                 $position->time = 'test';
+                $position->lvl = 'test';
+                $position->type = 'test';
                 $position->teacher_id = Teacher::model()->find('is_test=1')->id;
                 $position->subject_id = $subject->id;
                 $position->listner_id = $this->id;
@@ -160,7 +162,7 @@ class Listner extends yupe\models\YModel
                 $position->start_period = date('Y-m-d');
                 $position->end_period = date('Y-m-d');
                 $position->is_test = 1;
-                $position->save();
+                if(!$position->save()){die(var_dump($position->getErrors()));}
             }
         }
         parent::afterSave();

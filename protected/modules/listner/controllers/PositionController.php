@@ -251,7 +251,7 @@ class PositionController extends \yupe\components\controllers\FrontController
 
     public function actionGetTeacher($time, $form, $subject, $branch)
     {
-        if (Yii::app()->request->isAjaxRequest) {
+        if (!Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
@@ -270,36 +270,45 @@ class PositionController extends \yupe\components\controllers\FrontController
                 $schedule[$i] = str_replace(" ", "T", date('Y-m-d H:i:s', strtotime("+" . $k . "week", strtotime($crTimes[$j]))));
                 $j++;
             }
-            $criteria = new CDbCriteria;
-            $condition = '';
+            //$criteria = new CDbCriteria;
+            $condT = '';
+            $condition = ''; 
             $first = 0;
             foreach ($times as $cr) {
-                if ($first == 0) {
-                    $condition .= "`t`.`start_time`<='$cr' AND SUBTIME(`t`.`end_time`,'01:00:00')>='$cr'";
-                    $first++;
-                } else {
-                    $condition .= " AND `t`.`start_time`<='$cr' AND SUBTIME(`t`.`end_time`,'01:00:00')>='$cr'";
-                }
+                $condT .= " AND `t`.`start_time`<='$cr' AND SUBTIME(`t`.`end_time`,'01:00:00')>='$cr'";
             }
             foreach ($schedule as $sch) {
-                $condition .= " AND `schedule`.`start_time` <>'$sch'";
-            }
-            $condition .= " AND `subject`.`subject_id` = $subject AND `t`.`is_test` = 0";
-            $criteria->condition = $condition;
-            $models = Teacher::model()->with('user', 'schedule', 'subject')->findAll($criteria);
-
-            $arr = [];
-
-            foreach($models as $pizda){
-                $klitor = Teacher::model()->with('user')->findAll('user_id='.$pizda->user_id);
-                if(count($klitor)>1){
-                    foreach($klitor as $barebuh){
-                        if ($barebuh->branch_id == $branch){array_push($arr,$barebuh);}
-                    }
-                }else{
-                    array_push($arr,$pizda);
+                if ($first == 0) {
+                    $condition .= "`schedule`.`start_time` ='$sch'";
+                    $first++;
+                } else {
+                    $condition .= " AND `schedule`.`start_time` ='$sch'";
                 }
             }
+            $condT .= " AND `subject`.`subject_id` = $subject";
+            //$criteria->condition = $condition;
+            $models = Teacher::model()
+                    ->with('user', 'schedule', 'subject')
+                    ->findAllBySql("SELECT `t`.* FROM spbp_user_teacher `t` JOIN spbp_user_teacher_to_subject `subject` "
+                            . "WHERE `t`.`id` <> ALL("
+                            . "SELECT `t`.`id` FROM spbp_user_teacher `t` JOIN spbp_listner_position `position` "
+                            . "ON `position`.`teacher_id` = `t`.`id` JOIN spbp_listner_schedule `schedule` "
+                            . "ON `schedule`.`position_id` = `position`.`id` WHERE $condition) $condT ");
+            //die(var_dump($models));
+            $arr = [];
+
+            foreach($models as $teacher){
+                $checks = Teacher::model()->with('user')->findAll('user_id='.$teacher->user_id);
+                //die(var_dump($checks));
+                
+                foreach($checks as $check){
+                    //die($check);
+                    if ($check->branch_id == $branch ){
+                        //die(var_dump($check));
+                        array_push($arr,$check);
+                    }
+                }
+            }//die( CJSON::encode($arr));
             echo CJSON::encode($this->convertModelToArray($arr));
             Yii::app()->end();
         } else {

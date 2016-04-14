@@ -105,7 +105,7 @@ class Room extends yupe\models\YModel
 	}
         protected function afterSave() {
             if($this->isNewRecord){
-                foreach(Position::model()->findAll('is_test=1 AND branch_id='.$this->branch_id) as $position){
+                foreach(Position::model()->findAll('is_test=1') as $position){
                     $schedule = new Schedule;
                     $schedule->position_id = $position->id;
                     $schedule->number = 0;

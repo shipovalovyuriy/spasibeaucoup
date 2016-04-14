@@ -47,6 +47,7 @@ class TeacherToSubject extends yupe\models\YModel
 		return array(
 			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
 			'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
+                        'user'    => [self::BELONGS_TO, 'User', ['user_id'=> 'id'], 'through' => 'teacher'],
 		);
 	}
 

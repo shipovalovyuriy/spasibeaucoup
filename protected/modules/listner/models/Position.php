@@ -111,11 +111,11 @@ class Position extends yupe\models\YModel
                     if($this->form->type->id == 3 || $this->form->type->id == 4)
                         $schedule->position_id = $this->id;
                     else
-                        $schedule->group_id = $this->group_id;
+                    $schedule->group_id = $this->group_id;
                     $schedule->number = $i+1;
                     $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
                     $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
-                    $schedule->room_id = $this->findRoom($schedule->start_time);
+                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id);
                     if(!$schedule->save()) die(var_dump ($schedule->getErrors()));
                     $j++;
                 }
@@ -141,9 +141,14 @@ class Position extends yupe\models\YModel
             
         }
         
-        protected function findRoom($t)
+        protected function findRoom($t,$b)
         {
-            return Room::model()->findBySql("SELECT t1.id FROM spbp_branch_room t1 JOIN spbp_listner_schedule t2 ON t2.room_id = t1.id WHERE t2.start_time <> '$t'")->id;             
+            return Room::model()->findBySql(
+                    "SELECT * FROM spbp_branch_room"
+                    . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
+                        . "JOIN spbp_listner_schedule t2 "
+                            . "ON t2.room_id = t1.id WHERE t2.start_time = $t)  "
+                                . "AND branch_id = $b")->id;             
         }
         
         public function getNext(){
