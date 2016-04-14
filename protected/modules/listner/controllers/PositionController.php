@@ -44,6 +44,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->listner_id = $id;
+                /*die(var_dump($model));*/
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
                         yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,

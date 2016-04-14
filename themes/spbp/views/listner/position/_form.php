@@ -134,9 +134,18 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
+
 <div class="row">
 <div class="col-sm-7">
-
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Полутрочасовой урок</label>
+        <div class="col-sm-10">
+            <label class="switch">
+                <input type="checkbox" name="Position[hui]">
+                <span></span>
+            </label>
+        </div>
+    </div>
 </div>
 </div>
     <div class="row">

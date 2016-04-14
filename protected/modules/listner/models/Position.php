@@ -51,7 +51,7 @@ class Position extends yupe\models\YModel
             'Ноябрь',
             'Декабрь',
         ];
-	private static $flag = false;
+	public $hui;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -68,13 +68,13 @@ class Position extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('start_date, form_id, teacher_id, code, time, subject_id, lvl, type', 'required'),
+			array('start_date, form_id, teacher_id, code, time, subject_id, lvl, type,hui', 'required'),
 			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
 			array('code, lvl,start_period,end_period', 'length', 'max'=>50),
 			array('note, time,start_period,end_period', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date,,start_period,end_period', 'safe', 'on'=>'search'),
+			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date,start_period,end_period,hui', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -115,7 +115,13 @@ class Position extends yupe\models\YModel
                     $schedule->group_id = $this->group_id;
                     $schedule->number = $i+1;
                     $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
-                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours",strtotime($time[$j]))));
+
+					if ($this->hui=="on"){
+						$pizda = 30;
+					}else{
+						$pizda = 0;
+					}
+                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
                     $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id);
                     if(!$schedule->save()) die(var_dump ($schedule->getErrors()));
                     $j++;
@@ -148,8 +154,8 @@ class Position extends yupe\models\YModel
                     "SELECT * FROM spbp_branch_room"
                     . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
                         . "JOIN spbp_listner_schedule t2 "
-                            . "ON t2.room_id = t1.id WHERE t2.start_time = $t)  "
-                                . "AND branch_id = $b")->id;             
+                            . "ON t2.room_id = t1.id WHERE t2.start_time = '$t')  "
+                                . "AND branch_id = '$b'")->id;
         }
         
         public function getNext(){
