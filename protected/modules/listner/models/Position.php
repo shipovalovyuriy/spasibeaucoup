@@ -143,6 +143,8 @@ class Position extends yupe\models\YModel
                     $group->branch_id = $this->listner->branch_id;
                     $group->subject_id = $this->subject_id;
                     $group->save();
+                    $this->group_id = $group->id;
+                    $this->save();
                     $this->listner->branch->group_counter +=1;
                     $this->listner->branch->save();
                 }
