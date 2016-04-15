@@ -50,6 +50,7 @@ class Branch extends yupe\models\YModel
 		return array(
 			'user' => array(self::HAS_MANY, 'User', 'branch_id'),
 			'listner' => array(self::HAS_MANY, 'Listner', 'branch_id'),
+                        'group' => array(self::HAS_MANY, 'Group', 'branch_id'),
 			'subject' => array(self::HAS_MANY, 'SubjectToBranch', 'branch_id'),
                         'room' => array(self::HAS_MANY, 'Room', 'branch_id'),
                         'teacher' => array(self::HAS_MANY, 'Teacher', 'branch_id'),

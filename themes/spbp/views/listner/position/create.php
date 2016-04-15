@@ -28,4 +28,4 @@ $this->menu = [
     </h1>
 </div>
 
-<?php echo $this->renderPartial('_form', ['model' => $model]); ?>
+<?php echo $this->renderPartial('_form', ['model' => $model, 'listner' => $listner]); ?>

@@ -28,6 +28,7 @@ Yii::import('application.modules.balance.models.Inflow');
 class Position extends yupe\models\YModel
 {
     public  $type;
+    public $group;
     private static  $_days = [
             'Воскресенье',
             'Понедельник',
@@ -68,7 +69,7 @@ class Position extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('start_date, form_id, teacher_id, code, time, subject_id, lvl, type,hui', 'required'),
+			array('start_date, form_id, time, subject_id, lvl, type', 'required'),
 			array('form_id, listner_id, teacher_id, subject_id, group_id', 'numerical', 'integerOnly'=>true),
 			array('code, lvl,start_period,end_period', 'length', 'max'=>50),
 			array('note, time,start_period,end_period', 'length', 'max'=>255),
@@ -94,40 +95,57 @@ class Position extends yupe\models\YModel
 			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
-
         protected function afterSave() 
         {
             if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
-                $time = explode(',', $this->time);
-                $tCount = count($time);
-                $j = 0;
-                $k = 0;
-                for($i=0; $i<$this->form->number;$i++){
-                    if($j==$tCount){
-                        $j=0;
-                        $k++;
+                if($this->form->type->id == 3 || $this->form->type->id == 4){
+                    $time = explode(',', $this->time);
+                    $tCount = count($time);
+                    $j = 0;
+                    $k = 0;
+                    for($i=0; $i<$this->form->number;$i++){
+                        if($j==$tCount){
+                            $j=0;
+                            $k++;
+                        }
+                        $schedule = new Schedule;
+                        //if($this->form->type->id == 3 || $this->form->type->id == 4)
+                            $schedule->position_id = $this->id;
+    //                    else{
+    //                        $schedule->position_id = $this->id;
+    //                    $schedule->group_id = $this->group_id;}
+                        $schedule->number = $i+1;
+                        $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                        if ($this->hui=="on"){
+                            $pizda = 30;
+                        }else{
+                            $pizda = 0;
+                        }
+                        $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
+                        $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id);
+                        $schedule->save();
+                        $j++;
                     }
-                    $schedule = new Schedule;
-                    if($this->form->type->id == 3 || $this->form->type->id == 4)
-                        $schedule->position_id = $this->id;
-                    else
-                    $schedule->group_id = $this->group_id;
-                    $schedule->number = $i+1;
-                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                    $this->listner->branch->individual_counter += 1;
+                    $this->listner->branch->save();
 
-					if ($this->hui=="on"){
-						$pizda = 30;
-					}else{
-						$pizda = 0;
-					}
-                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
-                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id);
-                    if(!$schedule->save()) die(var_dump ($schedule->getErrors()));
-                    $j++;
+                }else if($this->group=="on"){
+                    $group = new Group;
+                    $group->code = $this->listner->branch->group_counter + 1;
+                    $group->name = substr($this->teacher->user->first_name, 0, 1).substr($this->listner->name, 0, 1).'-'.$group->code;
+                    $group->time = $this->time;
+                    $group->lvl = $this->lvl;
+                    $group->note = $this->note;
+                    $group->teacher_id = $this->teacher_id;
+                    $group->number = $this->form->number;
+                    $group->hui = $this->hui;
+                    $group->branch_id = $this->listner->branch_id;
+                    $group->subject_id = $this->subject_id;
+                    $group->save();
+                    $this->listner->branch->group_counter +=1;
+                    $this->listner->branch->save();
                 }
-                $this->listner->branch->individual_counter += 1;
-                $this->listner->branch->save();
                 //Формирование прихода
                 $inflow = new Inflow();
                 $inflow->subject_id = $this->subject_id;

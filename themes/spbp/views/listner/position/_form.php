@@ -79,16 +79,15 @@ $form = $this->beginWidget(
         </div>
     </div>
     <div class="row hide group">
-        <div class="col-lg-7">
-            <div class="btn-group btn-group-justified m-b">
-                <a class="btn btn-success btn-rounded" data-toggle="button">
-                    <span class="text">
-                        <i class="fa fa-user-plus"></i> Новая группа
-                    </span>
-                </a>
-                <a class="btn btn-default btn-rounded">
-                    <i class="fa fa-users"></i> Имеющаяся группа
-                </a>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Создать новую группу?</label>
+                <div class="col-sm-10">
+                    <label class="switch">
+                        <input type="checkbox" name="group" id="Position_group">
+                        <span></span>
+                    </label>
+                </div>
             </div>
         </div>
     </div>
@@ -141,7 +140,7 @@ $form = $this->beginWidget(
         <label class="col-sm-5 control-label">Полутрочасовой урок</label>
         <div class="col-sm-10">
             <label class="switch">
-                <input type="checkbox" name="Position[hui]">
+                <input type="checkbox" name="hui">
                 <span></span>
             </label>
         </div>
@@ -249,6 +248,7 @@ $form = $this->beginWidget(
 <?php $this->endWidget(); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web').'/js/teacher.js',CClientScript::POS_END)?>
 <script>
+    $('#Position_group_id').parents('.row').addClass('hide');
     var el = document.getElementById("addTime");
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");
@@ -295,16 +295,41 @@ $form = $this->beginWidget(
             })
         });
     }
+    function getGroup() {
+        var subject = $('#Position_subject_id').val();
+        var branch = <?= $listner;?>;
+        $.ajax({
+            type: 'get',
+            url: '/listner/position/group',
+            dataType: 'json',
+            data: {
+                subject: subject,
+                branch: branch
+            }
+        }).done(function(data){
+            data.forEach(function(item){
+                $('#Position_group_id').append('<option class="group_id" value="'+item.id+'">'+item.name+'</option>');
+            })
+        });
+    }
     $('#Position_type').click(function(){
         if($('#Position_type').val()){
             getCode();
             $('.form_id').remove();
             getForm();
             if($('#Position_type').val() == 1 || $('#Position_type').val() == 2){
+                $('#Position_code').attr('required', false);
                 $('.group').removeClass('hide');
+                $('#Position_group_id').parents('.row').removeClass('hide');
+                $('#Position_group').attr("checked", false);
             }else{
+                $('#Position_code').attr('required', true);
                 $('.group').addClass('hide');
+                $('#Position_group_id').parents('.row').addClass('hide');
             }
         }
+    });
+    $('#Position_group').click(function(){
+        
     })
 </script>

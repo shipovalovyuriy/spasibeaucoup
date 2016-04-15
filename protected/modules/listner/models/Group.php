@@ -16,8 +16,11 @@
  * @property ListnerPosition[] $listnerPositions
  */
 class Group extends yupe\models\YModel
-{
-	/**
+{       
+    
+        public $number;
+        public $hui;
+        /**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -49,7 +52,10 @@ class Group extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'positions' => array(self::HAS_MANY, 'position', 'group_id'),
+			'positions' => array(self::HAS_MANY, 'Position', 'group_id'),
+                        'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
+                        'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
+                        'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
 
@@ -109,4 +115,39 @@ class Group extends yupe\models\YModel
 	{
 		return parent::model($className);
 	}
+        protected function afterSave() {
+            parent::afterSave();
+            $time = explode(',', $this->time);
+            $tCount = count($time);
+            $j = 0;
+            $k = 0;
+            for($i=0; $i<$this->number;$i++){
+                if($j==$tCount){
+                    $j=0;
+                    $k++;
+                }
+                $schedule = new Schedule;
+                $schedule->group_id = $this->id;
+                $schedule->number = $i+1;
+                $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                if ($this->hui=="on"){
+                    $pizda = 30;
+                }else{
+                    $pizda = 0;
+                }
+                $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
+                $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id);
+                $schedule->save();
+                $j++;
+            }
+        }
+        protected function findRoom($t,$b)
+        {
+            return Room::model()->findBySql(
+                    "SELECT * FROM spbp_branch_room"
+                    . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
+                        . "JOIN spbp_listner_schedule t2 "
+                            . "ON t2.room_id = t1.id WHERE t2.start_time = '$t')  "
+                                . "AND branch_id = '$b'")->id;
+        }
 }

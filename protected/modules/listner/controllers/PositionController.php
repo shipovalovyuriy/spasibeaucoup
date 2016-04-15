@@ -39,30 +39,26 @@ class PositionController extends \yupe\components\controllers\FrontController
     {
         $roles = ['1','3'];
         $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)){
+        if (array_intersect($role, $roles) && !isset($_GET['parent_id'])){
             $model = new Position;
+            $listner = Listner::model()->findByPk($id)->branch_id;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->listner_id = $id;
-                /*die(var_dump($model));*/
+                if(isset($_POST['group']))
+                    $model->group = $_POST['group'];
+                if(isset($_POST['hui']))
+                    $model->hui = $_POST['hui'];
                 if ($model->save()) {
                     Yii::app()->user->setFlash(
                         yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
                         Yii::t('ListnerModule.listner', 'Запись добавлена!')
                     );
 
-                    $this->redirect(
-                        (array)Yii::app()->getRequest()->getPost(
-                            'submit-type',
-                            [
-                                'update',
-                                'id' => $model->id
-                            ]
-                        )
-                    );
+                    $this->redirect('/listner/view/'.$id);
                 }
             }
-            $this->render('create', ['model' => $model]);
+            $this->render('create', ['model' => $model, 'listner' => $listner]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -76,6 +72,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $model = new Position;
+            $listner = Listner::model()->findByPk($id)->branch_id;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->parent_id = $pid;
@@ -369,6 +366,15 @@ class PositionController extends \yupe\components\controllers\FrontController
                 echo $model->group_counter+1;
             else
                 echo $model->individual_counter+1;
+        } else {
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
+    }
+    
+    public function actionGroup($subject, $branch){
+        if (Yii::app()->request->isAjaxRequest) {
+            $model = Group::model()->findAll("subject_id=$subject AND branch_id=$branch");
+            echo CJSON::encode($model); 
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
         }
