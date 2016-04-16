@@ -328,9 +328,9 @@ $form = $this->beginWidget(
                 $('.group').removeClass('hide');
                 $('#Position_group_id').parents('.row').removeClass('hide');
                 $('#Position_group').attr("checked", false);
-                $('#addTime').parents('.row').removeClass('hide');
-                $('#Position_teacher_id').parents('.row').removeClass('hide');
-                $('#Position_code').parents('.row').addClass('hide');
+                $('#addTime').parents('.row').addClass('hide');
+                $('#Position_teacher_id').parents('.row').addClass('hide');
+                $('#Position_code').parents('.row').removeClass('hide');
                 getGroup();
             }else{
                 $('#Position_code').attr('required', true);
@@ -347,6 +347,7 @@ $form = $this->beginWidget(
             $('#Position_group').val('on');
             $('#addTime').parents('.row').removeClass('hide');
             $('#Position_teacher_id').parents('.row').removeClass('hide');
+            $('#Position_group_id').parents('.row').removeClass('hide');
             $('#Position_code').parents('.row').addClass('hide');
             $('.group_id').remove();
         }else{

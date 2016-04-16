@@ -139,7 +139,7 @@ class Group extends yupe\models\YModel
                     }
                     $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
                     //die(var_dump($this->branch_id));
-                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id);
+                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id,count(Group::model()->findByPk($this->group_id)->positions));
                     $schedule->save();
                     $j++;
                 }
@@ -148,13 +148,13 @@ class Group extends yupe\models\YModel
                 $this->position->update();
             }
         }
-        protected function findRoom($t,$b)
+        protected function findRoom($t,$b,$x)
         {
             return Room::model()->findBySql(
                     "SELECT * FROM spbp_branch_room"
                     . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
                         . "JOIN spbp_listner_schedule t2 "
                             . "ON t2.room_id = t1.id WHERE t2.start_time = '$t')  "
-                                . "AND branch_id = '$b'")->id;
+                                . "AND branch_id = '$b' AND capacity>='$x' ORDER BY capacity")->id;
         }
 }
