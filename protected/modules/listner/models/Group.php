@@ -55,7 +55,7 @@ class Group extends yupe\models\YModel
 			'positions' => array(self::HAS_MANY, 'Position', 'group_id'),
                         'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
                         'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
-                        'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
+                        'schedule' => array(self::HAS_MANY, 'Schedule', 'group_id'),
                         'position' => array(self::BELONGS_TO, 'Position', 'parent_id'),
 		);
 	}
