@@ -99,7 +99,7 @@ class SiteController extends FrontController
             $arrs['subj'] = '('.$row['name'].')';
             $arrs['height'] = '100px';
             $arrs['backgroundColor']='#'.$row['color'];
-            $arrs['group']=$row['pizda']=null?'':$row['pizda'];
+            $arrs['group']=$row['pizda'];
 
             array_push($arr, $arrs);
 
