@@ -374,6 +374,25 @@ class PositionController extends \yupe\components\controllers\FrontController
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
         }
     }
+    public function actionRoom(){
+        if(Yii::app()->request->isAjaxRequest){
+
+            $start = $_GET['start_time'];
+            $branch_id = $_GET['branch_id'];
+            $number =count(Group::model()->findByPk($_GET['gavno'])->positions);
+            if($_GET['flag']=="on"){$number=1;}
+            if(!Room::model()->findBySql(
+                "SELECT * FROM spbp_branch_room"
+                . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
+                . "JOIN spbp_listner_schedule t2 "
+                . "ON t2.room_id = t1.id WHERE t2.start_time = '$start')  "
+                . "AND branch_id = '$branch_id' AND capacity>='$number' ORDER BY capacity")->id){
+
+                    echo "No room";
+            }
+
+        }
+    }
     
     public function actionGroup($subject, $branch){
         if (Yii::app()->request->isAjaxRequest) {
