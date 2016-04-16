@@ -134,6 +134,7 @@ $form = $this->beginWidget(
             <a id="clearTime" style="cursor:pointer;">Очистить</a>
         </div>
     </div>
+<span id="bbt" style="margin:0 20px 20px 0;" class="btn btn-danger">Проверить аудитории</span>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
@@ -235,6 +236,7 @@ $form = $this->beginWidget(
         </div>
     </div>
 
+<div class="row" id="ggg" style="display:none;">
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',
@@ -249,6 +251,7 @@ $form = $this->beginWidget(
             'label'      => Yii::t('ListnerModule.listner', 'Сохранить Положение и закрыть'),
         ]
     ); ?>
+    </div>
 
 <?php $this->endWidget(); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web').'/js/teacher.js',CClientScript::POS_END)?>

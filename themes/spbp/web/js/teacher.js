@@ -28,7 +28,11 @@ $(function(){
                         teacher.append('<option class="teachers" value="'+item.id+'">'+item.user.last_name + ' ' + item.user.first_name+'</option>');
                     })
             })
-            $.ajax({
+        }
+    });
+    $('#bbt').click(function(){
+        var branch = $('#branch_id').val();
+        $.ajax({
                 type:'GET',
                 url:'/listner/position/room?start_time='+$('#yw0').val(),
                 data:{
@@ -38,9 +42,15 @@ $(function(){
 
                 }
             })
-                .done(function(data){
-                    if (data=='No room'){alert('Нет свободных комнат на это время')}
-                });
-        }
+            .done(function(data){
+                if (data=='No room'){alert('Нет свободных комнат на это время')}else{
+                $('#ggg').fadeIn(300);
+                $('#bbt').removeClass('btn-danger');
+                    $('#bbt').addClass('btn-success');
+                    $('#bbt').html('Имеются');
+                }
+            });
+
+
     });
 });
