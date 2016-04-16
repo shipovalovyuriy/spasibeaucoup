@@ -140,7 +140,7 @@ class Position extends yupe\models\YModel
                             //$schedule->position_id = $this->id;
     //                    else{
     //                        $schedule->position_id = $this->id;
-    //                    $schedule->group_id = $this->group_id;}
+                        $schedule->position_id = $this->id;
                         $schedule->number = $i+1;
                         $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
                         if ($this->hui=="on"){

@@ -347,14 +347,14 @@ $form = $this->beginWidget(
             $('#Position_group').val('on');
             $('#addTime').parents('.row').removeClass('hide');
             $('#Position_teacher_id').parents('.row').removeClass('hide');
-            $('#Position_group_id').parents('.row').removeClass('hide');
+            $('#Position_group_id').parents('.row').addClass('hide');
             $('#Position_code').parents('.row').addClass('hide');
             $('.group_id').remove();
         }else{
             $('#Position_group').val('off');
             $('#addTime').parents('.row').addClass('hide');
             $('#Position_teacher_id').parents('.row').addClass('hide');
-            $('#Position_group_id').parents('.row').addClass('hide');
+            $('#Position_group_id').parents('.row').removeClass('hide');
         }
     })
 </script>

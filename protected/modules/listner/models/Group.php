@@ -139,7 +139,7 @@ class Group extends yupe\models\YModel
                     }
                     $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
                     //die(var_dump($this->branch_id));
-                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id,count(Group::model()->findByPk($this->group_id)->positions));
+                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id,count($this->positions));
                     $schedule->save();
                     $j++;
                 }

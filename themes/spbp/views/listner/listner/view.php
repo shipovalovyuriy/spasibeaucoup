@@ -104,7 +104,8 @@ $this->menu = [
             </header>
             <section class="panel-body">
                 <?php
-                foreach($model->position as $position): if(!$position->parent_id):?>
+                foreach($model->position as $position): if(!$position->parent_id):
+                    //if($position->group_id){$a='/group/'.$position->id;}?>
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
@@ -113,7 +114,7 @@ $this->menu = [
                             </span>
                         </div>
                         <div class="media-body">                        
-                            <a href="/listner/subject/lessons/<?=$position->id?>" class="h4"><?= $position->subject->name?></a>
+                            <a href="/listner/subject/lessons/<?= $position->id ?>" class="h4"><?= $position->subject->name?></a>
                         </div>
                     </article>
                     <div class="line pull-in"></div>
