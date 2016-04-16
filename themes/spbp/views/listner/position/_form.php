@@ -328,20 +328,32 @@ $form = $this->beginWidget(
                 $('.group').removeClass('hide');
                 $('#Position_group_id').parents('.row').removeClass('hide');
                 $('#Position_group').attr("checked", false);
+                $('#addTime').parents('.row').removeClass('hide');
+                $('#Position_teacher_id').parents('.row').removeClass('hide');
+                $('#Position_code').parents('.row').addClass('hide');
                 getGroup();
             }else{
                 $('#Position_code').attr('required', true);
                 $('.group').addClass('hide');
                 $('#Position_group_id').parents('.row').addClass('hide');
+                $('#addTime').parents('.row').removeClass('hide');
+                $('#Position_teacher_id').parents('.row').removeClass('hide');
+                $('#Position_code').parents('.row').addClass('hide');
             }
         }
     });
     $('#Position_group').change(function(){
         if($(this).is(':checked')){
             $('#Position_group').val('on');
-            $('#addTime').parents('row').addClass('hide');
+            $('#addTime').parents('.row').removeClass('hide');
+            $('#Position_teacher_id').parents('.row').removeClass('hide');
+            $('#Position_code').parents('.row').addClass('hide');
+            $('.group_id').remove();
         }else{
             $('#Position_group').val('off');
+            $('#addTime').parents('.row').addClass('hide');
+            $('#Position_teacher_id').parents('.row').addClass('hide');
+            $('#Position_group_id').parents('.row').addClass('hide');
         }
     })
 </script>
