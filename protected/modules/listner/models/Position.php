@@ -100,7 +100,30 @@ class Position extends yupe\models\YModel
             parent::afterSave();
             if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
-                if($this->form->type->id == 3 || $this->form->type->id == 4){
+                if($this->isNewRecord && $this->group=="on"){
+                    $group = new Group;
+                    $group->code = $this->listner->branch->group_counter + 1;
+                    $group->name = substr($this->teacher->user->first_name, 0, 1).substr($this->listner->name, 0, 1).'-'.$group->code;
+                    $group->time = $this->time;
+                    $group->lvl = $this->lvl;
+                    $group->note = $this->note;
+                    $group->teacher_id = $this->teacher_id;
+                    $group->number = $this->form->number;
+                    $group->hui = $this->hui;
+                    $group->branch_id = $this->listner->branch_id;
+                    $group->subject_id = $this->subject_id;
+                    $group->parent_id = $this->id;
+                    $group->save();
+                    if($this->form->type->id==4){
+                        $this->listner->branch->individual_counter += 1;
+                    }
+                    else{
+                        $this->listner->branch->group_counter +=1;
+                    }
+                    $this->listner->branch->save();
+                }
+
+                if($this->form->type->id == 3){
                     $time = explode(',', $this->time);
                     $tCount = count($time);
                     $j = 0;
@@ -124,7 +147,7 @@ class Position extends yupe\models\YModel
                             $pizda = 0;
                         }
                         $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
-                        $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id);
+                        $schedule->room_id = $this->findRoom($schedule->start_time, $this->listner->branch_id,count(Group::model()->findByPk($this->group_id)->positions));
                         $schedule->save();
                         $j++;
                     }
@@ -133,27 +156,6 @@ class Position extends yupe\models\YModel
                         $this->listner->branch->save();
                     }
 
-                }else if($this->isNewRecord && $this->group=="on"){
-                    $group = new Group;
-                    $group->code = $this->listner->branch->group_counter + 1;
-                    $group->name = substr($this->teacher->user->first_name, 0, 1).substr($this->listner->name, 0, 1).'-'.$group->code;
-                    $group->time = $this->time;
-                    $group->lvl = $this->lvl;
-                    $group->note = $this->note;
-                    $group->teacher_id = $this->teacher_id;
-                    $group->number = $this->form->number;
-                    $group->hui = $this->hui;
-                    $group->branch_id = $this->listner->branch_id;
-                    $group->subject_id = $this->subject_id;
-                    $group->parent_id = $this->id;
-                    $group->save();
-                    if($this->form->type->id==4){
-                        $this->listner->branch->individual_counter += 1;
-                    }
-                    else{
-                        $this->listner->branch->group_counter +=1;
-                    }
-                    $this->listner->branch->save();
                 }
                 //Формирование прихода
                 $inflow = new Inflow();
@@ -175,14 +177,14 @@ class Position extends yupe\models\YModel
             
         }
         
-        protected function findRoom($t,$b)
+        protected function findRoom($t,$b,$x)
         {
             return Room::model()->findBySql(
                     "SELECT * FROM spbp_branch_room"
                     . " WHERE id <> ALL(SELECT t1.id FROM spbp_branch_room t1 "
                         . "JOIN spbp_listner_schedule t2 "
                             . "ON t2.room_id = t1.id WHERE t2.start_time = '$t')  "
-                                . "AND branch_id = '$b'")->id;
+                                . "AND branch_id = '$b' AND capacity>='$x' ORDER BY capacity")->id;
         }
         
         public function getNext(){
