@@ -95,7 +95,9 @@ class Position extends yupe\models\YModel
 			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
 		);
 	}
-        protected function afterSave() 
+
+
+    protected function afterSave()
         {
             parent::afterSave();
             if($this->isNewRecord && $this->is_test==0){

@@ -28,6 +28,20 @@ $(function(){
                         teacher.append('<option class="teachers" value="'+item.id+'">'+item.user.last_name + ' ' + item.user.first_name+'</option>');
                     })
             })
+            $.ajax({
+                type:'GET',
+                url:'/listner/position/room',
+                data:{
+                    branch_id:branch,
+                    time:$('#yw0').val(),
+                    group_id:$('#Position_group_id').val(),
+                    flag:$('#Position_group').val()
+
+                }
+            })
+                .done(function(data){
+                    if (data=='No room'){alert('Нет свободных комнат на это время')}
+                });
         }
     });
 });

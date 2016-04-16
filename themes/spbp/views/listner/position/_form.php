@@ -78,19 +78,7 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
-    <div class="row hide group">
-        <div class="col-sm-7">
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Создать новую группу?</label>
-                <div class="col-sm-10">
-                    <label class="switch">
-                        <input type="checkbox" name="group" id="Position_group">
-                        <span></span>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'code', [
@@ -105,6 +93,31 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+<div class="row hide group">
+    <div class="col-sm-7">
+        <div class="form-group">
+            <label class="col-sm-5 control-label">Создать новую группу?</label>
+            <div class="col-sm-10">
+                <label class="switch">
+                    <input type="checkbox" name="group" id="Position_group">
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-7">
+        <?php echo $form->dropDownListGroup($model, 'group_id', [
+            'widgetOptions' => [
+                'htmlOptions' => [
+                    'empty' => '--выберите--',
+                    'encode' => false,
+                ],
+            ]
+        ]); ?>
+    </div>
+</div>
 <input type="hidden" value="<?= Listner::model()->findByPk($_GET['id'])->branch_id;?>" id="branch_id">
     <div class="row">
         <div class="col-sm-7">
@@ -147,18 +160,7 @@ $form = $this->beginWidget(
     </div>
 </div>
 </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'group_id', [
-                    'widgetOptions' => [
-                        'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
-                        ],
-                    ]
-                ]); ?>
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'lvl', [
@@ -273,6 +275,8 @@ $form = $this->beginWidget(
         $('.teachers').remove();
         $('.totalTime').val('');
     });
+
+
     function getCode() {
         var code = $.ajax({
             type: 'get',
