@@ -105,12 +105,12 @@ $this->menu = [
             <section class="panel-body">
                 <?php
                 foreach($model->position as $position): if(!$position->parent_id):
-                    if($position->group_id){$a='group/'.$position->id;}else{$a=$position->id;}?>
+                    if($position->group_id){$a='group/'.$position->id;$b='users';}else{$a=$position->id; $b='star';}?>
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
                                 <i class="fa fa-circle text-default fa-stack-2x"></i>
-                                <i class="fa fa-star text-white fa-stack-1x"></i>
+                                <i class="fa fa-<?= $b;?> text-white fa-stack-1x"></i>
                             </span>
                         </div>
                         <div class="media-body">                        
