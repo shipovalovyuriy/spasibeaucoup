@@ -322,6 +322,7 @@ $form = $this->beginWidget(
                 $('.group').removeClass('hide');
                 $('#Position_group_id').parents('.row').removeClass('hide');
                 $('#Position_group').attr("checked", false);
+                getGroup();
             }else{
                 $('#Position_code').attr('required', true);
                 $('.group').addClass('hide');
