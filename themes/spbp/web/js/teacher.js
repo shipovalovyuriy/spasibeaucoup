@@ -30,10 +30,9 @@ $(function(){
             })
             $.ajax({
                 type:'GET',
-                url:'/listner/position/room',
+                url:'/listner/position/room?time='+$('#yw0').val(),
                 data:{
                     branch_id:branch,
-                    time:$('#yw0').val(),
                     group_id:$('#Position_group_id').val(),
                     flag:$('#Position_group').val()
 

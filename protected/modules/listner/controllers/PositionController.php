@@ -379,7 +379,7 @@ class PositionController extends \yupe\components\controllers\FrontController
 
             $start = $_GET['start_time'];
             $branch_id = $_GET['branch_id'];
-            $number =count(Group::model()->findByPk($_GET['gavno'])->positions);
+            $number =count(Group::model()->findByPk($_GET['gavno'])->positions)+1;
             if($_GET['flag']=="on"){$number=1;}
             if(!Room::model()->findBySql(
                 "SELECT * FROM spbp_branch_room"
