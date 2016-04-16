@@ -252,6 +252,7 @@ $form = $this->beginWidget(
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web').'/js/teacher.js',CClientScript::POS_END)?>
 <script>
     $('#Position_group_id').parents('.row').addClass('hide');
+    $('#Position_group').val('off');
     var el = document.getElementById("addTime");
     var currentTime = document.getElementById("yw0");
     var total = document.getElementsByClassName("totalTime");
@@ -307,6 +308,7 @@ $form = $this->beginWidget(
                 branch: branch
             }
         }).done(function(data){
+            $('.group_id').remove();
             data.forEach(function(item){
                 $('#Position_group_id').append('<option class="group_id" value="'+item.id+'">'+item.name+'</option>');
             })
@@ -330,7 +332,12 @@ $form = $this->beginWidget(
             }
         }
     });
-    $('#Position_group').click(function(){
-        
+    $('#Position_group').change(function(){
+        if($(this).is(':checked')){
+            $('#Position_group').val('on');
+            $('#addTime').parents('row').addClass('hide');
+        }else{
+            $('#Position_group').val('off');
+        }
     })
 </script>

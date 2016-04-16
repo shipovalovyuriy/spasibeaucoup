@@ -58,7 +58,7 @@
             [
                 'widgetOptions'=>[
                     'options' => [
-                        'format'=> "yyyy-mm-dd",
+                        'format'=> "dd",
                     ],
                     'htmlOptions' => [
                     ]
