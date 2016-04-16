@@ -97,6 +97,7 @@ class Position extends yupe\models\YModel
 	}
         protected function afterSave() 
         {
+            parent::afterSave();
             if($this->isNewRecord && $this->is_test==0){
                 //Формирование расписания пользователя
                 if($this->form->type->id == 3 || $this->form->type->id == 4){
@@ -111,7 +112,7 @@ class Position extends yupe\models\YModel
                         }
                         $schedule = new Schedule;
                         //if($this->form->type->id == 3 || $this->form->type->id == 4)
-                            $schedule->position_id = $this->id;
+                            //$schedule->position_id = $this->id;
     //                    else{
     //                        $schedule->position_id = $this->id;
     //                    $schedule->group_id = $this->group_id;}
@@ -127,10 +128,12 @@ class Position extends yupe\models\YModel
                         $schedule->save();
                         $j++;
                     }
-                    $this->listner->branch->individual_counter += 1;
-                    $this->listner->branch->save();
+                    if($this->form->type->id==3){
+                        $this->listner->branch->individual_counter += 1;
+                        $this->listner->branch->save();
+                    }
 
-                }else if($this->group=="on"){
+                }else if($this->isNewRecord && $this->group=="on"){
                     $group = new Group;
                     $group->code = $this->listner->branch->group_counter + 1;
                     $group->name = substr($this->teacher->user->first_name, 0, 1).substr($this->listner->name, 0, 1).'-'.$group->code;
@@ -142,10 +145,14 @@ class Position extends yupe\models\YModel
                     $group->hui = $this->hui;
                     $group->branch_id = $this->listner->branch_id;
                     $group->subject_id = $this->subject_id;
+                    $group->parent_id = $this->id;
                     $group->save();
-                    $this->group_id = $group->id;
-                    $this->save();
-                    $this->listner->branch->group_counter +=1;
+                    if($this->form->type->id==4){
+                        $this->listner->branch->individual_counter += 1;
+                    }
+                    else{
+                        $this->listner->branch->group_counter +=1;
+                    }
                     $this->listner->branch->save();
                 }
                 //Формирование прихода
@@ -164,7 +171,7 @@ class Position extends yupe\models\YModel
                     $this->listner->save();
                 }
             }
-            parent::afterSave();
+            
             
         }
         

@@ -45,17 +45,21 @@ class PositionController extends \yupe\components\controllers\FrontController
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->listner_id = $id;
-                if(isset($_POST['group']))
+                if(isset($_POST['group'])){
                     $model->group = $_POST['group'];
-                if(isset($_POST['hui']))
-                    $model->hui = $_POST['hui'];
-                if ($model->save()) {
-                    Yii::app()->user->setFlash(
-                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                        Yii::t('ListnerModule.listner', 'Запись добавлена!')
-                    );
+                }else {$model->group=NULL;}
+                if(isset($_POST['hui'])){
+                $model->hui = $_POST['hui'];}
+                else {$model->hui=NULL;}
+                if(!$model->group_id){
+                    if ($model->save()) {
+                        Yii::app()->user->setFlash(
+                            yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                            Yii::t('ListnerModule.listner', 'Запись добавлена!')
+                        );
 
-                    $this->redirect('/listner/view/'.$id);
+                        $this->redirect('/listner/view/'.$id);
+                    }
                 }
             }
             $this->render('create', ['model' => $model, 'listner' => $listner]);

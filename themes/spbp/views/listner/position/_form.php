@@ -151,7 +151,10 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'group_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Group::model()->findAll(), 'id', 'name')
+                        'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
                     ]
                 ]); ?>
         </div>
@@ -275,9 +278,6 @@ $form = $this->beginWidget(
             url: '/listner/position/code?type='+$('#Position_type').val()+'&id='+<?= $_GET['id']?>,
             async: false
         }).done(function(){
-            setTimeout(function(){
-                getCode();
-            }, 10000);
         }).responseText;
         $('#Position_code').val(code);
     }

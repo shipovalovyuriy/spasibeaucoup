@@ -56,6 +56,7 @@ class Group extends yupe\models\YModel
                         'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
                         'branch' => array(self::BELONGS_TO, 'Branch', 'branch_id'),
                         'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
+                        'position' => array(self::BELONGS_TO, 'Position', 'parent_id'),
 		);
 	}
 
@@ -117,28 +118,34 @@ class Group extends yupe\models\YModel
 	}
         protected function afterSave() {
             parent::afterSave();
-            $time = explode(',', $this->time);
-            $tCount = count($time);
-            $j = 0;
-            $k = 0;
-            for($i=0; $i<$this->number;$i++){
-                if($j==$tCount){
-                    $j=0;
-                    $k++;
+            if($this->isNewRecord){
+                $time = explode(',', $this->time);
+                $tCount = count($time);
+                $j = 0;
+                $k = 0;
+                for($i=0; $i<$this->number;$i++){
+                    if($j==$tCount){
+                        $j=0;
+                        $k++;
+                    }
+                    $schedule = new Schedule;
+                    $schedule->group_id = $this->id;
+                    $schedule->number = $i+1;
+                    $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
+                    if ($this->hui=="on"){
+                        $pizda = 30;
+                    }else{
+                        $pizda = 0;
+                    }
+                    $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
+                    //die(var_dump($this->branch_id));
+                    $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id);
+                    $schedule->save();
+                    $j++;
                 }
-                $schedule = new Schedule;
-                $schedule->group_id = $this->id;
-                $schedule->number = $i+1;
-                $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
-                if ($this->hui=="on"){
-                    $pizda = 30;
-                }else{
-                    $pizda = 0;
-                }
-                $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
-                $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id);
-                $schedule->save();
-                $j++;
+                $this->position->group_id = $this->id;
+                $this->position->code = $this->code;
+                $this->position->update();
             }
         }
         protected function findRoom($t,$b)
