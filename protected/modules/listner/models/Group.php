@@ -40,7 +40,7 @@ class Group extends yupe\models\YModel
 			array('note', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, time, lvl,note,teacher_id', 'safe', 'on'=>'search'),
+			array('id, name, time, lvl,note,teacher_id,status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +74,7 @@ class Group extends yupe\models\YModel
 			'subject_id'=>'Предмет',
 			'lvl'=>'Уровень',
 			'note'=>'Комментарий',
+			'statys'=>'Статус',
 		);
 	}
 
@@ -100,6 +101,7 @@ class Group extends yupe\models\YModel
 		$criteria->compare('time',$this->time,true);
 		$criteria->compare('lvl',$this->lvl,true);
 		$criteria->compare('note',$this->note,true);
+		$criteria->compare('note',$this->status,true);
 		$criteria->compare('teacher_id',$this->teacher_id,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

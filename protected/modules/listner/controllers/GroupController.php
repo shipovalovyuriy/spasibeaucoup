@@ -128,7 +128,44 @@ class GroupController extends \yupe\components\controllers\FrontController
             $model->setAttributes(Yii::app()->getRequest()->getParam('Group'));
         $this->render('index', ['model' => $model]);
     }
-    
+
+    public function actionClose(){
+
+
+        $model = new Group('search');
+        $model->unsetAttributes(); // clear any default values
+
+        $roles = ['1','2','3','4','5'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)) {
+
+                $roles = ['2','3'];
+
+                $model->setAttributes(Yii::app()->getRequest()->getParam('Group'));
+                $model->status = 1;
+                if (array_intersect($role,$roles)){
+
+                    $model->branch_id = \Yii::app()->user->branch;
+                }
+
+
+                $this->render('close',['model'=>$model]);
+        } else {
+            throw new CHttpException(403,  'Ошибка прав доступа.');
+        }
+
+
+    }
+
+    public function actionOff($id){
+
+        $model = \Group::model()->findByPk($id);
+
+        $model->status = 0;
+
+        $model->update();
+        $this->redirect('/listner/group/close');
+    }
     /**
     * Возвращает модель по указанному идентификатору
     * Если модель не будет найдена - возникнет HTTP-исключение.
