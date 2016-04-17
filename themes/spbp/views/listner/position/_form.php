@@ -135,6 +135,7 @@ $form = $this->beginWidget(
         </div>
     </div>
 <span id="bbt" style="margin:0 20px 20px 0;" class="btn btn-danger">Проверить аудитории</span>
+<span id="ttt" style="margin-left:20px;display:none;">Нажмите кнопку еще раз, чтобы проверить снова</span>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [

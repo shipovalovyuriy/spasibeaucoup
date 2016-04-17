@@ -43,7 +43,15 @@ $(function(){
                 }
             })
             .done(function(data){
-                if (data=='No room'){alert('Нет свободных комнат на это время')}else{
+
+                $('#ttt').fadeIn(300);
+                if (data=='No room'){alert('Нет свободных комнат на это время')
+
+                    $('#bbt').removeClass('btn-success');
+                    $('#bbt').addClass('btn-danger');
+                    $('#bbt').html('Проверить аудитории');
+
+                }else{
                 $('#ggg').fadeIn(300);
                 $('#bbt').removeClass('btn-danger');
                     $('#bbt').addClass('btn-success');
