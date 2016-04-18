@@ -218,6 +218,7 @@ class Position extends yupe\models\YModel
 			'lvl' => 'Уровень',
 			'note' => 'Примечание',
 			'time' => 'Время',
+                        'parent_group' => 'Номер родительской группы',
 			'start_date' => 'Дата начала обучения',
 		);
 	}

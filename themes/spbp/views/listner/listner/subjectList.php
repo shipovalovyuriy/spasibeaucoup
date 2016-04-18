@@ -35,7 +35,7 @@
             </div>
             <?php foreach($model->schedule as $schedule):?>
                 <div class="list-group-item" <?php if(date('c')>=$schedule->end_time):?>style="text-decoration: line-through;"<?php endif;?>>
-                    Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time)?>
+                    Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time) .' | '. $schedule->room->alias?>
                     <?php if($schedule->checkEdit()):?>
                         <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
                             <i class="fa fa-pencil pull-right"></i>

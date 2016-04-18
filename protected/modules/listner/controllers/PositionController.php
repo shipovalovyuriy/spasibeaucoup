@@ -42,6 +42,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (array_intersect($role, $roles) && !isset($_GET['parent_id'])){
             $model = new Position;
             $listner = Listner::model()->findByPk($id)->branch_id;
+            $groups = Group::model()->findAll('branch_id='.$listner);
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->listner_id = $id;
@@ -62,7 +63,7 @@ class PositionController extends \yupe\components\controllers\FrontController
                     }
                 }
             }
-            $this->render('create', ['model' => $model, 'listner' => $listner]);
+            $this->render('create', ['model' => $model, 'listner' => $listner, 'groups' => $groups]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -77,6 +78,7 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (array_intersect($role, $roles)){
             $model = new Position;
             $listner = Listner::model()->findByPk($id)->branch_id;
+            $groups = Group::model()->findAll('branch_id='.$listner);
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->parent_id = $pid;
@@ -106,7 +108,7 @@ class PositionController extends \yupe\components\controllers\FrontController
                     );
                 }
             }
-            $this->render('create', ['model' => $model]);
+            $this->render('create', ['model' => $model, 'listner' => $listner, 'groups' => $groups]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -364,8 +366,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     }
     public function actionCode($type, $id){
         if (Yii::app()->request->isAjaxRequest) {
-            $user = Listner::model()->findByPk($id)->branch_id;
-            $model = Branch::model()->findByPk($user);
+            $model = Listner::model()->findByPk($id)->branch;
             if($type==1 || $type==2)
                 echo $model->group_counter+1;
             else

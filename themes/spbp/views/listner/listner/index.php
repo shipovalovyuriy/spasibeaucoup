@@ -90,11 +90,3 @@ $this->menu = [
         ],
     ]
 ); ?>
-<script>
-    $(function(){
-        $('a[rel=Listner_status][data-value=0]').append('<div class="label label-success"><span style="border-bottom: 1px dashed;">Потенциальный</span></div>');
-        $('a[rel=Listner_status][data-value=1]').append('<div class="label label-warning"><span style="border-bottom: 1px dashed;">Слушатель</span></div>');
-        $('a[rel=Listner_status][data-value=2]').append('<div class="label label-primary"><span style="border-bottom: 1px dashed;">Выпускник</span></div>');
-        $('a[rel=Listner_status][data-value=3]').append('<div class="label label-danger"><span style="border-bottom: 1px dashed;">Отказ</span></div>');
-    })
-</script>

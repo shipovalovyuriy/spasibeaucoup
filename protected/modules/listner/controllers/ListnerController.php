@@ -252,8 +252,10 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
             $model = Position::model()->findByPk($id);
-            //die(var_d);
-            $this->render('subjectList', ['model' => $model]);
+            if(!$model->group_id)
+                $this->render('subjectList', ['model' => $model]);
+            else
+                $this->redirect('/listner/subject/lessons/group/'.$id);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -264,8 +266,10 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
             $model = Position::model()->findByPk($id);
-            //die($model->group_id);
-            $this->render('subjectListGroup', ['model' => $model]);
+            if($model->group_id)
+                $this->render('subjectListGroup', ['model' => $model]);
+            else
+                $this->redirect('/listner/subject/lessons/'.$id);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
