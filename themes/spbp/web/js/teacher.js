@@ -54,15 +54,13 @@ $(function(){
             })
             .done(function(data){
 
-                $('#ttt').fadeIn(300);
-                if (data=='No room'){alert('Нет свободных комнат на это время')
-
+                if (data=='No room'){
+                    alert('Нет свободных комнат на это время');
                     $('#bbt').removeClass('btn-success');
                     $('#bbt').addClass('btn-danger');
                     $('#bbt').html('Проверить аудитории');
 
                 }else{
-                //$('#ggg').fadeIn();
                 $('#bbt').removeClass('btn-danger');
                     $('#bbt').addClass('btn-success');
                     $('#bbt').html('Имеются');

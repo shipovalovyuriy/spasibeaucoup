@@ -133,14 +133,17 @@ $form = $this->beginWidget(
                     <i class="fa fa-calendar"></i>
                 </span>
             </div>
+            
             <a id="addTime" style="text-decoration:none; cursor:pointer;"class="fa fa-plus"></a>
+            <div>
+                <span id="bbt" style="margin:0 20px 20px 0;" class="btn btn-danger">Проверить аудитории</span>
+                <span id="ttt" style="margin-left:20px;display:none;">Нажмите кнопку еще раз, чтобы проверить снова</span>
+            </div>
             <p><label for="">Итоговое время:</label></p>
             <input class="totalTime popover-help form-control" readonly value="<?=$model->time ?>" type="text" name="Position[time]"> 
             <a id="clearTime" style="cursor:pointer;">Очистить</a>
         </div>
     </div>
-<span id="bbt" style="margin:0 20px 20px 0;" class="btn btn-danger">Проверить аудитории</span>
-<span id="ttt" style="margin-left:20px;display:none;">Нажмите кнопку еще раз, чтобы проверить снова</span>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'teacher_id', [
