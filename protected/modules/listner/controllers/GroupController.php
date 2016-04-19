@@ -161,7 +161,7 @@ class GroupController extends \yupe\components\controllers\FrontController
 
         $model = \Group::model()->findByPk($id);
 
-        $model->status = 0;
+        $model->is_active = 0;
 
         $model->update();
         $this->redirect('/listner/group/close');
