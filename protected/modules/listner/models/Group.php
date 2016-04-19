@@ -148,7 +148,25 @@ class Group extends yupe\models\YModel
                 $this->position->group_id = $this->id;
                 $this->position->code = $this->code;
                 $this->position->update();
+                if(!$this->parent_group){
+                    $this->first_parent_group = $this->id;
+                    $this->update();
+                }else{
+                    $this->first_parent_group = $this->prev->first_parent_group;
+                    $this->update();
+                }
             }
+        }
+        
+        
+        public function getNext(){
+            return $this->model()->findBySql('SELECT * FROM spbp_listner_group t1 WHERE t1.parent_group ='.$this->id);
+        }
+        public function getPrev(){
+            if($this->parent_group)
+                return $this->model()->findBySql('SELECT * FROM spbp_listner_group t1 WHERE t1.id ='.$this->parent_group);
+            else
+                return false;
         }
         protected function findRoom($t,$b,$x)
         {

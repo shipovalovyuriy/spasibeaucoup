@@ -27,9 +27,9 @@ $form = $this->beginWidget(
     <?php echo Yii::t('ListnerModule.listner', 'обязательны.'); ?>
 </div>
 
-<?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model);?>
 
-    <?php if(!isset($_GET['parent_id'])):?>
+    <?php if(!isset($_GET['parent_id']) && !isset($_GET['parent_group'])):?>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'subject_id', [
@@ -46,7 +46,12 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
-<?php else:
+<?php elseif(isset($_GET['parent_group'])):
+    echo $form->hiddenField($model, 'subject_id',[
+                    'value' => Group::model()->findByPk($_GET['parent_group'])->subject_id,
+                    'type' => 'hidden'
+            ]);
+ else:
         echo $form->hiddenField($model, 'subject_id',[
                     'value' => Position::model()->findByPk($_GET['parent_id'])->subject_id,
                     'type' => 'hidden'
@@ -149,7 +154,7 @@ $form = $this->beginWidget(
         </div>
     </div>
 
-<div class="row">
+<div class="row oneH">
 <div class="col-sm-7">
     <div class="form-group">
         <label class="col-sm-5 control-label">Полутрочасовой урок</label>
@@ -318,7 +323,7 @@ $form = $this->beginWidget(
         }).done(function(data){
             $('.group_id').remove();
             data.forEach(function(item){
-                $('#Position_group_id').append('<option class="group_id" value="'+item.id+'">'+item.name+'</option>');
+                $('#Position_group_id').append('<option class="group_id" value="'+item.id+'">'+item.code+'</option>');
             })
         });
     }
@@ -335,6 +340,7 @@ $form = $this->beginWidget(
                 $('#addTime').parents('.row').addClass('hide');
                 $('#Position_teacher_id').parents('.row').addClass('hide');
                 $('#Position_code').parents('.row').removeClass('hide');
+                $('.oneH').removeClass('hide');
                 getGroup();
             }else{
                 $('#Position_code').attr('required', true);
@@ -343,6 +349,7 @@ $form = $this->beginWidget(
                 $('#addTime').parents('.row').removeClass('hide');
                 $('#Position_teacher_id').parents('.row').removeClass('hide');
                 $('#Position_code').parents('.row').addClass('hide');
+                $('.oneH').removeClass('hide');
             }
         }
     });
@@ -354,11 +361,14 @@ $form = $this->beginWidget(
             $('#Position_group_id').parents('.row').addClass('hide');
             $('#Position_code').parents('.row').addClass('hide');
             $('.group_id').remove();
+            $('.oneH').removeClass('hide');
         }else{
             $('#Position_group').val('off');
             $('#addTime').parents('.row').addClass('hide');
             $('#Position_teacher_id').parents('.row').addClass('hide');
             $('#Position_group_id').parents('.row').removeClass('hide');
+            $('#parent_group').parents('.row').addClass('hide');
+            $('.oneH').addClass('hide');
         }
     })
 </script>

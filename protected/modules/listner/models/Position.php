@@ -27,8 +27,9 @@
 Yii::import('application.modules.balance.models.Inflow');
 class Position extends yupe\models\YModel
 {
-    public  $type;
+    public $type;
     public $group;
+    public $parent_group;
     private static  $_days = [
             'Воскресенье',
             'Понедельник',
@@ -89,7 +90,7 @@ class Position extends yupe\models\YModel
 		return array(
 			'listner' => array(self::BELONGS_TO, 'Listner', 'listner_id'),
 			'form' => array(self::BELONGS_TO, 'Form', 'form_id'),
-			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
+			'groupP' => array(self::BELONGS_TO, 'Group', 'group_id'),
 			'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
 			'teacher' => array(self::BELONGS_TO, 'Teacher', 'teacher_id'),
 			'schedule' => array(self::HAS_MANY, 'Schedule', 'position_id'),
@@ -115,6 +116,8 @@ class Position extends yupe\models\YModel
                     $group->branch_id = $this->listner->branch_id;
                     $group->subject_id = $this->subject_id;
                     $group->parent_id = $this->id;
+                    if($this->parent_group)
+                        $group->parent_group = $this->parent_group;
                     $group->save();
                     if($this->form->type->id==4){
                         $this->listner->branch->individual_counter += 1;

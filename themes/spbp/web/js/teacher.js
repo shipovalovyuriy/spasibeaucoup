@@ -30,14 +30,24 @@ $(function(){
             })
         }
     });
+    $('#clearTime').click(function(){
+        $('#bbt').removeClass('btn-success');
+        $('#bbt').addClass('btn-danger');
+        $('#bbt').html('Проверить аудитории');
+    });
     $('#bbt').click(function(){
         var branch = $('#branch_id').val();
+        if($('#Position_group_id').val()){
+            var group = $('#Position_group_id').val();
+        }else{
+            var group = 0;
+        }
         $.ajax({
                 type:'GET',
                 url:'/listner/position/room?start_time='+$('#yw0').val(),
                 data:{
                     branch_id:branch,
-                    group_id:$('#Position_group_id').val(),
+                    group_id:group,
                     flag:$('#Position_group').val()
 
                 }
@@ -52,7 +62,7 @@ $(function(){
                     $('#bbt').html('Проверить аудитории');
 
                 }else{
-                $('#ggg').fadeIn(300);
+                //$('#ggg').fadeIn();
                 $('#bbt').removeClass('btn-danger');
                     $('#bbt').addClass('btn-success');
                     $('#bbt').html('Имеются');

@@ -24,6 +24,7 @@ return [
         '/listner/<action>/<id:\d+>' => 'listner/listner/<action>',
         '/listner/view/<id:\d+>/create' => 'listner/position/create',
         '/listner/view/<id:\d+>/create/<parent_id:\d+>' => 'listner/position/createNext',
+        '/listner/view/<id:\d+>/create/group/<parent_group:\d+>' => 'listner/position/createNextGroup',
         '/listner/subject/lessons/<id:\d+>' => 'listner/listner/subject/',
         '/listner/subject/lessons/group/<id:\d+>' => 'listner/listner/subjectGroup/',
         '/listner/subject/lessons/<group_id:\d+>/update/<id:\d+>' => 'listner/schedule/update/',

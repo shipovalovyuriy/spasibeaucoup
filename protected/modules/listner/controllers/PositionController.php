@@ -42,7 +42,6 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (array_intersect($role, $roles) && !isset($_GET['parent_id'])){
             $model = new Position;
             $listner = Listner::model()->findByPk($id)->branch_id;
-            $groups = Group::model()->findAll('branch_id='.$listner);
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->listner_id = $id;
@@ -63,7 +62,7 @@ class PositionController extends \yupe\components\controllers\FrontController
                     }
                 }
             }
-            $this->render('create', ['model' => $model, 'listner' => $listner, 'groups' => $groups]);
+            $this->render('create', ['model' => $model, 'listner' => $listner]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -78,7 +77,6 @@ class PositionController extends \yupe\components\controllers\FrontController
         if (array_intersect($role, $roles)){
             $model = new Position;
             $listner = Listner::model()->findByPk($id)->branch_id;
-            $groups = Group::model()->findAll('branch_id='.$listner);
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->parent_id = $pid;
@@ -108,7 +106,48 @@ class PositionController extends \yupe\components\controllers\FrontController
                     );
                 }
             }
-            $this->render('create', ['model' => $model, 'listner' => $listner, 'groups' => $groups]);
+            $this->render('create', ['model' => $model, 'listner' => $listner]);
+        } else {
+            throw new CHttpException(403,  'Ошибка прав доступа.');
+        }
+    }
+    
+    public function actionCreateNextGroup($id,$parent_group){
+        $roles = ['1','3'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)){
+            $model = new Position;
+            $listner = Listner::model()->findByPk($id)->branch_id;
+            if (Yii::app()->getRequest()->getPost('Position') !== null) {
+                $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
+                $model->parent_group = $parent_group;
+                if($model->prev->first_parent){
+                    $model->first_parent = $model->prev->first_parent;
+                }else{
+                    $model->first_parent = $model->prev->id;
+                }
+                if(in_array('3', $role) && !in_array('1', $role)){
+                    $model->branch_id = Yii::app()->user->branch->id;
+                }
+                $model->listner_id = $id;
+                if ($model->save()) {
+                    Yii::app()->user->setFlash(
+                        yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                        Yii::t('ListnerModule.listner', 'Запись добавлена!')
+                    );
+
+                    $this->redirect(
+                        (array)Yii::app()->getRequest()->getPost(
+                            'submit-type',
+                            [
+                                'update',
+                                'id' => $model->id
+                            ]
+                        )
+                    );
+                }
+            }
+            $this->render('create', ['model' => $model, 'listner' => $listner]);
         } else {
             throw new CHttpException(403,  'Ошибка прав доступа.');
         }
@@ -380,9 +419,10 @@ class PositionController extends \yupe\components\controllers\FrontController
 
             $start = $_GET['start_time'];
             $branch_id = $_GET['branch_id'];
-            $number =count(Group::model()->findByPk($_GET['group_id'])->positions)+1;
-//            die(var_dump($number));
-            ///die(var_dump($number));
+            if($_GET['group_id']==0)
+                $number = 1;
+            else
+                $number =count(Group::model()->findByPk($_GET['group_id'])->positions)+1;
             if($_GET['flag']=="on"){$number=1;}
             if(!Room::model()->findBySql(
                 "SELECT * FROM spbp_branch_room"

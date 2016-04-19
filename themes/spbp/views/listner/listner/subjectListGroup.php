@@ -11,6 +11,11 @@
                 <a class="text-right" href="#">
                     <i></i>
                 </a>
+                <?php if(!$model->groupP->next):?>
+                    <a class="text-right" href="/listner/view/<?= $model->listner_id?>/create/group/<?= $model->group_id?>">
+                        <i class="fa fa-plus-circle"></i> Продлить курс
+                    </a>
+                <?php endif;?>
                 <a class="text-right" href="/listner/subject/lessons/<?= $model->id?>/doc">
                     <i class="fa fa-file-o"></i>  Документ
                 </a>
