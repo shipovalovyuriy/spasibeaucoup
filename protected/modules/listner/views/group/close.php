@@ -12,11 +12,9 @@ $this->widget('yupe\widgets\FrontGridView',
             'name',
             'lvl',
             'note',
+            //'is_active',
 // 'branch_id',
 // 'email',
-            [
-                'class' => 'yupe\widgets\FrontButtonColumn',
-            ],
             [
                 'header' => 'Закрыть группу',
                 'class' => 'yupe\widgets\FrontButtonColumn',

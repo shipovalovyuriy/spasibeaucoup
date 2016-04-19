@@ -142,7 +142,7 @@ class GroupController extends \yupe\components\controllers\FrontController
                 $roles = ['2','3'];
 
                 $model->setAttributes(Yii::app()->getRequest()->getParam('Group'));
-                $model->is_active = 1;
+                //$model->is_active = 1;
                 if (array_intersect($role,$roles)){
 
                     $model->branch_id = \Yii::app()->user->branch;

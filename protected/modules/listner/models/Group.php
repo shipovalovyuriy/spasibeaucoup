@@ -103,6 +103,7 @@ class Group extends yupe\models\YModel
 		$criteria->compare('note',$this->note,true);
 		$criteria->compare('note',$this->is_active,true);
 		$criteria->compare('teacher_id',$this->teacher_id,true);
+                $criteria->compare('is_active',$this->is_active,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
