@@ -12,7 +12,7 @@ $this->widget('yupe\widgets\FrontGridView',
             'name',
             'lvl',
             'note',
-            //'is_active',
+            'is_active',
 // 'branch_id',
 // 'email',
             [

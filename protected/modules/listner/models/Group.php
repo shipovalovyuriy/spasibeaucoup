@@ -40,7 +40,7 @@ class Group extends yupe\models\YModel
 			array('note', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, time, lvl,note,teacher_id,is_active', 'safe', 'on'=>'search'),
+			array('id, name, time, lvl, note, teacher_id, is_active', 'safe', 'on'=>'search'),
 		);
 	}
 
