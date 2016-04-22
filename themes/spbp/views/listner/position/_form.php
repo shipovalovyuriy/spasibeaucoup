@@ -245,7 +245,7 @@ $form = $this->beginWidget(
         </div>
     </div>
 
-<div class="row" id="ggg" style="display:none;">
+<div class="row" id="ggg">
     <?php $this->widget(
         'bootstrap.widgets.TbButton', [
             'buttonType' => 'submit',

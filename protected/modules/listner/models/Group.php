@@ -122,6 +122,9 @@ class Group extends yupe\models\YModel
         protected function afterSave() {
             parent::afterSave();
             if($this->isNewRecord){
+                $this->position->group_id = $this->id;
+                $this->position->code = $this->code;
+                $this->position->update();
                 $time = explode(',', $this->time);
                 $tCount = count($time);
                 $j = 0;
@@ -143,18 +146,9 @@ class Group extends yupe\models\YModel
                     $schedule->end_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week 1 hours ".$pizda." minutes",strtotime($time[$j]))));
                     //die(var_dump($this->branch_id));
                     $schedule->room_id = $this->findRoom($schedule->start_time, $this->branch_id,count($this->positions));
-                    $schedule->save();
+                    if(!$schedule->save())
+                    die(var_dump($schedule->getErrors()));
                     $j++;
-                }
-                $this->position->group_id = $this->id;
-                $this->position->code = $this->code;
-                $this->position->update();
-                if(!$this->parent_group){
-                    $this->first_parent_group = $this->id;
-                    $this->update();
-                }else{
-                    $this->first_parent_group = $this->prev->first_parent_group;
-                    $this->update();
                 }
             }
         }

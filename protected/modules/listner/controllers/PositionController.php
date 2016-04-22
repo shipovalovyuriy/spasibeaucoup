@@ -121,16 +121,23 @@ class PositionController extends \yupe\components\controllers\FrontController
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->parent_group = $parent_group;
-                if($model->prev->first_parent){
-                    $model->first_parent = $model->prev->first_parent;
-                }else{
-                    $model->first_parent = $model->prev->id;
-                }
+//                if($model->prev->first_parent){
+//                    $model->first_parent = $model->prev->first_parent;
+//                }else{
+//                    $model->first_parent = $model->prev->id;
+//                }
                 if(in_array('3', $role) && !in_array('1', $role)){
                     $model->branch_id = Yii::app()->user->branch->id;
                 }
+                if(isset($_POST['group'])){
+                    $model->group = $_POST['group'];
+                }else {$model->group=NULL;}
+                if(isset($_POST['hui'])){
+                $model->hui = $_POST['hui'];}
+                else {$model->hui=NULL;}
                 $model->listner_id = $id;
-                if ($model->save()) {
+                if (!$model->save()) {
+                    die(var_dump($model->getErrors()));
                     Yii::app()->user->setFlash(
                         yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
                         Yii::t('ListnerModule.listner', 'Запись добавлена!')

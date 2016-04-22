@@ -116,9 +116,14 @@ class Position extends yupe\models\YModel
                     $group->branch_id = $this->listner->branch_id;
                     $group->subject_id = $this->subject_id;
                     $group->parent_id = $this->id;
-                    if($this->parent_group)
+                    if($this->parent_group){
                         $group->parent_group = $this->parent_group;
-                    $group->save();
+                        $group->first_parent_group = $group->prev->first_parent_group;}
+                    else
+                        $group->first_parent_group = $group->id;
+                    $group->is_active = 1;
+                    if(!$group->save())
+                        die(var_dump($group->getErrors()));
                     if($this->form->type->id==4){
                         $this->listner->branch->individual_counter += 1;
                     }
