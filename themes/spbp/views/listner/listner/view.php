@@ -105,6 +105,10 @@ $this->menu = [
             <section class="panel-body">
                 <?php
                 foreach($model->position as $position): if(!$position->parent_id):
+                    if($position->groupP){
+                        if($position->groupP->first_parent_group)
+                            continue;
+                    }
                     if($position->group_id){$a='group/'.$position->id;$b='users';}else{$a=$position->id; $b='star';}?>
                     <article class="media">
                         <div class="pull-left">

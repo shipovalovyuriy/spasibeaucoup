@@ -124,8 +124,6 @@ class Position extends yupe\models\YModel
                             $group->first_parent_group = $group->prev->id;
                         }
                     }
-                    else
-                        $group->first_parent_group = $group->id;
                     $group->is_active = 1;
                     if(!$group->save())
                         die(var_dump($group->getErrors()));
