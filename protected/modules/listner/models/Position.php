@@ -118,7 +118,12 @@ class Position extends yupe\models\YModel
                     $group->parent_id = $this->id;
                     if($this->parent_group){
                         $group->parent_group = $this->parent_group;
-                        $group->first_parent_group = $group->prev->first_parent_group;}
+                        if($group->prev->first_parent_group){
+                            $group->first_parent_group = $group->prev->first_parent_group;
+                        }else{
+                            $group->first_parent_group = $group->prev->id;
+                        }
+                    }
                     else
                         $group->first_parent_group = $group->id;
                     $group->is_active = 1;

@@ -79,7 +79,7 @@ class PositionController extends \yupe\components\controllers\FrontController
             $listner = Listner::model()->findByPk($id)->branch_id;
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
-                $model->parent_id = $pid;
+                $model->parent_id = $parent_id;
                 if($model->prev->first_parent){
                     $model->first_parent = $model->prev->first_parent;
                 }else{
