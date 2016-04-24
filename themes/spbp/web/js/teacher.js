@@ -59,11 +59,13 @@ $(function(){
                     $('#bbt').removeClass('btn-success');
                     $('#bbt').addClass('btn-danger');
                     $('#bbt').html('Проверить аудитории');
+                    $('#ggg').fadeOut(300);
 
                 }else{
                 $('#bbt').removeClass('btn-danger');
                     $('#bbt').addClass('btn-success');
                     $('#bbt').html('Имеются');
+                    $('#ggg').fadeIn(300);
                 }
             });
 
