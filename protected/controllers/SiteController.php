@@ -62,7 +62,7 @@ class SiteController extends FrontController
                 ->join('spbp_listner_schedule b', 'c.id = b.position_id')
                 ->join('spbp_listner_listner z','z.id = c.listner_id')
                 ->join('spbp_subject_subject d', 'd.id = c.subject_id')
-                ->join('spbp_listner_group asd', 'asd.id = c.group_id')
+                ->join('spbp_listner_group asd', 'asd.id = b.group_id')
                 ->where('f.id =:id',array(":id"=>$param2))
                 ->queryAll();
         }else if($param1=="2"){
