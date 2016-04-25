@@ -108,7 +108,7 @@ class SiteController extends FrontController
                     $arrs['desc'] = $ponos->listner->name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
 
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('teacher_id=:id and id = :id2', [":id" => $param2, ':id2' => $row['group_id']]);
@@ -116,7 +116,7 @@ class SiteController extends FrontController
                     $arrs['desc'] = '';
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
                 }
 
 
@@ -128,14 +128,14 @@ class SiteController extends FrontController
                     $arrs['desc'] = $ponos->teacher->user->last_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('id =:id2', [':id2' => $row['group_id']]);
                     $arrs['title'] = '(гр ' . $ponos->name . ')';
                     $arrs['desc'] = $ponos->teacher->user->last_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
                 }
 
 
@@ -147,14 +147,14 @@ class SiteController extends FrontController
                     $arrs['desc'] = $ponos->listner->name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->findByPk($row['group_id']);
                     $arrs['title'] = '('.$ponos->name.')';
                     $arrs['desc'] = '';
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
-                    $arrs['backgroundColor']='#'.$ponos->subject->color;
+                    $arrs['backgroundColor']=$ponos->subject->color;
                 }
 
 
