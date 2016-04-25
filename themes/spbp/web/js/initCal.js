@@ -64,7 +64,6 @@ $(document).ready(function(){
         eventRender: function(event, element) {
             element.find('.fc-title').append("<br/>" + event.desc);
             element.find('.fc-title').append("<br/>" + event.subj);
-            element.find('.fc-title').append("<br/>" + event.group);
         }
     };
     $('#calendar').fullCalendar(obj);
