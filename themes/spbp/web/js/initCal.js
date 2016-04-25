@@ -58,13 +58,44 @@ $(document).ready(function(){
         resources: {
             url: '/GetPositions/'+branchId,
         },
-        events: {
+/*        events: {
             url:'/GetSchedules/'+userType+'/'+userId,
+        },*/
+        events: function(start, end, timezone, callback) {
+            moment = $('#calendar').fullCalendar('getDate');
+            console.log(moment.format());
+            $.ajax({
+                url: '/GetSchedules/'+userType+'/'+userId,
+                data: {
+                    start:moment.format(),
+                },
+                success: function(doc) {
+                    console.log(JSON.parse(doc));
+                    var data = JSON.parse(doc);
+                    var events = [];
+                    $.each(data,function(index,el){
+                        events.push({
+                            id: el.id,
+                            resourceId: el.resourceId,
+                            start: el.start,
+                            end: el.end,
+                            title: el.title,
+                            desc: el.desc,
+                            subj: el.subj,
+                            height: el.height,
+                            backgroundColor: el.backgroundColor,
+                        });
+                    });
+
+                    callback(events);
+                }
+            });
         },
         eventRender: function(event, element) {
             element.find('.fc-title').append("<br/>" + event.desc);
             element.find('.fc-title').append("<br/>" + event.subj);
         }
     };
+
     $('#calendar').fullCalendar(obj);
 });

@@ -51,6 +51,9 @@ class SiteController extends FrontController
 
     public function actionGetSchedules($param1, $param2)
     {
+        $startTime = date('Y-m-d',strtotime($_GET['start']));
+        $endTime = date('Y-m-d',strtotime("+1 week",strtotime($startTime)));
+
         $arr = [];
         $arrs = [];
         /*        if ($param1 == "1") {
@@ -89,7 +92,7 @@ class SiteController extends FrontController
                     ->queryAll();
             }*/
 
-        $schdls = \Schedule::model()->findAll();
+        $schdls = \Schedule::model()->findAll("start_time between '$startTime' and '$endTime'");
 
 
         foreach ($schdls as $row) {
@@ -112,7 +115,7 @@ class SiteController extends FrontController
 
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('teacher_id=:id and id = :id2', [":id" => $param2, ':id2' => $row['group_id']]);
-                    $arrs['title'] = '('.$ponos->name.')';
+                    $arrs['title'] = '('.$ponos->code.')';
                     $arrs['desc'] = '';
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
@@ -131,8 +134,8 @@ class SiteController extends FrontController
                     $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('id =:id2', [':id2' => $row['group_id']]);
-                    $arrs['title'] = '(гр ' . $ponos->name . ')';
-                    $arrs['desc'] = $ponos->teacher->user->last_name;
+                    $arrs['title'] = '(гр ' . $ponos->code . ')';
+                    $arrs['desc'] = $ponos->teacher->user->last_name.'  '.$ponos->teacher->user->first_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
                     $arrs['backgroundColor']=$ponos->subject->color;
@@ -150,8 +153,8 @@ class SiteController extends FrontController
                     $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->findByPk($row['group_id']);
-                    $arrs['title'] = '('.$ponos->name.')';
-                    $arrs['desc'] = '';
+                    $arrs['title'] = '('.$ponos->code.')';
+                    $arrs['desc'] = $ponos->teacher->user->last_name.'  '.$ponos->teacher->user->first_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
                     $arrs['backgroundColor']=$ponos->subject->color;
