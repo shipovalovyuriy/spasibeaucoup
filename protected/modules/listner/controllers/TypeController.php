@@ -19,7 +19,7 @@ class TypeController extends \yupe\components\controllers\FrontController
     */
     public function actionView($id)
     {
-        $roles = ['1','5'];
+        $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $this->render('view', ['model' => $this->loadModel($id)]);
@@ -36,7 +36,7 @@ class TypeController extends \yupe\components\controllers\FrontController
     */
     public function actionCreate()
     {
-        $roles = ['1','5'];
+        $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $model = new Type;
@@ -76,7 +76,7 @@ class TypeController extends \yupe\components\controllers\FrontController
     */
     public function actionUpdate($id)
     {
-        $roles = ['1','5'];
+        $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $model = $this->loadModel($id);
@@ -117,7 +117,7 @@ class TypeController extends \yupe\components\controllers\FrontController
     */
     public function actionDelete($id)
     {
-        $roles = ['1','5'];
+        $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -147,7 +147,7 @@ class TypeController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
-        $roles = ['1','5'];
+        $roles = ['1'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $model = new Type('search');

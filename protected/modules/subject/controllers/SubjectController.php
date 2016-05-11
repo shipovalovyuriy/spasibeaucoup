@@ -160,7 +160,7 @@ class SubjectController extends \yupe\components\controllers\FrontController
     */
     public function actionIndex()
     {
-        $roles = ['1','5', '4'];
+        $roles = ['1','5', '4', '3'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)){
             $model = new Subject('search');

@@ -92,80 +92,13 @@ $this->menu = [
         'dataProvider' => $model->search(),
         'filter'       => $model,
         'columns'      => [
-            [
-                'name'  => 'nick_name',
-                'type'  => 'raw',
-                'value' => 'CHtml::link($data->nick_name, array("/user/userBackend/update", "id" => $data->id))',
-            ],
+            'nick_name',
             'first_name',
             'last_name',
             [
                 'name'  => 'email',
                 'type'  => 'raw',
                 'value' => 'CHtml::link($data->email, "mailto:" . $data->email)',
-            ],
-            [
-                'class'    => 'bootstrap.widgets.TbEditableColumn',
-                'editable' => [
-                    'url'    => $this->createUrl('/user/userBackend/inline'),
-                    'mode'   => 'popup',
-                    'type'   => 'select',
-                    'title'  => Yii::t(
-                        'UserModule.user',
-                        'Select {field}',
-                        ['{field}' => mb_strtolower($model->getAttributeLabel('access_level'))]
-                    ),
-                    'source' => $model->getAccessLevelsList(),
-                    'params' => [
-                        Yii::app()->request->csrfTokenName => Yii::app()->request->csrfToken
-                    ]
-                ],
-                'name'     => 'access_level',
-                'type'     => 'raw',
-                'value'    => '$data->getAccessLevel()',
-                'filter'   => CHtml::activeDropDownList(
-                    $model,
-                    'access_level',
-                    $model->getAccessLevelsList(),
-                    ['class' => 'form-control', 'empty' => '']
-                ),
-            ],
-            [
-                'class'   => 'yupe\widgets\EditableStatusColumn',
-                'name'    => 'status',
-                'url'     => $this->createUrl('/user/userBackend/inline'),
-                'source'  => $model->getStatusList(),
-                'options' => [
-                    User::STATUS_ACTIVE     => ['class' => 'label-success'],
-                    User::STATUS_BLOCK      => ['class' => 'label-danger'],
-                    User::STATUS_NOT_ACTIVE => ['class' => 'label-warning'],
-                ],
-            ],
-            [
-                'class'    => 'bootstrap.widgets.TbEditableColumn',
-                'editable' => [
-                    'url'    => $this->createUrl('/user/userBackend/inline'),
-                    'mode'   => 'popup',
-                    'type'   => 'select',
-                    'title'  => Yii::t(
-                        'UserModule.user',
-                        'Select {field}',
-                        ['{field}' => mb_strtolower($model->getAttributeLabel('email_confirm'))]
-                    ),
-                    'source' => $model->getEmailConfirmStatusList(),
-                    'params' => [
-                        Yii::app()->request->csrfTokenName => Yii::app()->request->csrfToken
-                    ]
-                ],
-                'name'     => 'email_confirm',
-                'type'     => 'raw',
-                'value'    => '$data->getEmailConfirmStatus()',
-                'filter'   => CHtml::activeDropDownList(
-                    $model,
-                    'email_confirm',
-                    $model->getEmailConfirmStatusList(),
-                    ['class' => 'form-control', 'empty' => '']
-                ),
             ],
             [
                 'name'   => 'visit_time',
@@ -175,6 +108,11 @@ $this->menu = [
                 'name'   => 'salary',
                 'filter' => false,
                 'value'  => '$data->salary . " ₸"'
+            ],
+            [
+            	'name'  => 'access_level',
+            	'filter' => false,
+            	'value' 	=> '$data->post->role->name'
             ],
             [
                 'header'      => Yii::t('UserModule.user', 'Management'),

@@ -32,7 +32,7 @@ class Form extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description', 'required'),
+			array('name, description, price, type_id, number', 'required'),
 			array('type_id, number, price', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>255),
@@ -63,9 +63,9 @@ class Form extends yupe\models\YModel
 		return array(
 			'id' => 'ID',
 			'type_id' => 'Форма обучения',
-			'name' => 'Название',
+			'name' => 'Название Тарифа',
 			'description' => 'Описание',
-			'number' => 'Количество занятий в неделю',
+			'number' => 'Количество занятий в расчетный период',
 			'price'=>'Цена',
 		);
 	}

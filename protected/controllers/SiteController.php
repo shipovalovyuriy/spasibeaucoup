@@ -115,7 +115,7 @@ class SiteController extends FrontController
 
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('teacher_id=:id and id = :id2', [":id" => $param2, ':id2' => $row['group_id']]);
-                    $arrs['title'] = '('.$ponos->code.')';
+                    $arrs['title'] = '('.$ponos->name.')';
                     $arrs['desc'] = '';
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
@@ -134,7 +134,7 @@ class SiteController extends FrontController
                     $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->find('id =:id2', [':id2' => $row['group_id']]);
-                    $arrs['title'] = '(гр ' . $ponos->code . ')';
+                    $arrs['title'] = '(гр ' . $ponos->name. ')';
                     $arrs['desc'] = $ponos->teacher->user->last_name.'  '.$ponos->teacher->user->first_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';
@@ -153,7 +153,7 @@ class SiteController extends FrontController
                     $arrs['backgroundColor']=$ponos->subject->color;
                 } else if ($row['group_id']) {
                     $ponos = \Group::model()->findByPk($row['group_id']);
-                    $arrs['title'] = '('.$ponos->code.')';
+                    $arrs['title'] = '('.$ponos->name.')';
                     $arrs['desc'] = $ponos->teacher->user->last_name.'  '.$ponos->teacher->user->first_name;
                     $arrs['subj'] = '('.$ponos->subject->name.')';
                     $arrs['height'] = '100px';

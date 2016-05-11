@@ -138,7 +138,7 @@ class User extends yupe\models\YModel
             ['site', 'length', 'max' => 100],
             ['about', 'length', 'max' => 300],
             ['location', 'length', 'max' => 150],
-            ['gender, status, access_level, is_test', 'numerical', 'integerOnly' => true],
+            ['gender, status, access_level, is_test, branch_id', 'numerical', 'integerOnly' => true],
             ['gender', 'default', 'value' => self::GENDER_THING, 'setOnEmpty' => true],
             [
                 'nick_name',
@@ -225,7 +225,7 @@ class User extends yupe\models\YModel
             'status' => Yii::t('UserModule.user', 'Status'),
             'salary' => 'Зарплата',
             'salary_date' => 'Дата оплаты',
-            'access_level' => Yii::t('UserModule.user', 'Access'),
+            'access_level' => Yii::t('UserModule.user', 'Должность'),
             'visit_time' => Yii::t('UserModule.user', 'Last visit'),
             'create_time' => Yii::t('UserModule.user', 'Register date'),
             'avatar' => Yii::t('UserModule.user', 'Avatar'),
@@ -659,5 +659,9 @@ class User extends yupe\models\YModel
     public function getMonth()
     {
         return self::$_month[date('n')];
+    }
+    public function getPost()
+    {
+        return RoleToUser::model()->find(['condition'=> "user_id=".$this->id]);;
     }
 }

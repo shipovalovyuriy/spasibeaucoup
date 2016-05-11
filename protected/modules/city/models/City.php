@@ -1,25 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "{{user_role_to_user}}".
+ * This is the model class for table "{{city_city}}".
  *
- * The followings are the available columns in table '{{user_role_to_user}}':
+ * The followings are the available columns in table '{{city_city}}':
  * @property integer $id
- * @property integer $user_id
- * @property integer $role_id
- *
- * The followings are the available model relations:
- * @property UserRole $role
- * @property UserUser $user
+ * @property string $name
  */
-class RoleToUser extends yupe\models\YModel
+class City extends yupe\models\YModel
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{user_role_to_user}}';
+		return '{{city_city}}';
 	}
 
 	/**
@@ -30,11 +25,11 @@ class RoleToUser extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, role_id', 'required'),
-			array('user_id, role_id', 'numerical', 'integerOnly'=>true),
+			array('name', 'required'),
+			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, role_id', 'safe', 'on'=>'search'),
+			array('id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,8 +41,7 @@ class RoleToUser extends yupe\models\YModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'role' => array(self::BELONGS_TO, 'Role', 'role_id'),
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+                    'branchs' => [self::HAS_MANY, 'Branch', 'city_id'],
 		);
 	}
 
@@ -58,8 +52,7 @@ class RoleToUser extends yupe\models\YModel
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'Сотрудник',
-			'role_id' => 'Должность',
+			'name' => 'Город',
 		);
 	}
 
@@ -82,8 +75,7 @@ class RoleToUser extends yupe\models\YModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('role_id',$this->role_id);
+		$criteria->compare('name',$this->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -94,18 +86,10 @@ class RoleToUser extends yupe\models\YModel
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return RoleToUser the static model class
+	 * @return City the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-        protected function beforeSave() {
-            parent::beforeSave();
-            if($this->role_id==1){
-                if(!array_intersect(Yii::app()->user->role, ['1'])){
-                    throw new CHttpException(403,  'Ошибка прав доступа.');
-                }  else{return true;}        
-            }else{return true;}
-        }
 }

@@ -10,28 +10,28 @@
  **/
 $this->breadcrumbs = [
     $this->getModule()->getCategory() => [],
-    Yii::t('BranchModule.branch', 'Филиалы') => ['/branch/branch/index'],
-    Yii::t('BranchModule.branch', 'Управление'),
+    Yii::t('CityModule.city', 'Города') => ['/city/city/index'],
+    Yii::t('CityModule.city', 'Управление'),
 ];
 
-$this->pageTitle = Yii::t('BranchModule.branch', 'Филиалы - управление');
+$this->pageTitle = Yii::t('CityModule.city', 'Города - управление');
 
 $this->menu = [
-    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('BranchModule.branch', 'Управление Филиалами'), 'url' => ['/branch/branch/index']],
-    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('BranchModule.branch', 'Добавить Филиал'), 'url' => ['/branch/branch/create']],
+    ['icon' => 'fa fa-fw fa-list-alt', 'label' => Yii::t('CityModule.city', 'Управление Городами'), 'url' => ['/city/city/index']],
+    ['icon' => 'fa fa-fw fa-plus-square', 'label' => Yii::t('CityModule.city', 'Добавить Город'), 'url' => ['/city/city/create']],
 ];
 ?>
 <div class="page-header">
     <h1>
-        <?php echo Yii::t('BranchModule.branch', 'Филиалы'); ?>
-        <small><?php echo Yii::t('BranchModule.branch', 'управление'); ?></small>
+        <?php echo Yii::t('CityModule.city', 'Города'); ?>
+        <small><?php echo Yii::t('CityModule.city', 'управление'); ?></small>
     </h1>
 </div>
 
 <p>
     <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="collapse" data-target="#search-toggle">
         <i class="fa fa-search">&nbsp;</i>
-        <?php echo Yii::t('BranchModule.branch', 'Поиск Филиалов');?>
+        <?php echo Yii::t('CityModule.city', 'Поиск Городов');?>
         <span class="caret">&nbsp;</span>
     </a>
 </p>
@@ -39,7 +39,7 @@ $this->menu = [
 <div id="search-toggle" class="collapse out search-form">
         <?php Yii::app()->clientScript->registerScript('search', "
         $('.search-form form').submit(function () {
-            $.fn.yiiGridView.update('branch-grid', {
+            $.fn.yiiGridView.update('city-grid', {
                 data: $(this).serialize()
             });
 
@@ -52,22 +52,20 @@ $this->menu = [
 
 <br/>
 
-<p> <?php echo Yii::t('BranchModule.branch', 'В данном разделе представлены средства управления Филиалами'); ?>
+<p> <?php echo Yii::t('CityModule.city', 'В данном разделе представлены средства управления Городами'); ?>
 </p>
 
 <?php
  $this->widget(
     'yupe\widgets\FrontGridView',
     [
-        'id'           => 'branch-grid',
+        'id'           => 'city-grid',
         'type'         => 'striped condensed',
         'dataProvider' => $model->search(),
         'filter'       => $model,
         'columns'      => [
             'id',
             'name',
-            'address',
-            'city.name',
             [
                 'class' => 'yupe\widgets\FrontButtonColumn',
             ],

@@ -36,7 +36,7 @@ $form = $this->beginWidget(
                 if($model->isNewRecord){
                     echo $form->dropDownListGroup($model, 'user_id', [
                         'widgetOptions' => [
-                            'data' => CHtml::listData(User::model()->findAll('is_test=0'), 'id', 'first_name'),
+                            'data' => CHtml::listData(User::model()->findAll('is_test=0'), 'id', 'fullName'),
                             'htmlOptions' => [
                                 'empty' => '--выберите--',
                                 'encode' => false,

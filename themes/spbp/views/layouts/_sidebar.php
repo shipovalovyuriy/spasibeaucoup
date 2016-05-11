@@ -6,7 +6,7 @@
             <!-- user -->
             <div class="bg-success nav-user hidden-xs pos-rlt">
                 <div class="nav-avatar pos-rlt">
-                    <a href="<?= Yii::app()->homeUrl?>" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
+                    <a href="<?= Yii::app()->homeUrl?>" class="thumb-sm avatar animated rollIn">
                         <img src="<?=$assets?>/images/logosp.png" alt="" class="">
                         <span class="caret caret-white"></span>
                     </a>
@@ -26,12 +26,6 @@
                                         <span class="media-body block m-b-none">
                                             <?= Yii::app()->user->fullName?><br>
                                             <small class="text-muted"><?= Yii::app()->user->post->role->name?></small>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="media list-group-item">
-                                        <span class="media-body block m-b-none">
-                                            <?= Yii::app()->user->user->salary?> &#8376;<br>
-                                            <small class="text-muted"><?= Yii::app()->user->user->salary_date .' '.Yii::app()->user->user->month?></small>
                                         </span>
                                     </a>
                                 </div>
@@ -56,6 +50,14 @@
                         </a>
                     </li>
                     <?php $roles=['1']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/city">
+                                <i class="fa fa-certificate"></i>
+                                <span>Города</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                    <?php $roles=['1']; if(array_intersect($role, $roles)):?>
                     <li class="dropdown-submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-tasks"></i>
@@ -71,16 +73,18 @@
                         </ul>
                     </li>
                     <?php endif;?>
-                    <?php $roles=['1','5']; if(array_intersect($role, $roles)):?>
+                    <?php $roles=['1','5', '3']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bars"></i>
                                 <span>Тарифы</span>
                             </a>
                             <ul class="dropdown-menu">
+                            <?php $roles=['1']; if(array_intersect($role, $roles)):?>
                                 <li>
                                     <a href="/listner/type/index">Формы обучения</a>
                                 </li>
+                            <?php endif;?>
                                 <li>
                                     <a href="/listner/form/index">Тарифы</a>
                                 </li>

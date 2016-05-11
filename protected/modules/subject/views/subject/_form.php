@@ -43,7 +43,19 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
-
+	<div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'code', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('code'),
+                        'data-content' => $model->getAttributeDescription('code'),                        
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'alias', [

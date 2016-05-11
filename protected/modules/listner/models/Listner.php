@@ -40,8 +40,9 @@ class Listner extends yupe\models\YModel
             // NOTE: you should only define rules for those attributes that
             // will receive user inputs.
             return array(
-                    array('name, lastname, patronymic, phone, create_date', 'required'),
+                    array('name, lastname, patronymic, phone, create_date, email', 'required'),
                     array('branch_id, status', 'numerical', 'integerOnly'=>true),
+                    ['branch_id', 'required', 'on'=> 'branch'],
                     array('name, lastname, patronymic, phone, email', 'length', 'max'=>50),
                     ['email', 'email'],
                     // The following rule is used by search().
@@ -117,20 +118,20 @@ class Listner extends yupe\models\YModel
     
     public function getStatusList()
     {
-        return [
-            self::STATUS_POTENTIAL  => 'Потенциальный',
-            self::STATUS_LISTNER    => 'Студент',
-            self::STATUS_GRADUATE   => 'Выпускник',
-            self::STATUS_CANCEL     => 'Отказ',
-        ];
+	        return [
+	            self::STATUS_POTENTIAL  => 'Потенциальный',
+	            self::STATUS_LISTNER    => 'Студент',
+	            self::STATUS_GRADUATE   => 'Выпускник',
+	            self::STATUS_CANCEL     => 'Отказ',
+	        ];
     }
     public function getStatus($s)
     {
         $status = [
-            self::STATUS_POTENTIAL  => 'Потенциальный',
-            self::STATUS_LISTNER    => 'Студент',
-            self::STATUS_GRADUATE   => 'Выпускник',
-            self::STATUS_CANCEL     => 'Отказ',
+            self::STATUS_POTENTIAL  => '<div class="label label-warning"><span style="border-bottom: 1px dashed;">Потенциальный</span></div>',
+            self::STATUS_LISTNER    => '<div class="label label-success"><span style="border-bottom: 1px dashed;">Студент</span></div>',
+            self::STATUS_GRADUATE   => '<div class="label label-info"><span style="border-bottom: 1px dashed;">Выпускник</span></div>',
+            self::STATUS_CANCEL     => '<div class="label label-danger"><span style="border-bottom: 1px dashed;">Отказ</span></div>',
         ];
         return $status[$s];
     }

@@ -34,7 +34,11 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'user_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(User::model()->findAll(), 'id', 'first_name')
+                        'data' => CHtml::listData(User::model()->findAll('is_test=0'), 'id', 'fullName'),
+                         'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
                     ]
                 ]); ?>
         </div>
@@ -43,7 +47,11 @@ $form = $this->beginWidget(
         <div class="col-sm-7">
             <?php echo $form->dropDownListGroup($model, 'role_id', [
                     'widgetOptions' => [
-                        'data' => CHtml::listData(Role::model()->findAll(), 'id', 'name')
+                        'data' => CHtml::listData(Role::model()->findAll(), 'id', 'name'),
+                         'htmlOptions' => [
+                            'empty' => '--выберите--',
+                            'encode' => false,
+                        ],
                     ]
                 ]); ?>
         </div>

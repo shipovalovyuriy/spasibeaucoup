@@ -34,6 +34,7 @@ class Branch extends yupe\models\YModel
 			array('name, address', 'required'),
 			array('name', 'length', 'max'=>50),
 			array('address', 'length', 'max'=>255),
+                        ['city_id', 'safe'],
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, address', 'safe', 'on'=>'search'),
@@ -54,6 +55,7 @@ class Branch extends yupe\models\YModel
 			'subject' => array(self::HAS_MANY, 'SubjectToBranch', 'branch_id'),
                         'room' => array(self::HAS_MANY, 'Room', 'branch_id'),
                         'teacher' => array(self::HAS_MANY, 'Teacher', 'branch_id'),
+                        'city' => [self::BELONGS_TO, 'City', 'city_id'],
 		);
 	}
 
@@ -67,7 +69,8 @@ class Branch extends yupe\models\YModel
 			'name' => 'Название',
 			'address' => 'Адрес',
                         'individual_counter' => 'Индивидуальный счетчик',
-                        'group_counter' => 'Групповой счетчик'
+                        'group_counter' => 'Групповой счетчик',
+                        'city_id' => 'Город'
 		);
 	}
 

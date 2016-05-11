@@ -1,6 +1,6 @@
 <?php
 /**
-* Класс RoleToUserController:
+* Класс CityController:
 *
 *   @category Yupe\yupe\components\controllers\FrontController
 *   @package  yupe
@@ -8,12 +8,22 @@
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
 **/
-class RoleToUserController extends \yupe\components\controllers\FrontController
+class CityController extends \yupe\components\controllers\FrontController
 {
+    protected function beforeAction($action) {
+        parent::beforeAction($action);
+        $roles = ['1'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)){
+            return true;
+        } else {
+            throw new CHttpException(403,  'Ошибка прав доступа.');
+        }
+    }
     /**
-    * Отображает Должность по указанному идентификатору
+    * Отображает Город по указанному идентификатору
     *
-    * @param integer $id Идинтификатор Должность для отображения
+    * @param integer $id Идинтификатор Город для отображения
     *
     * @return void
     */
@@ -23,25 +33,22 @@ class RoleToUserController extends \yupe\components\controllers\FrontController
     }
     
     /**
-    * Создает новую модель Должности.
+    * Создает новую модель Города.
     * Если создание прошло успешно - перенаправляет на просмотр.
     *
     * @return void
     */
     public function actionCreate()
     {
-     	$roles = ['1', '4'];
-        $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)) {
-        $model = new RoleToUser;
+        $model = new City;
 
-        if (Yii::app()->getRequest()->getPost('RoleToUser') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('RoleToUser'));
+        if (Yii::app()->getRequest()->getPost('City') !== null) {
+            $model->setAttributes(Yii::app()->getRequest()->getPost('City'));
         
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('UserModule.user', 'Запись добавлена!')
+                    Yii::t('CityModule.city', 'Запись добавлена!')
                 );
 
                 $this->redirect(
@@ -55,68 +62,60 @@ class RoleToUserController extends \yupe\components\controllers\FrontController
                 );
             }
         }
-        $this->render('create', ['model' => $model]);} else {
-            throw new CHttpException(403,  'Ошибка прав доступа.');
-        }
+        $this->render('create', ['model' => $model]);
     }
     
     /**
-    * Редактирование Должности.
+    * Редактирование Города.
     *
-    * @param integer $id Идинтификатор Должность для редактирования
+    * @param integer $id Идинтификатор Город для редактирования
     *
     * @return void
     */
     public function actionUpdate($id)
     {
-    $roles = ['1', '4'];
-        $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)) {
         $model = $this->loadModel($id);
 
-        if (Yii::app()->getRequest()->getPost('RoleToUser') !== null) {
-            $model->setAttributes(Yii::app()->getRequest()->getPost('RoleToUser'));
+        if (Yii::app()->getRequest()->getPost('City') !== null) {
+            $model->setAttributes(Yii::app()->getRequest()->getPost('City'));
 
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('UserModule.user', 'Запись обновлена!')
+                    Yii::t('CityModule.city', 'Запись обновлена!')
                 );
+
                 $this->redirect(
                     (array)Yii::app()->getRequest()->getPost(
                         'submit-type',
                         [
-                            'index',
+                            'update',
+                            'id' => $model->id
                         ]
                     )
                 );
             }
         }
-        $this->render('update', ['model' => $model]);} else {
-            throw new CHttpException(403,  'Ошибка прав доступа.');
-        }
+        $this->render('update', ['model' => $model]);
     }
     
     /**
-    * Удаляет модель Должности из базы.
+    * Удаляет модель Города из базы.
     * Если удаление прошло успешно - возвращется в index
     *
-    * @param integer $id идентификатор Должности, который нужно удалить
+    * @param integer $id идентификатор Города, который нужно удалить
     *
     * @return void
     */
     public function actionDelete($id)
     {
-    $roles = ['1', '4'];
-        $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
             // поддерживаем удаление только из POST-запроса
             $this->loadModel($id)->delete();
 
             Yii::app()->user->setFlash(
                 yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                Yii::t('UserModule.user', 'Запись удалена!')
+                Yii::t('CityModule.city', 'Запись удалена!')
             );
 
             // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
@@ -124,28 +123,21 @@ class RoleToUserController extends \yupe\components\controllers\FrontController
                 $this->redirect(Yii::app()->getRequest()->getPost('returnUrl', ['index']));
             }
         } else
-            throw new CHttpException(400, Yii::t('UserModule.user', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));} else {
-            throw new CHttpException(403,  'Ошибка прав доступа.');
-        }
+            throw new CHttpException(400, Yii::t('CityModule.city', 'Неверный запрос. Пожалуйста, больше не повторяйте такие запросы'));
     }
     
     /**
-    * Управление Должностями.
+    * Управление Городами.
     *
     * @return void
     */
     public function actionIndex()
     {
-    $roles = ['1', '4'];
-        $role = \Yii::app()->user->role;
-        if (array_intersect($role, $roles)) {
-        $model = new RoleToUser('search');
+        $model = new City('search');
         $model->unsetAttributes(); // clear any default values
-        if (Yii::app()->getRequest()->getParam('RoleToUser') !== null)
-            $model->setAttributes(Yii::app()->getRequest()->getParam('RoleToUser'));
-        $this->render('index', ['model' => $model]);} else {
-            throw new CHttpException(403,  'Ошибка прав доступа.');
-        }
+        if (Yii::app()->getRequest()->getParam('City') !== null)
+            $model->setAttributes(Yii::app()->getRequest()->getParam('City'));
+        $this->render('index', ['model' => $model]);
     }
     
     /**
@@ -158,9 +150,9 @@ class RoleToUserController extends \yupe\components\controllers\FrontController
     */
     public function loadModel($id)
     {
-        $model = RoleToUser::model()->findByPk($id);
+        $model = City::model()->findByPk($id);
         if ($model === null)
-            throw new CHttpException(404, Yii::t('UserModule.user', 'Запрошенная страница не найдена.'));
+            throw new CHttpException(404, Yii::t('CityModule.city', 'Запрошенная страница не найдена.'));
 
         return $model;
     }

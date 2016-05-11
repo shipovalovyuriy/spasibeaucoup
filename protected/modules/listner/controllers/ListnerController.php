@@ -54,12 +54,15 @@ class ListnerController extends \yupe\components\controllers\FrontController
         $roles = ['1','5','3'];
         $role = \Yii::app()->user->role;
         if (array_intersect($role, $roles)) {
-        $model = new Listner;
+            if(!\Yii::app()->user->user->branch_id)
+            	$model = new Listner('branch');
+            else
+                $model = new Listner;
         if (Yii::app()->getRequest()->getPost('Listner') !== null) {
             $model->setAttributes(Yii::app()->getRequest()->getPost('Listner'));
             $model->create_date = date("Y-m-d H:i:s");
             if(array_intersect(['3','2'], $role))
-                $model->branch_id = Yii::app()->user->branch->id;
+                $model->branch_id = \Yii::app()->user->user->branch_id;
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,

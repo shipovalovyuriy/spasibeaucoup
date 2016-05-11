@@ -62,8 +62,9 @@ class Subject extends yupe\models\YModel
 		return array(
 			'id' => '№',
 			'name' => 'Название',
-			'code'=>'Код',
-                        'alias' => 'Название для положения'
+			'code'=>'Код для отчета',
+                        'alias' => 'Название для положения',
+                        'color' => 'Цвет в расписании'
 		);
 	}
 

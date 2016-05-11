@@ -106,7 +106,7 @@ class Position extends yupe\models\YModel
                 if($this->isNewRecord && $this->group=="on"){
                     $group = new Group;
                     $group->code = $this->listner->branch->group_counter + 1;
-                    $group->name = substr($this->teacher->user->first_name, 0, 1).substr($this->listner->name, 0, 1).'-'.$group->code;
+                    $group->name = $group->name = $group->code.' | '.date('Y-m-d',strtotime("+2 week"));
                     $group->time = $this->time;
                     $group->lvl = $this->lvl;
                     $group->note = $this->note;
@@ -125,8 +125,7 @@ class Position extends yupe\models\YModel
                         }
                     }
                     $group->is_active = 1;
-                    if(!$group->save())
-                        die(var_dump($group->getErrors()));
+                    $group->save();
                     if($this->form->type->id==4){
                         $this->listner->branch->individual_counter += 1;
                     }

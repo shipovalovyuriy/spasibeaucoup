@@ -45,10 +45,10 @@
 				«Положение») от ТОО «Спаси</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="en-US">Beaucoup</span></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">»</font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">.
 				</font></font></font>
 				</p>
-				<ol>
+				<ul>
 					<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПОЛУЧЕНИЯ УСЛУГ:</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получение
 						услуг в сфере дополнительного
                                                 образования производится </font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
@@ -74,22 +74,22 @@
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Длительность
 						одного урока –</font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">1
 						астрономический час.</font></font></font></p>
-					</li></ol>
-				</li></ol>
+					</li></ul>
+				</li></ul>
 				<p style="margin-left: 0.64in; margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Номер
 				учета посещаемости студентов </font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>или
 				</b></font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">номер
 				индивидуального учета посещаемости
 				(подчеркнуть): <?= $model->code?></font></font></font></p>
-				<ol>
-					<ol>
+				<ul>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Контакты:
 						<?= $model->listner->phone?></font></font></font></p>
-					</li></ol>
+					</li></ul>
 					<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПОЛУЧЕНИЯ СЕРТИФИКАТА, СВИДЕТЕЛЬСТВУЮЩИЕ
 					ОБ УРОВНЕ ЗНАНИЯ ЯЗЫКА</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получении
 						услуг в сфере дополнительного
 						образования в ТОО «Спаси</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="en-US">Beaucoup</span></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">»
@@ -112,11 +112,11 @@
 						знания языка указывается на сертификате
 						согласно итоговому экзамену. </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПО ПЕРЕВОДУ ОПЛАЧЕННЫХ ДЕНЕЖНЫХ
 					СРЕДСТВ НА РЕЗЕРВ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Перевод
 						денежных средств на резерв производится
 						в первую неделю расчетного месяца
@@ -129,10 +129,10 @@
 						официального подтверждения от ГУМУ
 						 </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ВОЗВРАТА ОПЛАЧЕННЫХ ДЕНЕЖНЫХ СРЕДСТВ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Полный
 						или частичный возврат денежных
 						средств возможен в случае не
@@ -156,10 +156,10 @@
 						услуг. При этом Студент должен иметь
 						подтверждающий данную информацию
 						документ в виде заявления от Компании.</font></font></p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ПЕРЕНОС
 					И/ИЛИ РЕГУЛЯЦИЯ РАСПИСАНИЯ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>ПЕРЕНОС
 						УРОКОВ</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						возможен при уведомлении представителя
@@ -205,10 +205,10 @@
 						администрации (п.п. 5.3 действует при
 						групповом курсе согласно п.п.1.1.) </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ДРУГИЕ
 					УСЛОВИЯ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Приобретение
 						услуг в середине/конце расчетного
 						месяца дает право Студенту получать
@@ -243,23 +243,18 @@
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Положение
 						составлено в двух экземплярах. </font></font>
 						</p>
-					</li></ol>
-				</li></ol>
+					</li></ul>
+				</li></ul>
 				<p style="margin-left: 0.64in; margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><u>Студент:</u></font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 				                                                                 
 				                                                                 
                 </font></font></font><font face="Times New Roman, serif" class="pull-right" style="margin-right:0.3in;"><font size="1" style="font-size: 6pt"><u>Администратор</u></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">	</font></font></p>
 				
                                 <p style="margin-left: 0.64in; margin-bottom: 0in">
-                                    <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/______________/</u></span></font></font>
-                                    <font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
-                                        <?= $model->listner->lastname . ' ' . mb_substr($model->listner->name, 0, 1).'.'?>
-                                    </font></font></font>
-                                    <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ">/</span></font></font>                                     
+                                    <font color="#ff0000" face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/______________/<?= $model->listner->lastname . ' ' . mb_substr($model->listner->name, 0, 1).'.'?>/</u></span></font></font>                                   
                                 
 				                                                                 
-                                <font face="Times New Roman, serif" class="pull-right"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/___________/Смадияр
-				У./</u></span></font></font>
+                                <font face="Times New Roman, serif" class="pull-right"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/___________/<?= $admin->last_name . ' ' . mb_substr($admin->first_name, 0, 1)?>./</u></span></font></font>
                                 </p>
 			</td>
                         <td width="484" style="border: 0; padding: 0in 0.08in">
@@ -284,10 +279,10 @@
 				«Положение») от ТОО «Спаси</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="en-US">Beaucoup</span></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">»</font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">.
 				</font></font></font>
 				</p>
-				<ol>
+				<ul>
 					<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПОЛУЧЕНИЯ УСЛУГ:</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получение
 						услуг в сфере дополнительного
                                                 образования производится </font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
@@ -313,22 +308,22 @@
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Длительность
 						одного урока –</font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">1
 						астрономический час.</font></font></font></p>
-					</li></ol>
-				</li></ol>
+					</li></ul>
+				</li></ul>
 				<p style="margin-left: 0.64in; margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Номер
 				учета посещаемости студентов </font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>или
 				</b></font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">номер
 				индивидуального учета посещаемости
 				(подчеркнуть): <?= $model->code?></font></font></font></p>
-				<ol>
-					<ol>
+				<ul>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Контакты:
 						<?= $model->listner->phone?></font></font></font></p>
-					</li></ol>
+					</li></ul>
 					<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПОЛУЧЕНИЯ СЕРТИФИКАТА, СВИДЕТЕЛЬСТВУЮЩИЕ
 					ОБ УРОВНЕ ЗНАНИЯ ЯЗЫКА</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Получении
 						услуг в сфере дополнительного
 						образования в ТОО «Спаси</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="en-US">Beaucoup</span></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">»
@@ -351,11 +346,11 @@
 						знания языка указывается на сертификате
 						согласно итоговому экзамену. </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ПО ПЕРЕВОДУ ОПЛАЧЕННЫХ ДЕНЕЖНЫХ
 					СРЕДСТВ НА РЕЗЕРВ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Перевод
 						денежных средств на резерв производится
 						в первую неделю расчетного месяца
@@ -368,10 +363,10 @@
 						официального подтверждения от ГУМУ
 						 </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">УСЛОВИЯ
 					ВОЗВРАТА ОПЛАЧЕННЫХ ДЕНЕЖНЫХ СРЕДСТВ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Полный
 						или частичный возврат денежных
 						средств возможен в случае не
@@ -395,10 +390,10 @@
 						услуг. При этом Студент должен иметь
 						подтверждающий данную информацию
 						документ в виде заявления от Компании.</font></font></p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ПЕРЕНОС
 					И/ИЛИ РЕГУЛЯЦИЯ РАСПИСАНИЯ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><b>ПЕРЕНОС
 						УРОКОВ</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 						возможен при уведомлении представителя
@@ -444,10 +439,10 @@
 						администрации (п.п. 5.3 действует при
 						групповом курсе согласно п.п.1.1.) </font></font>
 						</p>
-					</li></ol>
+					</li></ul>
 					</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">ДРУГИЕ
 					УСЛОВИЯ</font></font></p>
-					<ol>
+					<ul>
 						<li><p style="margin-bottom: 0in"> <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Приобретение
 						услуг в середине/конце расчетного
 						месяца дает право Студенту получать
@@ -482,24 +477,18 @@
 						</li><li><p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">Положение
 						составлено в двух экземплярах. </font></font>
 						</p>
-					</li></ol>
-				</li></ol>
+					</li></ul>
+				</li></ul>
 				<p style="margin-left: 0.64in; margin-bottom: 0in"><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><u>Студент:</u></font></font></font><font color="#ff0000"><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">
 				                                                                 
 				                                                                 
                 </font></font></font><font face="Times New Roman, serif" class="pull-right" style="margin-right: 0.3in;"><font size="1" style="font-size: 6pt"><u>Администратор</u></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 6pt">	</font></font></p>
 				
                                 <p style="margin-left: 0.64in; margin-bottom: 0in">
-                                    <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/______________/</u></span></font></font>
-                                    <font color="#ff0000"><font face="Times New Roman, serif">
-                                        <font size="1" style="font-size: 6pt">
-                                            <?= $model->listner->lastname . ' ' . mb_substr($model->listner->name, 0, 1).'.'?>
-                                        </font></font></font>
-                                    <font face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ">/</span></font></font>                                     
+                                    <font color="#ff0000" face="Times New Roman, serif"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/______________/<?= $model->listner->lastname . ' ' . mb_substr($model->listner->name, 0, 1).'.'?>/</u></span></font></font>
                                 
 				                                                                 
-                                    <font face="Times New Roman, serif" class="pull-right"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/___________/Смадияр
-				У./</u></span></font></font>
+                                    <font face="Times New Roman, serif" class="pull-right"><font size="1" style="font-size: 6pt"><span lang="kk-KZ"><u>/___________/<?= $admin->last_name . ' ' . mb_substr($admin->first_name, 0, 1)?>./</u></span></font></font>
                                 </p>
 			</td>
                         

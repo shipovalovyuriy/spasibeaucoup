@@ -72,10 +72,14 @@ Date.now = Date.now || function() { return +new Date; };
 !function ($) {
 
   $(function(){
-    $('button#yw0.btn').removeClass('btn-primary');
-    $('button#yw0.btn').addClass('btn-default');
-    $('button#yw1.btn').removeClass('btn-default');
-    $('button#yw1.btn').addClass('btn-primary');
+    if(location.href != 'http://admin.spasibeaucoup.kz/login'){
+	    var a = $('button.btn.btn-primary');
+	    var b = $('button.btn.btn-default');
+	    a.removeClass('btn-primary');
+	    a.addClass('btn-default');  
+	    b.removeClass('btn-default');
+	    b.addClass('btn-primary');
+    }
     // toogle fullscreen
     $(document).on('click', "[data-toggle=fullscreen]", function(e){
       if (screenfull.enabled) {

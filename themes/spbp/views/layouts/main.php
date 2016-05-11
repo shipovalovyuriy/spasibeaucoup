@@ -2,7 +2,7 @@
     <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title><?=Yii::app()->getModule('yupe')->siteName .' | '.   Yii::app()->controller->action->id?></title>
+        <title>Admin <?=Yii::app()->getModule('yupe')->siteName?></title>
         <?php $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->basePath . '/web') ?>
     </head>
     <body>

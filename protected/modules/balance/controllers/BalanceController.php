@@ -19,6 +19,8 @@ class BalanceController extends \yupe\components\controllers\FrontController
         $arr = [];
         $in = 0;
         $out = 0;
+        $totalIn = 0;
+        $totalOut = 0;
         $total = 0;
         while ($d1 <= $d2) {
             if($branch=="all"){$criteria->params = [":date1" => $d1];}else{$criteria->params = [":date1" => $d1,'br'=>$branch];}
@@ -27,6 +29,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
                 foreach ($inflowArr as $value) {
                     array_push($inflow, $value);
                     $in += $value->form->price;
+                    $totalIn+=$in;
                 }
             }
             $outflowArr = Outflow::model()->findAll($criteria);
@@ -34,6 +37,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
                 foreach ($outflowArr as $value) {
                     array_push($outflow, $value);
                     $out += (int)$value->price;
+                    $totalOut+=$out;
                 }
             }
 
@@ -52,7 +56,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         }
 
         //$this->render('search', array('inflow' => $inflow, 'outflow' => $outflow, 'totalflow' => $totalArr));
-        $this->actionPrint($inflow,$outflow,$totalArr);
+        $this->actionPrint($inflow,$outflow,$totalArr,$totalIn,$totalOut);
 
     }
 
@@ -65,7 +69,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
     }
 
 
-    public function actionPrint($inflow,$outflow,$totalArr)
+    public function actionPrint($inflow,$outflow,$totalArr,$in,$out)
     {
         $costArr = Cost::model()->findAll();
 
@@ -101,11 +105,11 @@ class BalanceController extends \yupe\components\controllers\FrontController
         //Создание заголовков
 
         $sheet1->setCellValue("A1", "Дата")
-            ->setCellValue("B1", "Код предмета")
-            ->setCellValue("C1", "Получатель")
-            ->setCellValue("D1", "Сумма")
-            ->setCellValue("E1", "Основание")
-            ->setCellValue("F1", "Комментарий")
+            ->setCellValue("B1", "Шифр")
+            ->setCellValue("C1", "Основание")
+            ->setCellValue("D1", "Исполнитель")
+            ->setCellValue("E1", "Оплата")
+            ->setCellValue("F1", "Другая информация")
             ->setCellValue("H1", "Наименование услуги")
             ->setCellValue("I1", "Шифр");
 
@@ -136,15 +140,17 @@ class BalanceController extends \yupe\components\controllers\FrontController
         $i = 2;
 
         foreach ($inflow as $value) {
-            $sheet1->setCellValue("A" . $i, $value->date)
+            $sheet1->setCellValue("A" .$i, $value->date)
                 ->setCellValue("B" . $i, $value->subject->code)
-                ->setCellValue("C" . $i, $value->receiver)
-                ->setCellValue("D" . $i, $value->form->price)
-                ->setCellValue("E" . $i, $value->based)
+                ->setCellValue("C" . $i, $value->based)
+                ->setCellValue("D" . $i, $value->receiver)
+                ->setCellValue("E" . $i, $value->form->price)
                 ->setCellValue("F" . $i, $value->comment);
 
             $i++;
         }
+        $sheet1->setCellValue('A'.$i,"Итог:");
+        $sheet1->setCellValue('B'.$i,$in);
 
         //Outflow
         $i = 2;
@@ -166,6 +172,9 @@ class BalanceController extends \yupe\components\controllers\FrontController
                 ->setCellValue("F" . $i, $value->note);
             $i++;
         }
+
+                $sheet2->setCellValue('A'.$i,"Итог:");
+        $sheet2->setCellValue('B'.$i,$out);
 
         //Total
         $i = 2;

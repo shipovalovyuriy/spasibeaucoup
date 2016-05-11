@@ -110,6 +110,7 @@ $this->menu = [
                             continue;
                     }
                     if($position->group_id){$a='group/'.$position->id;$b='users';}else{$a=$position->id; $b='star';}?>
+                    <a href="/listner/subject/lessons/<?= $a?>">
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
@@ -117,12 +118,14 @@ $this->menu = [
                                 <i class="fa fa-<?= $b;?> text-white fa-stack-1x"></i>
                             </span>
                         </div>
-                        <div class="media-body">                        
-                            <a href="/listner/subject/lessons/<?= $a?>" class="h4"><?= $position->subject->name?></a>
+                        <div class="media-body h4">                        
+                            <?= $position->subject->name?>
                         </div>
                     </article>
                     <div class="line pull-in"></div>
                 <?php endif; endforeach;?>
+                <?php if(array_intersect(\Yii::app()->user->role, ['1', '3'])):?>
+                <a href="/listner/view/<?=$model->id?>/create">
                     <article class="media">
                         <div class="pull-left">
                             <span class="fa fa-stack fa-2x">
@@ -130,10 +133,12 @@ $this->menu = [
                                 <i class="fa fa-plus-square text-white fa-stack-1x"></i>
                             </span>
                         </div>
-                        <div class="media-body">                        
-                            <a href="/listner/view/<?=$model->id?>/create" class="h4">Добавить курс</a>
+                        <div class="media-body h4">                        
+                            Добавить курс
                         </div>
                     </article>
+                    </a>
+                <?php endif;?>
             </section>
         </section>
     </div>
@@ -150,4 +155,3 @@ $this->menu = [
         $this->endWidget();
     ?>
 </div>
-

@@ -58,6 +58,20 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'city_id', [
+                    'widgetOptions' => [
+                        'data' => CHtml::listData(City::model()->findAll(), 'id', 'name'),
+                        'htmlOptions' => [
+                                'empty' => '--выберите--',
+                                'encode' => false,
+                        ],
+                    ],
+                    
+                ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'individual_counter', [
                 'widgetOptions' => [
                     'htmlOptions' => [

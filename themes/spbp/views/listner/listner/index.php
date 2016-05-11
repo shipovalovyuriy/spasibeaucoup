@@ -56,6 +56,7 @@ $this->menu = [
 </p>
 
 <?php
+if (array_intersect(\Yii::app()->user->role, ['1'])) {
  $this->widget(
     'yupe\widgets\FrontGridView',
     [
@@ -89,4 +90,32 @@ $this->menu = [
             ],
         ],
     ]
-); ?>
+);}else{
+ $this->widget(
+    'yupe\widgets\FrontGridView',
+    [
+        'id'           => 'listner-grid',
+        'type'         => 'striped condensed',
+        'dataProvider' => $model->search(),
+        'filter'       => $model,
+        'columns'      => [
+            'id',
+            'name',
+            'lastname',
+            'patronymic',
+            'phone',
+            'create_date',
+//            'branch_id',
+//            'email',
+            [
+                'name' => 'status',
+                'value' => '$data->getStatus($data->status)',
+                'type' => 'raw'
+            ],
+            [
+                'class' => 'yupe\widgets\FrontButtonColumn',
+            ],
+        ],
+    ]
+);	
+} ?>

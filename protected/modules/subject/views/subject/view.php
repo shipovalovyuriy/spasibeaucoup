@@ -42,27 +42,9 @@ $this->menu = [
     </h1>
 </div>
 
-<style>
-/*  #sortable1, #sortable2 {
-    border: 1px solid #8C8C8C;
-    width: 142px;
-    min-height: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 5px 0 0 0;
-    float: left;
-    margin-right: 10px;
-  }
-  #sortable1 li, #sortable2 li {
-    margin: 0 5px 5px 5px;
-    padding: 5px;
-    font-size: 1.2em;
-    width: 120px;
-  }*/
-  </style>
   <?php if(!$model->isNewRecord):?>
   <div class="row m-b">
-        <div class="panel-heading">Тестовый вид назначения преподавателя на предмет</div>
+        <div class="panel-heading">Назначения преподавателя на предмет</div>
         <div class="col-sm-4">
             <div class="dd">
                 <ol id="sortable1" class="dd-list connectedSortable dd-empty">
