@@ -30,30 +30,29 @@ $form = $this->beginWidget(
 
 <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'start_time', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('start_time'),
-                        'data-content' => $model->getAttributeDescription('start_time')
-                    ]
-                ]
-            ]); ?>
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker4'>
+                    <input type='text' class="form-control" value="<?=$model->start_time?>" name="Schedule[start_time]" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'end_time', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('end_time'),
-                        'data-content' => $model->getAttributeDescription('end_time')
-                    ]
-                ]
-            ]); ?>
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker5'>
+                    <input type='text' class="form-control" value="<?=$model->end_time?>" name="Schedule[end_time]" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-sm-7">
@@ -79,5 +78,15 @@ $form = $this->beginWidget(
             'label'      => Yii::t('ListnerModule.listner', 'Сохранить Расписание и закрыть'),
         ]
     ); ?>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker4').datetimepicker({
+                startDate:"<?=$model->start_time?>"
+            });
+            $('#datetimepicker5').datetimepicker({
+                startDate:"<?=$model->end_time?>"
+            });
+        });
+    </script>
 
 <?php $this->endWidget(); ?>
