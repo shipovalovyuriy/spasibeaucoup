@@ -27,7 +27,16 @@ class UserController extends yupe\components\controllers\FrontController
 //            ['deny']
 //        ];
 //    }
-
+    protected function beforeAction($action) {
+        parent::beforeAction($action);
+        $roles = ['1', '4'];
+        $role = \Yii::app()->user->role;
+        if (array_intersect($role, $roles)){
+            return true;
+        } else {
+            throw new CHttpException(403,  'Ошибка прав доступа.');
+        }
+    }
     public function actions()
     {
         return [
@@ -216,7 +225,7 @@ class UserController extends yupe\components\controllers\FrontController
         $model->setAttributes(
             Yii::app()->getRequest()->getParam(
                 'User',
-                ['is_test' => 0]
+                []
             )
         );
 
