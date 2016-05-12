@@ -16,7 +16,7 @@
                         <i class="fa fa-plus-circle"></i> Продлить курс
                     </a>
                 <?php endif;?>
-                <a class="text-right" href="/listner/subject/lessons/<?= $model->id?>/doc">
+                <a class="text-right" target="_blank" href="/listner/subject/lessons/<?= $model->id?>/doc">
                     <i class="fa fa-file-o"></i>  Документ
                 </a>
             </div>
