@@ -32,15 +32,28 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'user_id', [
-                    'widgetOptions' => [
-                        'data' => CHtml::listData(User::model()->findAll('is_test=0'), 'id', 'fullName'),
-                         'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
+            <div class="form-group">
+                <?php echo $form->hiddenField($model, 'user_id');
+                    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                        'name'=>'user_id',
+                        'source'=> CController::createUrl('/teacher/autoComplete'),
+                        // additional javascript options for the autocomplete plugin
+                        'options'=>[
+                            'minLength'=>'2',
+                            'select'=>'js:function( event, ui ) {
+                                $("#user_id").val( ui.item.label );
+                                $("#RoleToUser_user_id").val( ui.item.value );
+                                return false;
+                            }',
                         ],
-                    ]
-                ]); ?>
+                        'htmlOptions'=>[
+                            'onfocus' => 'js: this.value = null; $("#user_id").val(null); $("#RoleToUser_user_id").val(null);',
+                            'class' => 'input-xxlarge search-query popover-help form-control',
+                            'placeholder' => "Введите имя сотрудника",
+                        ],
+                    ));
+                ?>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -48,7 +61,7 @@ $form = $this->beginWidget(
             <?php echo $form->dropDownListGroup($model, 'role_id', [
                     'widgetOptions' => [
                         'data' => CHtml::listData(Role::model()->findAll(), 'id', 'name'),
-                         'htmlOptions' => [
+                        'htmlOptions' => [
                             'empty' => '--выберите--',
                             'encode' => false,
                         ],

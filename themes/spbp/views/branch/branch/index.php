@@ -65,7 +65,7 @@ $this->menu = [
         'filter'       => $model,
         'columns'      => [
             'id',
-            'name',
+            'fullName',
             'address',
             'city.name',
             [

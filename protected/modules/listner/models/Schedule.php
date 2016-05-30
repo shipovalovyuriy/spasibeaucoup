@@ -33,7 +33,7 @@ class Schedule extends yupe\models\YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('position_id, number, room_id', 'numerical', 'integerOnly'=>true),
+			array('position_id, teacher_id, number, room_id', 'numerical', 'integerOnly'=>true),
 			array('start_time', 'length', 'max'=>50),
 			array('end_time', 'length', 'max'=>45),
 			// The following rule is used by search().
@@ -52,6 +52,8 @@ class Schedule extends yupe\models\YModel
 		return array(
 			'room' => array(self::BELONGS_TO, 'Room', 'room_id'),
 			'position' => array(self::BELONGS_TO, 'Position', 'position_id'),
+                        'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
+                        'teacher' => [self::BELONGS_TO, 'Teacher', 'teacher_id']
 		);
 	}
 
@@ -120,5 +122,21 @@ class Schedule extends yupe\models\YModel
                 return TRUE;
             else
                 return FALSE;
+        }
+        public function getBranch() {
+            $criteria = new CDbCriteria;
+            if($this->position_id) {
+                return $criteria->condition = 'branch_id='.$this->position->listner->branch_id;
+            } else {
+                return $criteria->condition = 'branch_id='.$this->group->teacher->branch_id;
+            }
+        }
+        
+        public function getSubject() {
+            if($this->position_id) {
+                return $this->position->subject_id;
+            } else {
+                return $this->group->subject_id;
+            }
         }
 }

@@ -11,7 +11,7 @@
                 <a class="text-right" href="#">
                     <i></i>
                 </a>
-                <?php if(!$model->groupP->next):?>
+                <?php if(!$model->groupP->getNext($model->listner_id)):?>
                     <a class="text-right" href="/listner/view/<?= $model->listner_id?>/create/group/<?= $model->group_id?>">
                         <i class="fa fa-plus-circle"></i> Продлить курс
                     </a>
@@ -23,15 +23,15 @@
         </header>
         <div class="list-group bg-white">
             <div class="list-group-item">
-                <?php if($model->prev):?>
-                    <a href="<?= $model->prev->id?>">
-                        <i class="fa fa-arrow-circle-left"></i><span>Предыдущее |</span>
+                <?php if($model->groupP->getPrev($model->listner_id)):?>
+                    <a href="<?= $model->groupP->getPrev($model->listner_id)->id?>">
+                        <i class="fa fa-arrow-circle-left"></i><span>  Предыдущее |</span>
                     </a>
                 <?php endif;?>
                 <?= $model->month;?>
-                <?php if($model->next):?>
-                    <a href="<?= $model->next->id?>">
-                        <span>| Следующее</span><i class="fa fa-arrow-circle-right"></i>
+                <?php if($model->groupP->getNext($model->listner_id)):?>
+                    <a href="<?= $model->groupP->getNext($model->listner_id)->id?>">
+                        <span>| Следующее  </span><i class="fa fa-arrow-circle-right"></i>
                     </a>
                 <?php endif;?>
             </div>

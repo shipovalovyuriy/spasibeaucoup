@@ -7,6 +7,7 @@
 *   @author   Yupe Team <team@yupe.ru>
 *   @license  https://github.com/yupe/yupe/blob/master/LICENSE BSD
 *   @link     http://yupe.ru
+ *  @todo фильтр по предмету в getTeacher
 **/
 class ScheduleController extends \yupe\components\controllers\FrontController
 {
@@ -148,5 +149,23 @@ class ScheduleController extends \yupe\components\controllers\FrontController
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
 
         return $model;
+    }
+    
+    public function actionTeacher($branch, $subject, $term) {
+        if (Yii::app()->request->isAjaxRequest) {
+            $criteria = new CDbCriteria;
+            $criteria->condition = "`t`.`branch_id` = $branch AND `user`.first_name='$term'";
+            $model = Teacher::model()->with('user')->findAll($criteria);
+            $list = [];        
+            foreach($model as $q){
+                $data['value']= $q['id'];
+                $data['label']= $q->user->fullName;
+                $list[]= $data;
+                unset($data);
+            }
+            echo CJSON::encode($list);
+        } else {
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
     }
 }

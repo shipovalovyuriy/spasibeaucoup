@@ -67,6 +67,19 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
+            <?php echo $form->textFieldGroup($model, 'old_price', [
+                'widgetOptions' => [
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('old_price'),
+                        'data-content' => $model->getAttributeDescription('old_price')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'description', [
                 'widgetOptions' => [
                     'htmlOptions' => [

@@ -53,6 +53,7 @@ $this->menu = [
         ],
         'name',
         'price',
+        'old_price',
         'description',
         'number',
     ],

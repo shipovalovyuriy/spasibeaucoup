@@ -107,7 +107,7 @@ $form = $this->beginWidget(
             <div class="col-sm-7">
                 <?php echo $form->dropDownListGroup($model, 'branch_id', [
                         'widgetOptions' => [
-                            'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'name'),
+                            'data' => CHtml::listData(Branch::model()->findAll(), 'id', 'fullName'),
                             'htmlOptions' => [
                                 'empty' => '--выберите--',
                                 'encode' => false,

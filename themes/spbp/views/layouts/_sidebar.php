@@ -57,21 +57,29 @@
                             </a>
                         </li>
                     <?php endif;?>
+                    <?php $roles=['3']; if(array_intersect($role, $roles)):?>
+                        <li class="dropdown-submenu">
+                            <a href="/branch/schedule/<?= Yii::app()->user->branch->id?>">
+                                <i class="fa fa-certificate"></i>
+                                <span>Расписание</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
                     <?php $roles=['1']; if(array_intersect($role, $roles)):?>
-                    <li class="dropdown-submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-tasks"></i>
-                            <span>Филиал</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="/branch">Филиалы</a>
-                            </li>
-                            <li>
-                                <a href="/branch/room/index">Аудитории</a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i>
+                                <span>Филиал</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/branch">Филиалы</a>
+                                </li>
+                                <li>
+                                    <a href="/branch/room/index">Аудитории</a>
+                                </li>
+                            </ul>
+                        </li>
                     <?php endif;?>
                     <?php $roles=['1','5', '3']; if(array_intersect($role, $roles)):?>
                         <li class="dropdown-submenu">

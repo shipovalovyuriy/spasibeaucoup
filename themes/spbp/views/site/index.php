@@ -13,18 +13,18 @@ $assets = Yii::app()->getAssetManager()->getPublishedUrl(Yii::app()->theme->base
                 </header>
                 <section class="panel-body">
                     <?php foreach($branchs as $branch):?>
-                    <a href="/branch/schedule/<?=$branch->id?>">
-                        <article class="media">
-                            <div class="pull-left">
-                                <span class="fa fa-stack fa-2x">
-                                    <i class="fa fa-circle text-info fa-stack-2x"></i>
-                                    <i class="fa fa-building text-white fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="media-body h4">                        
-                                <?= $branch->name?>
-                            </div>
-                        </article>
+                        <a href="/branch/schedule/<?=$branch->id?>">
+                            <article class="media">
+                                <div class="pull-left">
+                                    <span class="fa fa-stack fa-2x">
+                                        <i class="fa fa-circle text-info fa-stack-2x"></i>
+                                        <i class="fa fa-building text-white fa-stack-1x"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body h4">                        
+                                    <?= $branch->name?>
+                                </div>
+                            </article>
                         </a>
                         <?php if($branch != end($branchs)):?><div class="line pull-in"></div><?php endif;?>
                     <?php endforeach;?>

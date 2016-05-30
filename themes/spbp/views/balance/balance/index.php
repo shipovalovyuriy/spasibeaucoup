@@ -25,7 +25,7 @@
                     <select class="form-control" style="width:10%;" name="branch">
                         <option value="all">Все</option>
                         <?php foreach($model as $value):?>
-                           <option value="<?=$value->id?>"><?=$value->name?></option>
+                           <option value="<?=$value->id?>"><?=$value->fullName?></option>
                         <?php endforeach;?>
                     </select>
                 </div>

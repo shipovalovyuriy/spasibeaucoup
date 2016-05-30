@@ -55,7 +55,7 @@ class Teacher extends yupe\models\YModel
 			'subject' => [self::HAS_MANY, 'TeacherToSubject', 'teacher_id'],
                         'branch' => [self::BELONGS_TO, 'Branch', 'branch_id'],
                         'position' => [self::HAS_MANY, 'Position', 'teacher_id'],
-                        'schedule'=>[self::HAS_MANY, 'Schedule', ['id'=>'position_id'], 'through'=>'position'],                  
+                        'schedule'=>[self::HAS_MANY, 'Schedule', 'teacher_id'],                  
 		);
 	}
 
@@ -73,7 +73,7 @@ class Teacher extends yupe\models\YModel
 		);
 	}
 
-	/**
+        /**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * Typical usecase:

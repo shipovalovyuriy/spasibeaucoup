@@ -73,14 +73,30 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->dropDownListGroup($model, 'form_id', [
-                    'widgetOptions' => [
-                        'htmlOptions' => [
-                            'empty' => '--выберите--',
-                            'encode' => false,
+            <div class="form-group">
+                <label class="control-label" for="Position_form_id">Тариф</label>
+                <?php 
+                    echo $form->hiddenField($model, 'form_id');
+                    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                        'name'=>'form_id',
+                        'source'=> CController::createUrl('/listner/position/form'),
+                        // additional javascript options for the autocomplete plugin
+                        'options'=>[
+                            'minLength'=>'2',
+                            'select'=>'js:function( event, ui ) {
+                                $("#form_id").val( ui.item.label );
+                                $("#Position_form_id").val( ui.item.value );
+                                return false;
+                            }',
                         ],
-                    ]
-                ]); ?>
+                        'htmlOptions'=>[
+                            'onfocus' => 'js: this.value = null; $("#form_id").val(null); $("#Position_form_id").val(null);',
+                            'class' => 'input-xxlarge search-query popover-help form-control',
+                            'placeholder' => "Введите название тарифа",
+                        ],
+                    ));
+                ?>
+            </div>
         </div>
     </div>
 
@@ -113,14 +129,30 @@ $form = $this->beginWidget(
 </div>
 <div class="row">
     <div class="col-sm-7">
-        <?php echo $form->dropDownListGroup($model, 'group_id', [
-            'widgetOptions' => [
-                'htmlOptions' => [
-                    'empty' => '--выберите--',
-                    'encode' => false,
-                ],
-            ]
-        ]); ?>
+        <div class="form-group">
+            <label class="control-label" for="Position_group_id">Номер группы</label>
+            <?php 
+                echo $form->hiddenField($model, 'group_id');
+                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                    'name'=>'group_id',
+                    'source'=> CController::createUrl('/listner/position/group?branch='.Listner::model()->findByPk($_GET['id'])->branch_id),
+                    // additional javascript options for the autocomplete plugin
+                    'options'=>[
+                        'minLength'=>'2',
+                        'select'=>'js:function( event, ui ) {
+                            $("#group_id").val( ui.item.label );
+                            $("#Position_group_id").val( ui.item.value );
+                            return false;
+                        }',
+                    ],
+                    'htmlOptions'=>[
+                        'onfocus' => 'js: this.value = null; $("#group_id").val(null); $("#Position_group_id").val(null);',
+                        'class' => 'input-xxlarge search-query popover-help form-control',
+                        'placeholder' => "Введите номер группы",
+                    ],
+                ));
+            ?>
+        </div>
     </div>
 </div>
 <input type="hidden" value="<?= Listner::model()->findByPk($_GET['id'])->branch_id;?>" id="branch_id">
@@ -298,43 +330,10 @@ $form = $this->beginWidget(
         }).responseText;
         $('#Position_code').val(code);
     }
-    function getForm() {
-        $.ajax({
-            type: 'get',
-            url: '/listner/position/form',
-            dataType: 'json',
-            data: {
-                type: $('#Position_type').val(),
-            }
-        }).done(function(data){
-            data.forEach(function(item){
-                $('#Position_form_id').append('<option class="form_id" value="'+item.id+'">'+item.name+'</option>');
-            })
-        });
-    }
-    function getGroup() {
-        var subject = $('#Position_subject_id').val();
-        var branch = <?= $listner;?>;
-        $.ajax({
-            type: 'get',
-            url: '/listner/position/group',
-            dataType: 'json',
-            data: {
-                subject: subject,
-                branch: branch
-            }
-        }).done(function(data){
-            $('.group_id').remove();
-            data.forEach(function(item){
-                $('#Position_group_id').append('<option class="group_id" value="'+item.id+'">'+item.code+'</option>');
-            })
-        });
-    }
     $('#Position_type').click(function(){
         if($('#Position_type').val()){
             getCode();
             $('.form_id').remove();
-            getForm();
             if($('#Position_type').val() == 1 || $('#Position_type').val() == 2){
                 $('#Position_code').attr('required', false);
                 $('.group').removeClass('hide');

@@ -243,6 +243,18 @@ class TeacherController extends \yupe\components\controllers\FrontController
         }
     }
     
+    public function actionAutoComplete($term) {
+        $query = User::model()->findAllByAttributes(['first_name'=>$term]);
+        $list = [];
+        foreach($query as $q){
+            $data['value']= $q['id'];
+            $data['label']= $q['fullName'];
+            $list[]= $data;
+            unset($data);
+        }
+        echo CJSON::encode($list);
+    }
+    
     /**
     * Возвращает модель по указанному идентификатору
     * Если модель не будет найдена - возникнет HTTP-исключение.

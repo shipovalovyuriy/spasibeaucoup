@@ -30,22 +30,34 @@ $form = $this->beginWidget(
 
 <?php echo $form->errorSummary($model); ?>
 
+
     <div class="row">
         <div class="col-sm-7">
-            <?php
-                if($model->isNewRecord){
-                    echo $form->dropDownListGroup($model, 'user_id', [
-                        'widgetOptions' => [
-                            'data' => CHtml::listData(User::model()->findAll('is_test=0'), 'id', 'fullName'),
-                            'htmlOptions' => [
-                                'empty' => '--выберите--',
-                                'encode' => false,
+            <div class="form-group">
+                <?php
+                    if($model->isNewRecord){
+                        echo $form->hiddenField($model, 'user_id');
+                        $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                            'name'=>'user_id',
+                            'source'=> CController::createUrl('/teacher/autoComplete'),
+                            // additional javascript options for the autocomplete plugin
+                            'options'=>[
+                                'minLength'=>'2',
+                                'select'=>'js:function( event, ui ) {
+                                    $("#user_id").val( ui.item.label );
+                                    $("#Teacher_user_id").val( ui.item.value );
+                                    return false;
+                                }',
                             ],
-                        ],
-
-                    ]);
-                }
-            ?>
+                            'htmlOptions'=>[
+                                'onfocus' => 'js: this.value = null; $("#searchbox").val(null); $("#selectedvalue").val(null);',
+                                'class' => 'input-xxlarge search-query popover-help form-control',
+                                'placeholder' => "Введите имя сотрудника",
+                            ],
+                        ));
+                    }
+                ?>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -55,7 +67,8 @@ $form = $this->beginWidget(
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('start_time'),
-                        'data-content' => $model->getAttributeDescription('start_time')
+                        'data-content' => $model->getAttributeDescription('start_time'),
+                        'placeholder' => 'Пример 9:00'
                     ]
                 ]
             ]); ?>
@@ -68,7 +81,8 @@ $form = $this->beginWidget(
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('end_time'),
-                        'data-content' => $model->getAttributeDescription('end_time')
+                        'data-content' => $model->getAttributeDescription('end_time'),
+                        'placeholder' => 'Пример 9:00'
                     ]
                 ]
             ]); ?>

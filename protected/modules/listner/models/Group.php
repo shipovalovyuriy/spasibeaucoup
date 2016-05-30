@@ -118,7 +118,7 @@ class Group extends yupe\models\YModel
 	 */
 	public static function model($className=__CLASS__)
 	{
-		return parent::model($className);
+            return parent::model($className);
 	}
         protected function afterSave() {
             parent::afterSave();
@@ -138,6 +138,7 @@ class Group extends yupe\models\YModel
                     $schedule = new Schedule;
                     $schedule->group_id = $this->id;
                     $schedule->number = $i+1;
+                    $schedule->teacher_id= $this->teacher_id;
                     $schedule->start_time = str_replace(" ","T",date('Y-m-d H:i:s',strtotime("+".$k."week",strtotime($time[$j]))));
                     if ($this->hui=="on"){
                         $pizda = 30;
@@ -155,12 +156,14 @@ class Group extends yupe\models\YModel
         }
         
         
-        public function getNext(){
-            return $this->model()->findBySql('SELECT * FROM spbp_listner_group t1 WHERE t1.parent_group ='.$this->id);
+        public function getNext($id){
+            return $this->model()->findBySql("SELECT * FROM spbp_listner_group t1"
+                    . " JOIN spbp_listner_position t2 ON t2.group_id = t1.id WHERE t1.parent_group =$this->id AND t2.listner_id=$id");
         }
-        public function getPrev(){
+        public function getPrev($id){
             if($this->parent_group)
-                return $this->model()->findBySql('SELECT * FROM spbp_listner_group t1 WHERE t1.id ='.$this->parent_group);
+                return $this->model()->findBySql("SELECT * FROM spbp_listner_group t1"
+                    . " JOIN spbp_listner_position t2 ON t2.group_id = t1.id WHERE t1.id =$this->parent_group AND t2.listner_id=$id");
             else
                 return false;
         }

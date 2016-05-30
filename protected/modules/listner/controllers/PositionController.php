@@ -402,10 +402,17 @@ class PositionController extends \yupe\components\controllers\FrontController
             'admin' => $admin
         ]);
     }
-    public function actionForm($type){
+    public function actionForm($term){
         if (Yii::app()->request->isAjaxRequest) {
-            $model = Form::model()->findAll('`t`.type_id='.$type);
-            echo CJSON::encode($model);
+            $model = Form::model()->findAllByAttributes(['name' => $term]);
+            $list = [];        
+            foreach($model as $q){
+                $data['value']= $q['id'];
+                $data['label']= $q->type->name.' | '.$q['name'].' | '.$q['number'];
+                $list[]= $data;
+                unset($data);
+            }
+            echo CJSON::encode($list);
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
         }
@@ -443,10 +450,17 @@ class PositionController extends \yupe\components\controllers\FrontController
         }
     }
     
-    public function actionGroup($subject, $branch){
+    public function actionGroup($branch, $term){
         if (Yii::app()->request->isAjaxRequest) {
-            $model = Group::model()->findAll("subject_id=$subject AND branch_id=$branch");
-            echo CJSON::encode($model); 
+            $model = Group::model()->findAll("name=$term AND branch_id=$branch");
+            $list = [];        
+            foreach($model as $q){
+                $data['value']= $q['id'];
+                $data['label']= $q->subject->name.' | '.$q['name'];
+                $list[]= $data;
+                unset($data);
+            }
+            echo CJSON::encode($list);
         } else {
             throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
         }
