@@ -9,7 +9,7 @@
  *   @link     http://yupe.ru
  **/
 $add = '';
-if(!array_intersect(['2','3'], Yii::app()->user->role))
+if(!array_intersect(Yii::app()->user->role, ['2','3']))
 {
     $add = CHtml::link(
                 Yii::t('YupeModule.yupe', 'Add'),
@@ -86,7 +86,7 @@ $this->menu = [
                 'name'   => 'branch.name',
             ],
             [
-                'header'=>'Кол-часов',
+                'header'=>'Колличество часов',
                 'value'=>'$data->hours',
             ],
             [

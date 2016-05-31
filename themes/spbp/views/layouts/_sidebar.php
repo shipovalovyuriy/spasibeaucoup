@@ -73,7 +73,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/branch">Филиалы</a>
+                                    <a href="/branch/index">Филиалы</a>
                                 </li>
                                 <li>
                                     <a href="/branch/room/index">Аудитории</a>
