@@ -189,8 +189,9 @@ class Position extends yupe\models\YModel
             
             
         }
-        
-        protected function findRoom($t,$b)
+    
+
+    protected function findRoom($t,$b)
         {
             return Room::model()->findBySql(
                     "SELECT * FROM spbp_branch_room"

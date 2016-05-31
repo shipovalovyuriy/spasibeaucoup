@@ -73,7 +73,7 @@ $form = $this->beginWidget(
     </div>
 <div class="row">
     <label for="price_chek">Акция по старой цене</label>
-    <input type="checkbox" id="price_chek" name="price_check">
+    <input type="checkbox" id="price_chek" name="Position[is_old]">
 </div>
     <div class="row">
         <div class="col-sm-7">
