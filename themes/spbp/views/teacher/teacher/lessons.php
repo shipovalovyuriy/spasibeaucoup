@@ -1,3 +1,9 @@
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/locale/ru.js"></script>
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <div class="container">
 <div class="row">
     <h1 class="page-header">Сводная таблица по учителям</h1>
@@ -7,7 +13,7 @@
 
         <label class="control-label">Укажите отчетный месяц</label>
         <div class="input-group date" id="datetimepicker2">
-            <input type='text' class="form-control ct-form-control" autocomplete="off" placeholder="" id="yw0" />
+            <input type="text" id="range" class="form-control rm popover-help" name="daterange"/>
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </span>
@@ -21,23 +27,31 @@
 <div  id="pizda" style="margin-top:50px;" class="row">
 
     </div>
-
+<script type="text/javascript">
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+            timePicker: false,
+            locale: {
+                format: 'MM/DD/YYYY',
+            }
+        });
+        $('.rm').click(function(){
+            $('.fc-button').remove();
+        })
+        $('.applyBtn').text('Применить');
+        $('.cancelBtn').text('Отмена');
+    });
+</script>
 <script>
 
     $(function(){
-
-        $('#datetimepicker2').datetimepicker({
-            locale: 'ru',
-            stepping: 30,
-            format: 'YYYY-MM',
-        });
 
         $('#req').bind('click',function(){
             $('#pizda').children().remove();
             $.ajax({
                 url:'/teacher/lessons',
                 type:'GET',
-                data:{'date':$('#yw0').val()}
+                data:{'date':$('#range').val()}
             })
                 .done(function(resp){
                     if (resp=='gavno'){alert('Введите отчетный месяц');}else {
