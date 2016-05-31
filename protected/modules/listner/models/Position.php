@@ -76,7 +76,7 @@ class Position extends yupe\models\YModel
 			array('note, time,start_period,end_period', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date,start_period,end_period,hui', 'safe', 'on'=>'search'),
+			array('id, code, form_id, listner_id, teacher_id, subject_id, group_id, lvl, note, time, start_date,start_period,end_period,hui,is_old', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -175,6 +175,7 @@ class Position extends yupe\models\YModel
                 $inflow->subject_id = $this->subject_id;
                 $inflow->receiver = $this->teacher->user->fullName;
                 $inflow->form_id = $this->form_id;
+                if ($this->is_old=="on"){$inflow->price = $this->form->price;}else{$inflow->price=$this->form->old_price;}
                 $inflow->based = $this->code;
                 $inflow->comment = $this->note;
                 $inflow->date = $this->start_date;
@@ -189,7 +190,7 @@ class Position extends yupe\models\YModel
             
             
         }
-    
+
 
     protected function findRoom($t,$b)
         {
