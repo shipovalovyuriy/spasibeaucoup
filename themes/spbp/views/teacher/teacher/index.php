@@ -86,6 +86,10 @@ $this->menu = [
                 'name'   => 'branch.name',
             ],
             [
+                'header'=>'Кол-часов',
+                'value'=>'$data->hours',
+            ],
+            [
                 'class' => 'yupe\widgets\FrontButtonColumn',
             ],
         ],

@@ -268,9 +268,10 @@ class TeacherController extends \yupe\components\controllers\FrontController
     public function loadModel($id)
     {
         $model = Teacher::model()->findByPk($id);
-        if ($model === null)
-            throw new CHttpException(404, Yii::t('TeacherModule.teacher', 'Запрошенная страница не найдена.'));
-
+        if ($model === null){
+            throw new CHttpException(404, Yii::t('TeacherModule.teacher', 'Запрошенная страница не найдена.'));}
+        else{
         return $model;
+        }
     }
 }

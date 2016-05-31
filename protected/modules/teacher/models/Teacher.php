@@ -89,13 +89,14 @@ class Teacher extends yupe\models\YModel
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
+
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('branch_id',$this->branch_id);
 		$criteria->compare('start_time',$this->start_time,true);
-                $criteria->compare('is_test', $this->is_test);
+		$criteria->compare('is_test', $this->is_test);
 		$criteria->compare('end_time',$this->end_time,true);
 
 		return new CActiveDataProvider($this, array(
@@ -103,6 +104,15 @@ class Teacher extends yupe\models\YModel
 		));
 	}
 
+	public function getHours(){
+		$a = Yii::app()->db->createCommand()
+			->select('count(b.id) as hours')
+			->from('spbp_listner_position a')
+			->join('spbp_listner_schedule b', 'b.position_id = a.id')
+			->where('(a.teacher_id =:id) and (b.end_time < now())and (a.is_test = 0)', [':id' =>$this->id])
+			->queryRow();
+		return $a['hours'];
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
