@@ -111,12 +111,13 @@ $form = $this->beginWidget(
     ); ?>
     <script type="text/javascript">
         $(function () {
-//            $('#datetimepicker4').datetimepicker({
-//                startDate:'<?= substr($model->start_time,0,-9)?>'
-//            });
-//            $('#datetimepicker5').datetimepicker({
-//                startDate:'<?= substr($model->end_time,0,-9)?>'
-//            });
+            console.log('<?= str_replace("T"," ",$model->start_time)?>');
+            $('#datetimepicker4').datetimepicker({
+                format:"YYYY-MM-DDTHH:mm:ss"
+            });
+            $('#datetimepicker5').datetimepicker({
+                format:"YYYY-MM-DDTHH:mm:ss"
+            });
         });
     </script>
 
