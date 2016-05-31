@@ -175,7 +175,7 @@ class Position extends yupe\models\YModel
                 $inflow->subject_id = $this->subject_id;
                 $inflow->receiver = $this->teacher->user->fullName;
                 $inflow->form_id = $this->form_id;
-                if ($this->is_old=="on"){$inflow->price = $this->form->price;}else{$inflow->price=$this->form->old_price;}
+                if ($this->is_old=="on"){$inflow->price = $this->form->old_price;}else{$inflow->price=$this->form->price;}
                 $inflow->based = $this->code;
                 $inflow->comment = $this->note;
                 $inflow->date = $this->start_date;
