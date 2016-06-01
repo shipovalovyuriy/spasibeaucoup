@@ -28,7 +28,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
             if ($inflowArr) {
                 foreach ($inflowArr as $value) {
                     array_push($inflow, $value);
-                    $in += $value->form->price;
+                    $in += $value->price;
                     $totalIn+=$in;
                 }
             }

@@ -355,8 +355,9 @@ class PositionController extends \yupe\components\controllers\FrontController
                     foreach($checks as $check){
                         if ($check->branch_id == $branch){array_push($arr1,$check);}
                     }
-                }else{
-                    array_push($arr1,$teacher);
+                }elseif (count($checks)==1){
+                    if($check->branch_id ==$branch){
+                    array_push($arr1,$teacher);}
                 }
             }
             echo CJSON::encode($this->convertModelToArray($arr1));
