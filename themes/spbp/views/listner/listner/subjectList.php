@@ -40,9 +40,32 @@
                         <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
                             <i class="fa fa-pencil pull-right"></i>
                         </a>
+                        <a href="javascript:void(0)" onclick="cancel(<?=$schedule->id?>)">
+                            <i class="fa fa-eraser pull-right"></i>
+                        </a>
                     <?php endif;?>
                 </div>
             <?php endforeach;?>            
         </div>
     </section>
 </div>
+
+<script>
+    var cancel = function(id){
+
+        $.ajax({
+            url: '/listner/position/cancel',
+            type: 'default GET (Other values: POST)',
+            dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+            data: {param1: 'value1'},
+        })
+        .done(function(data) {
+            console.log(data);
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        ;
+
+    }
+</script>

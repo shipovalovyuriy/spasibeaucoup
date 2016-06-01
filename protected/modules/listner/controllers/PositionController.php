@@ -351,13 +351,10 @@ class PositionController extends \yupe\components\controllers\FrontController
             $arr1 = [];
             foreach($arr as $teacher){
                 $checks = Teacher::model()->with('user', 'schedule', 'subject')->findAll('user_id='.$teacher->user_id);
-                if(count($checks)>1){
+                if(count($checks)>=1){
                     foreach($checks as $check){
                         if ($check->branch_id == $branch){array_push($arr1,$check);}
                     }
-                }elseif (count($checks)==1){
-                    if($check->branch_id ==$branch){
-                    array_push($arr1,$teacher);}
                 }
             }
             echo CJSON::encode($this->convertModelToArray($arr1));
@@ -449,6 +446,10 @@ class PositionController extends \yupe\components\controllers\FrontController
             }
 
         }
+    }
+
+    public function actionCancel(){
+        echo "gavno";
     }
     
     public function actionGroup($branch, $term){
