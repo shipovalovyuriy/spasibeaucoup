@@ -301,7 +301,7 @@ class PositionController extends \yupe\components\controllers\FrontController
 
     public function actionGetTeacher($time, $form, $subject, $branch)
     {
-        if (!Yii::app()->request->isAjaxRequest) {
+        if (Yii::app()->request->isAjaxRequest) {
             $times = explode(',', $time);
             $tCount = count($times);
             $crTimes = $times;
