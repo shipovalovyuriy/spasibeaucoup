@@ -40,8 +40,11 @@
                         <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
                             <i class="fa fa-pencil pull-right"></i>
                         </a>
-                        <a href="javascript:void(0)" onclick="cancel(<?=$schedule->id?>)">
+                        <a class="cancel" href="javascript:void(0)" data-id=<?=$schedule->id?>">
                             <i class="fa fa-eraser pull-right"></i>
+                        </a>
+                        <a class="restore" href="javascript:void(0)" data-id=<?=$schedule->id?>">
+                            <i class="fa fa-refresh pull-right"></i>
                         </a>
                     <?php endif;?>
                 </div>
@@ -51,21 +54,44 @@
 </div>
 
 <script>
-    var cancel = function(id){
+    $(function(){
 
-        $.ajax({
-            url: '/listner/position/cancel',
-            type: 'default GET (Other values: POST)',
-            dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-            data: {param1: 'value1'},
-        })
-        .done(function(data) {
-            console.log(data);
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        ;
+        $('.cancel').click(function(){
 
-    }
+            var id = $(this).attr('data-id');
+            $.ajax({
+                    url: '/listner/position/cancel',
+                    type: 'GET',
+                    data: {'id': id},
+                })
+                .done(function(data) {
+                    alert("Урок успешно отменен");
+                    $(this).find('i').fadeOut(200);
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+            ;
+
+        });
+        $('.restore').click(function(){
+
+            var id = $(this).attr('data-id');
+            $.ajax({
+                    url: '/listner/position/restore',
+                    type: 'GET',
+                    data: {'id': id},
+                })
+                .done(function(data) {
+                    alert("Урок успешно восстановлен");
+                    $(this).find('i').fadeOut(200);
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+            ;
+
+        });
+        });
+
 </script>

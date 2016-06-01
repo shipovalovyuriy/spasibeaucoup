@@ -16,6 +16,7 @@ return [
     'import'    => [
         'application.modules.listner.models.*',
         'application.modules.subject.models.*',
+        'application.modules.balance.models.*',
     ],
     'component' => [],
     'rules'     => [

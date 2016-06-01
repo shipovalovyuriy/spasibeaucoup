@@ -449,7 +449,32 @@ class PositionController extends \yupe\components\controllers\FrontController
     }
 
     public function actionCancel(){
-        echo "gavno";
+
+           $id = $_GET['id'];
+
+            $lesson = \Schedule::model()->findByPk($id);
+            $price = $lesson->position->form->price/$lesson->position->form->number;
+            $lesson->is_active = 0;
+            $lesson->update();
+
+            $outflow = new Outflow();
+            $outflow->price = $price;
+            $outflow->based = "Отмена урока от ".$lesson->start_time;
+            $outflow->note = $lesson->id;
+            $outflow->branch_id = $lesson->position->listner->branch_id;
+            $outflow->date = date('YYYY-MM-DDTHH:mm:ss');
+            $outflow->receiver = 'Test';
+            $outflow->save();
+
+    }
+
+    public function actionRestore(){
+        $id = $_GET['id'];
+        $lesson = \Schedule::model()->findByPk($id);
+        $lesson->is_active = 1;
+        $lesson->update();
+        $outflow  = Outflow::model()->find("note='$id'");
+        $outflow->delete();
     }
     
     public function actionGroup($branch, $term){
