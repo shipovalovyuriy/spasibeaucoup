@@ -71,10 +71,19 @@ $form = $this->beginWidget(
                 ]); ?>
         </div>
     </div>
-<div class="row">
-    <label for="price_chek">Акция по старой цене</label>
-    <input type="checkbox" id="price_chek" name="Position[is_old]">
-</div>
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <label class="col-sm-5 control-label" for="price_chek">Акция по старой цене</label>
+                <div class="col-sm-10">
+                    <label class="switch">
+                        <input type="checkbox" id="price_chek" name="Position[is_old]">
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-7">
             <div class="form-group">
@@ -193,19 +202,19 @@ $form = $this->beginWidget(
         </div>
     </div>
 
-<div class="row oneH">
-<div class="col-sm-7">
-    <div class="form-group">
-        <label class="col-sm-5 control-label">Полутрочасовой урок</label>
-        <div class="col-sm-10">
-            <label class="switch">
-                <input type="checkbox" name="hui">
-                <span></span>
-            </label>
+    <div class="row oneH">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Полутрочасовой урок</label>
+                <div class="col-sm-10">
+                    <label class="switch">
+                        <input type="checkbox" name="hui">
+                        <span></span>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 
     <div class="row">
         <div class="col-sm-7">

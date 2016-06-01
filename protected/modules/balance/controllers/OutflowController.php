@@ -17,6 +17,18 @@ class OutflowController extends \yupe\components\controllers\FrontController
     *
     * @return void
     */
+    protected function beforeAction($action) {
+        parent::beforeAction($action);
+        if($action->id == 'create') {
+            $roles = ['1', '2', '3', '4', '5'];
+            $role = \Yii::app()->user->role;
+            if (array_intersect($role, $roles))
+                return true;
+            else 
+                $this->redirect('/');
+        } else
+            $this->redirect ('/');
+    }
     public function actionView($id)
     {
         $this->render('view', ['model' => $this->loadModel($id)]);

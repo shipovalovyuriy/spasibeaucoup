@@ -86,12 +86,12 @@ class BalanceController extends \yupe\components\controllers\FrontController
         $objPHPExcel = new PHPExcel();
 
         $objPHPExcel->getProperties()->setCreator("Спасибоку")
-            ->setLastModifiedBy("Maarten Balliauw")
+            ->setLastModifiedBy("system")
             ->setTitle("Балансовая ведомость")
             ->setSubject("Спасибоку")
             ->setDescription("Балансовая ведомость, отражающая приход и расход")
             ->setKeywords("Приход,Расход,Итог")
-            ->setCategory("Test result file");
+            ->setCategory("Отчет");
 
         //Создание вкладок
         $sheet1 = $objPHPExcel->createSheet(0);
@@ -195,7 +195,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
         // Автоматическое скачивание файла
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="total.xlsx"');
+        header('Content-Disposition: attachment;filename="Отчет.xlsx"');
         header('Cache-Control: max-age=0');
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
         $objWriter->save('php://output');

@@ -34,17 +34,14 @@
                 <?php endif;?>
             </div>
             <?php foreach($model->schedule as $schedule):?>
-                <div class="list-group-item" <?php if(date('c')>=$schedule->end_time):?>style="text-decoration: line-through;"<?php endif;?>>
+                <div class="list-group-item <?= $schedule->is_active == 0  ? 'bg-warning' : ''?>" <?php if(date('c')>=$schedule->end_time && $schedule->is_active==1):?>style="text-decoration: line-through;"<?php endif;?>>
                     Урок № <?= $schedule->number .' | '. str_replace('T', ' ', $schedule->start_time) .' | '. $schedule->room->alias?>
                     <?php if($schedule->checkEdit()):?>
                         <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
                             <i class="fa fa-pencil pull-right"></i>
                         </a>
-                        <a class="cancel" href="#" data-id="<?= $schedule->id?>">
-                            <i class="fa fa-eraser pull-right"></i>
-                        </a>
-                        <a class="restore" href="#" data-id="<?= $schedule->id?>">
-                            <i class="fa fa-refresh pull-right"></i>
+                        <a class="change" href="#" data-id="<?= $schedule->id?>">
+                            <i class="fa fa-<?= $schedule->is_active == 0  ? 'refresh' : 'eraser'?> pull-right"></i>
                         </a>
                     <?php endif;?>
                 </div>
@@ -55,43 +52,32 @@
 
 <script>
     $(function(){
-
-        $('.cancel').click(function(){
-
-            var id = $(this).attr('data-id');
+        $('.change').click(function(){
+            var lesson = $(this);
+            var id = lesson.attr('data-id');
+            var change, remove;
             $.ajax({
-                    url: '/listner/position/cancel',
-                    type: 'GET',
-                    data: {'id': id},
-                })
-                .done(function(data) {
-                    alert("Урок успешно отменен");
-                    //$(this).find('i').fadeOut(200);
-                })
-                .fail(function() {
-                    console.log("error");
-                })
-            ;
+                url: '/listner/position/change',
+                type: 'GET',
+                data: {'id': id},
+            }).done(function(data) {
+                if(data == 0){
+                    remove="fa-eraser";
+                    change="fa-refresh";
+                    lesson.parent("div").addClass("bg-warning");
+                }
+                else{
+                    remove="fa-refresh";
+                    change="fa-eraser";
+                    lesson.parent("div").removeClass("bg-warning");
+                }
+                lesson.children("i").removeClass(remove);
+                lesson.children("i").addClass(change);
+            }).fail(function() {
+                alert('Непредвиденная ошибка, перезагрузите страницу и попробуйте еще раз.');
+            });
 
         });
-        $('.restore').click(function(){
-
-            var id = $(this).attr('data-id');
-            $.ajax({
-                    url: '/listner/position/restore',
-                    type: 'GET',
-                    data: {'id': id},
-                })
-                .done(function(data) {
-                    alert("Урок успешно восстановлен");
-                    //$(this).find('i').fadeOut(200);
-                })
-                .fail(function() {
-                    console.log("error");
-                })
-            ;
-
-        });
-        });
+    });
 
 </script>

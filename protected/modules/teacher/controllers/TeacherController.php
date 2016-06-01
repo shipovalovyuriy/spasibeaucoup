@@ -246,7 +246,7 @@ class TeacherController extends \yupe\components\controllers\FrontController
 
     public function actionAutoComplete($term)
     {
-        $query = User::model()->findAllByAttributes(['first_name' => $term]);
+        $query = User::model()->findAll("first_name LIKE :term", [':term' => "%$term%"]);
         $list = [];
         foreach ($query as $q) {
             $data['value'] = $q['id'];

@@ -121,11 +121,6 @@ class PositionController extends \yupe\components\controllers\FrontController
             if (Yii::app()->getRequest()->getPost('Position') !== null) {
                 $model->setAttributes(Yii::app()->getRequest()->getPost('Position'));
                 $model->parent_group = $parent_group;
-//                if($model->prev->first_parent){
-//                    $model->first_parent = $model->prev->first_parent;
-//                }else{
-//                    $model->first_parent = $model->prev->id;
-//                }
                 if(in_array('3', $role) && !in_array('1', $role)){
                     $model->branch_id = Yii::app()->user->branch->id;
                 }
@@ -142,7 +137,6 @@ class PositionController extends \yupe\components\controllers\FrontController
                         yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
                         Yii::t('ListnerModule.listner', 'Запись добавлена!')
                     );
-
                     $this->redirect(
                         (array)Yii::app()->getRequest()->getPost(
                             'submit-type',
@@ -402,7 +396,7 @@ class PositionController extends \yupe\components\controllers\FrontController
     }
     public function actionForm($term){
         if (Yii::app()->request->isAjaxRequest) {
-            $model = Form::model()->findAllByAttributes(['name' => $term]);
+            $model = Form::model()->findAll("name LIKE :term", [':term' => "%$term%"]);
             $list = [];        
             foreach($model as $q){
                 $data['value']= $q['id'];
@@ -448,34 +442,36 @@ class PositionController extends \yupe\components\controllers\FrontController
         }
     }
 
-    public function actionCancel($id){
-        $lesson = \Schedule::model()->findByPk($id);
-        $price = $lesson->position->form->price/$lesson->position->form->number;
-        $lesson->is_active = 0;
-        $lesson->update();
-
-        $outflow = new Outflow();
-        $outflow->price = $price;
-        $outflow->based = "Отмена урока от ".$lesson->start_time;
-        $outflow->note = $lesson->id;
-        $outflow->branch_id = $lesson->position->listner->branch_id;
-        $outflow->date = date('Y-m-d');
-        $outflow->receiver = 'Test';
-        $outflow->save();
-
-    }
-
-    public function actionRestore($id){
-        $lesson = \Schedule::model()->findByPk($id);
-        $lesson->is_active = 1;
-        $lesson->update();
-        $outflow  = Outflow::model()->find("note='$id'");
-        $outflow->delete();
+    public function actionChange($id){
+        if(Yii::app()->request->isAjaxRequest){
+            $model = \Schedule::model()->findByPk($id);
+            if($model->is_active == 1){  
+                $price = $model->position->form->price/$model->position->form->number;
+                $model->is_active = 0;
+                $model->update();
+                $outflow = new Outflow;
+                $outflow->price = $price;
+                $outflow->based = "Отмена урока от ".$model->start_time;
+                $outflow->note = $model->id;
+                $outflow->branch_id = $model->position->listner->branch_id;
+                $outflow->date = date('Y-m-d');
+                $outflow->receiver = 'admin';
+                $outflow->save();
+            }elseif($model->is_active == 0) {
+                $model->is_active = 1;
+                $model->update();
+                $outflow = Outflow::model()->find("note='$id'");
+                $outflow->delete();
+            }
+            echo CJSON::encode($model->is_active);
+        } else {
+            throw new CHttpException(404, Yii::t('ListnerModule.listner', 'Запрошенная страница не найдена.'));
+        }
     }
     
     public function actionGroup($branch, $term){
         if (Yii::app()->request->isAjaxRequest) {
-            $model = Group::model()->findAll("name=$term AND branch_id=$branch");
+            $model = Group::model()->findAll("name LIKE :term AND branch_id=$branch", [':term' => "%$term%"]);
             $list = [];        
             foreach($model as $q){
                 $data['value']= $q['id'];

@@ -145,10 +145,7 @@
                                     <a href="/balance/report">Сформировать</a>
                                 </li>
                                 <li>
-                                    <a href="/balance/inflow">Доход</a>
-                                </li>
-                                <li>
-                                    <a href="/balance/outflow">Расход</a>
+                                    <a href="/balance/outflow/create">Расход</a>
                                 </li>
                             </ul>
                         </li>

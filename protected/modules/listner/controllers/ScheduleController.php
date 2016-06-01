@@ -154,7 +154,7 @@ class ScheduleController extends \yupe\components\controllers\FrontController
     public function actionTeacher($branch, $subject, $term) {
         if (Yii::app()->request->isAjaxRequest) {
             $criteria = new CDbCriteria;
-            $criteria->condition = "`t`.`branch_id` = $branch AND `user`.first_name='$term'";
+            $criteria->condition = "`t`.`branch_id` = $branch AND `user`.first_name LIKE '%$term%'";
             $model = Teacher::model()->with('user')->findAll($criteria);
             $list = [];        
             foreach($model as $q){
