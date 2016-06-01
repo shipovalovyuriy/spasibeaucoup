@@ -448,28 +448,24 @@ class PositionController extends \yupe\components\controllers\FrontController
         }
     }
 
-    public function actionCancel(){
+    public function actionCancel($id){
+        $lesson = \Schedule::model()->findByPk($id);
+        $price = $lesson->position->form->price/$lesson->position->form->number;
+        $lesson->is_active = 0;
+        $lesson->update();
 
-           $id = $_GET['id'];
-
-            $lesson = \Schedule::model()->findByPk($id);
-            $price = $lesson->position->form->price/$lesson->position->form->number;
-            $lesson->is_active = 0;
-            $lesson->update();
-
-            $outflow = new Outflow();
-            $outflow->price = $price;
-            $outflow->based = "Отмена урока от ".$lesson->start_time;
-            $outflow->note = $lesson->id;
-            $outflow->branch_id = $lesson->position->listner->branch_id;
-            $outflow->date = date('YYYY-MM-DDTHH:mm:ss');
-            $outflow->receiver = 'Test';
-            $outflow->save();
+        $outflow = new Outflow();
+        $outflow->price = $price;
+        $outflow->based = "Отмена урока от ".$lesson->start_time;
+        $outflow->note = $lesson->id;
+        $outflow->branch_id = $lesson->position->listner->branch_id;
+        $outflow->date = date('Y-m-d');
+        $outflow->receiver = 'Test';
+        $outflow->save();
 
     }
 
-    public function actionRestore(){
-        $id = $_GET['id'];
+    public function actionRestore($id){
         $lesson = \Schedule::model()->findByPk($id);
         $lesson->is_active = 1;
         $lesson->update();

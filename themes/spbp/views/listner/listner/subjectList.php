@@ -40,10 +40,10 @@
                         <a href="/listner/subject/lessons/<?= $model->id?>/update/<?= $schedule->id?>">
                             <i class="fa fa-pencil pull-right"></i>
                         </a>
-                        <a class="cancel" href="javascript:void(0)" data-id=<?=$schedule->id?>">
+                        <a class="cancel" href="#" data-id="<?= $schedule->id?>">
                             <i class="fa fa-eraser pull-right"></i>
                         </a>
-                        <a class="restore" href="javascript:void(0)" data-id=<?=$schedule->id?>">
+                        <a class="restore" href="#" data-id="<?= $schedule->id?>">
                             <i class="fa fa-refresh pull-right"></i>
                         </a>
                     <?php endif;?>
@@ -66,7 +66,7 @@
                 })
                 .done(function(data) {
                     alert("Урок успешно отменен");
-                    $(this).find('i').fadeOut(200);
+                    //$(this).find('i').fadeOut(200);
                 })
                 .fail(function() {
                     console.log("error");
@@ -84,7 +84,7 @@
                 })
                 .done(function(data) {
                     alert("Урок успешно восстановлен");
-                    $(this).find('i').fadeOut(200);
+                    //$(this).find('i').fadeOut(200);
                 })
                 .fail(function() {
                     console.log("error");
