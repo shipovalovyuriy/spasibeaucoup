@@ -186,7 +186,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         array(
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'aef0fb')
+                'color' => array('rgb' => 'B8CCE4')
             )
         )
     );
@@ -207,7 +207,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         array(
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'aef0fb')
+                'color' => array('rgb' => 'B8CCE4')
             )
         )
     );
@@ -234,7 +234,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         array(
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'aef0fb')
+                'color' => array('rgb' => 'B8CCE4')
             )
         )
     );
@@ -255,7 +255,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         array(
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'aef0fb')
+                'color' => array('rgb' => 'B8CCE4')
             )
         )
     );
@@ -282,7 +282,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
         array(
             'fill' => array(
                 'type' => PHPExcel_Style_Fill::FILL_SOLID,
-                'color' => array('rgb' => 'aef0fb')
+                'color' => array('rgb' => 'B8CCE4')
             )
         )
     );
