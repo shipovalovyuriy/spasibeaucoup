@@ -126,13 +126,73 @@ class BalanceController extends \yupe\components\controllers\FrontController
             ->setCellValue("B1", "Приход")
             ->setCellValue("C1", "Расход");
 
-
+    $sheet1
+    ->getStyle('A1:F1')
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'dbd8e9')
+            )
+        )
+    );
+        $sheet1
+    ->getStyle('H1:I1')
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'dbd8e9')
+            )
+        )
+    );
+    $sheet2
+    ->getStyle('A1:F1')
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'dbd8e9')
+            )
+        )
+    );
+        $sheet2
+    ->getStyle('H1:I1')
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'dbd8e9')
+            )
+        )
+    );
+    $sheet3
+    ->getStyle('A1:C1')
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'dbd8e9')
+            )
+        )
+    );
         //Inflow
         $i = 2;
         foreach ($codeArr as $value) {
+            if ($i % 2 != 0){
+                $sheet1
+    ->getStyle('H'.$i.':I'.$i)
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'aef0fb')
+            )
+        )
+    );
+            }
             $sheet1->setCellValue("H" . $i, $value->name)
                 ->setCellValue("I" . $i, $value->code);
-
 
             $i++;
         }
@@ -140,6 +200,18 @@ class BalanceController extends \yupe\components\controllers\FrontController
         $i = 2;
 
         foreach ($inflow as $value) {
+                        if ($i % 2 != 0){
+                $sheet1
+    ->getStyle('A'.$i.':F'.$i)
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'aef0fb')
+            )
+        )
+    );
+            }
             $sheet1->setCellValue("A" .$i, $value->date)
                 ->setCellValue("B" . $i, $value->subject->code)
                 ->setCellValue("C" . $i, $value->based)
@@ -155,6 +227,18 @@ class BalanceController extends \yupe\components\controllers\FrontController
         //Outflow
         $i = 2;
         foreach ($costArr as $value) {
+                        if ($i % 2 != 0){
+                $sheet2
+    ->getStyle('H'.$i.':I'.$i)
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'aef0fb')
+            )
+        )
+    );
+            }
             $sheet2->setCellValue("H" . $i, $value->name)
                 ->setCellValue("I" . $i, $value->code);
 
@@ -164,6 +248,18 @@ class BalanceController extends \yupe\components\controllers\FrontController
 
         $i = 2;
         foreach ($outflow as $value) {
+                        if ($i % 2 != 0){
+                $sheet2
+    ->getStyle('A'.$i.':F'.$i)
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'aef0fb')
+            )
+        )
+    );
+            }
             $sheet2->setCellValue("A" . $i, $value->date)
                 ->setCellValue("B" . $i, $value->cost->name)
                 ->setCellValue("C" . $i, $value->receiver)
@@ -179,6 +275,18 @@ class BalanceController extends \yupe\components\controllers\FrontController
         //Total
         $i = 2;
         foreach ($totalArr as $value) {
+                        if ($i % 2 != 0){
+                $sheet3
+    ->getStyle('A'.$i.':C'.$i)
+    ->applyFromArray(
+        array(
+            'fill' => array(
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                'color' => array('rgb' => 'aef0fb')
+            )
+        )
+    );
+            }
             $sheet3->setCellValue("A" . $i, $value['date'])
                 ->setCellValue("B" . $i, $value['inflow'])
                 ->setCellValue("C" . $i, $value['outflow']);
