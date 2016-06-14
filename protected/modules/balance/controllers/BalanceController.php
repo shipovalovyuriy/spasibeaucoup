@@ -147,7 +147,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
                 ->setCellValue("E" . $i, $value->form->price)
                 ->setCellValue("F" . $i, $value->comment);
 
-            $i = $i+2;
+            $i++;
         }
         $sheet1->setCellValue('A'.$i,"Итог:");
         $sheet1->setCellValue('B'.$i,$in);
@@ -170,7 +170,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
                 ->setCellValue("D" . $i, $value->price)
                 ->setCellValue("E" . $i, $value->based)
                 ->setCellValue("F" . $i, $value->note);
-            $i = $i+2;
+            $i++;
         }
 
                 $sheet2->setCellValue('A'.$i,"Итог:");
@@ -182,7 +182,7 @@ class BalanceController extends \yupe\components\controllers\FrontController
             $sheet3->setCellValue("A" . $i, $value['date'])
                 ->setCellValue("B" . $i, $value['inflow'])
                 ->setCellValue("C" . $i, $value['outflow']);
-           $i = $i+2;
+            $i++;
         }
 
         $x = array_pop($totalArr);
